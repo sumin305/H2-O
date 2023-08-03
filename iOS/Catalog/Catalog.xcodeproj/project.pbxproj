@@ -252,6 +252,7 @@
 		ED779C3F2A7A799E007F67B7 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				ED40622F2A7B821800DF76C5 /* pop-up */,
 				ED779C402A7A79E2007F67B7 /* BottomButton */,
 			);
 			path = Component;

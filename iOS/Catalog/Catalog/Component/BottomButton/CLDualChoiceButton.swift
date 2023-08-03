@@ -10,8 +10,8 @@ import SwiftUI
 struct CLDualChoiceButton: View {
     @State var leftText: String
     @State var rightText: String
-    @State var height: CGFloat
-    @State var width: CGFloat?
+    let height: CGFloat
+    var width: CGFloat?
     let leftAction: () -> Void
     let rightAction: () -> Void
     
