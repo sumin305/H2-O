@@ -1,5 +1,5 @@
 //
-//  TrimSelectButton.swift
+//  CLButton.swift
 //  Catalog
 //
 //  Created by 이수민 on 2023/08/02.
@@ -19,8 +19,8 @@ struct CLButton: View {
     @State var subText: String?
     @State var mainText: String
     @State var inActiveText: String?
-    @State var height: CGFloat
-    @State var width: CGFloat?
+    let height: CGFloat
+    var width: CGFloat?
     let buttonAction: () -> Void
     
     var body: some View {

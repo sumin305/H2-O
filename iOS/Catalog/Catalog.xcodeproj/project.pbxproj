@@ -41,9 +41,7 @@
 		B1F2BC6A2A7B62E8005385E0 /* CLNavigationIndent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F2BC692A7B62E7005385E0 /* CLNavigationIndent.swift */; };
 		ED64108F2A7FC4FF0033AEBC /* CLGuidePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6410812A7FC4FF0033AEBC /* CLGuidePopUp.swift */; };
 		ED6410902A7FC4FF0033AEBC /* DimmedZStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6410822A7FC4FF0033AEBC /* DimmedZStack.swift */; };
-		ED6410912A7FC4FF0033AEBC /* dev-ios in Resources */ = {isa = PBXBuildFile; fileRef = ED6410872A7FC4FF0033AEBC /* dev-ios */; };
 		ED6410922A7FC4FF0033AEBC /* CLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6410882A7FC4FF0033AEBC /* CLButton.swift */; };
-		ED6410932A7FC4FF0033AEBC /* TwoottomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6410892A7FC4FF0033AEBC /* TwoottomButtonView.swift */; };
 		ED6410942A7FC4FF0033AEBC /* CLDualChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED64108A2A7FC4FF0033AEBC /* CLDualChoiceButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,11 +101,8 @@
 		B1F2BC692A7B62E7005385E0 /* CLNavigationIndent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLNavigationIndent.swift; sourceTree = "<group>"; };
 		ED6410812A7FC4FF0033AEBC /* CLGuidePopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLGuidePopUp.swift; sourceTree = "<group>"; };
 		ED6410822A7FC4FF0033AEBC /* DimmedZStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmedZStack.swift; sourceTree = "<group>"; };
-		ED6410872A7FC4FF0033AEBC /* dev-ios */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "dev-ios"; sourceTree = "<group>"; };
 		ED6410882A7FC4FF0033AEBC /* CLButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLButton.swift; sourceTree = "<group>"; };
-		ED6410892A7FC4FF0033AEBC /* TwoottomButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoottomButtonView.swift; sourceTree = "<group>"; };
 		ED64108A2A7FC4FF0033AEBC /* CLDualChoiceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLDualChoiceButton.swift; sourceTree = "<group>"; };
-		ED64108E2A7FC4FF0033AEBC /* dev-ios */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "dev-ios"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,7 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				ED6410802A7FC4FF0033AEBC /* pop-up */,
-				ED6410832A7FC4FF0033AEBC /* BottomButton */,
+				ED6410832A7FC4FF0033AEBC /* Button */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -268,64 +263,13 @@
 			path = "pop-up";
 			sourceTree = "<group>";
 		};
-		ED6410832A7FC4FF0033AEBC /* BottomButton */ = {
+		ED6410832A7FC4FF0033AEBC /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				ED6410842A7FC4FF0033AEBC /* CLButton.swift~refs */,
 				ED6410882A7FC4FF0033AEBC /* CLButton.swift */,
-				ED6410892A7FC4FF0033AEBC /* TwoottomButtonView.swift */,
 				ED64108A2A7FC4FF0033AEBC /* CLDualChoiceButton.swift */,
-				ED64108B2A7FC4FF0033AEBC /* CLDualChoiceButton.swift~refs */,
 			);
-			path = BottomButton;
-			sourceTree = "<group>";
-		};
-		ED6410842A7FC4FF0033AEBC /* CLButton.swift~refs */ = {
-			isa = PBXGroup;
-			children = (
-				ED6410852A7FC4FF0033AEBC /* remotes */,
-			);
-			path = "CLButton.swift~refs";
-			sourceTree = "<group>";
-		};
-		ED6410852A7FC4FF0033AEBC /* remotes */ = {
-			isa = PBXGroup;
-			children = (
-				ED6410862A7FC4FF0033AEBC /* upstream */,
-			);
-			path = remotes;
-			sourceTree = "<group>";
-		};
-		ED6410862A7FC4FF0033AEBC /* upstream */ = {
-			isa = PBXGroup;
-			children = (
-				ED6410872A7FC4FF0033AEBC /* dev-ios */,
-			);
-			path = upstream;
-			sourceTree = "<group>";
-		};
-		ED64108B2A7FC4FF0033AEBC /* CLDualChoiceButton.swift~refs */ = {
-			isa = PBXGroup;
-			children = (
-				ED64108C2A7FC4FF0033AEBC /* remotes */,
-			);
-			path = "CLDualChoiceButton.swift~refs";
-			sourceTree = "<group>";
-		};
-		ED64108C2A7FC4FF0033AEBC /* remotes */ = {
-			isa = PBXGroup;
-			children = (
-				ED64108D2A7FC4FF0033AEBC /* upstream */,
-			);
-			path = remotes;
-			sourceTree = "<group>";
-		};
-		ED64108D2A7FC4FF0033AEBC /* upstream */ = {
-			isa = PBXGroup;
-			children = (
-				ED64108E2A7FC4FF0033AEBC /* dev-ios */,
-			);
-			path = upstream;
+			path = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,7 +391,6 @@
 				B155C1152A7A530700F540CB /* HyundaiSansText-Regular.otf in Resources */,
 				B155C0B72A7920A900F540CB /* Preview Assets.xcassets in Resources */,
 				B155C1162A7A530A00F540CB /* HyundaiSansTextKROTFBold.otf in Resources */,
-				ED6410912A7FC4FF0033AEBC /* dev-ios in Resources */,
 				B155C0B42A7920A900F540CB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,7 +439,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1F2BC682A7B613B005385E0 /* CLNavigationModel.swift in Sources */,
-				ED6410932A7FC4FF0033AEBC /* TwoottomButtonView.swift in Sources */,
 				B1F2BC6A2A7B62E8005385E0 /* CLNavigationIndent.swift in Sources */,
 				B155C0E92A792BB100F540CB /* Color+.swift in Sources */,
 				B155C0FA2A79327A00F540CB /* Font+.swift in Sources */,
