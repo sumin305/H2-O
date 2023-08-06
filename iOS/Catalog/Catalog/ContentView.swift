@@ -7,7 +7,7 @@
 
 import SwiftUI
 struct ContentView: View {
-    @State var buttonState: CLButtonState = .default
+    @State var buttonState: CLButton.CLButtonState = .default
     @State var showPopUp = true
     var body: some View {
         ZStack {
