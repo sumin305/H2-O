@@ -47,6 +47,10 @@ struct CLGuidePopUp: View {
             }
             .frame(width: width, height: height)
             .background(Image(rectangleImage))
+            .padding(.leading, 33)
+            .padding(.trailing, 86)
+            .padding(.top, 244)
+            .padding(.bottom, 332)
     }
 }
 
