@@ -253,18 +253,8 @@
 			isa = PBXGroup;
 			children = (
 				ED40622F2A7B821800DF76C5 /* pop-up */,
-				ED779C402A7A79E2007F67B7 /* BottomButton */,
 			);
 			path = Component;
-			sourceTree = "<group>";
-		};
-		ED779C402A7A79E2007F67B7 /* BottomButton */ = {
-			isa = PBXGroup;
-			children = (
-				ED91A0B72A7A84C50063A6B4 /* CLButton.swift */,
-				ED91A0BF2A7ACE8C0063A6B4 /* CLDualChoiceButton.swift */,
-			);
-			path = BottomButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,8 +426,6 @@
 				B1F2BC682A7B613B005385E0 /* CLNavigationModel.swift in Sources */,
 				B1F2BC6A2A7B62E8005385E0 /* CLNavigationIndent.swift in Sources */,
 				B155C0E92A792BB100F540CB /* Color+.swift in Sources */,
-				ED91A0B82A7A84C50063A6B4 /* CLButton.swift in Sources */,
-				ED91A0C02A7ACE8C0063A6B4 /* CLDualChoiceButton.swift in Sources */,
 				B155C0FA2A79327A00F540CB /* Font+.swift in Sources */,
 				B1F2BC622A7B5B7A005385E0 /* CLNavigationMenuTitleView.swift in Sources */,
 				B155C1202A7A78A700F540CB /* CLNavigationView.swift in Sources */,
