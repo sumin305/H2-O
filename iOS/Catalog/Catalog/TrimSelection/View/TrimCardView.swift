@@ -12,7 +12,7 @@ struct TrimCardView: View {
     var trim: Trim
 
     var body: some View {
-      VStack(alignment: .leading) {
+      VStack(alignment: .leading, spacing: 0) {
 
         VStack(alignment: .leading, spacing: 0) {
           Text(trim.description)
@@ -29,6 +29,7 @@ struct TrimCardView: View {
             .padding(.bottom, 8)
 
         }
+        .frame(height: 127)
         .padding(.horizontal, 24)
 
         HStack {
@@ -38,15 +39,13 @@ struct TrimCardView: View {
             .frame(width: 263, height: 197)
         }
 
-        Spacer()
         HMGDataCard(options: trim.hmgData)
       }
       .frame(width: 312, height: 512)
       .padding(.top, 12)
-      .padding(.bottom, 20)
       .border(Color.skyBlue, width: 1)
-      .shadow(color: Color("ShadowColor"), radius: 2)
     }
+
 }
 
 struct TrimCardView_Previews: PreviewProvider {
