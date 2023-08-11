@@ -11,7 +11,6 @@ enum CLNavigationModel {
 
   struct State: Equatable {
     var currentPage: Int
-
   }
 
   enum ViewAction: Equatable {

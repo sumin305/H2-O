@@ -13,7 +13,7 @@ struct TrimResponseDTO: Decodable {
 
 extension TrimResponseDTO {
 
-  func toDomain() -> [TrimPage] {
+  func toDomain() -> [Trim] {
 
     guard let trims = trims else { return [] }
     return trims.compactMap { try? $0.toDomain() }
@@ -31,22 +31,14 @@ struct TrimDTO: Decodable {
   var options: [TrimOptionDTO]?
 }
 
-struct TrimPage {
-  var name: String
-  var description: String
-  var price: CLPrice
-  var imageURL: URL?
-  var hmgData: [HMGDatum]
-}
-
 struct HMGDatum {
   var optionTitle: String
   var optionFrequency: Int
 }
 
 extension TrimDTO {
-  func toDomain() throws -> TrimPage {
-    return TrimPage(name: name ?? "르블랑",
+  func toDomain() throws -> Trim {
+    return Trim(name: name ?? "르블랑",
                     description: description ?? "",
                     price: CLPrice(Int32(price ?? 0)),
                     imageURL: URL(string: images?[0] ?? ""),
@@ -64,4 +56,3 @@ extension TrimOptionDTO {
     return HMGDatum(optionTitle: dataLabel ?? "", optionFrequency: frequency ?? 0)
   }
 }
-

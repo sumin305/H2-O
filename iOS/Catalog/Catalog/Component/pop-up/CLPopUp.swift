@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CLPopUp: View {
     @Binding var showPopUp: Bool
-    let padding: EdgeInsets // 서동북남
+    let padding: EdgeInsets
     let rectangleImage: String
     let width: CGFloat
     let height: CGFloat

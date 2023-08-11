@@ -13,11 +13,13 @@ enum CatalogTextType {
   case HeadENBold24
   case HeadENBold22
   case HeadENMedium20
+  case HeadENMedium10
   case HeadENBold10
 
   case TextENMedium18
   case TextENMedium16
   case TextENMedium14
+  case TextENMedium10
 
   case CaptionENMedium14
   case CaptionENMedium12
@@ -68,6 +70,8 @@ extension CatalogTextType {
       return -0.1
     case .HeadENMedium20:
       return -0.1
+      case .HeadENMedium10:
+        return -0.1
     case .HeadENBold10:
       return -0.1
     case .TextENMedium18:
@@ -76,6 +80,8 @@ extension CatalogTextType {
       return -0.1
     case .TextENMedium14:
       return -0.1
+      case .TextENMedium10:
+        return -0.1
     case .CaptionENMedium14:
       return -0.1
     case .CaptionENMedium12:
@@ -152,7 +158,9 @@ extension CatalogTextType {
     case .HeadENBold22:
       return UIFont(name: "HyundaiSansHead-Bold", size: 22)!
     case .HeadENMedium20:
-      return UIFont(name: "HyundaiSansHead-Medium", size: 20)!
+      return UIFont(name: "HyundaiSansHeadMedium", size: 20)!
+      case .HeadENMedium10:
+        return UIFont(name: "HyundaiSansHeadMedium", size: 10)!
     case .HeadENBold10:
       return UIFont(name: "HyundaiSansHead-Bold", size: 10)!
     case .HeadKRBold32:
@@ -195,6 +203,8 @@ extension CatalogTextType {
       return UIFont(name: "HyundaiSansText-Medium", size: 16)!
     case .TextENMedium14:
       return UIFont(name: "HyundaiSansText-Medium", size: 14)!
+    case .TextENMedium10:
+      return UIFont(name: "HyundaiSansText-Medium", size: 10)!
     case .CaptionENMedium14:
       return UIFont(name: "HyundaiSansText-Medium", size: 14)!
     case .CaptionENMedium12:
@@ -239,6 +249,8 @@ extension CatalogTextType {
       return 28
     case .HeadENMedium20:
       return 28
+      case .HeadENMedium10:
+        return 12.36
     case .HeadENBold10:
       return 12
     case .HeadKRBold32, .HeadKRBold26:
@@ -281,6 +293,8 @@ extension CatalogTextType {
       return 24
     case .TextENMedium14:
       return 22
+    case .TextENMedium10:
+      return 12.36
     case .CaptionENMedium14:
       return 28
     case .CaptionENMedium12:
