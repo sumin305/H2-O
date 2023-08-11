@@ -10,9 +10,12 @@ import SwiftUI
 struct TrimSelectView: View {
     var body: some View {
       VStack {
+        HStack {
           Text("트림을 선택해주세요.")
             .catalogFont(type: .HeadKRMedium18)
-            .padding(.leading, 20)
+          Spacer()
+        }
+        .padding(.leading, 20)
 
         ScrollView(.horizontal, showsIndicators: false) {
           HStack {

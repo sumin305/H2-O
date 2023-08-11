@@ -29,8 +29,7 @@ struct TrimCardView: View {
             .padding(.bottom, 8)
 
         }
-        .frame(height: 127)
-        .padding(.horizontal, 24)
+        .frame(width: 312, height: 127)
 
         HStack {
           Spacer()

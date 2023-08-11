@@ -93,6 +93,7 @@
 		ED95AFFE2A85FA9C002D7A4B /* TrimSelectionIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95AFFD2A85FA9C002D7A4B /* TrimSelectionIntent.swift */; };
 		ED95B0002A85FB00002D7A4B /* TrimSelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95AFFF2A85FB00002D7A4B /* TrimSelectionModel.swift */; };
 		ED978FE92A86949600B69548 /* EntryGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED978FE82A86949600B69548 /* EntryGuide.swift */; };
+		ED978FEB2A86A9DA00B69548 /* TrimSelectIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED978FEA2A86A9DA00B69548 /* TrimSelectIndicator.swift */; };
 		EDA3CDD32A811CA80001BB9C /* CLSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3CDD22A811CA80001BB9C /* CLSliderView.swift */; };
 		EDA3CDD52A8243CC0001BB9C /* CLSimilarQuotationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3CDD42A8243CC0001BB9C /* CLSimilarQuotationButton.swift */; };
 		EDA3CDD72A8281B10001BB9C /* CLSimilarQuotationSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3CDD62A8281B10001BB9C /* CLSimilarQuotationSlideView.swift */; };
@@ -214,6 +215,7 @@
 		ED95AFFD2A85FA9C002D7A4B /* TrimSelectionIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimSelectionIntent.swift; sourceTree = "<group>"; };
 		ED95AFFF2A85FB00002D7A4B /* TrimSelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimSelectionModel.swift; sourceTree = "<group>"; };
 		ED978FE82A86949600B69548 /* EntryGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryGuide.swift; sourceTree = "<group>"; };
+		ED978FEA2A86A9DA00B69548 /* TrimSelectIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimSelectIndicator.swift; sourceTree = "<group>"; };
 		EDA3CDD22A811CA80001BB9C /* CLSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLSliderView.swift; sourceTree = "<group>"; };
 		EDA3CDD42A8243CC0001BB9C /* CLSimilarQuotationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLSimilarQuotationButton.swift; sourceTree = "<group>"; };
 		EDA3CDD62A8281B10001BB9C /* CLSimilarQuotationSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLSimilarQuotationSlideView.swift; sourceTree = "<group>"; };
@@ -530,6 +532,7 @@
 				ED95AFF92A85E199002D7A4B /* TrimCardView.swift */,
 				ED3DC0272A865B9C009EE04C /* HMGDataCard.swift */,
 				ED95AFFB2A85F84B002D7A4B /* TrimSelectView.swift */,
+				ED978FEA2A86A9DA00B69548 /* TrimSelectIndicator.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 				ED1A70A72A8371CA00F7920F /* CLOption.swift in Sources */,
 				B1F2BC602A7B5B63005385E0 /* MockView.swift in Sources */,
 				B1604D232A82609600C7B07D /* CLNetworkError.swift in Sources */,
+				ED978FEB2A86A9DA00B69548 /* TrimSelectIndicator.swift in Sources */,
 				ED64109C2A7FE1870033AEBC /* CLBudgetRangeIntent.swift in Sources */,
 				ED95B0002A85FB00002D7A4B /* TrimSelectionModel.swift in Sources */,
 				ED6410922A7FC4FF0033AEBC /* CLButton.swift in Sources */,

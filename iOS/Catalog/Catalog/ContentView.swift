@@ -24,11 +24,7 @@ struct ContentView: View {
             }
             .padding(.bottom, 0.1)
             if showPopUp {
-              EntryGuide()
-            }
-
-            if showQuotationSummarySheet {
-                DimmedZStack {}
+              EntryGuide(showEntryGuide: $showPopUp)
             }
         }
     }
