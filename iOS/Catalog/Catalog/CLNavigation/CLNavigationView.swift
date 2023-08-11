@@ -18,6 +18,7 @@ struct CLNavigationView: IntentBindingType {
                                                                        .inactive,
                                                                        .inactive,
                                                                        .inactive]
+
 }
 
 extension CLNavigationView {
@@ -28,7 +29,6 @@ extension CLNavigationView {
 }
 
 extension CLNavigationView: View {
-
   var body: some View {
     VStack {
       CLTopNaviBar(intent: intent)
