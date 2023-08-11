@@ -51,12 +51,14 @@ struct HMGDataCard: View {
       }
       .frame(height: 94)
       Spacer().frame(height: 29)
+
     }
+    .frame(width: 310, height: 188)
     .padding(.horizontal, 29)
     .background(
       Rectangle()
         .foregroundColor(Color.gray50)
-        .frame(width: .infinity, height: 188)
+        .frame(width: 310, height: 188)
     )
 
   }
@@ -64,7 +66,8 @@ struct HMGDataCard: View {
 
 struct HMGDataCard_Previews: PreviewProvider {
   static var previews: some View {
-    HMGDataCard(options: [HMGDatum(optionTitle: "안전 하차 보조", optionFrequency: 42), HMGDatum(optionTitle: "후측방 충돌\n경고", optionFrequency: 42),
+    HMGDataCard(options: [HMGDatum(optionTitle: "안전 하차 보조", optionFrequency: 42),
+                          HMGDatum(optionTitle: "후측방 충돌\n경고", optionFrequency: 42),
                           HMGDatum(optionTitle: "후방 교차\n충돌방지 보조", optionFrequency: 42)])
   }
 }
