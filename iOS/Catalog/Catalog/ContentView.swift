@@ -14,13 +14,9 @@ struct ContentView: View {
         ZStack {
             VStack(spacing: 0) {
               CLNavigationView.build(intent: CLNavigationIntent(initialState: .init(currentPage: 0)))
-                CLQuotationPriceBar(showQuotationSummarySheet:
-                                        $showQuotationSummarySheet,
-                                    currentQuotationPrice: .constant(CLPrice(41500000)), buttonText: "견적 요약")
-                CLDualChoiceButton(leftText: "이전", rightText: "다음", height: 52, leftAction: { print("이전 버튼 클릭") }, rightAction: { print("다음 버튼 클릭") })
             }
             .sheet(isPresented: $showQuotationSummarySheet) {
-                CLQuotationSummarySheet(quotation: CarQuotation(), showQuotationSummarySheet: $showQuotationSummarySheet)
+              CLQuotationSummarySheet(quotation: CarQuotation.mockQuotation(), showQuotationSummarySheet: $showQuotationSummarySheet)
             }
             .padding(.bottom, 0.1)
             if showPopUp {

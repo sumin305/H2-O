@@ -102,6 +102,7 @@
 		EDBA3E3F2A84869000BDB00F /* CLInactableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBA3E3E2A84869000BDB00F /* CLInactableButton.swift */; };
 		EDBA5D582A808A8A0050BC35 /* CLPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBA5D562A808A8A0050BC35 /* CLPopUp.swift */; };
 		EDBA5D592A808A8A0050BC35 /* DimmedZStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBA5D572A808A8A0050BC35 /* DimmedZStack.swift */; };
+		EDC1862D2A88CA56009EB498 /* BottomArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC1862C2A88CA56009EB498 /* BottomArea.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,6 +225,7 @@
 		EDBA3E3E2A84869000BDB00F /* CLInactableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLInactableButton.swift; sourceTree = "<group>"; };
 		EDBA5D562A808A8A0050BC35 /* CLPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLPopUp.swift; sourceTree = "<group>"; };
 		EDBA5D572A808A8A0050BC35 /* DimmedZStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmedZStack.swift; sourceTree = "<group>"; };
+		EDC1862C2A88CA56009EB498 /* BottomArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomArea.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -471,6 +473,7 @@
 		ED1A70942A8357FD00F7920F /* QuotationSummary */ = {
 			isa = PBXGroup;
 			children = (
+				EDC1862C2A88CA56009EB498 /* BottomArea.swift */,
 				ED1A70952A83581300F7920F /* CLQuotationPriceBar.swift */,
 				ED1A70972A83646E00F7920F /* CLQuotationSummarySheet.swift */,
 				EDBA3E3C2A83E98D00BDB00F /* CLListText.swift */,
@@ -759,6 +762,7 @@
 				B19436452A80E5FD00C2FD69 /* AlertViewComponent.swift in Sources */,
 				B1604D142A8256DA00C7B07D /* RequestType.swift in Sources */,
 				ED95AFFE2A85FA9C002D7A4B /* TrimSelectionIntent.swift in Sources */,
+				EDC1862D2A88CA56009EB498 /* BottomArea.swift in Sources */,
 				ED1A70AF2A83B4CF00F7920F /* CLToggle.swift in Sources */,
 				ED1A70962A83581300F7920F /* CLQuotationPriceBar.swift in Sources */,
 				ED1A70A52A836FB900F7920F /* ModelType.swift in Sources */,

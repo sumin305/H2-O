@@ -10,9 +10,6 @@
  enum TrimSelectionModel {
 
    struct State: Equatable {
-     static func == (lhs: TrimSelectionModel.State, rhs: TrimSelectionModel.State) -> Bool {
-       return true
-     }
 
      var trims: [Trim] = []
      var selectedTrim: Trim?

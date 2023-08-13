@@ -49,7 +49,8 @@ struct TrimCardView: View {
 
 struct TrimCardView_Previews: PreviewProvider {
     static var previews: some View {
-      TrimCardView(trim: Trim(name: "Le Blanc",
+      TrimCardView(trim: Trim(id: UUID(),
+                              name: "Le Blanc",
                               description: "실용적인 사양의 경제적인 펠리세이드",
                               price: CLPrice(40440000),
                               hmgData: [HMGDatum(optionTitle: "안전 하차 보조", optionFrequency: 42), HMGDatum(optionTitle: "후측방 충돌\n경고", optionFrequency: 42),

@@ -18,6 +18,7 @@ struct CLNavigationView: IntentBindingType {
                                                                        .inactive,
                                                                        .inactive,
                                                                        .inactive]
+  @SwiftUI.State var showQuotationSummarySheet: Bool = false
 
 }
 
@@ -44,11 +45,15 @@ extension CLNavigationView: View {
           MockView(image: mockImageName[5]).tag(5)
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
-        CLBudgetRangeView.build(
-            intent: CLBudgetRangeIntent(initialState: .init(currentQuotationPrice: CLPrice(40000000), budgetPrice: CLPrice(40750000)))
-        )
+        if state.currentPage != 0 {
+          CLBudgetRangeView.build(
+              intent: CLBudgetRangeIntent(initialState: .init(currentQuotationPrice: CLPrice(40000000), budgetPrice: CLPrice(40750000)))
+              )
+        }
       }
-
+      if state.currentPage != 0 {
+        BottomArea(showQuotationSummarySheet: $showQuotationSummarySheet)
+      }
     }
   }
 }
