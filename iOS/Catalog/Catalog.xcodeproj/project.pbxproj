@@ -103,6 +103,7 @@
 		EDBA5D582A808A8A0050BC35 /* CLPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBA5D562A808A8A0050BC35 /* CLPopUp.swift */; };
 		EDBA5D592A808A8A0050BC35 /* DimmedZStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBA5D572A808A8A0050BC35 /* DimmedZStack.swift */; };
 		EDC1862D2A88CA56009EB498 /* BottomArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC1862C2A88CA56009EB498 /* BottomArea.swift */; };
+		EDC1862F2A893577009EB498 /* CLInactiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC1862E2A893577009EB498 /* CLInactiveButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -226,6 +227,7 @@
 		EDBA5D562A808A8A0050BC35 /* CLPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLPopUp.swift; sourceTree = "<group>"; };
 		EDBA5D572A808A8A0050BC35 /* DimmedZStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmedZStack.swift; sourceTree = "<group>"; };
 		EDC1862C2A88CA56009EB498 /* BottomArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomArea.swift; sourceTree = "<group>"; };
+		EDC1862E2A893577009EB498 /* CLInactiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLInactiveButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -505,6 +507,7 @@
 				ED6410882A7FC4FF0033AEBC /* CLButton.swift */,
 				EDBA3E3E2A84869000BDB00F /* CLInactableButton.swift */,
 				ED64108A2A7FC4FF0033AEBC /* CLDualChoiceButton.swift */,
+				EDC1862E2A893577009EB498 /* CLInactiveButtonStyle.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -752,6 +755,7 @@
 				B1604D122A8256B700C7B07D /* RequestProtocol.swift in Sources */,
 				B155C0E92A792BB100F540CB /* Color+.swift in Sources */,
 				B1604D3A2A8381E900C7B07D /* TrimResponseDTO.swift in Sources */,
+				EDC1862F2A893577009EB498 /* CLInactiveButtonStyle.swift in Sources */,
 				B1604D2F2A8335CA00C7B07D /* TrimSelectionRequest.swift in Sources */,
 				B1604D252A8261B400C7B07D /* ContentType.swift in Sources */,
 				B1604D182A82577A00C7B07D /* MockURLProtocol.swift in Sources */,

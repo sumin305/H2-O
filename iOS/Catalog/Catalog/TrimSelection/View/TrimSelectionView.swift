@@ -62,7 +62,7 @@ extension TrimSelectionView: View {
       }
       .padding(.bottom, 20)
 
-      CLInActiveButton(isTrimSelected: isTrimSelectedBinding,
+      TrimSelectButton(isTrimSelected: isTrimSelectedBinding,
                        mainText: "Le Blanc 선택하기",
                        inActiveText: "옵션을 선택해 추가해보세요.",
                        height: 60,
