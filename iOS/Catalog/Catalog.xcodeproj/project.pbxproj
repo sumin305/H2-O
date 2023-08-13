@@ -89,7 +89,7 @@
 		ED64109C2A7FE1870033AEBC /* CLBudgetRangeIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED64109B2A7FE1870033AEBC /* CLBudgetRangeIntent.swift */; };
 		ED64109E2A7FE3F60033AEBC /* CLPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED64109D2A7FE3F60033AEBC /* CLPrice.swift */; };
 		ED95AFFA2A85E199002D7A4B /* TrimCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95AFF92A85E199002D7A4B /* TrimCardView.swift */; };
-		ED95AFFC2A85F84B002D7A4B /* TrimSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95AFFB2A85F84B002D7A4B /* TrimSelectView.swift */; };
+		ED95AFFC2A85F84B002D7A4B /* TrimSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95AFFB2A85F84B002D7A4B /* TrimSelectionView.swift */; };
 		ED95AFFE2A85FA9C002D7A4B /* TrimSelectionIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95AFFD2A85FA9C002D7A4B /* TrimSelectionIntent.swift */; };
 		ED95B0002A85FB00002D7A4B /* TrimSelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95AFFF2A85FB00002D7A4B /* TrimSelectionModel.swift */; };
 		ED978FE92A86949600B69548 /* EntryGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED978FE82A86949600B69548 /* EntryGuide.swift */; };
@@ -211,7 +211,7 @@
 		ED91A0B72A7A84C50063A6B4 /* CLButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLButton.swift; sourceTree = "<group>"; };
 		ED91A0BF2A7ACE8C0063A6B4 /* CLDualChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLDualChoiceButton.swift; sourceTree = "<group>"; };
 		ED95AFF92A85E199002D7A4B /* TrimCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimCardView.swift; sourceTree = "<group>"; };
-		ED95AFFB2A85F84B002D7A4B /* TrimSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimSelectView.swift; sourceTree = "<group>"; };
+		ED95AFFB2A85F84B002D7A4B /* TrimSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimSelectionView.swift; sourceTree = "<group>"; };
 		ED95AFFD2A85FA9C002D7A4B /* TrimSelectionIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimSelectionIntent.swift; sourceTree = "<group>"; };
 		ED95AFFF2A85FB00002D7A4B /* TrimSelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimSelectionModel.swift; sourceTree = "<group>"; };
 		ED978FE82A86949600B69548 /* EntryGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryGuide.swift; sourceTree = "<group>"; };
@@ -278,6 +278,7 @@
 				B1604D102A82569800C7B07D /* NetworkCore */,
 				ED1A70992A8364DE00F7920F /* Model */,
 				B1604D0E2A8255D200C7B07D /* TrimSelection */,
+				ED1A70942A8357FD00F7920F /* QuotationSummary */,
 				ED6410962A7FD88E0033AEBC /* CLBudgetSetting */,
 				B155C11E2A7A789400F540CB /* CLNavigation */,
 				ED779C3E2A7A799A007F67B7 /* Component */,
@@ -518,7 +519,6 @@
 		ED779C3E2A7A799A007F67B7 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				ED1A70942A8357FD00F7920F /* QuotationSummary */,
 				EDBA5D552A808A8A0050BC35 /* pop-up */,
 				ED6410832A7FC4FF0033AEBC /* Button */,
 				B19436312A7E8C1500C2FD69 /* Alert */,
@@ -529,9 +529,9 @@
 		ED95AFF82A85D99D002D7A4B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ED95AFFB2A85F84B002D7A4B /* TrimSelectionView.swift */,
 				ED95AFF92A85E199002D7A4B /* TrimCardView.swift */,
 				ED3DC0272A865B9C009EE04C /* HMGDataCard.swift */,
-				ED95AFFB2A85F84B002D7A4B /* TrimSelectView.swift */,
 				ED978FEC2A86B8C800B69548 /* TrimScrollView.swift */,
 			);
 			path = View;
@@ -737,7 +737,7 @@
 				B1604D1A2A82588F00C7B07D /* URLSessionProtocol.swift in Sources */,
 				B19436392A80954600C2FD69 /* AlertView.swift in Sources */,
 				EDBA3E3B2A83E48400BDB00F /* CLCancelButton.swift in Sources */,
-				ED95AFFC2A85F84B002D7A4B /* TrimSelectView.swift in Sources */,
+				ED95AFFC2A85F84B002D7A4B /* TrimSelectionView.swift in Sources */,
 				ED1A70982A83646E00F7920F /* CLQuotationSummarySheet.swift in Sources */,
 				B1F2BC682A7B613B005385E0 /* CLNavigationModel.swift in Sources */,
 				B1604D382A8381BD00C7B07D /* TrimRequestDTO.swift in Sources */,

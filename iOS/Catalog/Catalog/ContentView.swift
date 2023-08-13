@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                CLNavigationView.build(intent: CLNavigationIntent(initialState: .init(currentPage: 0)))
+              CLNavigationView.build(intent: CLNavigationIntent(initialState: .init(currentPage: 0)))
                 CLQuotationPriceBar(showQuotationSummarySheet:
                                         $showQuotationSummarySheet,
                                     currentQuotationPrice: .constant(CLPrice(41500000)), buttonText: "견적 요약")

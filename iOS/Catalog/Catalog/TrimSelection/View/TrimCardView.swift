@@ -56,11 +56,3 @@ struct TrimCardView_Previews: PreviewProvider {
                                         HMGDatum(optionTitle: "후방 교차\n충돌방지 보조", optionFrequency: 42)]))
     }
 }
-
-struct Trim {
-  var name: String
-  var description: String
-  var price: CLPrice
-  var imageURL: URL?
-  var hmgData: [HMGDatum]
-}
