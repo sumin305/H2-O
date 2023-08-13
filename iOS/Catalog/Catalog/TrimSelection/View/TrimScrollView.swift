@@ -45,7 +45,7 @@ extension SnapCarousel {
 
       }
       .padding(.horizontal, spacing)
-      .offset(x: (16)  + (CGFloat(currentIndex) * -width) + CGFloat((adjustmentWidth)) + offset)
+      .offset(x: 16 + (CGFloat(currentIndex) * -width) + CGFloat((adjustmentWidth)) + offset)
       .gesture(
 
         DragGesture()

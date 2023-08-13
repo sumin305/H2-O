@@ -50,13 +50,14 @@ extension TrimSelectionView: View {
 
       // Indicator
       HStack(spacing: 10) {
-        ForEach(0..<mockTrims.count, id: \.self) { index in
+        ForEach(mockTrims.indices, id: \.self) { index in
+
           Capsule()
             .fill(currentIndex == index ? Color.primary0 : Color.gray200)
             .frame(width: (currentIndex == index ? 24 : 8), height: 8)
-//            .animation(.default, value: currentIndex = index)
+            .scaleEffect((currentIndex == index) ? 1.4 : 1)
+            .animation(.spring(), value: currentIndex == index)
 
-//            .scaleEffect((currentIndex == index) ? 1.4 : 1)
         }
       }
       .padding(.bottom, 20)

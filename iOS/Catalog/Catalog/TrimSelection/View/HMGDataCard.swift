@@ -12,48 +12,45 @@ struct HMGDataCard: View {
   var options: [HMGDatum]
 
   var body: some View {
+    ZStack(alignment: .leading) {
+      VStack(alignment: .leading, spacing: 12) {
 
-    VStack(alignment: .leading, spacing: 12) {
-      Text("HMG Data")
-        .catalogFont(type: .HeadENMedium10)
-        .foregroundColor(.white)
-        .frame(width: 70, height: 21)
-        .background(Color.activeBlue)
-        .frame(alignment: .top)
+        Text(attributedString)
+          .catalogFont(type: .TextKRMedium12)
 
-      Text(attributedString)
-        .catalogFont(type: .TextKRMedium12)
+        HStack(spacing: 36) {
+          ForEach(0..<options.count) { idx in
+            VStack(spacing: 4) {
+              Text(options[idx].optionTitle)
+                .catalogFont(type: .TextKRRegular10)
+                .foregroundColor(Color.gray900)
+                .frame(height: 36, alignment: .topLeading)
 
-      HStack(spacing: 36) {
-        ForEach(0..<options.count) { idx in
-          VStack(spacing: 4) {
-            Text(options[idx].optionTitle)
-              .catalogFont(type: .TextKRRegular10)
-              .foregroundColor(Color.gray900)
-              .frame(height: 36, alignment: .topLeading)
+              Divider().frame(width: 60)
 
-            Divider().frame(width: 60)
-
-            Text("\(options[idx].optionFrequency)회")
-              .catalogFont(type: .HeadKRRegular24)
-              .foregroundColor(Color.gray900)
-            Text("15,000km 당")
-              .catalogFont(type: .TextKRRegular10)
-              .foregroundColor(Color.gray600)
+              Text("\(options[idx].optionFrequency)회")
+                .catalogFont(type: .HeadKRRegular24)
+                .foregroundColor(Color.gray900)
+              Text("15,000km 당")
+                .catalogFont(type: .TextKRRegular10)
+                .foregroundColor(Color.gray600)
+            }
           }
         }
       }
+
+      VStack(alignment: .leading) {
+          Text("HMG Data")
+            .catalogFont(type: .HeadENMedium10)
+            .foregroundColor(.white)
+            .frame(width: 70, height: 21)
+            .background(Color.activeBlue)
+          Spacer()
+        }
+
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
-    .padding(.horizontal, 29)
-    Spacer().frame(height: 20)
-
-    .background(
-      Rectangle()
-        .foregroundColor(Color.gray50)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-
-    )
+    .background(Color.gray50)
 
   }
 }

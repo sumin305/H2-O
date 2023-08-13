@@ -32,13 +32,13 @@ extension CLInActiveButton {
                 }
               Text(isTrimSelected ? mainText : (inActiveText ?? ""))
                     .catalogFont(type: .HeadKRMedium16)
-                    .foregroundColor(Color.white)
+                    .frame(maxWidth: width ?? .infinity, maxHeight: height)
+                    .background(isTrimSelected ? Color.primary700 : Color.gray300)
+                    .foregroundColor(isTrimSelected ? Color.gray50 : Color.white)
+                    .ignoresSafeArea()
             }
-            .frame(maxWidth: width ?? .infinity, maxHeight: height)
-            .background(isTrimSelected ? Color.gray300 : Color.primary700)
-            .ignoresSafeArea()
         }
-        .disabled(isTrimSelected)
-        .buttonStyle(.plain)
+        .disabled(!isTrimSelected)
     }
 }
+
