@@ -35,16 +35,18 @@ extension TrimSelectionView: View {
       }
       .padding(.leading, 20)
       .padding(.top, 20)
-      .padding(.bottom, 12)
 
       SnapCarousel(items: mockTrims,
                    spacing: 16,
-                   leadingSpace: (UIScreen.main.bounds.width - 312) / 2,
-                   trailingSpace: (UIScreen.main.bounds.width - 312) / 2,
+                   trailingSpace: 32,
                    index: $currentIndex) { trim in
-        TrimCardView(trim: trim)
+        GeometryReader { proxy in
+          let size = proxy.size
+          TrimCardView(trim: trim)
+            .frame(width: size.width, height: size.height)
+        }
       }
-      .frame(height: 512)
+      .padding(.vertical, 12)
 
       // Indicator
       HStack(spacing: 10) {
@@ -57,8 +59,7 @@ extension TrimSelectionView: View {
 //            .scaleEffect((currentIndex == index) ? 1.4 : 1)
         }
       }
-      .padding(.top, 20)
-      .padding(.bottom, 32)
+      .padding(.bottom, 20)
 
       CLInActiveButton(isTrimSelected: isTrimSelectedBinding,
                        mainText: "Le Blanc 선택하기",

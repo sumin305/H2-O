@@ -13,22 +13,20 @@ struct SnapCarousel<Content: View, T: Identifiable>: View {
   var items: [T]
 
   var spacing: CGFloat
-  var leadingSpace: CGFloat
   var trailingSpace: CGFloat
 
   @Binding var index: Int
 
-  init(items: [T], spacing: CGFloat = 16, leadingSpace: CGFloat, trailingSpace: CGFloat, index: Binding<Int>, @ViewBuilder content: @escaping (T) -> Content) {
+  init(items: [T], spacing: CGFloat = 16, trailingSpace: CGFloat, index: Binding<Int>, @ViewBuilder content: @escaping (T) -> Content) {
     self.items = items
     self.spacing = spacing
-    self.leadingSpace = leadingSpace
     self.trailingSpace = trailingSpace
     self._index = index
     self.content = content
   }
 
   @GestureState var offset: CGFloat = 0
-  @State var currentIndex: Int = 0
+  @SwiftUI.State var currentIndex: Int = 0
 }
 
 extension SnapCarousel {
@@ -38,18 +36,22 @@ extension SnapCarousel {
 
       // setting correct width for snap Carousel
       let width = proxy.size.width - trailingSpace - spacing
-      let adjustmentWidth = leadingSpace
+      let adjustmentWidth = 0
       HStack(spacing: spacing) {
         ForEach(items) { item in
           content(item)
+            .frame(width: proxy.size.width - 2 * trailingSpace)
         }
+
       }
-      .offset(x: (CGFloat(currentIndex) * -width) + (adjustmentWidth) + offset)
+      .padding(.horizontal, spacing)
+      .offset(x: (16)  + (CGFloat(currentIndex) * -width) + CGFloat((adjustmentWidth)) + offset)
       .gesture(
 
         DragGesture()
           .updating($offset) { value, state, _ in
             state = value.translation.width
+
           }
           .onEnded { value in
               // update current index
@@ -59,6 +61,15 @@ extension SnapCarousel {
 
             currentIndex = max(min(currentIndex + Int(roundIndex), items.count - 1), 0)
             currentIndex = index
+          }
+
+          .onChanged { value in
+            let offsetX = value.translation.width
+            let progress = -offsetX / width
+            let roundIndex = progress.rounded()
+
+            index = max(min(currentIndex + Int(roundIndex), items.count - 1), 0)
+
           }
       )
     }

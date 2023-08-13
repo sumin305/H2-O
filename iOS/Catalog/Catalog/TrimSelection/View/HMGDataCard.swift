@@ -13,20 +13,16 @@ struct HMGDataCard: View {
 
   var body: some View {
 
-    VStack(alignment: .leading, spacing: 0) {
+    VStack(alignment: .leading, spacing: 12) {
       Text("HMG Data")
         .catalogFont(type: .HeadENMedium10)
         .foregroundColor(.white)
         .frame(width: 70, height: 21)
         .background(Color.activeBlue)
-
-      Spacer().frame(height: 12)
+        .frame(alignment: .top)
 
       Text(attributedString)
         .catalogFont(type: .TextKRMedium12)
-        .frame(height: 16)
-
-      Spacer().frame(height: 16)
 
       HStack(spacing: 36) {
         ForEach(0..<options.count) { idx in
@@ -44,21 +40,19 @@ struct HMGDataCard: View {
             Text("15,000km 당")
               .catalogFont(type: .TextKRRegular10)
               .foregroundColor(Color.gray600)
-
           }
-
         }
       }
-      .frame(height: 94)
-      Spacer().frame(height: 29)
-
     }
-    .frame(width: 310, height: 188)
+    .frame(maxWidth: .infinity, maxHeight: .infinity)
     .padding(.horizontal, 29)
+    Spacer().frame(height: 20)
+
     .background(
       Rectangle()
         .foregroundColor(Color.gray50)
-        .frame(width: 310, height: 188)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+
     )
 
   }
