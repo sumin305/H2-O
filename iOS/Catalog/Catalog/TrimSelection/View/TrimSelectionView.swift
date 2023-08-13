@@ -13,6 +13,7 @@ struct TrimSelectionView: IntentBindingType {
   var state: TrimSelectionModel.State { intent.state }
 
   @SwiftUI.State var currentIndex = 0
+  let mockTrims = [Trim.mockTrim(), Trim.mockTrim(), Trim.mockTrim(), Trim.mockTrim()]
 
 }
 
@@ -36,23 +37,35 @@ extension TrimSelectionView: View {
       .padding(.top, 20)
       .padding(.bottom, 12)
 
-      SnapCarousel(items: [Trim.mockTrim(), Trim.mockTrim(), Trim.mockTrim(), Trim.mockTrim()],
-                   leadingSpace: 16,
-                   trailingSpace: 16,
+      SnapCarousel(items: mockTrims,
+                   spacing: 16,
+                   leadingSpace: (UIScreen.main.bounds.width - 312) / 2,
+                   trailingSpace: (UIScreen.main.bounds.width - 312) / 2,
                    index: $currentIndex) { trim in
         TrimCardView(trim: trim)
       }
       .frame(height: 512)
 
-      Spacer()
+      // Indicator
+      HStack(spacing: 10) {
+        ForEach(0..<mockTrims.count, id: \.self) { index in
+          Capsule()
+            .fill(currentIndex == index ? Color.primary0 : Color.gray200)
+            .frame(width: (currentIndex == index ? 24 : 8), height: 8)
+//            .animation(.default, value: currentIndex = index)
+
+//            .scaleEffect((currentIndex == index) ? 1.4 : 1)
+        }
+      }
+      .padding(.top, 20)
+      .padding(.bottom, 32)
 
       CLInActiveButton(isTrimSelected: isTrimSelectedBinding,
                        mainText: "Le Blanc 선택하기",
                        inActiveText: "옵션을 선택해 추가해보세요.",
                        height: 60,
                        buttonAction: { print("선택하기") })
-      Spacer()
-        .frame(height: 0.1)
+      Spacer().frame(height: 0.1)
     }
   }
 }

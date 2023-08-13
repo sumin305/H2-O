@@ -35,15 +35,34 @@ extension SnapCarousel {
 
   var body: some View {
     GeometryReader { proxy in
+
+      // setting correct width for snap Carousel
+      let width = proxy.size.width - trailingSpace - spacing
+      let adjustmentWidth = leadingSpace
       HStack(spacing: spacing) {
         ForEach(items) { item in
           content(item)
-            .frame(width: proxy.size.width)
         }
       }
-      .padding(, spacing)
+      .offset(x: (CGFloat(currentIndex) * -width) + (adjustmentWidth) + offset)
+      .gesture(
 
+        DragGesture()
+          .updating($offset) { value, state, _ in
+            state = value.translation.width
+          }
+          .onEnded { value in
+              // update current index
+            let offsetX = value.translation.width
+            let progress = -offsetX / width
+            let roundIndex = progress.rounded()
+
+            currentIndex = max(min(currentIndex + Int(roundIndex), items.count - 1), 0)
+            currentIndex = index
+          }
+      )
     }
+    .animation(.easeInOut, value: offset == 0)
   }
 
 }
@@ -52,5 +71,4 @@ struct SnapCarousel_Previews: PreviewProvider {
   static var previews: some View {
     TrimSelectionView.build(intent: TrimSelectionIntent(initialState: .init(selectedTrim: nil, isSelectedTrim: false)))
   }
-}     CLBudgetRangeView.build(
-  intent: CLBudgetRangeIntent(initialState: .init(currentQuotationPrice: CLPrice(40000000), budgetPrice: CLPrice(40750000)))
+}
