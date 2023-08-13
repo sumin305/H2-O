@@ -14,6 +14,8 @@ struct EntryGuide: View {
     var body: some View {
       DimmedZStack {
         VStack(spacing: 20) {
+          Spacer()
+            .frame(height: .infinity)
           HStack {
             Spacer().frame(width: horizonalPadding)
             CLPopUp(   rectangleImage: "guide_popup_rectangle",
@@ -27,19 +29,22 @@ struct EntryGuide: View {
           }
 
           HMGDataCard(options: [HMGDatum(optionTitle: "안전 하차 보조", optionFrequency: 42),
-                                HMGDatum(optionTitle: "후측방 충돌\n경고", optionFrequency: 42),
-                                HMGDatum(optionTitle: "후방 교차\n충돌방지 보조", optionFrequency: 42)])
-          Spacer().frame(height: 124)
+                                  HMGDatum(optionTitle: "후측방 충돌\n경고", optionFrequency: 42),
+                                  HMGDatum(optionTitle: "후방 교차\n충돌방지 보조", optionFrequency: 42)])
+          .padding(.horizontal, horizonalPadding)
+
+          GeometryReader { proxy in
+            Spacer().frame(height: 100 + proxy.safeAreaInsets.bottom)
+          }
+
         }
-        .padding(.top, 244)
-
       }
-
     }
 }
 
-// struct EntryGuide_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EntryGuide()
-//    }
-// }
+ struct EntryGuide_Previews: PreviewProvider {
+    static var previews: some View {
+      @State var showEntryGuide: Bool = true
+      EntryGuide(showEntryGuide: $showEntryGuide)
+    }
+ }

@@ -12,9 +12,9 @@ struct TrimCardView: View {
     var trim: Trim
 
     var body: some View {
-      VStack(alignment: .leading, spacing: 5) {
+      VStack(alignment: .leading) {
 
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .leading) {
           Text(trim.description)
             .catalogFont(type: .TextKRRegular14)
             .foregroundColor(Color.gray900)
@@ -25,6 +25,7 @@ struct TrimCardView: View {
             .catalogFont(type: .HeadKRMedium18)
             .foregroundColor(Color.primary)
         }
+        .padding(.top, 20)
         .padding(.leading, 24)
 
         HStack {
@@ -37,8 +38,6 @@ struct TrimCardView: View {
         HMGDataCard(options: trim.hmgData)
       }
       .frame(maxWidth: .infinity, maxHeight: .infinity)
-      .padding(.top, 20)
-      .border(Color.skyBlue, width: 1)
     }
 
 }

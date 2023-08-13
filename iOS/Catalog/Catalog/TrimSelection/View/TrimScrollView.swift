@@ -16,13 +16,15 @@ struct SnapCarousel<Content: View, T: Identifiable>: View {
   var trailingSpace: CGFloat
 
   @Binding var index: Int
+  @Binding var selectedIndex: Int?
 
-  init(items: [T], spacing: CGFloat = 16, trailingSpace: CGFloat, index: Binding<Int>, @ViewBuilder content: @escaping (T) -> Content) {
+  init(items: [T], spacing: CGFloat = 16, trailingSpace: CGFloat, index: Binding<Int>, selectedIndex: Binding<Int?>, @ViewBuilder content: @escaping (T) -> Content) {
     self.items = items
     self.spacing = spacing
     self.trailingSpace = trailingSpace
     self._index = index
     self.content = content
+    self._selectedIndex = selectedIndex
   }
 
   @GestureState var offset: CGFloat = 0
@@ -32,33 +34,32 @@ struct SnapCarousel<Content: View, T: Identifiable>: View {
 extension SnapCarousel {
 
   var body: some View {
+
     GeometryReader { proxy in
 
       // setting correct width for snap Carousel
       let width = proxy.size.width - trailingSpace - spacing
       let adjustmentWidth = 0
       HStack(spacing: spacing) {
-        ForEach(items) { item in
-          content(item)
-            .frame(width: proxy.size.width - 2 * trailingSpace)
-        }
 
+        ForEach(items.indices) { itemIndex in
+            content(items[itemIndex])
+              .frame(width: proxy.size.width - 2 * trailingSpace)
+              .border(selectedIndex == itemIndex ? Color.skyBlue : Color.gray200)
+        }
       }
       .padding(.horizontal, spacing)
       .offset(x: 16 + (CGFloat(currentIndex) * -width) + CGFloat((adjustmentWidth)) + offset)
       .gesture(
-
         DragGesture()
           .updating($offset) { value, state, _ in
             state = value.translation.width
-
           }
           .onEnded { value in
               // update current index
             let offsetX = value.translation.width
             let progress = -offsetX / width
             let roundIndex = progress.rounded()
-
             currentIndex = max(min(currentIndex + Int(roundIndex), items.count - 1), 0)
             currentIndex = index
           }
@@ -67,15 +68,19 @@ extension SnapCarousel {
             let offsetX = value.translation.width
             let progress = -offsetX / width
             let roundIndex = progress.rounded()
-
             index = max(min(currentIndex + Int(roundIndex), items.count - 1), 0)
-
           }
       )
+      .onTapGesture(perform: {
+        if selectedIndex == index {
+          selectedIndex = nil
+        } else {
+          selectedIndex = index
+        }
+      })
     }
     .animation(.easeInOut, value: offset == 0)
   }
-
 }
 
 struct SnapCarousel_Previews: PreviewProvider {

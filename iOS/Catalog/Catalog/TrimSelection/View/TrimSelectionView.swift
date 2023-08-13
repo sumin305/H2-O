@@ -13,8 +13,9 @@ struct TrimSelectionView: IntentBindingType {
   var state: TrimSelectionModel.State { intent.state }
 
   @SwiftUI.State var currentIndex = 0
-  let mockTrims = [Trim.mockTrim(), Trim.mockTrim(), Trim.mockTrim(), Trim.mockTrim()]
+  @SwiftUI.State var selectedIndex: Int?
 
+  let mockTrims = [Trim.mockTrim(), Trim.mockTrim(), Trim.mockTrim(), Trim.mockTrim()]
 }
 
 extension TrimSelectionView {
@@ -22,7 +23,6 @@ extension TrimSelectionView {
     .init(get: { state.isSelectedTrim },
           set: { _ in intent.send(action: .onTapTrimSelectButton) })
   }
-
 }
 
 extension TrimSelectionView: View {
@@ -39,14 +39,14 @@ extension TrimSelectionView: View {
       SnapCarousel(items: mockTrims,
                    spacing: 16,
                    trailingSpace: 32,
-                   index: $currentIndex) { trim in
+                   index: $currentIndex,
+                   selectedIndex: $selectedIndex) { trim in
         GeometryReader { proxy in
           let size = proxy.size
           TrimCardView(trim: trim)
             .frame(width: size.width, height: size.height)
         }
       }
-      .padding(.vertical, 12)
 
       // Indicator
       HStack(spacing: 10) {
@@ -62,8 +62,8 @@ extension TrimSelectionView: View {
       }
       .padding(.bottom, 20)
 
-      TrimSelectButton(isTrimSelected: isTrimSelectedBinding,
-                       mainText: "Le Blanc 선택하기",
+      TrimSelectButton(isTrimSelected: selectedIndex == nil ? false : true,
+                       mainText: "\(mockTrims[selectedIndex ?? 0].name) 선택하기",
                        inActiveText: "옵션을 선택해 추가해보세요.",
                        height: 60,
                        buttonAction: { print("선택하기") })

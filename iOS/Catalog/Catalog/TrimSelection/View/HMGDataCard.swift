@@ -15,6 +15,12 @@ struct HMGDataCard: View {
     ZStack(alignment: .leading) {
       VStack(alignment: .leading, spacing: 12) {
 
+        Text("HMG Data")
+          .catalogFont(type: .HeadENMedium10)
+          .foregroundColor(.white)
+          .frame(width: 70, height: 21)
+          .background(Color.activeBlue)
+
         Text(attributedString)
           .catalogFont(type: .TextKRMedium12)
 
@@ -39,17 +45,9 @@ struct HMGDataCard: View {
         }
       }
 
-      VStack(alignment: .leading) {
-          Text("HMG Data")
-            .catalogFont(type: .HeadENMedium10)
-            .foregroundColor(.white)
-            .frame(width: 70, height: 21)
-            .background(Color.activeBlue)
-          Spacer()
-        }
-
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
+    .padding(.bottom, 10)
     .background(Color.gray50)
 
   }

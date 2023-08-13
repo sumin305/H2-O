@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TrimSelectButton: View {
 
-  @Binding var isTrimSelected: Bool
+  var isTrimSelected: Bool
   var subText: String?
   var mainText: String
   var inActiveText: String?
