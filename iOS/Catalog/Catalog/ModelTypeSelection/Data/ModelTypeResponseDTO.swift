@@ -30,7 +30,6 @@ extension PowertrainDTO {
   }
 }
 
-
 struct MaxOutputDTO: Codable {
     let output: Double?
     let minRpm: Int?
