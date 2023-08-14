@@ -137,15 +137,8 @@
 		EDC1862F2A893577009EB498 /* CLInactiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC1862E2A893577009EB498 /* CLInactiveButtonStyle.swift */; };
 		EDD303FD2A8A09E600400DF9 /* HMGTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD303FC2A8A09E600400DF9 /* HMGTag.swift */; };
 		EDD304232A8A606A00400DF9 /* QuotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD304222A8A606A00400DF9 /* QuotationModel.swift */; };
-		EDD304382A8A64D600400DF9 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3042D2A8A64D600400DF9 /* Option.swift */; };
-		EDD304392A8A64D600400DF9 /* MaxOutputFromEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3042E2A8A64D600400DF9 /* MaxOutputFromEngine.swift */; };
-		EDD3043B2A8A64D600400DF9 /* MaxTorqueFromEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD304302A8A64D600400DF9 /* MaxTorqueFromEngine.swift */; };
-		EDD3043D2A8A64D600400DF9 /* OptionInDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD304322A8A64D600400DF9 /* OptionInDetail.swift */; };
-		EDD3043F2A8A64D600400DF9 /* ModelType.json in Resources */ = {isa = PBXBuildFile; fileRef = EDD304352A8A64D600400DF9 /* ModelType.json */; };
-		EDD304402A8A64D600400DF9 /* ModelTypeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD304362A8A64D600400DF9 /* ModelTypeResponseDTO.swift */; };
-		EDD304412A8A64D600400DF9 /* ModelTypeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD304372A8A64D600400DF9 /* ModelTypeRepository.swift */; };
-		EDD304432A8A668B00400DF9 /* ModelTypeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD304422A8A668B00400DF9 /* ModelTypeRequest.swift */; };
 		EDD304462A8A6AD300400DF9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD304452A8A6AD300400DF9 /* API.swift */; };
+		EDF882572A8A708A0077558F /* ModelTypeRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF882562A8A708A0077558F /* ModelTypeRequestDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -312,6 +305,7 @@
 		EDD304372A8A64D600400DF9 /* ModelTypeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTypeRepository.swift; sourceTree = "<group>"; };
 		EDD304422A8A668B00400DF9 /* ModelTypeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTypeRequest.swift; sourceTree = "<group>"; };
 		EDD304452A8A6AD300400DF9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		EDF882562A8A708A0077558F /* ModelTypeRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTypeRequestDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -623,6 +617,7 @@
 				B16DFF422A895BE000642730 /* ModelTypeRepository.swift */,
 				B16DFF442A89F17600642730 /* ModelType.json */,
 				B16DFF462A8A161700642730 /* ModelTypeResponseDTO.swift */,
+				EDF882562A8A708A0077558F /* ModelTypeRequestDTO.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -941,7 +936,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDD3043F2A8A64D600400DF9 /* ModelType.json in Resources */,
 				B155C1182A7A530E00F540CB /* HyundaiSansTextKROTFRegular.otf in Resources */,
 				B155C11D2A7A531A00F540CB /* HyundaiSansHeadKROTFRegular.otf in Resources */,
 				B155C11C2A7A531700F540CB /* HyundaiSansHeadKROTFMedium.otf in Resources */,
@@ -1028,7 +1022,6 @@
 				EDBA5D582A808A8A0050BC35 /* CLPopUp.swift in Sources */,
 				EDBA5D592A808A8A0050BC35 /* DimmedZStack.swift in Sources */,
 				B1F2BC6A2A7B62E8005385E0 /* CLNavigationIntent.swift in Sources */,
-				EDD304392A8A64D600400DF9 /* MaxOutputFromEngine.swift in Sources */,
 				B1604D122A8256B700C7B07D /* RequestProtocol.swift in Sources */,
 				B155C0E92A792BB100F540CB /* Color+.swift in Sources */,
 				B1A76B822A88D263009C84EF /* ModelTypeIntent.swift in Sources */,
@@ -1047,7 +1040,6 @@
 				B1084BEE2A87E5A800AE1758 /* CLDialog.swift in Sources */,
 				B19436452A80E5FD00C2FD69 /* AlertViewComponent.swift in Sources */,
 				ED1C70612A89C3A50049D275 /* EntryGuide.swift in Sources */,
-				EDD3043B2A8A64D600400DF9 /* MaxTorqueFromEngine.swift in Sources */,
 				B1604D142A8256DA00C7B07D /* RequestType.swift in Sources */,
 				EDC1862D2A88CA56009EB498 /* BottomArea.swift in Sources */,
 				ED1A70AF2A83B4CF00F7920F /* CLToggle.swift in Sources */,
@@ -1066,7 +1058,6 @@
 				ED1A709F2A836D0D00F7920F /* CLColor.swift in Sources */,
 				B155C1202A7A78A700F540CB /* CLNavigationView.swift in Sources */,
 				B1604D212A825FBA00C7B07D /* SecureType.swift in Sources */,
-				EDD304382A8A64D600400DF9 /* Option.swift in Sources */,
 				B1604D672A8545DD00C7B07D /* ModelTypeButtonView.swift in Sources */,
 				B1084BF12A8878BB00AE1758 /* FuelEfficiencyAverageBannerView.swift in Sources */,
 				B1604D2B2A82A78600C7B07D /* RequestRetrier.swift in Sources */,
@@ -1074,17 +1065,16 @@
 				B1A76B802A88CD92009C84EF /* ModeTypeModel.swift in Sources */,
 				B1084BEB2A87DF2B00AE1758 /* BlurredFullScreenCover.swift in Sources */,
 				B1604D322A836DBE00C7B07D /* Request.swift in Sources */,
+				EDF882572A8A708A0077558F /* ModelTypeRequestDTO.swift in Sources */,
 				B155C0DC2A7923A100F540CB /* IntentType.swift in Sources */,
 				EDA3CDD52A8243CC0001BB9C /* CLSimilarQuotationButton.swift in Sources */,
 				B16DFF432A895BE000642730 /* ModelTypeRepository.swift in Sources */,
 				ED1A70A92A83723F00F7920F /* CLCategory.swift in Sources */,
-				EDD304432A8A668B00400DF9 /* ModelTypeRequest.swift in Sources */,
 				B1084BE72A87ACDD00AE1758 /* ModelTypeButtonContainer.swift in Sources */,
 				ED6410982A7FDE740033AEBC /* CLBudgetRangeView.swift in Sources */,
 				B155C0DE2A7923AA00F540CB /* IntentBindingType.swift in Sources */,
 				B1EEBA892A869EAF008FC6A4 /* HMGDataWithHorizontalGraphView.swift in Sources */,
 				B16DFF3C2A8958DB00642730 /* MaxTorqueFromEngine.swift in Sources */,
-				EDA3CDD72A8281B10001BB9C /* CLSimilarQuotationSlideView.swift in Sources */,
 				B1F2BC5E2A7B5B50005385E0 /* CLTopNaviBar.swift in Sources */,
 				ED3DC0282A865B9C009EE04C /* HMGDataCard.swift in Sources */,
 				B156463B2A8653D000FAD379 /* ModalPopUpComponent.swift in Sources */,
@@ -1094,7 +1084,6 @@
 				B1604D652A8544C300C7B07D /* ModelTypeView.swift in Sources */,
 				B194363B2A8095B800C2FD69 /* CLQuitAlertContentView.swift in Sources */,
 				B1604D482A83BE8000C7B07D /* TrimMockRepository.swift in Sources */,
-				EDD304402A8A64D600400DF9 /* ModelTypeResponseDTO.swift in Sources */,
 				EDD304462A8A6AD300400DF9 /* API.swift in Sources */,
 				B1604D462A83AE4100C7B07D /* TrimAPIManager.swift in Sources */,
 				B1604D632A85402400C7B07D /* ModelTypeSelectionContainerView.swift in Sources */,
@@ -1117,11 +1106,9 @@
 				ED1A70A72A8371CA00F7920F /* CLOption.swift in Sources */,
 				B1F2BC602A7B5B63005385E0 /* MockView.swift in Sources */,
 				B1604D232A82609600C7B07D /* CLNetworkError.swift in Sources */,
-				EDD3043D2A8A64D600400DF9 /* OptionInDetail.swift in Sources */,
 				ED64109C2A7FE1870033AEBC /* CLBudgetRangeIntent.swift in Sources */,
 				ED6410922A7FC4FF0033AEBC /* CLButton.swift in Sources */,
 				ED1A70AD2A83B0A100F7920F /* CLLinearGradient.swift in Sources */,
-				EDD304412A8A64D600400DF9 /* ModelTypeRepository.swift in Sources */,
 				ED6410942A7FC4FF0033AEBC /* CLDualChoiceButton.swift in Sources */,
 				B1A76B862A892CA3009C84EF /* ModelTypeSelectionContainerIntent.swift in Sources */,
 				ED64109E2A7FE3F60033AEBC /* CLNumber.swift in Sources */,

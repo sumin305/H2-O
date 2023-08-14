@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct ModelTypeRequestDTO: Encodable {
+  var carId: Int
+}
+
+struct FuelAndDisplacementRequestDTO: Encodable {
+  var powertrainId: Int
+  var drivetrainId: Int
+}
