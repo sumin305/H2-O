@@ -597,6 +597,7 @@
 		ED1A70992A8364DE00F7920F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ED64109D2A7FE3F60033AEBC /* CLNumber.swift */,
 				ED1A70A22A836F3700F7920F /* CarQuotation.swift */,
 				ED1A70A62A8371CA00F7920F /* CLOption.swift */,
 				ED1A70AA2A83728C00F7920F /* CLHashTag.swift */,
@@ -626,7 +627,6 @@
 				ED95B0012A860E49002D7A4B /* View */,
 				ED6410992A7FE1730033AEBC /* CLBudgetRangeModel.swift */,
 				ED64109B2A7FE1870033AEBC /* CLBudgetRangeIntent.swift */,
-				ED64109D2A7FE3F60033AEBC /* CLNumber.swift */,
 			);
 			path = CLBudgetSetting;
 			sourceTree = "<group>";
