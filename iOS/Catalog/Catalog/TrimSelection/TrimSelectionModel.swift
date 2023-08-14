@@ -7,18 +7,33 @@
 
  import Foundation
 
+enum TrimSelectionError: LocalizedError, Equatable {
+  case TrimArrayIsEmpty
+}
+
+extension TrimSelectionError {
+  var errorDescription: String? {
+    switch self {
+      case .TrimArrayIsEmpty:
+        return "알아서하되 같이정해봐야할듯"
+    }
+  }
+}
+
  enum TrimSelectionModel {
 
    struct State: Equatable {
 
      var trims: [Trim] = []
      var selectedTrim: Trim?
-     var isSelectedTrim: Bool  // 트림 선택되었는 지에 따라 하단 버튼 활성화 & 다음 단계로 넘어갈 수 있는지 판단
+     var error: TrimSelectionError?
+     var vehicleId: Int
   }
 
   enum ViewAction: Equatable {
     case onTapTrimSelectButton
     case enteredTrimPage
-    case onTapTrim
+    case trimSelected(index: Int)
+    case fetchTrims(trims: [Trim])
   }
  }

@@ -10,21 +10,20 @@ import SwiftUI
 struct SnapCarousel<Content: View, T: Identifiable>: View {
 
   var content: (T) -> Content
-  var items: [T]
+ var items: [T]
 
   var spacing: CGFloat
   var trailingSpace: CGFloat
 
   @Binding var index: Int
-  @Binding var selectedIndex: Int?
 
-  init(items: [T], spacing: CGFloat = 16, trailingSpace: CGFloat, index: Binding<Int>, selectedIndex: Binding<Int?>, @ViewBuilder content: @escaping (T) -> Content) {
+  init(items: [T], spacing: CGFloat = 16, trailingSpace: CGFloat, index: Binding<Int>, @ViewBuilder content: @escaping (T) -> Content) {
+
     self.items = items
     self.spacing = spacing
     self.trailingSpace = trailingSpace
     self._index = index
     self.content = content
-    self._selectedIndex = selectedIndex
   }
 
   @GestureState var offset: CGFloat = 0
@@ -42,10 +41,10 @@ extension SnapCarousel {
       let adjustmentWidth = 0
       HStack(spacing: spacing) {
 
-        ForEach(items.indices) { itemIndex in
+        ForEach(items.indices, id: \.self) { itemIndex in
             content(items[itemIndex])
               .frame(width: proxy.size.width - 2 * trailingSpace)
-              .border(selectedIndex == itemIndex ? Color.skyBlue : Color.gray200)
+              .border(index == itemIndex ? Color.skyBlue : Color.gray200)
         }
       }
       .padding(.horizontal, spacing)
@@ -71,20 +70,13 @@ extension SnapCarousel {
             index = max(min(currentIndex + Int(roundIndex), items.count - 1), 0)
           }
       )
-      .onTapGesture(perform: {
-        if selectedIndex == index {
-          selectedIndex = nil
-        } else {
-          selectedIndex = index
-        }
-      })
     }
     .animation(.easeInOut, value: offset == 0)
   }
 }
 
-struct SnapCarousel_Previews: PreviewProvider {
-  static var previews: some View {
-    TrimSelectionView.build(intent: TrimSelectionIntent(initialState: .init(selectedTrim: nil, isSelectedTrim: false)))
-  }
-}
+// struct SnapCarousel_Previews: PreviewProvider {
+//  static var previews: some View {
+//    TrimSelectionView.build(intent: TrimSelectionIntent(initialState: .init(selectedTrim: nil, isSelectedTrim: false)))
+//  }
+// }

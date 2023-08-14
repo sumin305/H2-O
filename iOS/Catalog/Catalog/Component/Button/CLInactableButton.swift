@@ -9,9 +9,10 @@ import SwiftUI
 
 struct TrimSelectButton: View {
 
+  @State var mainText: String
+
   var isTrimSelected: Bool
   var subText: String?
-  var mainText: String
   var inActiveText: String?
   var height: CGFloat
   var width: CGFloat?

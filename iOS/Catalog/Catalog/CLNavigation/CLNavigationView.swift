@@ -19,7 +19,6 @@ struct CLNavigationView: IntentBindingType {
                                                                        .inactive,
                                                                        .inactive]
   @SwiftUI.State var showQuotationSummarySheet: Bool = false
-
 }
 
 extension CLNavigationView {
@@ -37,7 +36,7 @@ extension CLNavigationView: View {
       CLNavigationMenuView(currentPage: currentPageBinding, menuStatus: $menuStatus)
       ZStack {
         TabView(selection: currentPageBinding) {
-          TrimSelectionView.build(intent: TrimSelectionIntent(initialState: .init(selectedTrim: nil, isSelectedTrim: false)))
+          TrimSelectionView.build(intent: TrimSelectionIntent(initialState: .init(selectedTrim: nil, vehicleId: 123), repository: TrimMockRepository()))
           ModelTypeSelectionContainerView().tag(1)
           MockView(image: mockImageName[2]).tag(2)
           MockView(image: mockImageName[3]).tag(3)

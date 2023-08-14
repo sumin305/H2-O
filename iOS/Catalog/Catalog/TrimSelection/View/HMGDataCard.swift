@@ -41,6 +41,7 @@ struct HMGDataCard: View {
                 .catalogFont(type: .TextKRRegular10)
                 .foregroundColor(Color.gray600)
             }
+            .frame(width: 60)
           }
         }
       }

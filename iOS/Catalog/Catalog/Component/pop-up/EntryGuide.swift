@@ -15,7 +15,7 @@ struct EntryGuide: View {
       DimmedZStack {
         VStack(spacing: 20) {
           Spacer()
-            .frame(height: .infinity)
+            .frame(maxHeight: .infinity)
           HStack {
             Spacer().frame(width: horizonalPadding)
             CLPopUp(   rectangleImage: "guide_popup_rectangle",

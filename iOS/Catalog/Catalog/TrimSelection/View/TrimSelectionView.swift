@@ -11,70 +11,65 @@ struct TrimSelectionView: IntentBindingType {
   @StateObject var container: Container<TrimSelectionIntentType, TrimSelectionModel.State>
   var intent: TrimSelectionIntentType { container.intent }
   var state: TrimSelectionModel.State { intent.state }
+  @SwiftUI.State var currentIndexBinding: Int = 0
 
-  @SwiftUI.State var currentIndex = 0
-  @SwiftUI.State var selectedIndex: Int?
-
-  let mockTrims = [Trim.mockTrim(), Trim.mockTrim(), Trim.mockTrim(), Trim.mockTrim()]
-}
-
-extension TrimSelectionView {
-  var isTrimSelectedBinding: Binding<Bool> {
-    .init(get: { state.isSelectedTrim },
-          set: { _ in intent.send(action: .onTapTrimSelectButton) })
-  }
 }
 
 extension TrimSelectionView: View {
   var body: some View {
-    VStack {
-      HStack {
-        Text("트림을 선택해주세요.")
-          .catalogFont(type: .HeadKRMedium18)
-        Spacer()
-      }
-      .padding(.leading, 20)
-      .padding(.top, 20)
-
-      SnapCarousel(items: mockTrims,
-                   spacing: 16,
-                   trailingSpace: 32,
-                   index: $currentIndex,
-                   selectedIndex: $selectedIndex) { trim in
-        GeometryReader { proxy in
-          let size = proxy.size
-          TrimCardView(trim: trim)
-            .frame(width: size.width, height: size.height)
+      VStack {
+        HStack {
+          Text("트림을 선택해주세요.")
+            .catalogFont(type: .HeadKRMedium18)
+          Spacer()
         }
-      }
+        .padding(.leading, 20)
+        .padding(.top, 20)
 
-      // Indicator
-      HStack(spacing: 10) {
-        ForEach(mockTrims.indices, id: \.self) { index in
-
-          Capsule()
-            .fill(currentIndex == index ? Color.primary0 : Color.gray200)
-            .frame(width: (currentIndex == index ? 24 : 8), height: 8)
-            .scaleEffect((currentIndex == index) ? 1.4 : 1)
-            .animation(.spring(), value: currentIndex == index)
-
+        SnapCarousel(items: state.trims,
+                     spacing: 16,
+                     trailingSpace: 32,
+                     index: $currentIndexBinding) { trim in
+          GeometryReader { proxy in
+            let size = proxy.size
+            TrimCardView(trim: trim)
+              .frame(width: size.width, height: size.height)
+          }
         }
-      }
-      .padding(.bottom, 20)
+         .onChange(of: currentIndexBinding) { _ in
+           print(currentIndexBinding)
+                 intent.send(action: .trimSelected(index: currentIndexBinding))
+         }
 
-      TrimSelectButton(isTrimSelected: selectedIndex == nil ? false : true,
-                       mainText: "\(mockTrims[selectedIndex ?? 0].name) 선택하기",
-                       inActiveText: "옵션을 선택해 추가해보세요.",
-                       height: 60,
-                       buttonAction: { print("선택하기") })
-      Spacer().frame(height: 0.1)
-    }
+        // Indicator
+        HStack(spacing: 10) {
+          ForEach(state.trims.indices, id: \.self) { index in
+
+            Capsule()
+              .fill(currentIndexBinding == index ? Color.primary0 : Color.gray200)
+              .frame(width: (currentIndexBinding == index ? 24 : 8), height: 8)
+              .scaleEffect((currentIndexBinding == index) ? 1.4 : 1)
+              .animation(.spring(), value: currentIndexBinding == index)
+
+          }
+        }
+        .padding(.bottom, 20)
+
+        CLButton(mainText: "\(state.selectedTrim?.name ?? "") 선택하기",
+                 height: 60,
+                 backgroundColor: Color.primary700,
+                 buttonAction: { print("\(state.selectedTrim?.name ?? "") 선택하기") })
+        Spacer().frame(height: 0.1)
+      }
+      .onAppear(perform: { intent.send(action: .enteredTrimPage) })
+
   }
 }
 
 extension TrimSelectionView {
   @ViewBuilder
   static func build(intent: TrimSelectionIntent) -> some View {
+
     TrimSelectionView(container: .init(
       intent: intent as TrimSelectionIntent,
       state: intent.state,
