@@ -9,8 +9,7 @@ import SwiftUI
 
 struct CLButton: View {
 
-   @State var mainText: String
-
+    var mainText: String
     var subText: String?
     var height: CGFloat
     var width: CGFloat?

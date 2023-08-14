@@ -36,6 +36,7 @@ struct TrimCardView: View {
         }
 
         HMGDataCard(options: trim.hmgData)
+
       }
       .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
