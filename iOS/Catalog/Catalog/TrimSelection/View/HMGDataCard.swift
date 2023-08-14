@@ -59,7 +59,6 @@ struct HMGDataCard_Previews: PreviewProvider {
 }
 
 extension HMGDataCard {
-  @available(iOS 15, *)
   var attributedString: AttributedString {
     var text: AttributedString = "해당 트림에 포함된 옵션들의 실활용 데이터에요."
     guard let targetRange = text.range(of: "실활용 데이터") else { return "" }

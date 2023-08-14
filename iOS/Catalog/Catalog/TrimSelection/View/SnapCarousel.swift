@@ -10,14 +10,18 @@ import SwiftUI
 struct SnapCarousel<Content: View, T: Identifiable>: View {
 
   var content: (T) -> Content
- var items: [T]
+  var items: [T]
 
   var spacing: CGFloat
   var trailingSpace: CGFloat
 
   @Binding var index: Int
 
-  init(items: [T], spacing: CGFloat = 16, trailingSpace: CGFloat, index: Binding<Int>, @ViewBuilder content: @escaping (T) -> Content) {
+  init(items: [T],
+       spacing: CGFloat = 16,
+       trailingSpace: CGFloat,
+       index: Binding<Int>,
+       @ViewBuilder content: @escaping (T) -> Content) {
 
     self.items = items
     self.spacing = spacing
@@ -27,7 +31,7 @@ struct SnapCarousel<Content: View, T: Identifiable>: View {
   }
 
   @GestureState var offset: CGFloat = 0
-  @SwiftUI.State var currentIndex: Int = 0
+  @State var currentIndex: Int = 0
 }
 
 extension SnapCarousel {
@@ -74,9 +78,3 @@ extension SnapCarousel {
     .animation(.easeInOut, value: offset == 0)
   }
 }
-
-// struct SnapCarousel_Previews: PreviewProvider {
-//  static var previews: some View {
-//    TrimSelectionView.build(intent: TrimSelectionIntent(initialState: .init(selectedTrim: nil, isSelectedTrim: false)))
-//  }
-// }

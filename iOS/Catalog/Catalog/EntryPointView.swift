@@ -16,7 +16,8 @@ struct EntryPointView: View {
               CLNavigationView.build(intent: CLNavigationIntent(initialState: .init(currentPage: 0)))
             }
             .sheet(isPresented: $showQuotationSummarySheet) {
-              CLQuotationSummarySheet(quotation: CarQuotation.mockQuotation(), showQuotationSummarySheet: $showQuotationSummarySheet)
+              CLQuotationSummarySheet(quotation: CarQuotation.mockQuotation(),
+                                      showQuotationSummarySheet: $showQuotationSummarySheet)
             }
             .padding(.bottom, 0.1)
             if showPopUp {
