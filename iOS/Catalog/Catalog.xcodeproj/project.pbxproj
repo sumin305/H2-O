@@ -139,6 +139,7 @@
 		EDD304232A8A606A00400DF9 /* QuotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD304222A8A606A00400DF9 /* QuotationModel.swift */; };
 		EDD304462A8A6AD300400DF9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD304452A8A6AD300400DF9 /* API.swift */; };
 		EDF882572A8A708A0077558F /* ModelTypeRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF882562A8A708A0077558F /* ModelTypeRequestDTO.swift */; };
+		EDF882592A8A71260077558F /* ModelTypeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF882582A8A71260077558F /* ModelTypeRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,6 +307,7 @@
 		EDD304422A8A668B00400DF9 /* ModelTypeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTypeRequest.swift; sourceTree = "<group>"; };
 		EDD304452A8A6AD300400DF9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EDF882562A8A708A0077558F /* ModelTypeRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTypeRequestDTO.swift; sourceTree = "<group>"; };
+		EDF882582A8A71260077558F /* ModelTypeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTypeRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -618,6 +620,7 @@
 				B16DFF442A89F17600642730 /* ModelType.json */,
 				B16DFF462A8A161700642730 /* ModelTypeResponseDTO.swift */,
 				EDF882562A8A708A0077558F /* ModelTypeRequestDTO.swift */,
+				EDF882582A8A71260077558F /* ModelTypeRequest.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1100,6 +1103,7 @@
 				ED1C70632A89C3C50049D275 /* Trim.swift in Sources */,
 				B19436412A80ADD400C2FD69 /* CLSingleLineAlertContentView.swift in Sources */,
 				B1604D512A83EB7700C7B07D /* CLRetryResult.swift in Sources */,
+				EDF882592A8A71260077558F /* ModelTypeRequest.swift in Sources */,
 				B16DFF382A8958B700642730 /* OptionInDetail.swift in Sources */,
 				B155C0B22A7920A800F540CB /* EntryPointView.swift in Sources */,
 				ED64109A2A7FE1730033AEBC /* CLBudgetRangeModel.swift in Sources */,
