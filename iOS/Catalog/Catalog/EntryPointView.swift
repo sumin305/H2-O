@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct EntryPointView: View {
     @State var showPopUp: Bool = true
     @State var showQuotationSummarySheet: Bool = false
     var body: some View {
@@ -26,8 +26,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct TrimSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+      EntryPointView()
     }
 }

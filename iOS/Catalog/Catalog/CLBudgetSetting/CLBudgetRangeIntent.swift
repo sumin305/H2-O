@@ -25,7 +25,7 @@ final class CLBudgetRangeIntent: ObservableObject {
     typealias State = CLBudgetRangeModel.State
     typealias ViewAction = CLBudgetRangeModel.ViewAction
 
-    @Published var state: State = State(currentQuotationPrice: CLPrice(30000000), budgetPrice: CLPrice(40000000))
+    @Published var state: State = State(currentQuotationPrice: CLNumber(30000000), budgetPrice: CLNumber(40000000))
     var cancellable: Set<AnyCancellable> = []
 }
 
@@ -46,7 +46,7 @@ extension CLBudgetRangeIntent: CLBudgetRangeIntentType, IntentType {
                 state.isExceedBudget = state.budgetPrice < state.currentQuotationPrice
 
             case .isChangedBudgetGap:
-                state.budgetGap = CLPrice(abs(state.budgetPrice.price - state.currentQuotationPrice.price))
+                state.budgetGap = CLNumber(abs(state.budgetPrice.value - state.currentQuotationPrice.value))
             default: return
         }
     }

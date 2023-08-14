@@ -41,7 +41,7 @@ extension TrimDTO {
     return Trim(    id: UUID(),
                     name: name ?? "르블랑",
                     description: description ?? "",
-                    price: CLPrice(Int32(price ?? 0)),
+                    price: CLNumber(Int32(price ?? 0)),
                     imageURL: URL(string: images?[0] ?? ""),
                     hmgData: options?.map { $0.toDomain() } ?? [])
   }

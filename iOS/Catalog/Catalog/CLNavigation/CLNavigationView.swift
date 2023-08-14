@@ -38,7 +38,7 @@ extension CLNavigationView: View {
       ZStack {
         TabView(selection: currentPageBinding) {
           TrimSelectionView.build(intent: TrimSelectionIntent(initialState: .init(selectedTrim: nil, isSelectedTrim: false)))
-          MockView(image: mockImageName[1]).tag(1)
+          ModelTypeSelectionContainerView().tag(1)
           MockView(image: mockImageName[2]).tag(2)
           MockView(image: mockImageName[3]).tag(3)
           MockView(image: mockImageName[4]).tag(4)
@@ -47,7 +47,7 @@ extension CLNavigationView: View {
         .tabViewStyle(.page(indexDisplayMode: .never))
         if state.currentPage != 0 {
           CLBudgetRangeView.build(
-              intent: CLBudgetRangeIntent(initialState: .init(currentQuotationPrice: CLPrice(40000000), budgetPrice: CLPrice(40750000)))
+              intent: CLBudgetRangeIntent(initialState: .init(currentQuotationPrice: CLNumber(40000000), budgetPrice: CLNumber(40750000)))
               )
         }
       }
