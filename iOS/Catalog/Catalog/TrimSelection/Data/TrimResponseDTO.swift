@@ -53,3 +53,11 @@ extension TrimOptionDTO {
     return HMGDatum(optionTitle: dataLabel ?? "", optionFrequency: frequency ?? 0)
   }
 }
+
+struct TrimDefaultOptionDTO: Decodable {
+  var powertrain: PowertrainDTO?
+  var bodytype: BodyTypeDTO?
+  var drivetrain: DrivetrainDTO?
+  var internalColor: InternalColorDTO?
+  var externalColor: ExternalColorDTO?
+}

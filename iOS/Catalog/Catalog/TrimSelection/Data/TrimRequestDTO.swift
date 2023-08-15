@@ -10,3 +10,7 @@ import Foundation
 struct TrimRequestDTO: Encodable {
   var vehicleId: Int
 }
+
+struct TrimDefaultOptionRequestDTO: Encodable {
+  var trimId: Int
+}
