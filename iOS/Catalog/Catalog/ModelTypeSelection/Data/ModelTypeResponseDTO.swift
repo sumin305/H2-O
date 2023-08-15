@@ -65,15 +65,6 @@ struct BodyTypeDTO: Codable {
     let description: String?
     let image: String?
 }
-extension BodyTypeDTO {
-  func toDomain() throws -> Option {
-    return Option(id: id ?? 0,
-                  title: name ?? "",
-                  choiceRatio: choiceRatio ?? 0,
-                  price: CLNumber(Int32(price ?? 0)),
-                  imageURL: URL(string: image ?? ""))
-  }
-}
 
 // Drivetrain
 struct DrivetrainDTO: Codable {
@@ -83,15 +74,6 @@ struct DrivetrainDTO: Codable {
     let choiceRatio: Int?
     let description: String?
     let image: String?
-}
-extension DrivetrainDTO {
-  func toDomain() throws -> Option {
-    return Option(id: id ?? 0,
-                  title: name ?? "",
-                  choiceRatio: choiceRatio ?? 0,
-                  price: CLNumber(Int32(price ?? 0)),
-                  imageURL: URL(string: image ?? ""))
-  }
 }
 
 // Root

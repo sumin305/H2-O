@@ -57,9 +57,14 @@ extension CLNavigationView: View {
         }
       }
       if state.currentPage != 0 {
-        BottomArea(showQuotationSummarySheet: $showQuotationSummarySheet)
+        BottomArea(showQuotationSummarySheet: $showQuotationSummarySheet, intent: intent)
       }
     }
+    .sheet(isPresented: $showQuotationSummarySheet) {
+        CLQuotationSummarySheet(summaryQuotation: state.quotation!.toSummary(),
+                                showQuotationSummarySheet: $showQuotationSummarySheet)
+    }
+
   }
 }
 
@@ -75,6 +80,6 @@ extension CLNavigationView {
 
 struct CLNavigationView_Previews: PreviewProvider {
   static var previews: some View {
-    return CLNavigationView.build(intent: CLNavigationIntent(initialState: .init(currentPage: 0)))
+    return CLNavigationView.build(intent: CLNavigationIntent(initialState: .init(currentPage: 0, currentQuotationPrice: CLNumber(41500000))))
   }
 }
