@@ -10,7 +10,7 @@ import SwiftUI
 struct CLListText: View {
 
     var title: String
-    var info: (name: String, price: CLNumber)
+    var info: SummaryQuotationInfo
     var body: some View {
         ZStack {
             HStack(spacing: 8) {

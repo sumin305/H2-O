@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Category {
+enum Category: Encodable {
   case 지능형안전기술
   case 안전
 }

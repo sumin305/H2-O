@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HashTag {
+enum HashTag: Encodable {
   case 장거리운전
   case 스마트
   case 초보운전

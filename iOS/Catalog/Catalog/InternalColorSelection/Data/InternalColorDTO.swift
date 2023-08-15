@@ -13,5 +13,16 @@ struct InternalColorDTO: Decodable {
   var choiceRatio: Int?
   var price: Int?
   var hexCode: String?
-  var images: [URL?]
+  var images: [String?]?
+}
+
+extension InternalColorDTO {
+  func toDomain() throws -> InternalColorModel {
+
+    return InternalColorModel(name: name ?? "",
+                              choiceRatio: choiceRatio ?? 0,
+                              price: CLNumber(Int32(price ?? 0)),
+                              hexCode: hexCode ?? "",
+                              images: (images ?? []).map({URL(string: ($0 ?? ""))}))
+  }
 }
