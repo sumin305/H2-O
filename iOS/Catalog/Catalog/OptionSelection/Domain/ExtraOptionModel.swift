@@ -7,4 +7,12 @@
 
 import Foundation
 
-struct ExtraOption
+struct ExtraOptionModel: Encodable {
+  var isPackage: Bool
+  var category: Category
+  var name: String
+  var hashTags: [HashTag]
+  var conainsHmgData: Bool
+  var choiceRatio: Int
+  var price: CLNumber
+}
