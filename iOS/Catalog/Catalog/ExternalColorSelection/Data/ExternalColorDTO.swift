@@ -19,10 +19,12 @@ struct ExternalColorDTO: Decodable {
 extension ExternalColorDTO {
   func toDomain() throws -> ExternalColorModel {
 
-    return ExternalColorModel(name: name ?? "",
+    return ExternalColorModel(
+                              id: id ?? 0,
+                              name: name ?? "",
                               choiceRatio: choiceRatio ?? 0,
                               price: CLNumber(Int32(price ?? 0)),
                               hexCode: hexCode ?? "",
-                              images: (images ?? []).map({URL(string: ($0 ?? ""))}))
+                              images: (images ?? []).map({ URL(string: ($0 ?? "")) }))
   }
 }

@@ -20,12 +20,13 @@ struct PowerTrainDTO: Codable {
 }
 extension PowerTrainDTO {
   func toDomain() throws -> PowerTrainModel {
-    guard let imageURL = URL(string: image ?? "") else { throw ImageError.invaildURL}
-    return PowerTrainModel(name: name ?? "",
+    return PowerTrainModel(
+      id: id ?? 0,
+                          name: name ?? "",
                            price: CLNumber(Int32(price ?? 0)),
                            choiceRaatio: choiceRatio ?? 0,
                            description: description ?? "",
-                           image: imageURL,
+                           image: URL(string: image ?? ""),
                            maxOutput: try (maxOutput ?? MaxOutputDTO(output: 0, minRpm: 0, maxRpm: 0)).toDomain(),
                            maxTorque: try (maxTorque ?? MaxTorqueDTO(torque: 0, minRpm: 0, maxRpm: 0)).toDomain())
   }
@@ -68,12 +69,13 @@ struct BodyTypeDTO: Codable {
 }
 extension BodyTypeDTO {
   func toDomain() throws -> BodyTypeModel {
-    guard let imageURL = URL(string: image ?? "") else { throw ImageError.invaildURL}
-    return BodyTypeModel(name: name ?? "",
+    return BodyTypeModel(
+      id: id ?? 0,
+name: name ?? "",
                            price: CLNumber(Int32(price ?? 0)),
                            choiceRaatio: choiceRatio ?? 0,
                            description: description ?? "",
-                           image: imageURL)
+                           image: URL(string: image ?? ""))
   }
 }
 // Drivetrain
@@ -87,12 +89,13 @@ struct DriveTrainDTO: Codable {
 }
 extension DriveTrainDTO {
   func toDomain() throws -> DriveTrainModel {
-    guard let imageURL = URL(string: image ?? "") else { throw ImageError.invaildURL}
-    return DriveTrainModel(name: name ?? "",
+    return DriveTrainModel(
+      id: id ?? 0,
+name: name ?? "",
                            price: CLNumber(Int32(price ?? 0)),
                            choiceRaatio: choiceRatio ?? 0,
                            description: description ?? "",
-                           image: imageURL)
+                           image: URL(string: image ?? ""))
   }
 }
 // Root

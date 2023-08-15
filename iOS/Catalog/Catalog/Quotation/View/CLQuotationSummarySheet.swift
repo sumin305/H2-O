@@ -68,7 +68,7 @@ struct CLQuotationSummarySheet: View {
               Divider().foregroundColor(Color("background2"))
               VStack(spacing: 8) {
                 CLListText(title: "파워트레인", info: summaryQuotation.powertrain)
-                CLListText(title: "바디타입", info: summaryQuotation.bodyType)
+                CLListText(title: "바디타입", info: summaryQuotation.bodytype)
                 CLListText(title: "구동방식", info: summaryQuotation.drivetrain)
               }
               Divider().foregroundColor(Color("background2"))

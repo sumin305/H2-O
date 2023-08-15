@@ -8,6 +8,7 @@
 import Foundation
 
 struct ExternalColorModel: Encodable {
+  var id: Int
   var name: String
   var choiceRatio: Int
   var price: CLNumber

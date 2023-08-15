@@ -66,12 +66,13 @@ struct TrimDefaultOptionDTO: Decodable {
 extension TrimDefaultOptionDTO {
   func toDomain(trim: Trim) throws -> CarQuotation {
 
+    // TODO.. 에러처리 
     CarQuotation(trim: trim,
-                 powertrain: powertrain.toDomain(),
-                 bodytype: bodytype?.toDomain(),
-                 drivetrain: drivetrain?.toDomain(),
-                 externalColor: externalColor?.toDomain(),
-                 internalColor: internalColor?.toDomain(),
+                 powertrain: try powertrain!.toDomain(),
+                 bodytype: try bodytype!.toDomain(),
+                 drivetrain: try drivetrain!.toDomain(),
+                 externalColor: try externalColor!.toDomain(),
+                 internalColor: try internalColor!.toDomain(),
                  options: []
     )
   }

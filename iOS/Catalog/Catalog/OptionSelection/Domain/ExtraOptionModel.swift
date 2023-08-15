@@ -8,6 +8,7 @@
 import Foundation
 
 struct ExtraOptionModel: Encodable {
+  var id: Int
   var isPackage: Bool
   var category: Category
   var name: String

@@ -30,7 +30,7 @@ extension TrimSelectionError {
      var trims: [Trim] = []
      var selectedTrim: Trim?
      var error: TrimSelectionError?
-     var vehicleId: Int
+     var carId: Int
   }
 
   enum ViewAction: Equatable {
