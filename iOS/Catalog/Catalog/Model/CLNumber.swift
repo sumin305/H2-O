@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CLNumber: Comparable, Hashable {
+struct CLNumber: Comparable, Hashable, Codable {
 
   static func < (lhs: CLNumber, rhs: CLNumber) -> Bool {
     return lhs.value < rhs.value

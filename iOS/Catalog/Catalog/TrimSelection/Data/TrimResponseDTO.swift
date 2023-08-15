@@ -61,3 +61,7 @@ struct TrimDefaultOptionDTO: Decodable {
   var internalColor: InternalColorDTO?
   var externalColor: ExternalColorDTO?
 }
+
+extension TrimDefaultOptionDTO {
+  func toDomain() -> TrimDefaultOption
+}
