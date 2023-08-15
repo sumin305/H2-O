@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct CarModel {
+struct SummaryQuotationInfo {
   var name: String
   var price: CLNumber
 }
@@ -16,36 +16,40 @@ struct CarModel {
 struct SummaryCarQuotation {
   var externalImage: URL
   var internalImage: URL
-  var model: (name: String, price: CLNumber)
-  var trim: (name: String, price: CLNumber)
-  var powertrain: (name: String, price: CLNumber)
-  var bodyType: (name: String, price: CLNumber)
-  var drivetrain: (name: String, price: CLNumber)
-  var externalColor: (name: String, price: CLNumber)
-  var internalColor: (name: String, price: CLNumber)
-  var options: [(name: String, price: CLNumber)]
+  var model: SummaryQuotationInfo
+  var trim: SummaryQuotationInfo
+  var powertrain: SummaryQuotationInfo
+  var bodyType: SummaryQuotationInfo
+  var drivetrain: SummaryQuotationInfo
+  var externalColor: SummaryQuotationInfo
+  var internalColor: SummaryQuotationInfo
+  var options: [SummaryQuotationInfo]
 }
 
+struct CarQuotationType {
+  let name: String
+  let price: Int
+  let description: String
+  let image: String
+}
 struct CarQuotation {
-    var model: CarModel = CarModel(name: "팰리세이드", price: CLNumber(3880000))
+    var model: SummaryQuotationInfo = SummaryQuotationInfo(name: "팰리세이드", price: CLNumber(3880000))
     var trim: Trim
-    var powertrain: Powertrain
-    var bodyType: BodyType
-    var drivetrain: Drivetrain
-    var externalColor: ExternalColor
-    var internalColor: InternalColor
-    var options: [Option]
+    var modelType: ModelTypeModel
+    var externalColor: ExternalColorModel
+    var internalColor: InternalColorModel
+    var options: [OptionModel]
 
   func toSummary() -> SummaryCarQuotation {
-    return SummaryCarQuotation(externalImage: externalColor.images.first!,
+    return SummaryCarQuotation(externalImage: externalColor.image,
                         internalImage: internalColor.images.first!,
-                        model: (name: model.name, price: model.price),
-                        trim: (name: trim.name, price: trim.price),
-                        powertrain: (name: powertrain.name, price: powertrain.price),
-                        bodyType: (name: bodyType.name, price: bodyType.price),
-                        drivetrain: (name: drivetrain.name, price: drivetrain.price),
-                        externalColor: (name: externalColor.name, price: externalColor.price),
-                        internalColor: (name: internalColor.name, price: internalColor.price),
-                        options: options.map {(name: $0.name, price: $0.price)})
+                        model: SummaryQuotationInfo(name: model.name, price: model.price),
+                        trim: SummaryQuotationInfo(name: trim.name, price: trim.price),
+                        powertrain: SummaryQuotationInfo(name: powertrain.name, price: powertrain.price),
+                        bodyType: SummaryQuotationInfo(name: bodyType.name, price: bodyType.price),
+                        drivetrain: SummaryQuotationInfo(name: drivetrain.name, price: drivetrain.price),
+                        externalColor: SummaryQuotationInfo(name: externalColor.name, price: externalColor.price),
+                        internalColor: SummaryQuotationInfo(name: internalColor.name, price: internalColor.price),
+                        options: options.map {SummaryQuotationInfo(name: $0.name, price: $0.price)})
   }
 }

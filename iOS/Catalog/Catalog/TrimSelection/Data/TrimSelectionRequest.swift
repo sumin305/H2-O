@@ -9,18 +9,21 @@ import Foundation
 
 enum TrimSelectionRequest {
   case fetchTrimList(vehicleId: Int)
+  case fetchDefaultOption(trimId: Int)
 }
 
 extension TrimSelectionRequest: RequestProtocol {
 
   var host: String {
-    return TrimAPIConstant.host
+    return API.host
   }
 
   var path: String {
     switch self {
-    case .fetchTrimList(let vehicleID):
-      return "/vehicle/\(vehicleID)"
+    case .fetchTrimList(let vehicleId):
+      return "/vehicle/\(vehicleId)"
+    case .fetchDefaultOption(let trimId):
+      return "/trim/\(trimId)/default-options"
     }
   }
 
@@ -41,6 +44,8 @@ extension TrimSelectionRequest: RequestProtocol {
   var requestType: RequestType {
     switch self {
     case .fetchTrimList:
+      return .GET
+    case .fetchDefaultOption:
       return .GET
     }
   }

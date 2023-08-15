@@ -45,7 +45,6 @@
 		B1604D142A8256DA00C7B07D /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1604D132A8256DA00C7B07D /* RequestType.swift */; };
 		B1604D182A82577A00C7B07D /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1604D172A82577A00C7B07D /* MockURLProtocol.swift */; };
 		B1604D1A2A82588F00C7B07D /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1604D192A82588F00C7B07D /* URLSessionProtocol.swift */; };
-		B1604D1F2A825D4900C7B07D /* TrimAPIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1604D1E2A825D4900C7B07D /* TrimAPIConstant.swift */; };
 		B1604D212A825FBA00C7B07D /* SecureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1604D202A825FBA00C7B07D /* SecureType.swift */; };
 		B1604D232A82609600C7B07D /* CLNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1604D222A82609600C7B07D /* CLNetworkError.swift */; };
 		B1604D252A8261B400C7B07D /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1604D242A8261B400C7B07D /* ContentType.swift */; };
@@ -135,6 +134,10 @@
 		EDCF32E92A8AA81500C46A4B /* HashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32E82A8AA81500C46A4B /* HashTag.swift */; };
 		EDCF32F02A8B6CA900C46A4B /* ExternalColorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32EF2A8B6CA900C46A4B /* ExternalColorDTO.swift */; };
 		EDCF32F32A8B6CC600C46A4B /* InternalColorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32F22A8B6CC600C46A4B /* InternalColorDTO.swift */; };
+		EDCF32F82A8B90D700C46A4B /* ExternalColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32F72A8B90D700C46A4B /* ExternalColorModel.swift */; };
+		EDCF32FA2A8B911800C46A4B /* InternalColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32F92A8B911800C46A4B /* InternalColorModel.swift */; };
+		EDCF32FE2A8B915E00C46A4B /* ExtraOptionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32FD2A8B915E00C46A4B /* ExtraOptionDTO.swift */; };
+		EDCF33002A8B91EA00C46A4B /* ExtraOptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32FF2A8B91EA00C46A4B /* ExtraOptionModel.swift */; };
 		EDD303FD2A8A09E600400DF9 /* HMGTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD303FC2A8A09E600400DF9 /* HMGTag.swift */; };
 		EDD304462A8A6AD300400DF9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD304452A8A6AD300400DF9 /* API.swift */; };
 		EDF882572A8A708A0077558F /* ModelTypeRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF882562A8A708A0077558F /* ModelTypeRequestDTO.swift */; };
@@ -201,7 +204,6 @@
 		B1604D132A8256DA00C7B07D /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		B1604D172A82577A00C7B07D /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		B1604D192A82588F00C7B07D /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
-		B1604D1E2A825D4900C7B07D /* TrimAPIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimAPIConstant.swift; sourceTree = "<group>"; };
 		B1604D202A825FBA00C7B07D /* SecureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureType.swift; sourceTree = "<group>"; };
 		B1604D222A82609600C7B07D /* CLNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLNetworkError.swift; sourceTree = "<group>"; };
 		B1604D242A8261B400C7B07D /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
@@ -294,6 +296,10 @@
 		EDCF32E82A8AA81500C46A4B /* HashTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTag.swift; sourceTree = "<group>"; };
 		EDCF32EF2A8B6CA900C46A4B /* ExternalColorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalColorDTO.swift; sourceTree = "<group>"; };
 		EDCF32F22A8B6CC600C46A4B /* InternalColorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalColorDTO.swift; sourceTree = "<group>"; };
+		EDCF32F72A8B90D700C46A4B /* ExternalColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalColorModel.swift; sourceTree = "<group>"; };
+		EDCF32F92A8B911800C46A4B /* InternalColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalColorModel.swift; sourceTree = "<group>"; };
+		EDCF32FD2A8B915E00C46A4B /* ExtraOptionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraOptionDTO.swift; sourceTree = "<group>"; };
+		EDCF32FF2A8B91EA00C46A4B /* ExtraOptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraOptionModel.swift; sourceTree = "<group>"; };
 		EDD303FC2A8A09E600400DF9 /* HMGTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMGTag.swift; sourceTree = "<group>"; };
 		EDD3042D2A8A64D600400DF9 /* Option.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		EDD3042E2A8A64D600400DF9 /* MaxOutputFromEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxOutputFromEngine.swift; sourceTree = "<group>"; };
@@ -378,6 +384,7 @@
 				B1604D5E2A853FA200C7B07D /* ModelTypeSelection */,
 				EDCF32EC2A8B6C7100C46A4B /* ExternalColorSelection */,
 				EDCF32ED2A8B6C7A00C46A4B /* InternalColorSelection */,
+				EDCF32F62A8B905500C46A4B /* OptionSelection */,
 				B1604D102A82569800C7B07D /* NetworkCore */,
 				ED1A70992A8364DE00F7920F /* Model */,
 				ED1A70942A8357FD00F7920F /* Quotation */,
@@ -497,7 +504,6 @@
 				B1604D3E2A8391CF00C7B07D /* Mock */,
 				B1604D372A8381BD00C7B07D /* TrimRequestDTO.swift */,
 				B1604D392A8381E900C7B07D /* TrimResponseDTO.swift */,
-				B1604D1E2A825D4900C7B07D /* TrimAPIConstant.swift */,
 				B1604D2E2A8335CA00C7B07D /* TrimSelectionRequest.swift */,
 				B1604D432A83943000C7B07D /* TrimSelectionRepository.swift */,
 				B1604D452A83AE4100C7B07D /* TrimAPIManager.swift */,
@@ -828,6 +834,7 @@
 		EDCF32EC2A8B6C7100C46A4B /* ExternalColorSelection */ = {
 			isa = PBXGroup;
 			children = (
+				EDCF32F42A8B902A00C46A4B /* Domain */,
 				EDCF32EE2A8B6C9E00C46A4B /* Data */,
 			);
 			path = ExternalColorSelection;
@@ -836,6 +843,7 @@
 		EDCF32ED2A8B6C7A00C46A4B /* InternalColorSelection */ = {
 			isa = PBXGroup;
 			children = (
+				EDCF32F52A8B903A00C46A4B /* Domain */,
 				EDCF32F12A8B6CBC00C46A4B /* Data */,
 			);
 			path = InternalColorSelection;
@@ -853,6 +861,47 @@
 			isa = PBXGroup;
 			children = (
 				EDCF32F22A8B6CC600C46A4B /* InternalColorDTO.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EDCF32F42A8B902A00C46A4B /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				EDCF32F72A8B90D700C46A4B /* ExternalColorModel.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		EDCF32F52A8B903A00C46A4B /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				EDCF32F92A8B911800C46A4B /* InternalColorModel.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		EDCF32F62A8B905500C46A4B /* OptionSelection */ = {
+			isa = PBXGroup;
+			children = (
+				EDCF32FC2A8B914600C46A4B /* Data */,
+				EDCF32FB2A8B913F00C46A4B /* Domain */,
+			);
+			path = OptionSelection;
+			sourceTree = "<group>";
+		};
+		EDCF32FB2A8B913F00C46A4B /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				EDCF32FF2A8B91EA00C46A4B /* ExtraOptionModel.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		EDCF32FC2A8B914600C46A4B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EDCF32FD2A8B915E00C46A4B /* ExtraOptionDTO.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1055,6 +1104,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDCF32FA2A8B911800C46A4B /* InternalColorModel.swift in Sources */,
 				ED1C70682A89C4EC0049D275 /* TrimCardView.swift in Sources */,
 				EDCF32C22A8A91D500C46A4B /* CLLinearGradient.swift in Sources */,
 				ED1C70672A89C4C00049D275 /* SnapCarousel.swift in Sources */,
@@ -1079,6 +1129,7 @@
 				B1604D442A83943000C7B07D /* TrimSelectionRepository.swift in Sources */,
 				EDBA5D582A808A8A0050BC35 /* CLPopUp.swift in Sources */,
 				EDBA5D592A808A8A0050BC35 /* DimmedZStack.swift in Sources */,
+				EDCF32FE2A8B915E00C46A4B /* ExtraOptionDTO.swift in Sources */,
 				EDCF32F32A8B6CC600C46A4B /* InternalColorDTO.swift in Sources */,
 				B1F2BC6A2A7B62E8005385E0 /* CLNavigationIntent.swift in Sources */,
 				B1604D122A8256B700C7B07D /* RequestProtocol.swift in Sources */,
@@ -1094,7 +1145,6 @@
 				B1604D292A82660700C7B07D /* APIManagerProtocol.swift in Sources */,
 				B194363D2A80AC8200C2FD69 /* CLOptionQuitAlertContentView.swift in Sources */,
 				B1084BF32A88792200AE1758 /* HMGDataBannerComponent.swift in Sources */,
-				B1604D1F2A825D4900C7B07D /* TrimAPIConstant.swift in Sources */,
 				B1084BEE2A87E5A800AE1758 /* CLDialog.swift in Sources */,
 				B19436452A80E5FD00C2FD69 /* AlertViewComponent.swift in Sources */,
 				ED1C70612A89C3A50049D275 /* EntryGuide.swift in Sources */,
@@ -1119,6 +1169,7 @@
 				B1A76B802A88CD92009C84EF /* ModeTypeModel.swift in Sources */,
 				B1084BEB2A87DF2B00AE1758 /* BlurredFullScreenCover.swift in Sources */,
 				EDCF32C42A8A91D500C46A4B /* CLQuotationSummarySheet.swift in Sources */,
+				EDCF32F82A8B90D700C46A4B /* ExternalColorModel.swift in Sources */,
 				B1604D322A836DBE00C7B07D /* Request.swift in Sources */,
 				EDF882572A8A708A0077558F /* ModelTypeRequestDTO.swift in Sources */,
 				B155C0DC2A7923A100F540CB /* IntentType.swift in Sources */,
@@ -1162,6 +1213,7 @@
 				ED1A70A72A8371CA00F7920F /* Option.swift in Sources */,
 				EDCF32BF2A8A91D500C46A4B /* CLToggle.swift in Sources */,
 				B1F2BC602A7B5B63005385E0 /* MockView.swift in Sources */,
+				EDCF33002A8B91EA00C46A4B /* ExtraOptionModel.swift in Sources */,
 				B1604D232A82609600C7B07D /* CLNetworkError.swift in Sources */,
 				ED64109C2A7FE1870033AEBC /* CLBudgetRangeIntent.swift in Sources */,
 				ED6410922A7FC4FF0033AEBC /* CLButton.swift in Sources */,

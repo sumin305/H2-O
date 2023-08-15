@@ -8,10 +8,10 @@
 import Foundation
 
 struct InternalColorDTO: Decodable {
-  var id: Int
-  var name: String
-  var choiceRatio: Int
-  var price: CLNumber
-  var hexCode: String
-  var images: [URL]
+  var id: Int?
+  var name: String?
+  var choiceRatio: Int?
+  var price: Int?
+  var hexCode: String?
+  var images: [URL?]
 }
