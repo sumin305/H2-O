@@ -10,6 +10,7 @@
 enum TrimSelectionError: LocalizedError, Equatable {
   case TrimArrayIsEmpty
   case NoDefaultOption
+  case NoSelectedTrim
 }
 
 extension TrimSelectionError {
@@ -19,6 +20,8 @@ extension TrimSelectionError {
         return "알아서하되 같이정해봐야할듯"
       case .NoDefaultOption:
         return "default option 없음"
+      case .NoSelectedTrim:
+        return "trim이 선택되지 않음"
     }
   }
 }
