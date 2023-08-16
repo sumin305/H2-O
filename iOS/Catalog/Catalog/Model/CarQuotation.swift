@@ -6,33 +6,46 @@
 //
 
 import Foundation
+import UIKit
+
+struct CarModel {
+  var name: String
+  var price: CLNumber
+}
+
+struct SummaryCarQuotation {
+  var externalImage: URL
+  var internalImage: URL
+  var model: (name: String, price: CLNumber)
+  var trim: (name: String, price: CLNumber)
+  var powertrain: (name: String, price: CLNumber)
+  var bodyType: (name: String, price: CLNumber)
+  var drivetrain: (name: String, price: CLNumber)
+  var externalColor: (name: String, price: CLNumber)
+  var internalColor: (name: String, price: CLNumber)
+  var options: [(name: String, price: CLNumber)]
+}
 
 struct CarQuotation {
-    var externalImage: String
-    var internalImage: String
-    var model: (name: String, price: CLNumber)
-    var trim: (name: String, price: CLNumber)
-    var powertrain: (name: String, price: CLNumber)
-    var bodyType: (name: String, price: CLNumber)
-    var drivingMethod: (name: String, price: CLNumber)
-    var externalColor: (name: String, price: CLNumber)
-    var internalColor: (name: String, price: CLNumber)
-    var options: [(name: String, price: CLNumber)]
+    var model: CarModel = CarModel(name: "팰리세이드", price: CLNumber(3880000))
+    var trim: Trim
+    var powertrain: Powertrain
+    var bodyType: BodyType
+    var drivetrain: Drivetrain
+    var externalColor: ExternalColor
+    var internalColor: InternalColor
+    var options: [Option]
 
-  static func mockQuotation() -> CarQuotation {
-    CarQuotation(externalImage: "external_image",
-                 internalImage: "internal_image",
-                 model: (name: "팰리세이드", price: CLNumber(3880000)),
-                 trim: (name: "Le Blanc (르블랑)", price: CLNumber(0)),
-                 powertrain: (name: "디젤 2.2", price: CLNumber(280000)),
-                 bodyType: (name: "7인승", price: CLNumber(0)),
-                 drivingMethod: (name: "2WD", price: CLNumber(0)),
-                 externalColor: (name: "어비스 블랙펄", price: CLNumber(150000)),
-                 internalColor: (name: "어비스 블랙펄", price: CLNumber(0)),
-                 options: [(name: "-", price: CLNumber(0)),
-                           (name: "-", price: CLNumber(0)),
-                           (name: "-", price: CLNumber(0)),
-                           (name: "-", price: CLNumber(0))]
-    )
+  func toSummary() -> SummaryCarQuotation {
+    return SummaryCarQuotation(externalImage: externalColor.images.first!,
+                        internalImage: internalColor.images.first!,
+                        model: (name: model.name, price: model.price),
+                        trim: (name: trim.name, price: trim.price),
+                        powertrain: (name: powertrain.name, price: powertrain.price),
+                        bodyType: (name: bodyType.name, price: bodyType.price),
+                        drivetrain: (name: drivetrain.name, price: drivetrain.price),
+                        externalColor: (name: externalColor.name, price: externalColor.price),
+                        internalColor: (name: internalColor.name, price: internalColor.price),
+                        options: options.map {(name: $0.name, price: $0.price)})
   }
 }

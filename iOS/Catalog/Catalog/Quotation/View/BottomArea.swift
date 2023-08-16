@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BottomArea {
   @Binding var showQuotationSummarySheet: Bool
+  var intent: CLNavigationIntentType
 }
 
 extension BottomArea: View {

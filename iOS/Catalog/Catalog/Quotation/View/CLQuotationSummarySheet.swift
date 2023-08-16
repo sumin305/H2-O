@@ -9,9 +9,9 @@ import SwiftUI
 
 struct CLQuotationSummarySheet: View {
   @State var isExternal: Bool = true
-  var quotation: CarQuotation
-
+  var summaryQuotation: SummaryCarQuotation
   @Binding var showQuotationSummarySheet: Bool
+
   var body: some View {
     VStack(spacing: 0) {
       // MARK: - 상단바
@@ -35,14 +35,12 @@ struct CLQuotationSummarySheet: View {
             ZStack {
               if isExternal {
                 VStack {
-                  Image(quotation.externalImage)
-                    .resizable()
+                  AsyncImage(url: summaryQuotation.externalImage)
                     .frame(width: 327, height: 160)
                   Spacer()
                 }
               } else {
-                Image(quotation.internalImage)
-                  .resizable()
+                AsyncImage(url: summaryQuotation.internalImage)
                   .frame(width: UIScreen.main.bounds.width)
               }
               VStack {
@@ -64,25 +62,25 @@ struct CLQuotationSummarySheet: View {
             // MARK: - 상세 정보 및 가격
             VStack(spacing: 16) {
               VStack(spacing: 8) {
-                CLListText(title: "모델", name: quotation.model.name, price: quotation.model.price)
-                CLListText(title: "트림", name: quotation.trim.name, price: quotation.trim.price)
+                CLListText(title: "모델", info: summaryQuotation.model)
+                CLListText(title: "트림", info: summaryQuotation.trim)
               }
               Divider().foregroundColor(Color("background2"))
               VStack(spacing: 8) {
-                CLListText(title: "파워트레인", name: quotation.powertrain.name, price: quotation.powertrain.price)
-                CLListText(title: "바디타입", name: quotation.bodyType.name, price: quotation.bodyType.price)
-                CLListText(title: "구동방식", name: quotation.drivingMethod.name, price: quotation.drivingMethod.price)
+                CLListText(title: "파워트레인", info: summaryQuotation.powertrain)
+                CLListText(title: "바디타입", info: summaryQuotation.bodyType)
+                CLListText(title: "구동방식", info: summaryQuotation.drivetrain)
               }
               Divider().foregroundColor(Color("background2"))
               VStack(spacing: 8) {
-                CLListText(title: "외장색상", name: quotation.externalColor.name, price: quotation.externalColor.price)
-                CLListText(title: "내장색상", name: quotation.internalColor.name, price: quotation.internalColor.price)
+                CLListText(title: "외장색상", info: summaryQuotation.externalColor)
+                CLListText(title: "내장색상", info: summaryQuotation.internalColor)
               }
               Divider().foregroundColor(Color("background2"))
               VStack(spacing: 8) {
-                let count: Int = quotation.options.count
+                let count: Int = summaryQuotation.options.count
                 ForEach(0..<count) { idx in
-                  CLListText(title: "옵션", name: quotation.options[idx].name, price: quotation.options[idx].price)
+                  CLListText(title: "옵션", info: summaryQuotation.options[idx])
                 }
               }
             }

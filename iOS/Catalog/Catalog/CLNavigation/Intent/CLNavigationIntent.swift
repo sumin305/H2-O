@@ -30,7 +30,7 @@ final class CLNavigationIntent: ObservableObject {
   typealias State = CLNavigationModel.State
   typealias ViewAction = CLNavigationModel.ViewAction
 
-  @Published var state: State = State(currentPage: 0)
+  @Published var state: State = State(currentPage: 0, currentQuotationPrice: CLNumber(41500000))
   var cancellable: Set<AnyCancellable> = []
 }
 
