@@ -12,6 +12,9 @@ enum QuotationModel {
   struct State {
     var totalPrice: CLNumber
     var quotation: CarQuotation?
+    var minPrice: CLNumber?
+    var maxPrice: CLNumber?
+    
   }
 
   enum ViewAction {

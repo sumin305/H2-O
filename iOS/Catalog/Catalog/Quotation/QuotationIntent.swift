@@ -26,8 +26,10 @@ extension Quotation: QuotationIntentType, IntentType {
 
   func mutate(action: QuotationModel.ViewAction, viewEffect: (() -> Void)?) {
     switch action {
-      case .isTrimSelected(let carQuotation):
+      case .isTrimSelected(let carQuotation, let minPrice, let maxPrice):
         state.quotation = carQuotation
+        state.minPrice = minPrice
+        state.maxPrice = maxPrice
         send(action: .isPriceChanged)
       case .isTrimChanged(let trim):
         state.quotation?.trim = trim
