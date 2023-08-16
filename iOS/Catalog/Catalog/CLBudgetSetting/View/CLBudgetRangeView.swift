@@ -100,6 +100,7 @@ extension CLBudgetRangeView: View {
         }
         .padding(.horizontal, 12)
         .padding(.bottom, 20)
+        .padding(.top, 12)
         .onAppear {
           intent.send(action: .onAppear)
             if status == .similarQuotation {
