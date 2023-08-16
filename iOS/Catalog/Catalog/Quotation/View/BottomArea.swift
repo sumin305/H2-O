@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BottomArea {
   @Binding var showQuotationSummarySheet: Bool
+  @StateObject var quotation = Quotation.shared
   var intent: CLNavigationIntentType
 }
 
@@ -17,7 +18,7 @@ extension BottomArea: View {
       VStack {
         CLQuotationPriceBar(showQuotationSummarySheet:
                                 $showQuotationSummarySheet,
-                            currentQuotationPrice: .constant(CLNumber(41500000)), buttonText: "견적 요약")
+                            currentQuotationPrice: quotation.state.totalPrice, buttonText: "견적 요약")
         CLDualChoiceButton(leftText: "이전", rightText: "다음", height: 52, leftAction: { print("이전 버튼 클릭") }, rightAction: { print("다음 버튼 클릭") })
       }
     }

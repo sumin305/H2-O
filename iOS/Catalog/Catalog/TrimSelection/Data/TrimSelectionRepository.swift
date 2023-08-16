@@ -17,11 +17,6 @@ final class TrimSelectionRepository: TrimSelectionRepositoryProtocol {
 
   private let trimSelectionRequestManager: RequestManagerProtocol = RequestManager(apiManager: TrimAPIManager())
 
-//
-//  init(trimSelectionRequestManager: RequestManagerProtocol) {
-//    self.trimSelectionRequestManager = trimSelectionRequestManager
-//  }
-
   func fetchTrims(in carId: Int) async throws -> [Trim] {
     let dto: [TrimDTO] = try await trimSelectionRequestManager
       .perform(TrimSelectionRequest.fetchTrimList(carId: carId))

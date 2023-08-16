@@ -29,11 +29,16 @@ extension TrimSelectionError {
  enum TrimSelectionModel {
 
    struct State: Equatable {
+     static func == (lhs: TrimSelectionModel.State, rhs: TrimSelectionModel.State) -> Bool {
+       lhs.selectedTrim == rhs.selectedTrim
+     }
 
      var trims: [Trim] = []
      var selectedTrim: Trim?
      var error: TrimSelectionError?
      var carId: Int
+     var quoation = Quotation.shared
+     var isTrimSelected: Bool = false
   }
 
   enum ViewAction: Equatable {

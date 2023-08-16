@@ -12,7 +12,7 @@ struct EntryPointView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-              CLNavigationView.build(intent: CLNavigationIntent(initialState: .init(currentPage: 0, currentQuotationPrice: CLNumber(0), quotation: nil)))
+              CLNavigationView.build(intent: CLNavigationIntent(initialState: .init(currentPage: 0)))
             }
             .padding(.bottom, 0.1)
             if showPopUp {

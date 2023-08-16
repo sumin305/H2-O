@@ -21,10 +21,11 @@ final class TrimSelectionIntent: ObservableObject {
 
   // MARK: - LifeCycle
 
-  init(initialState: State, repository: TrimSelectionRepositoryProtocol, quotation: Quotation) {
+  init(initialState: State, repository: TrimSelectionRepositoryProtocol, quotation: Quotation, navigationIntent: CLNavigationIntentType) {
     state = initialState
     self.repository = repository
     self.quotation
+    self.navigationIntent = navigationIntent
   }
 
   // MARK: - Internal
@@ -33,7 +34,7 @@ final class TrimSelectionIntent: ObservableObject {
 
   private var repository: TrimSelectionRepositoryProtocol
   private var quotation = Quotation.shared
-
+  private var navigationIntent: CLNavigationIntentType
   @Published var state: State = State(selectedTrim: nil, carId: 1)
 
   var cancellable: Set<AnyCancellable> = []
@@ -74,6 +75,8 @@ extension TrimSelectionIntent: TrimSelectionIntentType, IntentType {
             quotation.send(action: .isTrimSelected(defaultCarQuotation: defaultQuotation,
                                                    minPrice: minPrice,
                                                    maxPrice: maxPrice))
+            state.isTrimSelected = true
+            navigationIntent.send(action: .onTapNavTab(index: 1))
           } catch let error {
             state.error = error as? TrimSelectionError
           }

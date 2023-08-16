@@ -18,7 +18,7 @@ final class CLNavigationIntent: ObservableObject {
 
   // MARK: - Internal
 
-  @Published var state: State = State(currentPage: 0, currentQuotationPrice: CLNumber(0))
+  @Published var state: State = State(currentPage: 0)
   var cancellable: Set<AnyCancellable> = []
 }
 

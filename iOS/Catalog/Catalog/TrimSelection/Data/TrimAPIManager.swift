@@ -2,11 +2,10 @@
 //  TrimAPIManager.swift
 //  Catalog
 //
-//  Created by Jung peter on 8/9/23.
+//  Created by 이수민 on 2023/08/16.
 //
 
 import Foundation
-
-final class TrimAPIManager: APIManager {
+final class  TrimAPIManager: APIManager {
 
 }

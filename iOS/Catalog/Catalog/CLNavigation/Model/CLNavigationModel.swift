@@ -15,8 +15,7 @@ enum CLNavigationModel {
     }
 
     var currentPage: Int
-    var currentQuotationPrice: CLNumber
-    var quotation: CarQuotation?
+    var quotation = Quotation.shared
 
   }
   enum ViewAction: Equatable {

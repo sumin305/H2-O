@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CLQuotationSummarySheet: View {
   @State var isExternal: Bool = true
+  @State var currentQuotationPrice: CLNumber
   var summaryQuotation: SummaryCarQuotation
   @Binding var showQuotationSummarySheet: Bool
 
@@ -35,13 +36,23 @@ struct CLQuotationSummarySheet: View {
             ZStack {
               if isExternal {
                 VStack {
-                  AsyncImage(url: summaryQuotation.externalImage)
-                    .frame(width: 327, height: 160)
+                  AsyncImage(url: summaryQuotation.externalImage) { image in
+                    image
+                      .resizable()
+                      .frame(maxWidth: 327, maxHeight: 160)
+                  } placeholder: {
+                    EmptyView()
+                  }
                   Spacer()
                 }
               } else {
-                AsyncImage(url: summaryQuotation.internalImage)
-                  .frame(width: UIScreen.main.bounds.width)
+                AsyncImage(url: summaryQuotation.internalImage) { image in
+                  image
+                    .resizable()
+                    .frame(width: UIScreen.main.bounds.width)
+                } placeholder: {
+                  EmptyView()
+                }
               }
               VStack {
                 Spacer()
@@ -97,7 +108,7 @@ struct CLQuotationSummarySheet: View {
       }
       CLQuotationPriceBar(showQuotationSummarySheet:
                             $showQuotationSummarySheet,
-                          currentQuotationPrice: .constant(CLNumber(43560000)),
+                          currentQuotationPrice: currentQuotationPrice,
                           buttonText: "요약 닫기")
       CLButton(mainText: "견적 완료하기", height: 52, backgroundColor: Color.primary700) {
         showQuotationSummarySheet = false
