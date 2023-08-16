@@ -31,7 +31,7 @@ extension CLNavigationView {
 
 extension CLNavigationView: View {
   var body: some View {
-    VStack {
+    VStack(spacing: 0) {
       CLTopNaviBar(intent: intent)
       CLNavigationMenuView(currentPage: currentPageBinding, menuStatus: $menuStatus)
       ZStack {
