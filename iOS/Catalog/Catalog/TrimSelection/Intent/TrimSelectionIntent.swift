@@ -49,7 +49,6 @@ extension TrimSelectionIntent: TrimSelectionIntentType, IntentType {
             let trims = try await repository.fetchTrims(in: state.carId)
             self.send(action: .fetchTrims(trims: trims))
           } catch let error {
-            print("hello")
             state.error = error as? TrimSelectionError
           }
         }
@@ -61,6 +60,9 @@ extension TrimSelectionIntent: TrimSelectionIntentType, IntentType {
         } else {
           // TODO: trim Intent Error 만들고 정의하삼
         }
+        // 트림 선택할 경우. 트림 id
+      case .trimSelected(let index):
+        state.selectedTrim = state.trims[index]
 
       case .onTapTrimSelectButton:
         guard let trim = state.selectedTrim else { return }
@@ -68,15 +70,14 @@ extension TrimSelectionIntent: TrimSelectionIntentType, IntentType {
         Task {
           do {
             let defaultQuotation = try await repository.fetchDefaultOptionsByTrim(in: trim)
-            quotation.send(action: .isTrimSelected(defaultCarQuotation: defaultQuotation))
-            print(quotation.state.totalPrice, "@@@@@@@@")
+            let (maxPrice, minPrice) = try await repository.fetchMinMaxPriceByTrim(in: trim.id)
+            quotation.send(action: .isTrimSelected(defaultCarQuotation: defaultQuotation,
+                                                   minPrice: minPrice,
+                                                   maxPrice: maxPrice))
           } catch let error {
             state.error = error as? TrimSelectionError
           }
         }
-        // 트림 선택할 경우. 트림 id
-      case .trimSelected(let index):
-        state.selectedTrim = state.trims[index]
     }
   }
 }

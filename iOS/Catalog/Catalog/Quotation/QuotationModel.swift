@@ -12,13 +12,13 @@ enum QuotationModel {
   struct State {
     var totalPrice: CLNumber
     var quotation: CarQuotation?
-    var minPrice: CLNumber?
-    var maxPrice: CLNumber?
-    
+    var minPrice: CLNumber
+    var maxPrice: CLNumber
+
   }
 
   enum ViewAction {
-    case isTrimSelected(defaultCarQuotation: CarQuotation)
+    case isTrimSelected(defaultCarQuotation: CarQuotation, minPrice: CLNumber, maxPrice: CLNumber)
 
     case isTrimChanged(trim: Trim)
     case isPowertrainChanged(powertrain: PowerTrainModel)

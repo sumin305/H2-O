@@ -52,10 +52,10 @@ struct CLQuotationPriceBar: View {
     }
 }
 
-struct CLQuotationPriceBar_Previews: PreviewProvider {
-    static var previews: some View {
-        CLQuotationPriceBar(showQuotationSummarySheet: .constant(false),
-                            currentQuotationPrice: .constant(CLNumber(43560000)),
-                            buttonText: "견적 요약")
-    }
-}
+// struct CLQuotationPriceBar_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CLQuotationPriceBar(showQuotationSummarySheet: .constant(false),
+//                            currentQuotationPrice: .constant(CLNumber(43560000)),
+//                            buttonText: "견적 요약")
+//    }
+// }

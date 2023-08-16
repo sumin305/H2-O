@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct ExtraOptionDTO: Decodable {
-  var isPackage: Bool?
+struct OptionDTO: Decodable {
   var id: Int?
+  var isPackage: Bool?
   var category: String?
   var name: String?
   var hashTags: [String?]
-  var conainsHmgData: Bool?
+  var containsHmgData: Bool?
   var choiceRatio: Int?
   var price: Int?
 }

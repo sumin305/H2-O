@@ -10,12 +10,19 @@ import Combine
 
 final class Quotation: ObservableObject {
 
-  static let shared = Quotation(initialState: .init(totalPrice: CLNumber(0)))
+  static let shared = Quotation(initialState: .init(
+    totalPrice: CLNumber(0),
+    minPrice: CLNumber(0),
+    maxPrice: CLNumber(99999999)))
 
   private init(initialState: State) {
     state = initialState
   }
-  @Published var state: State = .init(totalPrice: CLNumber(0))
+
+  @Published var state: State = .init(
+    totalPrice: CLNumber(0),
+    minPrice: CLNumber(0),
+    maxPrice: CLNumber(99999999))
   var cancellable: Set<AnyCancellable> = []
 }
 

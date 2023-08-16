@@ -46,12 +46,12 @@ extension TrimDTO {
 
 struct TrimOptionDTO: Decodable {
   var dataLabel: String?
-  var frequency: Int?
+  var frequency: Double? // TODO: - 서버에서 Int로 바꿔주면 변경
 }
 
 extension TrimOptionDTO {
   func toDomain() -> HMGDatum {
-    return HMGDatum(optionTitle: dataLabel ?? "", optionFrequency: frequency ?? 0)
+    return HMGDatum(optionTitle: dataLabel ?? "", optionFrequency: Int(frequency ?? 0))
   }
 }
 
@@ -66,7 +66,7 @@ struct TrimDefaultOptionDTO: Decodable {
 extension TrimDefaultOptionDTO {
   func toDomain(trim: Trim) throws -> CarQuotation {
 
-    // TODO.. 에러처리 
+    // TODO: - 에러처리
     CarQuotation(trim: trim,
                  powertrain: try powertrain!.toDomain(),
                  bodytype: try bodytype!.toDomain(),
@@ -75,5 +75,19 @@ extension TrimDefaultOptionDTO {
                  internalColor: try internalColor!.toDomain(),
                  options: []
     )
+  }
+}
+
+struct MaxMinPriceDTO: Decodable {
+  var maxPrice: Int?
+  var minPrice: Int?
+}
+
+extension MaxMinPriceDTO {
+  func toDomain() throws -> (maxPrice: CLNumber, minPrice: CLNumber) {
+    let max = maxPrice ?? 99999999
+    let min = minPrice ?? 0
+    return (maxPrice: CLNumber(Int32(max)),
+            minPrice: CLNumber(Int32(min)))
   }
 }

@@ -9,14 +9,6 @@ import Foundation
 
 struct CLNumber: Comparable, Hashable, Codable {
 
-  static func < (lhs: CLNumber, rhs: CLNumber) -> Bool {
-    return lhs.value < rhs.value
-  }
-
-  static func + (lhs: CLNumber, rhs: CLNumber) -> CLNumber {
-    return CLNumber(lhs.value + rhs.value)
-  }
-
   var value: Int32 = 0
 
   init(_ price: Int32) {
@@ -53,5 +45,19 @@ extension CLNumber: CustomStringConvertible {
 
   var signedWon: String {
     return (value >= 0 ? "+" : "-") + self.won
+  }
+}
+
+extension CLNumber {
+  static func < (lhs: CLNumber, rhs: CLNumber) -> Bool {
+    return lhs.value < rhs.value
+  }
+
+  static func + (lhs: CLNumber, rhs: CLNumber) -> CLNumber {
+    return CLNumber(lhs.value + rhs.value)
+  }
+
+  static func / (lhs: CLNumber, rhs: CLNumber) -> CLNumber {
+    return CLNumber(lhs.value / rhs.value)
   }
 }
