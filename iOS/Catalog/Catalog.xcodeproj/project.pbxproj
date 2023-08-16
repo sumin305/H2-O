@@ -575,11 +575,11 @@
 		B1604D0F2A8255E000C7B07D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B1604D432A83943000C7B07D /* TrimSelectionRepository.swift */,
 				B1604D3E2A8391CF00C7B07D /* Mock */,
 				B1604D372A8381BD00C7B07D /* TrimRequestDTO.swift */,
 				B1604D392A8381E900C7B07D /* TrimResponseDTO.swift */,
 				B1604D2E2A8335CA00C7B07D /* TrimSelectionRequest.swift */,
-				B1604D432A83943000C7B07D /* TrimSelectionRepository.swift */,
 				B1604D452A83AE4100C7B07D /* TrimAPIManager.swift */,
 				ED1C70622A89C3C50049D275 /* Trim.swift */,
 			);
