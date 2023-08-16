@@ -39,17 +39,29 @@ extension CLNavigationView: View {
           TrimSelectionView.build(intent: TrimSelectionIntent(
             initialState: .init(
               carId: 1),
-            repository: TrimSelectionRepository(), quotation: Quotation.shared, navigationIntent: intent)).tag(0)
-          ModelTypeSelectionContainerView.build(intent: .init(initialState: .mock(), repository: MockModelTypeRepository())).tag(1)
+            repository: TrimSelectionRepository(), quotation: Quotation.shared, navigationIntent: intent))
+          .tag(0)
+          ModelTypeSelectionContainerView.build(intent: .init(initialState: .mock(), repository: MockModelTypeRepository()))
+            .tag(1)
+
           ExternalSelectionContainerView.build(
             intent: .init(initialState: .init(selectedTrimId: 2),
-                          repository: ExteriorColorRepository(requestManager: RequestManager(apiManager: ExteriorColorAPIManager())))).tag(2)
+                          repository: ExteriorColorRepository(requestManager: RequestManager(apiManager: ExteriorColorAPIManager()))))
+          .tag(2)
+
           InteriorColorSelectionView.build(
             intent: .init(initialState: .init(selectedTrimID: 2, selectedColorId: 1, trimColors: []),
-                          repository: InteriorColorSelectionRepository(requestManager: RequestManager(apiManager: InteriorAPIManager())))).tag(3)
-          MockView(image: mockImageName[4]).tag(4)
-          QuotationCompleteView().tag(5)
+                          repository: InteriorColorSelectionRepository(requestManager: RequestManager(apiManager: InteriorAPIManager()))))
+          .tag(3)
+
+          MockView(image: mockImageName[4])
+            .tag(4)
+
+          QuotationCompleteView()
+            .tag(5)
+
         }
+        .onAppear { UIScrollView.appearance().isScrollEnabled = false }
         .tabViewStyle(.page(indexDisplayMode: .never))
         if state.currentPage != 0 {
           CLBudgetRangeView.build(
