@@ -36,7 +36,7 @@ extension QuotationCompleteView: View {
       } else {
         AsyncImage(url: quotation.state.quotation?.trim.internalImage ) { image in
           image
-            .resizable()
+            .scaledToFill()
         } placeholder: {
           EmptyView()
         }
