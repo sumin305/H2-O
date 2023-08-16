@@ -13,6 +13,10 @@ struct CLNumber: Comparable, Hashable, Codable {
     return lhs.value < rhs.value
   }
 
+  static func + (lhs: CLNumber, rhs: CLNumber) -> CLNumber {
+    return CLNumber(lhs.value + rhs.value)
+  }
+
   var value: Int32 = 0
 
   init(_ price: Int32) {

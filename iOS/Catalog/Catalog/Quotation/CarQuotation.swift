@@ -38,6 +38,18 @@ struct CarQuotation {
 }
 
 extension CarQuotation {
+
+  func calculateTotalPrice() -> CLNumber {
+      return    model.price +
+                trim.price +
+                powertrain.price +
+                bodytype.price +
+                drivetrain.price +
+                externalColor.price +
+                internalColor.price +
+                options.reduce(CLNumber(0)) { $0 + ($1.price) }
+  }
+
   func toSummary() -> SummaryCarQuotation {
     return SummaryCarQuotation(externalImage: trim.externalImage,
                                internalImage: trim.internalImage,
