@@ -149,6 +149,7 @@
 		ED2B8CE52A8CFDF900F561FA /* TrimDefaultOptionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B8CE42A8CFDF900F561FA /* TrimDefaultOptionDTO.swift */; };
 		ED2B8CE72A8CFE0C00F561FA /* MaxMinPriceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B8CE62A8CFE0C00F561FA /* MaxMinPriceDTO.swift */; };
 		ED2B8CE92A8CFEFA00F561FA /* TrimAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B8CE82A8CFEFA00F561FA /* TrimAPIManager.swift */; };
+		ED2B8CEC2A8D282F00F561FA /* QuotationCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B8CEB2A8D282F00F561FA /* QuotationCompleteView.swift */; };
 		ED3DC0282A865B9C009EE04C /* HMGDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3DC0272A865B9C009EE04C /* HMGDataCard.swift */; };
 		ED6410922A7FC4FF0033AEBC /* CLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6410882A7FC4FF0033AEBC /* CLButton.swift */; };
 		ED6410942A7FC4FF0033AEBC /* CLDualChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED64108A2A7FC4FF0033AEBC /* CLDualChoiceButton.swift */; };
@@ -345,6 +346,7 @@
 		ED2B8CE42A8CFDF900F561FA /* TrimDefaultOptionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimDefaultOptionDTO.swift; sourceTree = "<group>"; };
 		ED2B8CE62A8CFE0C00F561FA /* MaxMinPriceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxMinPriceDTO.swift; sourceTree = "<group>"; };
 		ED2B8CE82A8CFEFA00F561FA /* TrimAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimAPIManager.swift; sourceTree = "<group>"; };
+		ED2B8CEB2A8D282F00F561FA /* QuotationCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationCompleteView.swift; sourceTree = "<group>"; };
 		ED3DC0272A865B9C009EE04C /* HMGDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMGDataCard.swift; sourceTree = "<group>"; };
 		ED6410822A7FC4FF0033AEBC /* DimmedZStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmedZStack.swift; sourceTree = "<group>"; };
 		ED6410882A7FC4FF0033AEBC /* CLButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLButton.swift; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 		B155C0AE2A7920A800F540CB /* Catalog */ = {
 			isa = PBXGroup;
 			children = (
+				ED2B8CEA2A8D27C700F561FA /* QuotationComplete */,
 				B1F988DF2A8B1C3700C7B65F /* InteriorColorSelection */,
 				B16DFF482A8A3E2C00642730 /* ExternalColorSelection */,
 				B1604D0E2A8255D200C7B07D /* TrimSelection */,
@@ -907,6 +910,14 @@
 				ED2B8CE02A8CFDBD00F561FA /* TrimDTO.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		ED2B8CEA2A8D27C700F561FA /* QuotationComplete */ = {
+			isa = PBXGroup;
+			children = (
+				ED2B8CEB2A8D282F00F561FA /* QuotationCompleteView.swift */,
+			);
+			path = QuotationComplete;
 			sourceTree = "<group>";
 		};
 		ED6410832A7FC4FF0033AEBC /* Button */ = {
@@ -1377,6 +1388,7 @@
 				EDE434F12A8BFE75007BD0DE /* QuotationIntent.swift in Sources */,
 				B16DFF362A89548300642730 /* ModelTypeRepositoryProtocol.swift in Sources */,
 				B1604D252A8261B400C7B07D /* ContentType.swift in Sources */,
+				ED2B8CEC2A8D282F00F561FA /* QuotationCompleteView.swift in Sources */,
 				B1604D182A82577A00C7B07D /* MockURLProtocol.swift in Sources */,
 				B1604D272A8265B500C7B07D /* RequestManager.swift in Sources */,
 				B1604D292A82660700C7B07D /* APIManagerProtocol.swift in Sources */,
