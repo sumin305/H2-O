@@ -12,6 +12,8 @@ struct QuotationCompleteView {
   let modalTopHeight: CGFloat = 30
   let titleTopPadding: CGFloat = 177
   let externalImageHeight: CGFloat = 222
+  let totalHeight: CGFloat = 534
+  var (positionX, positionY): (CGFloat, CGFloat) = (0, 0)
   @SwiftUI.State var isExternal: Bool = true
 }
 
@@ -33,28 +35,45 @@ extension QuotationCompleteView: View {
           }
           Spacer()
         }
+        .background(
+          Image("QuotationCompleteBackground")
+            .resizable()
+        )
       } else {
-        AsyncImage(url: quotation.state.quotation?.trim.internalImage ) { image in
-          image
-            .scaledToFill()
-        } placeholder: {
-          EmptyView()
+
+        ZStack {
+          GeometryReader { proxy in
+            ScrollView(.horizontal, showsIndicators: false) {
+                    AsyncImage(url: quotation.state.quotation?.trim.internalImage) { img in
+                      img
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    } placeholder: {
+                      EmptyView()
+                    }
+              }
+            .frame(minWidth: proxy.size.width, maxHeight: proxy.size.height)
+          }
         }
       }
       VStack {
         Spacer()
         CLToggle(isLeft: $isExternal)
+          .padding(.vertical, 8)
       }
     }
-    .background(
-      Image("QuotationCompleteBackground")
-        .resizable()
-    )
   }
 }
 
 struct QuotationCompleteView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuotationCompleteView()
-    }
+  static var previews: some View {
+    QuotationCompleteView()
+  }
+}
+
+struct ScrollOffsetKey: PreferenceKey {
+  static var defaultValue: CGFloat = .zero
+  static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+    value += nextValue()
+  }
 }
