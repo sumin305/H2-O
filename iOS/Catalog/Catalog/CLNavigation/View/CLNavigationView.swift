@@ -63,12 +63,17 @@ extension CLNavigationView: View {
         }
         .onAppear { UIScrollView.appearance().isScrollEnabled = false }
         .tabViewStyle(.page(indexDisplayMode: .never))
-        if state.currentPage != 0 {
+        if state.currentPage != 0 && state.currentPage != 5 {
           CLBudgetRangeView.build(
             intent: CLBudgetRangeIntent(initialState:
                 .init(currentQuotationPrice: quotation.state.totalPrice,
-                      budgetPrice: (quotation.state.maxPrice + quotation.state.minPrice) / CLNumber(2)))
+                      budgetPrice: (quotation.state.maxPrice + quotation.state.minPrice) / CLNumber(2), status: .default))
           )
+        } else if state.currentPage == 5 {
+          CLBudgetRangeView.build(
+            intent: CLBudgetRangeIntent(initialState:
+                .init(currentQuotationPrice: quotation.state.totalPrice,
+                      budgetPrice: (quotation.state.maxPrice + quotation.state.minPrice) / CLNumber(2), status: .complete)))
         }
       }
       if state.currentPage != 0 {

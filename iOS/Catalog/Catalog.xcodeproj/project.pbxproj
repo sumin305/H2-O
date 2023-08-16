@@ -180,6 +180,9 @@
 		EDD054002A8C02A900FBD23F /* QuotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD053FF2A8C02A900FBD23F /* QuotationModel.swift */; };
 		EDD303FD2A8A09E600400DF9 /* HMGTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD303FC2A8A09E600400DF9 /* HMGTag.swift */; };
 		EDD304462A8A6AD300400DF9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD304452A8A6AD300400DF9 /* API.swift */; };
+		EDDCA98D2A8D51F1003DFD43 /* QuotationSheetTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDCA98C2A8D51F1003DFD43 /* QuotationSheetTop.swift */; };
+		EDDCA98F2A8D553E003DFD43 /* QuotationExteriorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDCA98E2A8D553E003DFD43 /* QuotationExteriorView.swift */; };
+		EDDCA9912A8D5607003DFD43 /* QuotationInteriorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDCA9902A8D5607003DFD43 /* QuotationInteriorView.swift */; };
 		EDE434F12A8BFE75007BD0DE /* QuotationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE434F02A8BFE75007BD0DE /* QuotationIntent.swift */; };
 		EDF071A32A8CC588002AD0DB /* TrimDefaultOption.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF071A22A8CC588002AD0DB /* TrimDefaultOption.json */; };
 		EDF071A52A8CC629002AD0DB /* TrimMaxMinPrice.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF071A42A8CC629002AD0DB /* TrimMaxMinPrice.json */; };
@@ -394,6 +397,9 @@
 		EDD304372A8A64D600400DF9 /* ModelTypeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTypeRepository.swift; sourceTree = "<group>"; };
 		EDD304422A8A668B00400DF9 /* ModelTypeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTypeRequest.swift; sourceTree = "<group>"; };
 		EDD304452A8A6AD300400DF9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		EDDCA98C2A8D51F1003DFD43 /* QuotationSheetTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationSheetTop.swift; sourceTree = "<group>"; };
+		EDDCA98E2A8D553E003DFD43 /* QuotationExteriorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationExteriorView.swift; sourceTree = "<group>"; };
+		EDDCA9902A8D5607003DFD43 /* QuotationInteriorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationInteriorView.swift; sourceTree = "<group>"; };
 		EDE434F02A8BFE75007BD0DE /* QuotationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationIntent.swift; sourceTree = "<group>"; };
 		EDF071A22A8CC588002AD0DB /* TrimDefaultOption.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TrimDefaultOption.json; sourceTree = "<group>"; };
 		EDF071A42A8CC629002AD0DB /* TrimMaxMinPrice.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TrimMaxMinPrice.json; sourceTree = "<group>"; };
@@ -916,6 +922,9 @@
 			isa = PBXGroup;
 			children = (
 				ED2B8CEB2A8D282F00F561FA /* QuotationCompleteView.swift */,
+				EDDCA9902A8D5607003DFD43 /* QuotationInteriorView.swift */,
+				EDDCA98E2A8D553E003DFD43 /* QuotationExteriorView.swift */,
+				EDDCA98C2A8D51F1003DFD43 /* QuotationSheetTop.swift */,
 			);
 			path = QuotationComplete;
 			sourceTree = "<group>";
@@ -1370,6 +1379,7 @@
 				B1604D6D2A85569400C7B07D /* DetailButtonStyle.swift in Sources */,
 				B16DFF342A89533300642730 /* ModelTypeOption.swift in Sources */,
 				B1604D382A8381BD00C7B07D /* TrimRequestDTO.swift in Sources */,
+				EDDCA98F2A8D553E003DFD43 /* QuotationExteriorView.swift in Sources */,
 				EDD303FD2A8A09E600400DF9 /* HMGTag.swift in Sources */,
 				B1F988E32A8B1D5A00C7B65F /* InteriorColorSelectionHorizontalList.swift in Sources */,
 				B1604D442A83943000C7B07D /* TrimSelectionRepository.swift in Sources */,
@@ -1406,6 +1416,7 @@
 				B1604D422A83935400C7B07D /* JSONLoader.swift in Sources */,
 				B1F2BC622A7B5B7A005385E0 /* CLNavigationMenuTitleView.swift in Sources */,
 				ED1A70A32A836F3700F7920F /* CarQuotation.swift in Sources */,
+				EDDCA98D2A8D51F1003DFD43 /* QuotationSheetTop.swift in Sources */,
 				B19436432A80AE2000C2FD69 /* CLOptionSelectAlertContentView.swift in Sources */,
 				ED1C70602A89C3810049D275 /* CLSimilarQuotationSlideView.swift in Sources */,
 				B191DD302A8B4E53008196CD /* CarColorType.swift in Sources */,
@@ -1429,6 +1440,7 @@
 				EDCF32C42A8A91D500C46A4B /* CLQuotationSummarySheet.swift in Sources */,
 				EDCF32F82A8B90D700C46A4B /* ExternalColorModel.swift in Sources */,
 				B1604D322A836DBE00C7B07D /* Request.swift in Sources */,
+				EDDCA9912A8D5607003DFD43 /* QuotationInteriorView.swift in Sources */,
 				EDF882572A8A708A0077558F /* ModelTypeRequestDTO.swift in Sources */,
 				B155C0DC2A7923A100F540CB /* IntentType.swift in Sources */,
 				EDA3CDD52A8243CC0001BB9C /* CLSimilarQuotationButton.swift in Sources */,

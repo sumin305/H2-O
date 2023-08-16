@@ -9,9 +9,6 @@ import SwiftUI
 
 struct QuotationCompleteView {
   var quotation = Quotation.shared
-  let modalTopHeight: CGFloat = 30
-  let titleTopPadding: CGFloat = 177
-  let externalImageHeight: CGFloat = 222
   let totalHeight: CGFloat = 534
   var (positionX, positionY): (CGFloat, CGFloat) = (0, 0)
   @SwiftUI.State var isExternal: Bool = true
@@ -19,49 +16,22 @@ struct QuotationCompleteView {
 
 extension QuotationCompleteView: View {
   var body: some View {
-    ZStack {
-      if isExternal {
+    VStack {
+      ZStack {
+        if isExternal {
+            QuotationExteriorView()
+        } else {
+            QuotationInteriorView()
+        }
         VStack {
-          Spacer().frame(height: titleTopPadding)
-          Text(quotation.state.quotation?.trim.name ?? "")
-            .catalogFont(type: .HeadKRBold65)
-            .foregroundColor(.white)
-          AsyncImage(url: quotation.state.quotation?.trim.externalImage) { image in
-            image
-              .resizable()
-              .frame(maxWidth: .infinity, maxHeight: externalImageHeight)
-          } placeholder: {
-            EmptyView()
-          }
           Spacer()
-        }
-        .background(
-          Image("QuotationCompleteBackground")
-            .resizable()
-        )
-      } else {
-
-        ZStack {
-          GeometryReader { proxy in
-            ScrollView(.horizontal, showsIndicators: false) {
-                    AsyncImage(url: quotation.state.quotation?.trim.internalImage) { img in
-                      img
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                    } placeholder: {
-                      EmptyView()
-                    }
-              }
-            .frame(minWidth: proxy.size.width, maxHeight: proxy.size.height)
-          }
+          CLToggle(isLeft: $isExternal)
+            .padding(.vertical, 8)
         }
       }
-      VStack {
-        Spacer()
-        CLToggle(isLeft: $isExternal)
-          .padding(.vertical, 8)
-      }
+      QuotationSheetTop()
     }
+
   }
 }
 
