@@ -31,7 +31,7 @@ final class TrimSelectionIntent: ObservableObject {
   typealias ViewAction = TrimSelectionModel.ViewAction
 
   private var repository: TrimSelectionRepositoryProtocol
-  @Published var state: State = State(selectedTrim: nil, vehicleId: 123)
+  @Published var state: State = State(selectedTrim: nil, vehicleId: 1)
 
   var cancellable: Set<AnyCancellable> = []
 }
@@ -65,6 +65,7 @@ extension TrimSelectionIntent: TrimSelectionIntentType, IntentType {
         // 트림 선택할 경우. 트림 id
       case .trimSelected(let index):
         state.selectedTrim = state.trims[index]
+        print(index)
     }
   }
 }

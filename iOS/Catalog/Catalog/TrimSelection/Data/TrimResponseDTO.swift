@@ -34,11 +34,12 @@ struct HMGDatum {
 
 extension TrimDTO {
   func toDomain() throws -> Trim {
-    return Trim(    id: UUID(),
+    return Trim(    id: id ?? 1234,
                     name: name ?? "르블랑",
                     description: description ?? "",
                     price: CLNumber(Int32(price ?? 0)),
-                    imageURL: URL(string: images?[0] ?? ""),
+                    externalImage: URL(string: images?[0] ?? ""),
+                    internalImage: URL(string: images?[1] ?? ""),
                     hmgData: options?.map { $0.toDomain() } ?? [])
   }
 }
@@ -55,13 +56,23 @@ extension TrimOptionDTO {
 }
 
 struct TrimDefaultOptionDTO: Decodable {
-  var powertrain: PowertrainDTO?
+  var powertrain: PowerTrainDTO?
   var bodytype: BodyTypeDTO?
-  var drivetrain: DrivetrainDTO?
-  var internalColor: InternalColorDTO?
+  var drivetrain: DriveTrainDTO?
   var externalColor: ExternalColorDTO?
+  var internalColor: InternalColorDTO?
 }
 
 extension TrimDefaultOptionDTO {
-  func toDomain() -> TrimDefaultOption
+  func toDomain(trim: Trim) throws -> CarQuotation {
+
+    CarQuotation(trim: trim,
+                 powertrain: powertrain.toDomain(),
+                 bodytype: bodytype?.toDomain(),
+                 drivetrain: drivetrain?.toDomain(),
+                 externalColor: externalColor?.toDomain(),
+                 internalColor: internalColor?.toDomain(),
+                 options: []
+    )
+  }
 }

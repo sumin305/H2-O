@@ -10,7 +10,7 @@ import Foundation
 protocol TrimSelectionRepositoryProtocol {
 
   func fetchTrims(in vehicleId: Int) async throws -> [Trim]
-  func fetchDefaultOptionsByTrim(in trimId: Int) async throws -> TrimDefaultOptionDTO
+  func fetchDefaultOptionsByTrim(in trim: Trim) async throws -> CarQuotation
 }
 
 final class TrimSelectionRepository: TrimSelectionRepositoryProtocol {
@@ -27,9 +27,9 @@ final class TrimSelectionRepository: TrimSelectionRepositoryProtocol {
     return dto.toDomain()
   }
 
-  func fetchDefaultOptionsByTrim(in trimId: Int) async throws -> TrimDefaultOptionDTO {
-    let dto: TrimDefaultOptionDTO = try await trimSelectionRequestManager.perform(TrimSelectionRequest.fetchDefaultOption(trimId: trimId))
-    return dto.toDomain()
+  func fetchDefaultOptionsByTrim(in trim: Trim) async throws -> CarQuotation {
+    let dto: TrimDefaultOptionDTO = try await trimSelectionRequestManager.perform(TrimSelectionRequest.fetchDefaultOption(trimId: trim.id))
+    return try dto.toDomain(trim: trim)
   }
 
 }
