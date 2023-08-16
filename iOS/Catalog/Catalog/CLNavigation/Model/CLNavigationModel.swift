@@ -15,7 +15,6 @@ enum CLNavigationModel {
     }
 
     var currentPage: Int
-    var quotation = Quotation.shared
 
   }
   enum ViewAction: Equatable {

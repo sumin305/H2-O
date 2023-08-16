@@ -12,6 +12,7 @@ struct CLNavigationView: IntentBindingType {
   var intent: CLNavigationIntentType { container.intent }
   var state: CLNavigationModel.State { intent.state }
   let mockImageName: [String] = ["trim", "modelType", "external", "internal", "option", "complete"]
+  var quotation = Quotation.shared
   @SwiftUI.State var menuStatus: [CLNavigationMenuTitleView.Status] = [.inactive,
                                                                        .inactive,
                                                                        .inactive,
@@ -53,8 +54,8 @@ extension CLNavigationView: View {
         if state.currentPage != 0 {
           CLBudgetRangeView.build(
             intent: CLBudgetRangeIntent(initialState:
-                .init(currentQuotationPrice: state.quotation.state.totalPrice,
-                      budgetPrice: (state.quotation.state.maxPrice + state.quotation.state.minPrice) / CLNumber(2)))
+                .init(currentQuotationPrice: quotation.state.totalPrice,
+                      budgetPrice: (quotation.state.maxPrice + quotation.state.minPrice) / CLNumber(2)))
           )
         }
       }
@@ -63,7 +64,7 @@ extension CLNavigationView: View {
       }
     }
     .sheet(isPresented: $showQuotationSummarySheet) {
-      CLQuotationSummarySheet(currentQuotationPrice: state.quotation.state.totalPrice, summaryQuotation: state.quotation.state.quotation?.toSummary() ?? SummaryCarQuotation(
+      CLQuotationSummarySheet(currentQuotationPrice: quotation.state.totalPrice, summaryQuotation: quotation.state.quotation?.toSummary() ?? SummaryCarQuotation(
         model: SummaryQuotationInfo(name: "xx", price: CLNumber(0)),
         trim: SummaryQuotationInfo(name: "xx", price: CLNumber(0)),
         powertrain: SummaryQuotationInfo(name: "xx", price: CLNumber(0)),
