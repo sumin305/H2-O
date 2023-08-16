@@ -31,7 +31,8 @@ final class TrimSelectionIntent: ObservableObject {
   typealias ViewAction = TrimSelectionModel.ViewAction
 
   private var repository: TrimSelectionRepositoryProtocol
-  @Published var state: State = State(selectedTrim: nil, vehicleId: 1)
+
+  @Published var state: State = State(selectedTrim: nil, carId: 1)
 
   var cancellable: Set<AnyCancellable> = []
 }
@@ -44,9 +45,10 @@ extension TrimSelectionIntent: TrimSelectionIntentType, IntentType {
       case .enteredTrimPage:
         Task {
           do {
-            let trims = try await repository.fetchTrims(in: state.vehicleId)
+            let trims = try await repository.fetchTrims(in: state.carId)
             self.send(action: .fetchTrims(trims: trims))
           } catch let error {
+            print("hello")
             state.error = error as? TrimSelectionError
           }
         }

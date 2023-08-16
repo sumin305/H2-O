@@ -21,14 +21,20 @@ final class TrimSelectionRepository: TrimSelectionRepositoryProtocol {
     self.trimSelectionRequestManager = trimSelectionRequestManager
   }
 
-  func fetchTrims(in vehicleId: Int) async throws -> [Trim] {
+  func fetchTrims(in carId: Int) async throws -> [Trim] {
     let dto: TrimResponseDTO = try await trimSelectionRequestManager
-      .perform(TrimSelectionRequest.fetchTrimList(vehicleId: vehicleId))
+      .perform(TrimSelectionRequest.fetchTrimList(carId: carId))
     return dto.toDomain()
   }
 
   func fetchDefaultOptionsByTrim(in trim: Trim) async throws -> CarQuotation {
-    let dto: TrimDefaultOptionDTO = try await trimSelectionRequestManager.perform(TrimSelectionRequest.fetchDefaultOption(trimId: trim.id))
+    let manager = RequestManager(apiManager: APIManager())
+    let request = TrimSelectionRequest.fetchDefaultOption(trimId: trim.id)
+    let url = URL(string: request.host + request.path)!
+
+    try request.createRequest()
+    let dto: TrimDefaultOptionDTO = try await
+    manager.perform(TrimSelectionRequest.fetchDefaultOption(trimId: trim.id))
     return try dto.toDomain(trim: trim)
   }
 

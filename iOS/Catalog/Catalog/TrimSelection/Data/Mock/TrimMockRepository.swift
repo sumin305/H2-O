@@ -18,14 +18,12 @@ final class TrimMockRepository: TrimSelectionRepositoryProtocol {
     ]
     let dto: TrimResponseDTO = try await manager.perform(TrimSelectionRequest.fetchTrimList(vehicleId: vehicleId))
       return dto.toDomain()
-  }
+    }
 
   func fetchDefaultOptionsByTrim(in trim: Trim) async throws -> CarQuotation {
     let manager = RequestManager(apiManager: APIManager())
-    let url = URL(string: TrimSelectionRequest.fetchDefaultOption(trimId: trim.id).host + TrimSelectionRequest.fetchDefaultOption(trimId: trim.id).path)!
     let dto: TrimDefaultOptionDTO = try await
     manager.perform(TrimSelectionRequest.fetchDefaultOption(trimId: trim.id))
     return try dto.toDomain(trim: trim)
   }
-
 }

@@ -26,7 +26,6 @@ extension CLNavigationView {
     .init(get: { state.currentPage },
           set: { intent.send(action: .onTapNavTab(index: $0)) })
   }
-
 }
 
 extension CLNavigationView: View {
@@ -38,8 +37,7 @@ extension CLNavigationView: View {
         TabView(selection: currentPageBinding) {
           TrimSelectionView.build(intent: TrimSelectionIntent(
             initialState: .init(
-            selectedTrim: nil,
-            vehicleId: 123),
+            carId: 1),
             repository: TrimMockRepository())).tag(0)
           ModelTypeSelectionContainerView.build(intent: .init(initialState: .mock(), repository: MockModelTypeRepository())).tag(1)
           ExternalSelectionContainerView.build(
@@ -65,7 +63,16 @@ extension CLNavigationView: View {
       }
     }
     .sheet(isPresented: $showQuotationSummarySheet) {
-        CLQuotationSummarySheet(summaryQuotation: state.quotation!.toSummary(),
+        CLQuotationSummarySheet(summaryQuotation: state.quotation?.toSummary() ?? SummaryCarQuotation(
+          model: SummaryQuotationInfo(name: "xx", price: CLNumber(0)),
+                                                                                                      trim: SummaryQuotationInfo(name: "xx", price: CLNumber(0)),
+                                                                                                      powertrain: SummaryQuotationInfo(name: "xx", price: CLNumber(0)),
+                                                                                                      bodytype: SummaryQuotationInfo(name: "xx", price: CLNumber(0)),
+                                                                                                      drivetrain: SummaryQuotationInfo(name: "xx", price: CLNumber(0)),
+                                                                                                      externalColor: SummaryQuotationInfo(name: "xx", price: CLNumber(0)),
+                                                                                                      internalColor: SummaryQuotationInfo(name: "xx", price: CLNumber(0)),
+                                                                                                      options: []),
+
                                 showQuotationSummarySheet: $showQuotationSummarySheet)
     }
 

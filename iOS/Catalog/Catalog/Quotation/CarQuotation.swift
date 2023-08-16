@@ -46,8 +46,10 @@ extension CarQuotation {
                                powertrain: SummaryQuotationInfo(name: powertrain.name, price: powertrain.price),
                                bodytype: SummaryQuotationInfo(name: bodytype.name, price: bodytype.price),
                                drivetrain: SummaryQuotationInfo(name: drivetrain.name, price: drivetrain.price),
-                               externalColor: SummaryQuotationInfo(name: externalColor.name, price: externalColor.price),
-                               internalColor: SummaryQuotationInfo(name: internalColor.name, price: internalColor.price),
-                               options: options.map {SummaryQuotationInfo(name: $0.name, price: $0.price)})
+                               externalColor: SummaryQuotationInfo(name: externalColor.name,
+                                                                   price: externalColor.price),
+                               internalColor: SummaryQuotationInfo(name: internalColor.name,
+                                                                   price: internalColor.price),
+                               options: options.map { SummaryQuotationInfo(name: $0.name, price: $0.price) })
   }
 }
