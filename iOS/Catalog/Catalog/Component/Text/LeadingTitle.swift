@@ -15,8 +15,8 @@ struct LeadingTitle: View {
           .catalogFont(type: .HeadKRMedium16)
         Spacer()
       }
+      .frame(height: 56)
       .padding(.leading, 20)
-      .padding(.vertical, 12)
     }
 }
 

@@ -65,7 +65,7 @@ struct QuotationCompleteSheet: View {
         }
       }
 
-    }
+   }
 }
 
 struct QuotationCompleteSheet_Previews: PreviewProvider {
