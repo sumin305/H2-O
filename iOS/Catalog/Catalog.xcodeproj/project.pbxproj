@@ -180,6 +180,11 @@
 		EDD054002A8C02A900FBD23F /* QuotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD053FF2A8C02A900FBD23F /* QuotationModel.swift */; };
 		EDD303FD2A8A09E600400DF9 /* HMGTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD303FC2A8A09E600400DF9 /* HMGTag.swift */; };
 		EDD304462A8A6AD300400DF9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD304452A8A6AD300400DF9 /* API.swift */; };
+		EDD3F0AD2A8DCC94006CE38A /* QuotationCompleteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3F0AC2A8DCC94006CE38A /* QuotationCompleteSheet.swift */; };
+		EDD3F0AF2A8DE3BC006CE38A /* CLSheetCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3F0AE2A8DE3BC006CE38A /* CLSheetCapsule.swift */; };
+		EDD3F0B32A8DF148006CE38A /* DetailQuotationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3F0B22A8DF148006CE38A /* DetailQuotationList.swift */; };
+		EDD3F0B52A8DF161006CE38A /* DetailQuotationTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3F0B42A8DF161006CE38A /* DetailQuotationTitle.swift */; };
+		EDD3F0B72A8DFE8D006CE38A /* LeadingTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3F0B62A8DFE8D006CE38A /* LeadingTitle.swift */; };
 		EDDCA98D2A8D51F1003DFD43 /* QuotationSheetTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDCA98C2A8D51F1003DFD43 /* QuotationSheetTop.swift */; };
 		EDDCA98F2A8D553E003DFD43 /* QuotationExteriorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDCA98E2A8D553E003DFD43 /* QuotationExteriorView.swift */; };
 		EDDCA9912A8D5607003DFD43 /* QuotationInteriorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDCA9902A8D5607003DFD43 /* QuotationInteriorView.swift */; };
@@ -397,6 +402,11 @@
 		EDD304372A8A64D600400DF9 /* ModelTypeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTypeRepository.swift; sourceTree = "<group>"; };
 		EDD304422A8A668B00400DF9 /* ModelTypeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTypeRequest.swift; sourceTree = "<group>"; };
 		EDD304452A8A6AD300400DF9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		EDD3F0AC2A8DCC94006CE38A /* QuotationCompleteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationCompleteSheet.swift; sourceTree = "<group>"; };
+		EDD3F0AE2A8DE3BC006CE38A /* CLSheetCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLSheetCapsule.swift; sourceTree = "<group>"; };
+		EDD3F0B22A8DF148006CE38A /* DetailQuotationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailQuotationList.swift; sourceTree = "<group>"; };
+		EDD3F0B42A8DF161006CE38A /* DetailQuotationTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailQuotationTitle.swift; sourceTree = "<group>"; };
+		EDD3F0B62A8DFE8D006CE38A /* LeadingTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingTitle.swift; sourceTree = "<group>"; };
 		EDDCA98C2A8D51F1003DFD43 /* QuotationSheetTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationSheetTop.swift; sourceTree = "<group>"; };
 		EDDCA98E2A8D553E003DFD43 /* QuotationExteriorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationExteriorView.swift; sourceTree = "<group>"; };
 		EDDCA9902A8D5607003DFD43 /* QuotationInteriorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationInteriorView.swift; sourceTree = "<group>"; };
@@ -438,6 +448,7 @@
 			children = (
 				B1084BEA2A87DF2B00AE1758 /* BlurredFullScreenCover.swift */,
 				B1084BED2A87E5A800AE1758 /* CLDialog.swift */,
+				EDD3F0AE2A8DE3BC006CE38A /* CLSheetCapsule.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -922,6 +933,9 @@
 			isa = PBXGroup;
 			children = (
 				ED2B8CEB2A8D282F00F561FA /* QuotationCompleteView.swift */,
+				EDD3F0AC2A8DCC94006CE38A /* QuotationCompleteSheet.swift */,
+				EDD3F0B22A8DF148006CE38A /* DetailQuotationList.swift */,
+				EDD3F0B42A8DF161006CE38A /* DetailQuotationTitle.swift */,
 				EDDCA9902A8D5607003DFD43 /* QuotationInteriorView.swift */,
 				EDDCA98E2A8D553E003DFD43 /* QuotationExteriorView.swift */,
 				EDDCA98C2A8D51F1003DFD43 /* QuotationSheetTop.swift */,
@@ -993,6 +1007,7 @@
 				EDBA5D552A808A8A0050BC35 /* pop-up */,
 				ED6410832A7FC4FF0033AEBC /* Button */,
 				B19436312A7E8C1500C2FD69 /* Alert */,
+				EDD3F0B62A8DFE8D006CE38A /* LeadingTitle.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1372,6 +1387,8 @@
 				EDBA3E3B2A83E48400BDB00F /* CLCancelButton.swift in Sources */,
 				B1604D6B2A854D3A00C7B07D /* HMGButtonArrowStyle.swift in Sources */,
 				ED1A70982A83646E00F7920F /* (null) in Sources */,
+				EDD3F0B32A8DF148006CE38A /* DetailQuotationList.swift in Sources */,
+				EDD3F0B52A8DF161006CE38A /* DetailQuotationTitle.swift in Sources */,
 				B191DD492A8BE0F4008196CD /* ExteriorColorAPIManager.swift in Sources */,
 				B191DD422A8B8607008196CD /* InteriorColorSelectionModel.swift in Sources */,
 				B191DD2C2A8B4CD6008196CD /* ExternalColorDisplayView.swift in Sources */,
@@ -1392,6 +1409,7 @@
 				B155C0E92A792BB100F540CB /* Color+.swift in Sources */,
 				B1A76B822A88D263009C84EF /* ModelTypeIntent.swift in Sources */,
 				B1604D3A2A8381E900C7B07D /* TrimResponseDTO.swift in Sources */,
+				EDD3F0B72A8DFE8D006CE38A /* LeadingTitle.swift in Sources */,
 				EDC1862F2A893577009EB498 /* CLInactiveButtonStyle.swift in Sources */,
 				B1604D2F2A8335CA00C7B07D /* TrimSelectionRequest.swift in Sources */,
 				B1F988EA2A8B3E5300C7B65F /* InteriorColor.swift in Sources */,
@@ -1440,6 +1458,7 @@
 				EDCF32C42A8A91D500C46A4B /* CLQuotationSummarySheet.swift in Sources */,
 				EDCF32F82A8B90D700C46A4B /* ExternalColorModel.swift in Sources */,
 				B1604D322A836DBE00C7B07D /* Request.swift in Sources */,
+				EDD3F0AD2A8DCC94006CE38A /* QuotationCompleteSheet.swift in Sources */,
 				EDDCA9912A8D5607003DFD43 /* QuotationInteriorView.swift in Sources */,
 				EDF882572A8A708A0077558F /* ModelTypeRequestDTO.swift in Sources */,
 				B155C0DC2A7923A100F540CB /* IntentType.swift in Sources */,
@@ -1486,6 +1505,7 @@
 				B191DD512A8BF157008196CD /* InteriorAPIManager.swift in Sources */,
 				B1F2BC642A7B5BA3005385E0 /* CLNavigationMenuView.swift in Sources */,
 				B16DFF472A8A161700642730 /* ModelTypeResponseDTO.swift in Sources */,
+				EDD3F0AF2A8DE3BC006CE38A /* CLSheetCapsule.swift in Sources */,
 				B16DFF412A895B8200642730 /* ResultOfCalculationOfFuelAndDisplacement.swift in Sources */,
 				B1604D4A2A83BECC00C7B07D /* MockAPIManager.swift in Sources */,
 				B155C0E02A7923AE00F540CB /* Container.swift in Sources */,

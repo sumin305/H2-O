@@ -12,6 +12,7 @@ struct QuotationCompleteView {
   let totalHeight: CGFloat = 534
   var (positionX, positionY): (CGFloat, CGFloat) = (0, 0)
   @SwiftUI.State var isExternal: Bool = true
+  @State var showSheet: Bool = false
 }
 
 extension QuotationCompleteView: View {
@@ -30,6 +31,17 @@ extension QuotationCompleteView: View {
         }
       }
       QuotationSheetTop()
+        .gesture(
+          DragGesture()
+            .onChanged { gesture in
+             if gesture.translation.height < 20 {
+                showSheet = true
+              }
+            }
+          )
+    }
+    .sheet(isPresented: $showSheet) {
+      QuotationCompleteSheet()
     }
 
   }
