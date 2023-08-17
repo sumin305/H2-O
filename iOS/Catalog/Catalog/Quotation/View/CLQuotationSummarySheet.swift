@@ -39,11 +39,11 @@ struct CLQuotationSummarySheet: View {
                   AsyncImage(url: summaryQuotation.externalImage) { image in
                     image
                       .resizable()
-                      .frame(maxWidth: 327, maxHeight: 160)
+                      .scaledToFit()
+                    Spacer().frame(height: 20)
                   } placeholder: {
                     EmptyView()
                   }
-                  Spacer()
                 }
               } else {
                 AsyncImage(url: summaryQuotation.internalImage) { image in

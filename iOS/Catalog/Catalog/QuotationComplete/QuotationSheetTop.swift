@@ -10,11 +10,7 @@ import SwiftUI
 struct QuotationSheetTop: View {
     var body: some View {
       VStack {
-        Capsule()
-          .fill(Color.gray300)
-          .frame(width: 39, height: 4)
-          .padding(.bottom, 5)
-          .padding(.top, 5)
+        CLSheetCapsule(height: 4)
       }
       .frame(maxWidth: .infinity, maxHeight: 30)
       .background(
@@ -39,7 +35,6 @@ extension View {
 }
 
 struct RoundedCorner: Shape {
-
     var radius: CGFloat = .infinity
     var corners: UIRectCorner = .allCorners
 

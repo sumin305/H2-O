@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExternalColorModel: Encodable {
+struct ExternalColorModel: Encodable, ColorProtocol {
   var id: Int
   var name: String
   var choiceRatio: Int

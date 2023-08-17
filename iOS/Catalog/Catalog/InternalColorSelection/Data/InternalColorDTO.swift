@@ -12,8 +12,8 @@ struct InternalColorDTO: Decodable {
   var name: String?
   var choiceRatio: Int?
   var price: Int?
-  var hexCode: String?
-  var images: [String?]?
+  var fabricImage: URL?
+  var bannerImage: URL?
 }
 
 extension InternalColorDTO {
@@ -23,7 +23,7 @@ extension InternalColorDTO {
                               name: name ?? "",
                               choiceRatio: choiceRatio ?? 0,
                               price: CLNumber(Int32(price ?? 0)),
-                              hexCode: hexCode ?? "",
-                              images: (images ?? []).map({ URL(string: ($0 ?? "")) }))
+                              fabricImage: fabricImage,
+                              bannerImage: bannerImage)
   }
 }
