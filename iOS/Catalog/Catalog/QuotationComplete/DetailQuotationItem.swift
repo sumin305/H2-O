@@ -16,12 +16,14 @@ struct DetailQuotationItem: View {
 
       // 이미지
       AsyncImage(url: info.image) { image in
-        image.resizable()
+        image
+          .resizable()
       } placeholder: {
         Rectangle()
           .fill(Color(hex: String(describing: info.image )))
       }
       .frame(width: itemImageWidth)
+      .cornerRadius(2)
       .padding(.trailing, 16)
       // 제목 및 값
       VStack(alignment: .leading) {
