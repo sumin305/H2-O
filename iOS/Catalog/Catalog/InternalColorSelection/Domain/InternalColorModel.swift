@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct InternalColorModel: Encodable {
+struct InternalColorModel: Encodable, ColorProtocol {
   var id: Int
   var name: String
   var choiceRatio: Int
   var price: CLNumber
-  var hexCode: String
-  var images: [URL?]
+  var fabricImage: URL?
+  var bannerImage: URL?
 }

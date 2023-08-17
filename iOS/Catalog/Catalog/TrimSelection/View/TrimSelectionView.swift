@@ -58,7 +58,7 @@ extension TrimSelectionView: View {
                height: 60,
                backgroundColor: Color.primary700,
                buttonAction: { intent.send(action: .onTapTrimSelectButton) })
-      Spacer().frame(height: 0.1)
+//      Spacer().frame(height: 0.1)
     }
     .onAppear(perform: { intent.send(action: .enteredTrimPage) })
   }

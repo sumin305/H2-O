@@ -49,8 +49,19 @@ struct QuotationCompleteSheet: View {
           .padding(.horizontal, 21)
           .background(Color.skyBlueCardBG)
 
+          // 상세견적 제목
           LeadingTitle(title: "상세견적")
-          DetailQuotationList()
+
+          // 상세견적
+          DetailQuotationList(quotation: quotation.state.quotation?.toSummary() ?? SummaryCarQuotation(
+            model: SummaryQuotationInfo(title: "모델", name: "xx", price: CLNumber(0)),
+            trim: SummaryQuotationInfo(title: "트림", name: "xx", price: CLNumber(0)),
+            powertrain: SummaryQuotationInfo(title: "파워트레인", name: "xx", price: CLNumber(0)),
+            bodytype: SummaryQuotationInfo(title: "바디타입", name: "xx", price: CLNumber(0)),
+            drivetrain: SummaryQuotationInfo(title: "구동방식", name: "xx", price: CLNumber(0)),
+            externalColor: SummaryQuotationInfo(title: "외장색상", name: "xx", price: CLNumber(0)),
+            internalColor: SummaryQuotationInfo(title: "내장색상", name: "xx", price: CLNumber(0)),
+            options: []))
         }
       }
 
