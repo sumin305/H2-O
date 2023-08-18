@@ -69,25 +69,25 @@ struct CLQuotationSummarySheet: View {
             // MARK: - 상세 정보 및 가격
             VStack(spacing: 16) {
               VStack(spacing: 8) {
-                CLListText(title: "모델", info: summaryQuotation.model)
-                CLListText(title: "트림", info: summaryQuotation.trim)
+                SummarySheetListItem(title: "모델", info: summaryQuotation.model)
+                SummarySheetListItem(title: "트림", info: summaryQuotation.trim)
               }
               Divider().foregroundColor(Color("background2"))
               VStack(spacing: 8) {
-                CLListText(title: "파워트레인", info: summaryQuotation.powertrain)
-                CLListText(title: "바디타입", info: summaryQuotation.bodytype)
-                CLListText(title: "구동방식", info: summaryQuotation.drivetrain)
+                SummarySheetListItem(title: "파워트레인", info: summaryQuotation.powertrain)
+                SummarySheetListItem(title: "바디타입", info: summaryQuotation.bodytype)
+                SummarySheetListItem(title: "구동방식", info: summaryQuotation.drivetrain)
               }
               Divider().foregroundColor(Color("background2"))
               VStack(spacing: 8) {
-                CLListText(title: "외장색상", info: summaryQuotation.externalColor)
-                CLListText(title: "내장색상", info: summaryQuotation.internalColor)
+                SummarySheetListItem(title: "외장색상", info: summaryQuotation.externalColor)
+                SummarySheetListItem(title: "내장색상", info: summaryQuotation.internalColor)
               }
               Divider().foregroundColor(Color("background2"))
               VStack(spacing: 8) {
                 let count: Int = summaryQuotation.options.count
                 ForEach(0..<count) { idx in
-                  CLListText(title: "옵션", info: summaryQuotation.options[idx])
+                  SummarySheetListItem(title: "옵션", info: summaryQuotation.options[idx])
                 }
               }
             }

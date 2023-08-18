@@ -19,11 +19,11 @@ struct CLBudgetRangeView: IntentBindingType {
 extension CLBudgetRangeView {
     var budgetPriceBinding: Binding<CLNumber> {
         .init(get: { state.budgetPrice },
-              set: { intent.send(action: .isChangedBudget(newBudgetPrice: $0)) })
+              set: { intent.send(action: .budgetChanged(newBudgetPrice: $0)) })
     }
     var isExceedBudgetBinding: Binding<Bool> {
         .init(get: { state.isExceedBudget },
-              set: { _ in intent.send(action: .isChangedExceedBudget) })
+              set: { _ in intent.send(action: .exceedBudgetChanged) })
     }
 }
 

@@ -12,7 +12,7 @@ struct DetailQuotationTitle: View {
     @Binding var isFloating: Bool
     var body: some View {
       ZStack {
-        LeadingTitle(title: title)
+        Text(title).catalogFont(type: .HeadKRMedium16).leadingTitle()
         HStack {
           Spacer()
           Button {

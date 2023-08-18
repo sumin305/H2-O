@@ -13,7 +13,8 @@ struct MockDetailQuotationTitle: View {
     @State var isFloating: Bool = false
     var body: some View {
       ZStack {
-        LeadingTitle(title: title)
+        Text(title).catalogFont(type: .HeadKRMedium16).leadingTitle()
+
         HStack {
           Spacer()
           Button {

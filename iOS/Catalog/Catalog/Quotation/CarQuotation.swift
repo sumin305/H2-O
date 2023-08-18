@@ -10,26 +10,26 @@ import UIKit
 
 struct CarQuotation {
   var model: SummaryQuotationInfo = SummaryQuotationInfo(title: "모델", name: "팰리세이드", price: CLNumber(3880000))
-    var trim: Trim
-    var powertrain: PowerTrainModel
-    var bodytype: BodyTypeModel
-    var drivetrain: DriveTrainModel
-    var externalColor: ExternalColorModel
-    var internalColor: InternalColorModel
-    var options: [ExtraOptionModel]
+  var trim: Trim
+  var powertrain: PowerTrainModel
+  var bodytype: BodyTypeModel
+  var drivetrain: DriveTrainModel
+  var externalColor: ExternalColorModel
+  var internalColor: InternalColorModel
+  var options: [ExtraOptionModel]
 }
 
 extension CarQuotation {
 
   func calculateTotalPrice() -> CLNumber {
-      return    model.price +
-                trim.price +
-                powertrain.price +
-                bodytype.price +
-                drivetrain.price +
-                externalColor.price +
-                internalColor.price +
-                options.reduce(CLNumber(0)) { $0 + ($1.price) }
+    return    model.price +
+    trim.price +
+    powertrain.price +
+    bodytype.price +
+    drivetrain.price +
+    externalColor.price +
+    internalColor.price +
+    options.reduce(CLNumber(0)) { $0 + ($1.price) }
   }
 
   func toSummary() -> SummaryCarQuotation {
@@ -61,7 +61,7 @@ extension CarQuotation {
                                                                            name: $0.name,
                                                                            price: $0.price,
                                                                            image: $0.image)
-                                                    }
+    }
     )
   }
 }

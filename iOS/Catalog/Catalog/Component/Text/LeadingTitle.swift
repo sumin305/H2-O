@@ -7,21 +7,14 @@
 
 import SwiftUI
 
-struct LeadingTitle: View {
-    let title: String
-    var body: some View {
-      HStack {
-        Text(title)
-          .catalogFont(type: .HeadKRMedium16)
-        Spacer()
-      }
-      .frame(height: 56)
-      .padding(.leading, 20)
+extension View {
+  @ViewBuilder
+  func leadingTitle() -> some View {
+    HStack {
+      self
+      Spacer()
     }
-}
-
-struct LeadingTitle_Previews: PreviewProvider {
-    static var previews: some View {
-      LeadingTitle(title: "트림을 선택해주세요")
-    }
+    .frame(height: 56)
+    .padding(.leading, 20)
+  }
 }

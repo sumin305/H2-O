@@ -16,7 +16,7 @@
           CLSheetCapsule(height: 4)
 
           // 요약견적 제목
-          LeadingTitle(title: "요약견적")
+          Text("요약견적").catalogFont(type: .HeadKRMedium16).leadingTitle()
 
           // 요약 견적
           HStack(spacing: 46) {
@@ -24,7 +24,7 @@
               Text("모델")
                 .catalogFont(type: .TextKRRegular12)
                 .foregroundColor(Color.gray600)
-              Text((quotation.state.quotation?.trim.name ?? "") + "(르블랑)" )
+              Text((quotation.state.quotation?.trim.name ?? ""))
                 .catalogFont(type: .HeadKRMedium18)
                 .foregroundColor(Color.gray900)
             }
@@ -50,7 +50,7 @@
           .background(Color.skyBlueCardBG)
 
           // 상세견적 제목
-          LeadingTitle(title: "상세견적")
+          Text("상세견적").catalogFont(type: .HeadKRMedium16).leadingTitle()
 
           // 상세견적
           DetailQuotationList(quotation: quotation.state.quotation?.toSummary() ?? SummaryCarQuotation(

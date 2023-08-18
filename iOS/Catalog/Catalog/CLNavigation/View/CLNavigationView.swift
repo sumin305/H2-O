@@ -47,14 +47,18 @@ extension CLNavigationView: View {
 
           ExternalSelectionContainerView.build(
             intent: .init(initialState: .init(selectedTrimId: 2),
-                          repository: ExteriorColorRepository(requestManager: RequestManager(apiManager: ExteriorColorAPIManager()))))
+                          repository: ExteriorColorRepository(
+                            requestManager: RequestManager(
+                              apiManager: ExteriorColorAPIManager()))))
           .tag(2)
 
           InteriorColorSelectionView.build(
             intent: .init(initialState: .init(selectedTrimID: 2,
                                               selectedColorId: 1,
                                               trimColors: []),
-                          repository: InteriorColorSelectionRepository(requestManager: RequestManager(apiManager: InteriorAPIManager()))))
+                          repository: InteriorColorSelectionRepository(
+                            requestManager: RequestManager(
+                              apiManager: InteriorAPIManager()))))
           .tag(3)
 
           MockView(image: mockImageName[4])
@@ -69,14 +73,17 @@ extension CLNavigationView: View {
         if state.currentPage != 0 && state.currentPage != 5 {
           CLBudgetRangeView.build(
             intent: CLBudgetRangeIntent(initialState:
-                .init(currentQuotationPrice: quotation.state.totalPrice,
-                      budgetPrice: (quotation.state.maxPrice + quotation.state.minPrice) / CLNumber(2), status: .default))
+                .init(
+                  currentQuotationPrice: quotation.state.totalPrice,
+                  budgetPrice: (quotation.state.maxPrice + quotation.state.minPrice) / CLNumber(2),
+                  status: .default))
           )
         } else if state.currentPage == 5 {
           CLBudgetRangeView.build(
             intent: CLBudgetRangeIntent(initialState:
                 .init(currentQuotationPrice: quotation.state.totalPrice,
-                      budgetPrice: (quotation.state.maxPrice + quotation.state.minPrice) / CLNumber(2), status: .complete)))
+                      budgetPrice: (quotation.state.maxPrice + quotation.state.minPrice) / CLNumber(2),
+                      status: .complete)))
         }
       }
       if state.currentPage != 0 {
@@ -84,7 +91,8 @@ extension CLNavigationView: View {
       }
     }
     .sheet(isPresented: $showQuotationSummarySheet) {
-      CLQuotationSummarySheet(currentQuotationPrice: quotation.state.totalPrice, summaryQuotation: quotation.state.quotation?.toSummary() ?? SummaryCarQuotation(
+      CLQuotationSummarySheet(currentQuotationPrice: quotation.state.totalPrice,
+                              summaryQuotation: quotation.state.quotation?.toSummary() ?? SummaryCarQuotation(
         model: SummaryQuotationInfo(title: "모델", name: "xx", price: CLNumber(0)),
         trim: SummaryQuotationInfo(title: "트림", name: "xx", price: CLNumber(0)),
         powertrain: SummaryQuotationInfo(title: "파워트레인", name: "xx", price: CLNumber(0)),

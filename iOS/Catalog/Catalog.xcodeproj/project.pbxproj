@@ -175,7 +175,7 @@
 		EDCF32C02A8A91D500C46A4B /* BottomArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32BA2A8A91D500C46A4B /* BottomArea.swift */; };
 		EDCF32C12A8A91D500C46A4B /* CLQuotationPriceBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32BB2A8A91D500C46A4B /* CLQuotationPriceBar.swift */; };
 		EDCF32C22A8A91D500C46A4B /* CLLinearGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32BC2A8A91D500C46A4B /* CLLinearGradient.swift */; };
-		EDCF32C32A8A91D500C46A4B /* CLListText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32BD2A8A91D500C46A4B /* CLListText.swift */; };
+		EDCF32C32A8A91D500C46A4B /* SummarySheetListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32BD2A8A91D500C46A4B /* SummarySheetListItem.swift */; };
 		EDCF32C42A8A91D500C46A4B /* CLQuotationSummarySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32BE2A8A91D500C46A4B /* CLQuotationSummarySheet.swift */; };
 		EDCF32E72A8AA76A00C46A4B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32E62A8AA76A00C46A4B /* Category.swift */; };
 		EDCF32E92A8AA81500C46A4B /* HashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32E82A8AA81500C46A4B /* HashTag.swift */; };
@@ -392,7 +392,7 @@
 		EDCF32BA2A8A91D500C46A4B /* BottomArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomArea.swift; path = Catalog/Quotation/View/BottomArea.swift; sourceTree = SOURCE_ROOT; };
 		EDCF32BB2A8A91D500C46A4B /* CLQuotationPriceBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CLQuotationPriceBar.swift; path = Catalog/Quotation/View/CLQuotationPriceBar.swift; sourceTree = SOURCE_ROOT; };
 		EDCF32BC2A8A91D500C46A4B /* CLLinearGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CLLinearGradient.swift; path = Catalog/Quotation/View/CLLinearGradient.swift; sourceTree = SOURCE_ROOT; };
-		EDCF32BD2A8A91D500C46A4B /* CLListText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CLListText.swift; path = Catalog/Quotation/View/CLListText.swift; sourceTree = SOURCE_ROOT; };
+		EDCF32BD2A8A91D500C46A4B /* SummarySheetListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummarySheetListItem.swift; path = Catalog/Quotation/View/SummarySheetListItem.swift; sourceTree = SOURCE_ROOT; };
 		EDCF32BE2A8A91D500C46A4B /* CLQuotationSummarySheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CLQuotationSummarySheet.swift; path = Catalog/Quotation/View/CLQuotationSummarySheet.swift; sourceTree = SOURCE_ROOT; };
 		EDCF32E62A8AA76A00C46A4B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		EDCF32E82A8AA81500C46A4B /* HashTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTag.swift; sourceTree = "<group>"; };
@@ -1196,7 +1196,7 @@
 			children = (
 				EDCF32BA2A8A91D500C46A4B /* BottomArea.swift */,
 				EDCF32BC2A8A91D500C46A4B /* CLLinearGradient.swift */,
-				EDCF32BD2A8A91D500C46A4B /* CLListText.swift */,
+				EDCF32BD2A8A91D500C46A4B /* SummarySheetListItem.swift */,
 				EDCF32BB2A8A91D500C46A4B /* CLQuotationPriceBar.swift */,
 				EDCF32BE2A8A91D500C46A4B /* CLQuotationSummarySheet.swift */,
 				EDCF32B92A8A91D500C46A4B /* CLToggle.swift */,
@@ -1457,7 +1457,7 @@
 				B1A76B842A892C86009C84EF /* ModelTypeSelectionContainerModel.swift in Sources */,
 				B191DD362A8B5B52008196CD /* ColorInfoState.swift in Sources */,
 				B156463D2A865B3F00FAD379 /* ModelContentView.swift in Sources */,
-				EDCF32C32A8A91D500C46A4B /* CLListText.swift in Sources */,
+				EDCF32C32A8A91D500C46A4B /* SummarySheetListItem.swift in Sources */,
 				ED1BDA722A8BA0F300E39270 /* ModelTypeModels.swift in Sources */,
 				ED1A709F2A836D0D00F7920F /* CLColor.swift in Sources */,
 				B155C1202A7A78A700F540CB /* CLNavigationView.swift in Sources */,
