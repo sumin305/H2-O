@@ -9,7 +9,6 @@ import SwiftUI
 
 struct QuotationCompleteView {
   var quotation = Quotation.shared
-  let totalHeight: CGFloat = 534
   var (positionX, positionY): (CGFloat, CGFloat) = (0, 0)
   @SwiftUI.State var isExternal: Bool = true
   @State var showSheet: Bool = false
