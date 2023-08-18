@@ -378,7 +378,7 @@
 		EDB20BEB2A8F1F6C0063CB3C /* MockDetailQuotationTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDetailQuotationTitle.swift; sourceTree = "<group>"; };
 		EDB20BEC2A8F1F6C0063CB3C /* QuotationCompleteSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotationCompleteSheet.swift; sourceTree = "<group>"; };
 		EDB20BED2A8F1F6C0063CB3C /* QuotationInteriorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotationInteriorView.swift; sourceTree = "<group>"; };
-		EDB20BF62A8F321C0063CB3C /* DetailQuotationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailQuotationList.swift; path = Catalog/Quotation/DetailQuotationList.swift; sourceTree = SOURCE_ROOT; };
+		EDB20BF62A8F321C0063CB3C /* DetailQuotationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailQuotationList.swift; path = Catalog/QuotationComplete/View/DetailQuotationList.swift; sourceTree = SOURCE_ROOT; };
 		EDBA3E3A2A83E48400BDB00F /* CLCancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLCancelButton.swift; sourceTree = "<group>"; };
 		EDBA3E3E2A84869000BDB00F /* CLInactableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLInactableButton.swift; sourceTree = "<group>"; };
 		EDBA5D562A808A8A0050BC35 /* CLPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLPopUp.swift; sourceTree = "<group>"; };
@@ -929,15 +929,7 @@
 		ED2B8CEA2A8D27C700F561FA /* QuotationComplete */ = {
 			isa = PBXGroup;
 			children = (
-				EDB20BE82A8F1F6C0063CB3C /* DetailQuotationItem.swift */,
-				EDB20BEA2A8F1F6C0063CB3C /* DetailQuotationTitle.swift */,
-				EDB20BEB2A8F1F6C0063CB3C /* MockDetailQuotationTitle.swift */,
-				EDB20BF62A8F321C0063CB3C /* DetailQuotationList.swift */,
-				EDB20BEC2A8F1F6C0063CB3C /* QuotationCompleteSheet.swift */,
-				EDB20BE92A8F1F6C0063CB3C /* QuotationCompleteView.swift */,
-				EDB20BE62A8F1F6C0063CB3C /* QuotationExteriorView.swift */,
-				EDB20BED2A8F1F6C0063CB3C /* QuotationInteriorView.swift */,
-				EDB20BE72A8F1F6C0063CB3C /* QuotationSheetTop.swift */,
+				EDB20BFF2A8FC7760063CB3C /* View */,
 			);
 			path = QuotationComplete;
 			sourceTree = "<group>";
@@ -1029,6 +1021,22 @@
 				ED1C705E2A89C3810049D275 /* CLSimilarQuotationSlideView.swift */,
 				ED1C705D2A89C3810049D275 /* CLSliderView.swift */,
 				ED6410972A7FDE740033AEBC /* CLBudgetRangeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EDB20BFF2A8FC7760063CB3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EDB20BE82A8F1F6C0063CB3C /* DetailQuotationItem.swift */,
+				EDB20BF62A8F321C0063CB3C /* DetailQuotationList.swift */,
+				EDB20BEC2A8F1F6C0063CB3C /* QuotationCompleteSheet.swift */,
+				EDB20BEB2A8F1F6C0063CB3C /* MockDetailQuotationTitle.swift */,
+				EDB20BE92A8F1F6C0063CB3C /* QuotationCompleteView.swift */,
+				EDB20BE62A8F1F6C0063CB3C /* QuotationExteriorView.swift */,
+				EDB20BED2A8F1F6C0063CB3C /* QuotationInteriorView.swift */,
+				EDB20BEA2A8F1F6C0063CB3C /* DetailQuotationTitle.swift */,
+				EDB20BE72A8F1F6C0063CB3C /* QuotationSheetTop.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
