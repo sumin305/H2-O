@@ -5,9 +5,9 @@
 //  Created by 이수민 on 2023/08/17.
 //
 
-import SwiftUI
+ import SwiftUI
 
-struct QuotationCompleteSheet: View {
+ struct QuotationCompleteSheet: View {
     var quotation = Quotation.shared
     var body: some View {
       ScrollView {
@@ -66,10 +66,10 @@ struct QuotationCompleteSheet: View {
       }
 
    }
-}
+ }
 
-struct QuotationCompleteSheet_Previews: PreviewProvider {
+ struct QuotationCompleteSheet_Previews: PreviewProvider {
     static var previews: some View {
         QuotationCompleteSheet()
     }
-}
+ }
