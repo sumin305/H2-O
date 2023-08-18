@@ -16,11 +16,7 @@ struct CLQuotationSummarySheet: View {
   var body: some View {
     VStack(spacing: 0) {
       // MARK: - 상단바
-      Capsule()
-        .fill(Color.gray300)
-        .frame(width: 42, height: 4)
-        .padding(.bottom, 5)
-        .padding(.top, 5)
+      CLSheetCapsule(height: 4)
 
       ZStack {
         ScrollView {

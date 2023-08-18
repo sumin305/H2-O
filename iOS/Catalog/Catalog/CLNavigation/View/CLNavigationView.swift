@@ -43,7 +43,7 @@ extension CLNavigationView: View {
           .tag(0)
           ModelTypeSelectionContainerView.build(intent: .init(initialState: .mock(),
                                                               repository: MockModelTypeRepository()))
-            .tag(1)
+          .tag(1)
 
           ExternalSelectionContainerView.build(
             intent: .init(initialState: .init(selectedTrimId: 2),
@@ -51,7 +51,9 @@ extension CLNavigationView: View {
           .tag(2)
 
           InteriorColorSelectionView.build(
-            intent: .init(initialState: .init(selectedTrimID: 2, selectedColorId: 1, trimColors: []),
+            intent: .init(initialState: .init(selectedTrimID: 2,
+                                              selectedColorId: 1,
+                                              trimColors: []),
                           repository: InteriorColorSelectionRepository(requestManager: RequestManager(apiManager: InteriorAPIManager()))))
           .tag(3)
 
