@@ -41,7 +41,8 @@ extension CLNavigationView: View {
               carId: 1),
             repository: TrimSelectionRepository(), quotation: Quotation.shared, navigationIntent: intent))
           .tag(0)
-          ModelTypeSelectionContainerView.build(intent: .init(initialState: .mock(), repository: MockModelTypeRepository()))
+          ModelTypeSelectionContainerView.build(intent: .init(initialState: .mock(),
+                                                              repository: MockModelTypeRepository()))
             .tag(1)
 
           ExternalSelectionContainerView.build(
