@@ -19,12 +19,12 @@ enum ModelTypeSelectionContainerModel {
                                        .init(content: .mock(), hmgData: .mock())]),
           .init(title: "바디타입", imageURL: nil,
                 optionStates: [
-                  .init(id: .init(),
+                  .init(id: 0,
                         isSelected: true,
                         frequency: Int.random(in: 0..<100),
                         title: "7인승",
                         price: CLNumber(0)),
-                  .init(id: .init(),
+                  .init(id: 1,
                         isSelected: false,
                         frequency: .random(in: 0..<100),
                         title: "8인승",
@@ -32,19 +32,20 @@ enum ModelTypeSelectionContainerModel {
                 ],
               modelTypeDetailState: [.init(content: .mock(), hmgData: .mock()),
                                      .init(content: .mock(), hmgData: .mock())]),
-          .init(title: "구동방식", imageURL: nil,
-                optionStates: [
-                  .init(id: .init(),
-                        isSelected: true,
-                        frequency: .random(in: 0..<100),
-                        title: "2WD",
-                        price: .init(0)),
-                  .init(id: .init(),
-                        isSelected: false,
-                        frequency: .random(in: 0..<100),
-                        title: "4WD",
-                        price: .init(237000))
-                ],
+
+            .init(title: "구동방식", imageURL: nil,
+                  optionStates: [
+                    .init(id: 2,
+                          isSelected: true,
+                          frequency: .random(in: 0..<100),
+                          title: "2WD",
+                          price: .init(0)),
+                    .init(id: 3,
+                          isSelected: false,
+                          frequency: .random(in: 0..<100),
+                          title: "4WD",
+                          price: .init(237000))
+                  ],
                   modelTypeDetailState: [.init(content: .mock(), hmgData: nil)]
             )
         ], fuelEfficiencyAverageState: .mock())
