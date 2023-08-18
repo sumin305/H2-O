@@ -32,19 +32,19 @@ enum ModelTypeSelectionContainerModel {
                 ],
               modelTypeDetailState: [.init(content: .mock(), hmgData: .mock()),
                                      .init(content: .mock(), hmgData: .mock())]),
-            .init(title: "구동방식", imageURL: nil,
-                  optionStates: [
-                    .init(id: .init(),
-                          isSelected: true,
-                          frequency: .random(in: 0..<100),
-                          title: "2WD",
-                          price: .init(0)),
-                    .init(id: .init(),
-                          isSelected: false,
-                          frequency: .random(in: 0..<100),
-                          title: "4WD",
-                          price: .init(237000))
-                  ],
+          .init(title: "구동방식", imageURL: nil,
+                optionStates: [
+                  .init(id: .init(),
+                        isSelected: true,
+                        frequency: .random(in: 0..<100),
+                        title: "2WD",
+                        price: .init(0)),
+                  .init(id: .init(),
+                        isSelected: false,
+                        frequency: .random(in: 0..<100),
+                        title: "4WD",
+                        price: .init(237000))
+                ],
                   modelTypeDetailState: [.init(content: .mock(), hmgData: nil)]
             )
         ], fuelEfficiencyAverageState: .mock())

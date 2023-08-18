@@ -14,8 +14,8 @@ struct CarQuotation {
   var powertrain: PowerTrainModel
   var bodytype: BodyTypeModel
   var drivetrain: DriveTrainModel
-  var externalColor: ExternalColorModel
-  var internalColor: InternalColorModel
+  var externalColor: ExteriorColor
+  var internalColor: InteriorColor
   var options: [ExtraOptionModel]
 }
 
@@ -56,7 +56,7 @@ extension CarQuotation {
                                internalColor: SummaryQuotationInfo(title: "내장색상",
                                                                    name: internalColor.name,
                                                                    price: internalColor.price,
-                                                                   image: internalColor.fabricImage),
+                                                                   image: internalColor.fabricImageURL),
                                options: options.map { SummaryQuotationInfo(title: "추가옵션",
                                                                            name: $0.name,
                                                                            price: $0.price,
