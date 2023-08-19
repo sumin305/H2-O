@@ -61,8 +61,8 @@ extension CLBudgetRangeView: View {
             }
           }
         }
-        .padding(.top, 9.5)
-        .padding(.bottom, isFloatingExpanded ? 15.5 : 8.5)
+        .padding(.top, CGFloat(9.5).scaledHeight)
+        .padding(.bottom, isFloatingExpanded ? CGFloat(15.5).scaledHeight : CGFloat(8.5).scaledHeight)
 
         if isFloatingExpanded {
           // MARK: - 슬라이더
@@ -93,8 +93,7 @@ extension CLBudgetRangeView: View {
       Spacer()
     }
     .padding(.horizontal, 12)
-    .padding(.bottom, 20)
-    .padding(.top, 12)
+    .padding(.top, CGFloat(12).scaledHeight)
     .onAppear {
       intent.send(action: .onAppear)
       if state.status == .similarQuotation || state.status == .complete {

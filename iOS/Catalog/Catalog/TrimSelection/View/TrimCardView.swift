@@ -43,7 +43,7 @@ struct TrimCardView: View {
         })
         .offset(x: proxy.size.width / 4)
       }
-      .frame(height: CGFloat(197).scaledHeight)
+      .frame(height: CGFloat(160).scaledHeight)
       .clipped()
       
       

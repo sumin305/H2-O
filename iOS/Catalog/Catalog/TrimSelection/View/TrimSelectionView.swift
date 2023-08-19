@@ -35,7 +35,7 @@ extension TrimSelectionView: View {
      .onChange(of: currentIndexBinding) { _ in
        intent.send(action: .trimSelected(index: currentIndexBinding))
      }
-     .frame(height: CGFloat(512).scaledHeight)
+     .frame(height: CGFloat(480).scaledHeight)
 
 
       // Indicator
@@ -48,6 +48,7 @@ extension TrimSelectionView: View {
             .animation(.spring(), value: currentIndexBinding == index)
         }
       }
+      .padding(.top, 12)
       .padding(.bottom, 20)
 
       CLButton(mainText: "\(state.selectedTrim?.name ?? "") 선택하기",

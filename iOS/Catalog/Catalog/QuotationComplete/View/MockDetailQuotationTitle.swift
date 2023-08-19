@@ -26,5 +26,6 @@ struct MockDetailQuotationTitle: View {
         }
       }
       .background(Color("background2"))
+      .frame(height: 48)
     }
 }

@@ -19,10 +19,14 @@ struct SimilarHMGDataCard: View {
         HMGTag()
         Spacer()
       }
+      .frame(maxHeight: CGFloat(220).scaledHeight)
+      .padding(.horizontal, 18)
 
-      VStack(alignment: .leading , spacing: 16) {
+
+      VStack(alignment: .leading , spacing: 0) {
           Text("내 견적에 없는 옵션이에요.")
             .catalogFont(type: .TextKRMedium12)
+            .frame(width: CGFloat(125).scaledWidth, height: CGFloat(16).scaledHeight)
             .padding(.top, CGFloat(33).scaledHeight)
             .padding(.bottom, CGFloat(9).scaledHeight)
 
@@ -33,11 +37,12 @@ struct SimilarHMGDataCard: View {
             }
           }
         }
+        .frame(alignment: .bottom)
       }
       .padding(.horizontal, 18)
-      .padding(.bottom, 12)
     }
-    .frame(maxHeight: CGFloat(241).scaledHeight)
     .background(Color.gray50)
+    .frame(maxWidth: CGFloat(318).scaledWidth, maxHeight: CGFloat(220).scaledHeight)
+
   }
 }

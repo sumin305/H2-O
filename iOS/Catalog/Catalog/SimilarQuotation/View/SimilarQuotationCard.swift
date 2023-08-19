@@ -13,8 +13,7 @@ struct SimilarQuotationCard: View {
   var index: Int
   var trimName: String
   var body: some View {
-    GeometryReader { proxy in
-      VStack(alignment: .leading) {
+    VStack(alignment: .leading, spacing: 0) {
         VStack(spacing: 0) {
           HStack {
             VStack(alignment: .leading, spacing: 0) {
@@ -57,10 +56,9 @@ struct SimilarQuotationCard: View {
         .padding(.leading, 21)
         
         SimilarHMGDataCard(options: intent.state.similarQuotations[index].options, intent: intent)
-          .frame(alignment: .bottom)
+        .frame(maxHeight: CGFloat(220).scaledHeight, alignment: .bottom)
+        .padding(.top)
       }
-      .padding(.top, 24)
-    }
   }
   
 }

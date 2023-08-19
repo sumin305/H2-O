@@ -23,6 +23,7 @@ struct HMGDataCard: View {
         
           Text(attributedString)
             .catalogFont(type: .TextKRMedium12)
+            .frame(width: CGFloat(252).scaledWidth, height: CGFloat(16).scaledWidth, alignment: .leading)
             .padding(.top, CGFloat(12).scaledHeight)
 
           if options.isEmpty {

@@ -25,17 +25,23 @@ extension CLInActiceButton {
         Button {
             buttonAction()
         } label: {
+          ZStack {
             VStack {
-                if subText != nil {
-                    Text(subText ?? "")
-                        .catalogFont(type: .TextKRRegular12)
-                        .foregroundColor(Color.white)
-                }
-              Text(isInactive ? mainText : (inActiveText ?? ""))
-                .catalogFont(type: .HeadKRMedium16)
-                .frame(maxWidth: width ?? .infinity, maxHeight: height)
+              if subText != nil {
+                  Text(subText ?? "")
+                      .catalogFont(type: .TextKRRegular12)
+                      .foregroundColor(Color.white)
+              }
+              Spacer()
             }
+            Text(isInactive ? mainText : (inActiveText ?? ""))
+              .catalogFont(type: .HeadKRMedium16)
+              .frame(maxWidth: width ?? .infinity, minHeight: 24)
+          }
+          .frame(minHeight: CGFloat(height).scaledHeight)
+
         }
+      
         .buttonStyle(CLInActiveButtonStyle())
         .disabled(!isInactive)
     }

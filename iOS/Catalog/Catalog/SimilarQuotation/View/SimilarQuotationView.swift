@@ -57,7 +57,7 @@ extension SimilarQuotationView: View {
                 .frame(width: size.width, height: size.height)
             }
           }
-          .frame(height: CGFloat(469).scaledHeight)
+          .frame(height: CGFloat(449).scaledHeight)
           
           HStack(spacing: 10) {
             ForEach(state.similarQuotations.indices, id: \.self) { index in
@@ -68,7 +68,7 @@ extension SimilarQuotationView: View {
                 .animation(.spring(), value: currentIndexBinding == index)
             }
           }
-          .padding(.bottom, 20)
+          .padding(.bottom, CGFloat(12).scaledHeight)
           
           CLInActiceButton(mainText: "내 견적서에 추가하기",
                            isInactive: !(state.selectedOption.isEmpty),
@@ -77,6 +77,8 @@ extension SimilarQuotationView: View {
                            height: CGFloat(52).scaledHeight,
                            buttonAction: { intent.send(action: .onTapAddButton) })
         }
+        .padding([.top, .bottom], 1)
+
         
         if showHelp {
           SimilarQuotationHelpView()

@@ -26,20 +26,22 @@ struct SimilarHMGOption: View {
         VStack(alignment: .leading) {
           Text(option.name)
             .catalogFont(type: .HeadKRMedium14)
-            .frame(height: CGFloat(45).scaledHeight)
+            .frame(height: CGFloat(35).scaledHeight)
           
           HStack {
             Text(option.price.signedWon)
               .catalogFont(type: .HeadKRMedium14)
+              .frame(height: CGFloat(10).scaledHeight)
+
             Spacer()
             Image("check")
           }
         }
+        .padding(.horizontal, 8)
       }
       .selectedCardStyle(isSelected: option.isSelected)
       .buttonSelected(isselected: option.isSelected)
     }
-    .frame(height: CGFloat(171).scaledHeight)
     .buttonStyle(EmptyButtonStyle())
   }
 
