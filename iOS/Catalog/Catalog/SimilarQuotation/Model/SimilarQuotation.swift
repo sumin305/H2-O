@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct SimilarQuotation: Equatable {
+struct SimilarQuotation: Equatable, Identifiable {
+  var id: UUID?
   var powertrainName: String
   var bodytypeName: String
   var drivetrainName: String

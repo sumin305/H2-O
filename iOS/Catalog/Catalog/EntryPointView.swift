@@ -13,13 +13,12 @@ struct EntryPointView: View {
       ZStack {
         VStack(spacing: 0) {
           CLNavigationView.build(intent: CLNavigationIntent(initialState: .init(currentPage: 0, showQuotationSummarySheet: false)))
-
-          Spacer().frame(height: 1)
         }
         if showPopUp {
           EntryGuide(showEntryGuide: $showPopUp)
         }
       }
+      .ignoresSafeArea()
     
   }
 }

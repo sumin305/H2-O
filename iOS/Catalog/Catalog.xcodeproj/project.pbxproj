@@ -192,6 +192,8 @@
 		ED3E87E62A90BE7E00DCDC66 /* SimilarQuotationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87E52A90BE7E00DCDC66 /* SimilarQuotationIntent.swift */; };
 		ED3E87E82A90BEFE00DCDC66 /* SimilarQuotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87E72A90BEFE00DCDC66 /* SimilarQuotation.swift */; };
 		ED3E87EC2A90C38E00DCDC66 /* SimilarQuotationOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87EB2A90C38E00DCDC66 /* SimilarQuotationOption.swift */; };
+		ED3E87F02A90CD2500DCDC66 /* SimilarQuotationTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87EF2A90CD2500DCDC66 /* SimilarQuotationTopBar.swift */; };
+		ED3E87F22A90CD8800DCDC66 /* SimilarQuotationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87F12A90CD8800DCDC66 /* SimilarQuotationCard.swift */; };
 		ED6410922A7FC4FF0033AEBC /* CLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6410882A7FC4FF0033AEBC /* CLButton.swift */; };
 		ED6410942A7FC4FF0033AEBC /* CLDualChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED64108A2A7FC4FF0033AEBC /* CLDualChoiceButton.swift */; };
 		ED6410982A7FDE740033AEBC /* CLBudgetRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6410972A7FDE740033AEBC /* CLBudgetRangeView.swift */; };
@@ -437,6 +439,8 @@
 		ED3E87E52A90BE7E00DCDC66 /* SimilarQuotationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationIntent.swift; sourceTree = "<group>"; };
 		ED3E87E72A90BEFE00DCDC66 /* SimilarQuotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotation.swift; sourceTree = "<group>"; };
 		ED3E87EB2A90C38E00DCDC66 /* SimilarQuotationOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationOption.swift; sourceTree = "<group>"; };
+		ED3E87EF2A90CD2500DCDC66 /* SimilarQuotationTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationTopBar.swift; sourceTree = "<group>"; };
+		ED3E87F12A90CD8800DCDC66 /* SimilarQuotationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationCard.swift; sourceTree = "<group>"; };
 		ED6410822A7FC4FF0033AEBC /* DimmedZStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmedZStack.swift; sourceTree = "<group>"; };
 		ED6410882A7FC4FF0033AEBC /* CLButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLButton.swift; sourceTree = "<group>"; };
 		ED64108A2A7FC4FF0033AEBC /* CLDualChoiceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLDualChoiceButton.swift; sourceTree = "<group>"; };
@@ -1261,6 +1265,8 @@
 			isa = PBXGroup;
 			children = (
 				ED3E87DD2A8FDA9100DCDC66 /* SimilarQuotationView.swift */,
+				ED3E87F12A90CD8800DCDC66 /* SimilarQuotationCard.swift */,
+				ED3E87EF2A90CD2500DCDC66 /* SimilarQuotationTopBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1685,6 +1691,7 @@
 				B19436392A80954600C2FD69 /* AlertView.swift in Sources */,
 				EDBA3E3B2A83E48400BDB00F /* CLCancelButton.swift in Sources */,
 				B1604D6B2A854D3A00C7B07D /* HMGButtonArrowStyle.swift in Sources */,
+				ED3E87F02A90CD2500DCDC66 /* SimilarQuotationTopBar.swift in Sources */,
 				B16722212A8C9E36002B45A6 /* OptionCardView.swift in Sources */,
 				ED1A70982A83646E00F7920F /* (null) in Sources */,
 				B191DD492A8BE0F4008196CD /* ExteriorColorAPIManager.swift in Sources */,
@@ -1841,6 +1848,7 @@
 				B1604D512A83EB7700C7B07D /* CLRetryResult.swift in Sources */,
 				B198240F2A8FCCA000795B44 /* PackageComponent.swift in Sources */,
 				B1F988D32A8A7F6400C7B65F /* ExternalSelectionModel.swift in Sources */,
+				ED3E87F22A90CD8800DCDC66 /* SimilarQuotationCard.swift in Sources */,
 				B19824012A8F99BF00795B44 /* CGFloat+.swift in Sources */,
 				EDF882592A8A71260077558F /* ModelTypeRequest.swift in Sources */,
 				EDB20BF32A8F1F6D0063CB3C /* MockDetailQuotationTitle.swift in Sources */,

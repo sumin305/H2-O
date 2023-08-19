@@ -14,7 +14,6 @@ struct MockDetailQuotationTitle: View {
     var body: some View {
       ZStack {
         Text(title).catalogFont(type: .HeadKRMedium16).leadingTitle()
-
         HStack {
           Spacer()
           Button {
@@ -24,7 +23,6 @@ struct MockDetailQuotationTitle: View {
           }
           .buttonStyle(.plain)
           .padding(.trailing, 20)
-
         }
       }
       .background(Color("background2"))
