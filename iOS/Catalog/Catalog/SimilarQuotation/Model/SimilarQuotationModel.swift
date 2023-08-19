@@ -17,7 +17,7 @@ enum SimilarQuotationModel {
   }
   enum ViewAction: Equatable {
     case onAppear(quotation: CarQuotation)
-    case optionSelected(selectedOptionId: SimilarQuotationOption)
+    case optionSelected(selectedOption: SimilarQuotationOption)
     case onTapAddButton
     case onTapBackButton
   }
