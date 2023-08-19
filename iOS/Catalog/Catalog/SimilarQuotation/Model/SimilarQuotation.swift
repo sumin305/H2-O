@@ -13,4 +13,15 @@ struct SimilarQuotation: Equatable {
   var drivetrainName: String
   var image: URL?
   var options: [SimilarQuotationOption]
+  
+  static func mock() -> SimilarQuotation {
+    .init(powertrainName: "디젤 2.2",
+          bodytypeName: "7인승",
+          drivetrainName: "2WD",
+          options: [
+            SimilarQuotationOption.mock(),
+            SimilarQuotationOption.mock(),
+            SimilarQuotationOption.mock()
+          ])
+  }
 }
