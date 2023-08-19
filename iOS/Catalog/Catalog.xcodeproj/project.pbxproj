@@ -167,6 +167,7 @@
 		B1F988EA2A8B3E5300C7B65F /* InteriorColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F988E92A8B3E5300C7B65F /* InteriorColor.swift */; };
 		B1F988EE2A8B4AB800C7B65F /* InteriorColorDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F988ED2A8B4AB800C7B65F /* InteriorColorDisplayView.swift */; };
 		ED14DDB72A9139530060D560 /* SimilarHMGDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87F32A910EE100DCDC66 /* SimilarHMGDataCard.swift */; };
+		ED14DDB92A913FF20060D560 /* SimilarQuotationHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED14DDB82A913FF20060D560 /* SimilarQuotationHelpView.swift */; };
 		ED1A70982A83646E00F7920F /* (null) in Sources */ = {isa = PBXBuildFile; };
 		ED1A709F2A836D0D00F7920F /* CLColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A709E2A836D0D00F7920F /* CLColor.swift */; };
 		ED1A70A32A836F3700F7920F /* CarQuotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A70A22A836F3700F7920F /* CarQuotation.swift */; };
@@ -421,6 +422,7 @@
 		B1F988E62A8B3E2E00C7B65F /* InteriorColorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteriorColorState.swift; sourceTree = "<group>"; };
 		B1F988E92A8B3E5300C7B65F /* InteriorColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteriorColor.swift; sourceTree = "<group>"; };
 		B1F988ED2A8B4AB800C7B65F /* InteriorColorDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteriorColorDisplayView.swift; sourceTree = "<group>"; };
+		ED14DDB82A913FF20060D560 /* SimilarQuotationHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationHelpView.swift; sourceTree = "<group>"; };
 		ED1A70952A83581300F7920F /* CLQuotationPriceBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLQuotationPriceBar.swift; sourceTree = "<group>"; };
 		ED1A709E2A836D0D00F7920F /* CLColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLColor.swift; sourceTree = "<group>"; };
 		ED1A70A22A836F3700F7920F /* CarQuotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarQuotation.swift; sourceTree = "<group>"; };
@@ -1269,6 +1271,7 @@
 			isa = PBXGroup;
 			children = (
 				ED3E87DD2A8FDA9100DCDC66 /* SimilarQuotationView.swift */,
+				ED14DDB82A913FF20060D560 /* SimilarQuotationHelpView.swift */,
 				ED3E87F12A90CD8800DCDC66 /* SimilarQuotationCard.swift */,
 				ED3E87EF2A90CD2500DCDC66 /* SimilarQuotationTopBar.swift */,
 				ED3E87F32A910EE100DCDC66 /* SimilarHMGDataCard.swift */,
@@ -1810,6 +1813,7 @@
 				EDB20BF52A8F1F6D0063CB3C /* QuotationInteriorView.swift in Sources */,
 				B1604D652A8544C300C7B07D /* ModelTypeCellView.swift in Sources */,
 				B149BD202A8CE50A009A3C6B /* FilterButtonView.swift in Sources */,
+				ED14DDB92A913FF20060D560 /* SimilarQuotationHelpView.swift in Sources */,
 				EDCF32C12A8A91D500C46A4B /* CLQuotationPriceBar.swift in Sources */,
 				ED2B8CE52A8CFDF900F561FA /* TrimDefaultOptionDTO.swift in Sources */,
 				B194363B2A8095B800C2FD69 /* CLQuitAlertContentView.swift in Sources */,

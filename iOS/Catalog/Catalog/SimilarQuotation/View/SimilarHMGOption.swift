@@ -21,7 +21,7 @@ struct SimilarHMGOption: View {
         } placeholder: {
           ProgressView()
         }
-        .frame(width: CGFloat(139.07).scaledWidth, height: CGFloat(89).scaledHeight)
+        .frame(height: CGFloat(89).scaledHeight)
 
         VStack(alignment: .leading) {
           Text(option.name)
@@ -35,12 +35,11 @@ struct SimilarHMGOption: View {
             Image("check")
           }
         }
-        .padding(.horizontal, 16)
       }
       .selectedCardStyle(isSelected: option.isSelected)
       .buttonSelected(isselected: option.isSelected)
-      .frame(maxWidth: .infinity)
     }
+    .frame(height: CGFloat(171).scaledHeight)
     .buttonStyle(EmptyButtonStyle())
   }
 

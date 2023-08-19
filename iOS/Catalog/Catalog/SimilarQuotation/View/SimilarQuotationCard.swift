@@ -60,7 +60,6 @@ struct SimilarQuotationCard: View {
           .frame(alignment: .bottom)
       }
       .padding(.top, 24)
-      .frame(width: proxy.size.width, height: proxy.size.height)
     }
   }
   

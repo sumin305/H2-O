@@ -21,12 +21,11 @@ struct SimilarHMGDataCard: View {
       }
 
       VStack(alignment: .leading , spacing: 16) {
-        
           Text("내 견적에 없는 옵션이에요.")
             .catalogFont(type: .TextKRMedium12)
             .padding(.top, CGFloat(33).scaledHeight)
             .padding(.bottom, CGFloat(9).scaledHeight)
-        
+
         HStack(spacing: 8) {
           ForEach(options.indices) { optionIndex in
             SimilarHMGOption(option: options[optionIndex]) {
@@ -35,9 +34,10 @@ struct SimilarHMGDataCard: View {
           }
         }
       }
+      .padding(.horizontal, 18)
       .padding(.bottom, 12)
     }
-    .frame(maxWidth: .infinity, maxHeight: CGFloat(241).scaledHeight)
+    .frame(maxHeight: CGFloat(241).scaledHeight)
     .background(Color.gray50)
   }
 }
