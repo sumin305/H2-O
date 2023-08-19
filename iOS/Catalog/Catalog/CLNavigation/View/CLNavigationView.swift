@@ -27,6 +27,11 @@ extension CLNavigationView {
     .init(get: { state.currentPage },
           set: { intent.send(action: .onTapNavTab(index: $0)) })
   }
+  
+  var showQuotationSummarySheetBinding: Binding<Bool> {
+    .init(get: { state.showQuotationSummarySheet },
+          set: {_ in })
+  }
 }
 
 extension CLNavigationView: View {
@@ -37,6 +42,7 @@ extension CLNavigationView: View {
       ZStack {
         TabView(selection: currentPageBinding) {
 
+    NavigationView {
           TrimSelectionView.build(intent: TrimSelectionIntent(
             initialState: .init(
               carId: 1),
@@ -85,28 +91,41 @@ extension CLNavigationView: View {
             intent: CLBudgetRangeIntent(initialState:
                 .init(currentQuotationPrice: quotation.state.totalPrice,
                       budgetPrice: (quotation.state.maxPrice + quotation.state.minPrice) / CLNumber(2),
-                      status: .complete)))
+                      status: .default), navigationIntent: intent)
+              )
+            } else if state.currentPage == 5 {
+              CLBudgetRangeView.build(
+                intent: CLBudgetRangeIntent(initialState:
+                    .init(currentQuotationPrice: quotation.state.totalPrice,
+                          budgetPrice: (quotation.state.maxPrice + quotation.state.minPrice) / CLNumber(2),
+                          status: .complete), navigationIntent: intent))
+            }
+          }
+          if state.currentPage != 0 {
+            BottomArea(showQuotationSummarySheet: $showQuotationSummarySheet, intent: intent)
+          }
+       
+        NavigationLink(destination: SimilarQuotationView(navigationIntent: intent),
+                       isActive: showQuotationSummarySheetBinding,
+                         label: { Text("") })
+        }
+        .sheet(isPresented: $showQuotationSummarySheet) {
+          CLQuotationSummarySheet(currentQuotationPrice: quotation.state.totalPrice,
+                                  summaryQuotation: quotation.state.quotation?.toSummary() ?? SummaryCarQuotation(
+                                    model: SummaryQuotationInfo(title: "모델", name: "xx", price: CLNumber(0)),
+                                    trim: SummaryQuotationInfo(title: "트림", name: "xx", price: CLNumber(0)),
+                                    powertrain: SummaryQuotationInfo(title: "파워트레인", name: "xx", price: CLNumber(0)),
+                                    bodytype: SummaryQuotationInfo(title: "바디타입", name: "xx", price: CLNumber(0)),
+                                    drivetrain: SummaryQuotationInfo(title: "구동방식", name: "xx", price: CLNumber(0)),
+                                    externalColor: SummaryQuotationInfo(title: "외장색상", name: "xx", price: CLNumber(0)),
+                                    internalColor: SummaryQuotationInfo(title: "내장색상", name: "xx", price: CLNumber(0)),
+                                    options: []),
+                                  showQuotationSummarySheet: $showQuotationSummarySheet)
         }
       }
-      if state.currentPage != 0 {
-        BottomArea(showQuotationSummarySheet: $showQuotationSummarySheet, intent: intent)
-      }
-    }
-    .sheet(isPresented: $showQuotationSummarySheet) {
-      CLQuotationSummarySheet(currentQuotationPrice: quotation.state.totalPrice,
-                              summaryQuotation: quotation.state.quotation?.toSummary() ?? SummaryCarQuotation(
-        model: SummaryQuotationInfo(title: "모델", name: "xx", price: CLNumber(0)),
-        trim: SummaryQuotationInfo(title: "트림", name: "xx", price: CLNumber(0)),
-        powertrain: SummaryQuotationInfo(title: "파워트레인", name: "xx", price: CLNumber(0)),
-        bodytype: SummaryQuotationInfo(title: "바디타입", name: "xx", price: CLNumber(0)),
-        drivetrain: SummaryQuotationInfo(title: "구동방식", name: "xx", price: CLNumber(0)),
-        externalColor: SummaryQuotationInfo(title: "외장색상", name: "xx", price: CLNumber(0)),
-        internalColor: SummaryQuotationInfo(title: "내장색상", name: "xx", price: CLNumber(0)),
-        options: []),
-                                showQuotationSummarySheet: $showQuotationSummarySheet)
     }
   }
-}
+
 
 extension CLNavigationView {
   @ViewBuilder
@@ -120,7 +139,7 @@ extension CLNavigationView {
 
 struct CLNavigationView_Previews: PreviewProvider {
   static var previews: some View {
-    return CLNavigationView.build(intent: CLNavigationIntent(initialState: .init(currentPage: 0)))
+    return CLNavigationView.build(intent: CLNavigationIntent(initialState: .init(currentPage: 0, showQuotationSummarySheet: false)))
   }
 }
 
