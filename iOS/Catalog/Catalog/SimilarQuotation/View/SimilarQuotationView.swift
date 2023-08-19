@@ -52,13 +52,26 @@ extension SimilarQuotationView: View {
             SimilarQuotationCard(intent: intent, index: currentIndexBinding, trimName: "Le Blanc")
           }
         }
-       .frame(height: CGFloat(469).scaledHeight)
+        .frame(height: CGFloat(469).scaledHeight)
+        
+        HStack(spacing: 10) {
+          ForEach(state.similarQuotations.indices, id: \.self) { index in
+            Capsule()
+              .fill(currentIndexBinding == index ? Color.primary0 : Color.gray200)
+              .frame(width: (currentIndexBinding == index ? 15 : 5), height: 5)
+              .scaleEffect((currentIndexBinding == index) ? 1.4 : 1)
+              .animation(.spring(), value: currentIndexBinding == index)
+          }
+        }
+        .padding(.bottom, 20)
+        
+        CLInActiceButton(mainText: "내 견적서에 추가하기", isInactive: !(state.selectedOption.isEmpty), subText: "선택된 옵션\(state.selectedOption.count)개", inActiveText: "옵션을 선택해 추가해보세요.", height: CGFloat(52).scaledHeight, buttonAction: { print("") })
       }
     
     }
     .navigationBarBackButtonHidden()
-    .ignoresSafeArea()
   }
+    
 }
 
 struct SimilarQuotationView_Previews: PreviewProvider {
@@ -67,7 +80,7 @@ struct SimilarQuotationView_Previews: PreviewProvider {
     
     SimilarQuotationView.build(intent: .init(initialState: .init(similarQuotations: [SimilarQuotation.mock(),
                                                                                      SimilarQuotation.mock(),
-                                                                                     SimilarQuotation.mock()], selectedOption: [SimilarQuotationOption.mock(),
-                                                                                                                                SimilarQuotationOption.mock()])), navitationIntent: navigationIntent)
+                                                                                     SimilarQuotation.mock()], selectedOption: [])),
+                               navitationIntent: navigationIntent)
   }
 }

@@ -105,7 +105,9 @@ extension CLNavigationView: View {
             BottomArea(showQuotationSummarySheet: $showQuotationSummarySheet, intent: intent)
           }
        
-        NavigationLink(destination: SimilarQuotationView.build(intent: SimilarQuotationIntent(initialState: .init(similarQuotations: [], selectedOption: [])), navitationIntent: intent),
+        NavigationLink(destination:     SimilarQuotationView.build(intent: .init(initialState: .init(similarQuotations: [SimilarQuotation.mock(),
+                                                                                                                         SimilarQuotation.mock(),
+                                                                                                                         SimilarQuotation.mock()], selectedOption: [])), navitationIntent: intent),
                        isActive: showQuotationSummarySheetBinding,
                          label: { Text("") })
         }

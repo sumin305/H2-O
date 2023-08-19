@@ -21,7 +21,6 @@ struct SimilarQuotation: Equatable, Identifiable {
           drivetrainName: "2WD",
           options: [
             SimilarQuotationOption.mock(),
-            SimilarQuotationOption.mock(),
             SimilarQuotationOption.mock()
           ])
   }

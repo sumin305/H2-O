@@ -51,7 +51,9 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
         print("추가하기 버튼 클릭")
       case .optionSelected(let selectedOption):
         print("옵션 선택")
-        state.selectedOption.append(selectedOption)
+        if !state.selectedOption.contains(selectedOption) {
+          state.selectedOption.append(selectedOption)
+        }
     }
   }
 
