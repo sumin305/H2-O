@@ -43,53 +43,53 @@ extension CLNavigationView: View {
         TabView(selection: currentPageBinding) {
 
     NavigationView {
-          TrimSelectionView.build(intent: TrimSelectionIntent(
-            initialState: .init(
-              carId: 1),
-            repository: TrimSelectionRepository(), quotation: Quotation.shared, navigationIntent: intent))
-          .tag(0)
-          
-          ModelTypeSelectionView.build(intent: .init(initialState: .init(), repository: ModelTypeRepository(modelTypeRequestManager: RequestManager(apiManager: APIManager()))))
-          .tag(1)
-
-          ExternalSelectionView.build(
-            intent: .init(initialState: .init(selectedTrimId: 2),
-                          repository: ExteriorColorRepository(
-                            requestManager: RequestManager(
-                              apiManager: ExteriorColorAPIManager()))))
-          .tag(2)
-
-          InteriorColorSelectionView.build(
-            intent: .init(initialState: .init(selectedTrimID: 2,
-                                              selectedColorId: 1,
-                                              trimColors: []),
-                          repository: InteriorColorSelectionRepository(
-                            requestManager: RequestManager(
-                              apiManager: InteriorAPIManager()))))
-          .tag(3)
-
-          OptionSelectionView.build(intent: .init(initialState: .init(currentPage: 0,
-                                                                      additionalOptionState: .init(cardStates: [], selectedFilterId: 0),
-                                                                      defaultOptionState: .init(cardStates: [], selectedFilterId: 0)), repository: OptionSelectionRepository(requestManager: RequestManager(apiManager: OptionSelectionAPIManager()), trimID: 2))).tag(4)
-
-          QuotationCompleteView()
-            .tag(5)
-
-        }
-        .onAppear { UIScrollView.appearance().isScrollEnabled = false }
-        .tabViewStyle(.page(indexDisplayMode: .never))
-        if state.currentPage != 0 && state.currentPage != 5 {
-          CLBudgetRangeView.build(
-            intent: CLBudgetRangeIntent(initialState:
-                .init(
-                  currentQuotationPrice: quotation.state.totalPrice,
-                  budgetPrice: (quotation.state.maxPrice + quotation.state.minPrice) / CLNumber(2),
-                  status: .default))
-          )
-        } else if state.currentPage == 5 {
-          CLBudgetRangeView.build(
-            intent: CLBudgetRangeIntent(initialState:
-                .init(currentQuotationPrice: quotation.state.totalPrice,
+      VStack(spacing: 0) {
+       
+          CLTopNaviBar(intent: intent)
+          CLNavigationMenuView(currentPage: currentPageBinding, menuStatus: menuStatus, navigationMenuTitles: ["트림", "타입", "외장", "내장", "옵션", "완료"])
+          ZStack {
+            TabView(selection: currentPageBinding) {
+              
+              TrimSelectionView.build(intent: TrimSelectionIntent(
+                initialState: .init(
+                  carId: 1),
+                repository: TrimSelectionRepository(), quotation: Quotation.shared, navigationIntent: intent))
+              .tag(0)
+              ModelTypeSelectionContainerView.build(intent: .init(initialState: .mock(),
+                                                                  repository: MockModelTypeRepository()))
+              .tag(1)
+              
+              ExternalSelectionContainerView.build(
+                intent: .init(initialState: .init(selectedTrimId: 2),
+                              repository: ExteriorColorRepository(
+                                requestManager: RequestManager(
+                                  apiManager: ExteriorColorAPIManager()))))
+              .tag(2)
+              
+              InteriorColorSelectionView.build(
+                intent: .init(initialState: .init(selectedTrimID: 2,
+                                                  selectedColorId: 1,
+                                                  trimColors: []),
+                              repository: InteriorColorSelectionRepository(
+                                requestManager: RequestManager(
+                                  apiManager: InteriorAPIManager()))))
+              .tag(3)
+              
+              OptionSelectionView.build(intent: .init(initialState: .init(currentPage: 0,
+                                                                          additionalOptionState: .init(cardStates: [], selectedFilterId: 0),
+                                                                          defaultOptionState: .init(cardStates: [], selectedFilterId: 0)), repository: OptionSelectionRepository(requestManager: RequestManager(apiManager: OptionSelectionAPIManager()), trimID: 2)))
+              .tag(4)
+              
+              QuotationCompleteView()
+              .tag(5)
+            }
+            .onAppear { UIScrollView.appearance().isScrollEnabled = false }
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            if state.currentPage != 0 && state.currentPage != 5 {
+              CLBudgetRangeView.build(
+                intent: CLBudgetRangeIntent(initialState:
+                    .init(
+                      currentQuotationPrice: quotation.state.totalPrice,
                       budgetPrice: (quotation.state.maxPrice + quotation.state.minPrice) / CLNumber(2),
                       status: .default), navigationIntent: intent)
               )
