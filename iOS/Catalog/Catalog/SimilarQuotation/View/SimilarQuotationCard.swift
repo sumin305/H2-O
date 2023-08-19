@@ -8,39 +8,26 @@
 import SwiftUI
 
 struct SimilarQuotationCard: View {
-  let quotation = Quotation.shared
-  var intent: SimilarQuotationIntentType
-  var index: Int
-  var trimName: String
-  var body: some View {
-    VStack(alignment: .leading) {
-      VStack(spacing: 0) {
-        HStack {
-          VStack(alignment: .leading, spacing: 0) {
-            Text("\((index+1).toString())번째 유사견적서")
-              .catalogFont(type: .TextKRRegular12)
-              .foregroundColor(Color.gray900)
-            Text(trimName)
-              .catalogFont(type: .HeadKRBold26)
-              .foregroundColor(Color.primary700)
-            HStack(spacing: 8) {
-              Text(intent.state.similarQuotations[index].powertrainName).modelTypeCard()
-              Text(intent.state.similarQuotations[index].bodytypeName).modelTypeCard()
-              Text(intent.state.similarQuotations[index].drivetrainName).modelTypeCard()
-            }
-          }
-          Spacer()
+
+    var intent: SimilarQuotationIntentType
+    var index: Int
+    var trimName: String
+    var body: some View {
+      VStack(alignment: .leading) {
+
+        VStack(alignment: .leading) {
+          Text(index.toString())
+            .catalogFont(type: .TextKRRegular12)
+            .foregroundColor(Color.gray900)
+          Text(trimName)
+            .catalogFont(type: .HeadKRBold26)
+            .foregroundColor(Color.primary0)
+          
         }
-        
+        .padding(.top, 20)
+        .padding(.leading, 24)
+
         HStack {
-          VStack(alignment: .leading, spacing: 0) {
-            Text(quotation.state.totalPrice.wonWithSpacing)
-              .catalogFont(type: .HeadKRMedium18)
-              .foregroundColor(.primary700)
-            Text(intent.state.similarQuotations[index].price.signedWon)
-              .catalogFont(type: .TextKRRegular12)
-              .foregroundColor(.sand)
-          }
           Spacer()
           AsyncImage(url: intent.state.similarQuotations[index].image, content: { image in
             image
@@ -50,18 +37,11 @@ struct SimilarQuotationCard: View {
           }, placeholder: {
             ProgressView()
           })
-          .frame(height: CGFloat(130).scaledHeight, alignment: .trailing)
         }
       }
-      .padding(.leading, 21)
-
-      SimilarHMGDataCard(options: intent.state.similarQuotations[index].options, intent: intent)
-        .frame(alignment: .bottom)
+      .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
-    .padding(.top, 24)
-    
-  }
-  
+
 }
 
 
@@ -76,15 +56,4 @@ extension Int {
     }
   }
   
-}
-
-extension Text {
-  @ViewBuilder
-  func modelTypeCard() -> some View {
-    self
-      .catalogFont(type: .TextKRRegular12)
-      .foregroundColor(.gray500)
-      .padding(.horizontal, 4)
-      .background(Color.gray100)
-  }
 }

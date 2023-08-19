@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SimilarQuotationOption: Equatable, Identifiable {
+struct SimilarQuotationOption: Equatable {
   var isSelected: Bool
   var id: Int
   var name: String

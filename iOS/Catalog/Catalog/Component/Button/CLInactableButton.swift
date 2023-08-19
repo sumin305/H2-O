@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct CLInActiceButton: View {
+struct TrimSelectButton: View {
 
   @State var mainText: String
 
-  var isInactive: Bool
+  var isTrimSelected: Bool
   var subText: String?
   var inActiveText: String?
   var height: CGFloat
@@ -20,7 +20,7 @@ struct CLInActiceButton: View {
 
 }
 
-extension CLInActiceButton {
+extension TrimSelectButton {
     var body: some View {
         Button {
             buttonAction()
@@ -31,12 +31,12 @@ extension CLInActiceButton {
                         .catalogFont(type: .TextKRRegular12)
                         .foregroundColor(Color.white)
                 }
-              Text(isInactive ? mainText : (inActiveText ?? ""))
+              Text(isTrimSelected ? mainText : (inActiveText ?? ""))
                 .catalogFont(type: .HeadKRMedium16)
                 .frame(maxWidth: width ?? .infinity, maxHeight: height)
             }
         }
         .buttonStyle(CLInActiveButtonStyle())
-        .disabled(!isInactive)
+        .disabled(!isTrimSelected)
     }
 }

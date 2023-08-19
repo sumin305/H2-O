@@ -194,8 +194,6 @@
 		ED3E87EC2A90C38E00DCDC66 /* SimilarQuotationOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87EB2A90C38E00DCDC66 /* SimilarQuotationOption.swift */; };
 		ED3E87F02A90CD2500DCDC66 /* SimilarQuotationTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87EF2A90CD2500DCDC66 /* SimilarQuotationTopBar.swift */; };
 		ED3E87F22A90CD8800DCDC66 /* SimilarQuotationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87F12A90CD8800DCDC66 /* SimilarQuotationCard.swift */; };
-		ED3E87F42A910EE100DCDC66 /* SimilarHMGDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87F32A910EE100DCDC66 /* SimilarHMGDataCard.swift */; };
-		ED3E87F62A911F2A00DCDC66 /* SimilarHMGOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87F52A911F2A00DCDC66 /* SimilarHMGOption.swift */; };
 		ED6410922A7FC4FF0033AEBC /* CLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6410882A7FC4FF0033AEBC /* CLButton.swift */; };
 		ED6410942A7FC4FF0033AEBC /* CLDualChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED64108A2A7FC4FF0033AEBC /* CLDualChoiceButton.swift */; };
 		ED6410982A7FDE740033AEBC /* CLBudgetRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6410972A7FDE740033AEBC /* CLBudgetRangeView.swift */; };
@@ -443,8 +441,6 @@
 		ED3E87EB2A90C38E00DCDC66 /* SimilarQuotationOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationOption.swift; sourceTree = "<group>"; };
 		ED3E87EF2A90CD2500DCDC66 /* SimilarQuotationTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationTopBar.swift; sourceTree = "<group>"; };
 		ED3E87F12A90CD8800DCDC66 /* SimilarQuotationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationCard.swift; sourceTree = "<group>"; };
-		ED3E87F32A910EE100DCDC66 /* SimilarHMGDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarHMGDataCard.swift; sourceTree = "<group>"; };
-		ED3E87F52A911F2A00DCDC66 /* SimilarHMGOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarHMGOption.swift; sourceTree = "<group>"; };
 		ED6410822A7FC4FF0033AEBC /* DimmedZStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmedZStack.swift; sourceTree = "<group>"; };
 		ED6410882A7FC4FF0033AEBC /* CLButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLButton.swift; sourceTree = "<group>"; };
 		ED64108A2A7FC4FF0033AEBC /* CLDualChoiceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLDualChoiceButton.swift; sourceTree = "<group>"; };
@@ -1271,8 +1267,6 @@
 				ED3E87DD2A8FDA9100DCDC66 /* SimilarQuotationView.swift */,
 				ED3E87F12A90CD8800DCDC66 /* SimilarQuotationCard.swift */,
 				ED3E87EF2A90CD2500DCDC66 /* SimilarQuotationTopBar.swift */,
-				ED3E87F32A910EE100DCDC66 /* SimilarHMGDataCard.swift */,
-				ED3E87F52A911F2A00DCDC66 /* SimilarHMGOption.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1848,7 +1842,6 @@
 				B149BD1E2A8CC8BD009A3C6B /* HMGButton.swift in Sources */,
 				B19824202A90AF2800795B44 /* DriveTrainDTO.swift in Sources */,
 				B155C0E02A7923AE00F540CB /* Container.swift in Sources */,
-				ED3E87F62A911F2A00DCDC66 /* SimilarHMGOption.swift in Sources */,
 				ED1C70632A89C3C50049D275 /* Trim.swift in Sources */,
 				B19436412A80ADD400C2FD69 /* CLSingleLineAlertContentView.swift in Sources */,
 				B1E512342A8D2F16005B195D /* OptionSelectionIntent.swift in Sources */,
