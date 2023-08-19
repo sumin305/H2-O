@@ -12,6 +12,7 @@ struct SimilarQuotation: Equatable, Identifiable {
   var powertrainName: String
   var bodytypeName: String
   var drivetrainName: String
+  var price: CLNumber
   var image: URL?
   var options: [SimilarQuotationOption]
   
@@ -19,7 +20,7 @@ struct SimilarQuotation: Equatable, Identifiable {
     .init(powertrainName: "디젤 2.2",
           bodytypeName: "7인승",
           drivetrainName: "2WD",
-          options: [
+          price: CLNumber(23233), options: [
             SimilarQuotationOption.mock(),
             SimilarQuotationOption.mock()
           ])

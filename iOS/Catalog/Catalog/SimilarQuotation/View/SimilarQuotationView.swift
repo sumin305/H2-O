@@ -44,12 +44,13 @@ extension SimilarQuotationView: View {
                   navigationIntent: navigationIntent))
         
         SnapCarousel(items: state.similarQuotations,
-                     spacing: CGFloat(11).scaledWidth,
-                     trailingSpace: CGFloat(11).scaledWidth,
+                     spacing: CGFloat(16).scaledWidth,
+                     trailingSpace: CGFloat(32).scaledWidth,
                      index: $currentIndexBinding) { trim in
           GeometryReader { proxy in
             let size = proxy.size
             SimilarQuotationCard(intent: intent, index: currentIndexBinding, trimName: "Le Blanc")
+              .frame(width: size.width, height: size.height)
           }
         }
         .frame(height: CGFloat(469).scaledHeight)
@@ -65,7 +66,12 @@ extension SimilarQuotationView: View {
         }
         .padding(.bottom, 20)
         
-        CLInActiceButton(mainText: "내 견적서에 추가하기", isInactive: !(state.selectedOption.isEmpty), subText: "선택된 옵션\(state.selectedOption.count)개", inActiveText: "옵션을 선택해 추가해보세요.", height: CGFloat(52).scaledHeight, buttonAction: { print("") })
+        CLInActiceButton(mainText: "내 견적서에 추가하기",
+                         isInactive: !(state.selectedOption.isEmpty),
+                         subText: "선택된 옵션\(state.selectedOption.count)개",
+                         inActiveText: "옵션을 선택해 추가해보세요.",
+                         height: CGFloat(52).scaledHeight,
+                         buttonAction: { intent.send(action: .onTapAddButton) })
       }
     
     }

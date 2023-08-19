@@ -13,53 +13,55 @@ struct SimilarQuotationCard: View {
   var index: Int
   var trimName: String
   var body: some View {
-    VStack(alignment: .leading) {
-      VStack(spacing: 0) {
-        HStack {
-          VStack(alignment: .leading, spacing: 0) {
-            Text("\((index+1).toString())번째 유사견적서")
-              .catalogFont(type: .TextKRRegular12)
-              .foregroundColor(Color.gray900)
-            Text(trimName)
-              .catalogFont(type: .HeadKRBold26)
-              .foregroundColor(Color.primary700)
-            HStack(spacing: 8) {
-              Text(intent.state.similarQuotations[index].powertrainName).modelTypeCard()
-              Text(intent.state.similarQuotations[index].bodytypeName).modelTypeCard()
-              Text(intent.state.similarQuotations[index].drivetrainName).modelTypeCard()
+    GeometryReader { proxy in
+      VStack(alignment: .leading) {
+        VStack(spacing: 0) {
+          HStack {
+            VStack(alignment: .leading, spacing: 0) {
+              Text("\((index+1).toString())번째 유사견적서")
+                .catalogFont(type: .TextKRRegular12)
+                .foregroundColor(Color.gray900)
+              Text(trimName)
+                .catalogFont(type: .HeadKRBold26)
+                .foregroundColor(Color.primary700)
+              HStack(spacing: 8) {
+                Text(intent.state.similarQuotations[index].powertrainName).modelTypeCard()
+                Text(intent.state.similarQuotations[index].bodytypeName).modelTypeCard()
+                Text(intent.state.similarQuotations[index].drivetrainName).modelTypeCard()
+              }
             }
+            Spacer()
           }
-          Spacer()
+          
+          HStack {
+            VStack(alignment: .leading, spacing: 0) {
+              Text(quotation.state.totalPrice.wonWithSpacing)
+                .catalogFont(type: .HeadKRMedium18)
+                .foregroundColor(.primary700)
+              Text(intent.state.similarQuotations[index].price.signedWon)
+                .catalogFont(type: .TextKRRegular12)
+                .foregroundColor(.sand)
+            }
+            Spacer()
+            AsyncImage(url: intent.state.similarQuotations[index].image, content: { image in
+              image
+                .resizable()
+                .scaledToFill()
+                .frame(width: CGFloat(343).scaledWidth)
+            }, placeholder: {
+              ProgressView()
+            })
+            .frame(height: CGFloat(130).scaledHeight, alignment: .trailing)
+          }
         }
+        .padding(.leading, 21)
         
-        HStack {
-          VStack(alignment: .leading, spacing: 0) {
-            Text(quotation.state.totalPrice.wonWithSpacing)
-              .catalogFont(type: .HeadKRMedium18)
-              .foregroundColor(.primary700)
-            Text(intent.state.similarQuotations[index].price.signedWon)
-              .catalogFont(type: .TextKRRegular12)
-              .foregroundColor(.sand)
-          }
-          Spacer()
-          AsyncImage(url: intent.state.similarQuotations[index].image, content: { image in
-            image
-              .resizable()
-              .scaledToFill()
-              .frame(width: CGFloat(343).scaledWidth)
-          }, placeholder: {
-            ProgressView()
-          })
-          .frame(height: CGFloat(130).scaledHeight, alignment: .trailing)
-        }
+        SimilarHMGDataCard(options: intent.state.similarQuotations[index].options, intent: intent)
+          .frame(alignment: .bottom)
       }
-      .padding(.leading, 21)
-
-      SimilarHMGDataCard(options: intent.state.similarQuotations[index].options, intent: intent)
-        .frame(alignment: .bottom)
+      .padding(.top, 24)
+      .frame(width: proxy.size.width, height: proxy.size.height)
     }
-    .padding(.top, 24)
-    
   }
   
 }

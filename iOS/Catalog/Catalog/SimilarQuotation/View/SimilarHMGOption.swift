@@ -35,10 +35,11 @@ struct SimilarHMGOption: View {
             Image("check")
           }
         }
+        .padding(.horizontal, 16)
       }
       .selectedCardStyle(isSelected: option.isSelected)
       .buttonSelected(isselected: option.isSelected)
-      .frame(maxWidth: CGFloat(141).scaledWidth)
+      .frame(maxWidth: .infinity)
     }
     .buttonStyle(EmptyButtonStyle())
   }

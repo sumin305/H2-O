@@ -166,6 +166,7 @@
 		B1F988E72A8B3E2E00C7B65F /* InteriorColorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F988E62A8B3E2E00C7B65F /* InteriorColorState.swift */; };
 		B1F988EA2A8B3E5300C7B65F /* InteriorColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F988E92A8B3E5300C7B65F /* InteriorColor.swift */; };
 		B1F988EE2A8B4AB800C7B65F /* InteriorColorDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F988ED2A8B4AB800C7B65F /* InteriorColorDisplayView.swift */; };
+		ED14DDB72A9139530060D560 /* SimilarHMGDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87F32A910EE100DCDC66 /* SimilarHMGDataCard.swift */; };
 		ED1A70982A83646E00F7920F /* (null) in Sources */ = {isa = PBXBuildFile; };
 		ED1A709F2A836D0D00F7920F /* CLColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A709E2A836D0D00F7920F /* CLColor.swift */; };
 		ED1A70A32A836F3700F7920F /* CarQuotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A70A22A836F3700F7920F /* CarQuotation.swift */; };
@@ -194,7 +195,6 @@
 		ED3E87EC2A90C38E00DCDC66 /* SimilarQuotationOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87EB2A90C38E00DCDC66 /* SimilarQuotationOption.swift */; };
 		ED3E87F02A90CD2500DCDC66 /* SimilarQuotationTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87EF2A90CD2500DCDC66 /* SimilarQuotationTopBar.swift */; };
 		ED3E87F22A90CD8800DCDC66 /* SimilarQuotationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87F12A90CD8800DCDC66 /* SimilarQuotationCard.swift */; };
-		ED3E87F42A910EE100DCDC66 /* SimilarHMGDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87F32A910EE100DCDC66 /* SimilarHMGDataCard.swift */; };
 		ED3E87F62A911F2A00DCDC66 /* SimilarHMGOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87F52A911F2A00DCDC66 /* SimilarHMGOption.swift */; };
 		ED6410922A7FC4FF0033AEBC /* CLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6410882A7FC4FF0033AEBC /* CLButton.swift */; };
 		ED6410942A7FC4FF0033AEBC /* CLDualChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED64108A2A7FC4FF0033AEBC /* CLDualChoiceButton.swift */; };
@@ -1675,6 +1675,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED14DDB72A9139530060D560 /* SimilarHMGDataCard.swift in Sources */,
 				ED1C70682A89C4EC0049D275 /* TrimCardView.swift in Sources */,
 				EDCF32C22A8A91D500C46A4B /* CLLinearGradient.swift in Sources */,
 				B191DD342A8B4ED8008196CD /* ColorSelectionView.swift in Sources */,
