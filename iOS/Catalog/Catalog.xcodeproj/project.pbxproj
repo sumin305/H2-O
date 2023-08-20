@@ -588,7 +588,7 @@
 				B1604D0E2A8255D200C7B07D /* TrimSelection */,
 				B1604D5E2A853FA200C7B07D /* ModelTypeSelectionDomain */,
 				B1604D102A82569800C7B07D /* NetworkCore */,
-				ED1A70992A8364DE00F7920F /* Model */,
+				ED1A70992A8364DE00F7920F /* CLModel */,
 				ED1A70942A8357FD00F7920F /* Quotation */,
 				ED6410962A7FD88E0033AEBC /* CLBudgetSetting */,
 				B155C11E2A7A789400F540CB /* CLNavigation */,
@@ -1238,7 +1238,7 @@
 			path = Quotation;
 			sourceTree = "<group>";
 		};
-		ED1A70992A8364DE00F7920F /* Model */ = {
+		ED1A70992A8364DE00F7920F /* CLModel */ = {
 			isa = PBXGroup;
 			children = (
 				ED64109D2A7FE3F60033AEBC /* CLNumber.swift */,
@@ -1247,7 +1247,7 @@
 				ED1A709E2A836D0D00F7920F /* CLColor.swift */,
 				ED1BDA752A8BB18F00E39270 /* ImageManager.swift */,
 			);
-			path = Model;
+			path = CLModel;
 			sourceTree = "<group>";
 		};
 		ED2B8CDF2A8CFD1E00F561FA /* DTO */ = {
