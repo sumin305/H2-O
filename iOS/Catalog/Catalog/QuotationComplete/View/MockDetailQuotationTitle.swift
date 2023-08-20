@@ -25,7 +25,7 @@ struct MockDetailQuotationTitle: View {
           .padding(.trailing, 20)
         }
       }
-      .background(Color("background2"))
       .frame(height: 48)
+      .background(Color("background2"))
     }
 }

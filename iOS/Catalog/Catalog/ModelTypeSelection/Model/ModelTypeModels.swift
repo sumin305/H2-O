@@ -16,7 +16,7 @@ protocol ModelTypeProtocol: Hashable {
   var image: URL? { get set }
 }
 
-struct PowerTrainModel: Equatable {
+struct `PowerTrainModel`: Equatable {
   var id: Int
   var name: String
   var price: CLNumber

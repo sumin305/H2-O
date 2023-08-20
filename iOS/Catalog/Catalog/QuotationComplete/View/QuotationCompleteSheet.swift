@@ -62,6 +62,19 @@
             externalColor: SummaryQuotationInfo(title: "외장색상", name: "xx", price: CLNumber(0)),
             internalColor: SummaryQuotationInfo(title: "내장색상", name: "xx", price: CLNumber(0)),
             options: []))
+          
+          Button {
+            print("이미지 확인 버튼 클릭")
+          } label: {
+            Capsule()
+              .fill(Color("ImageCheckCapsule"))
+              .frame(width: CGFloat(76).scaledWidth, height: CGFloat(28).scaledHeight)
+              .overlay(
+                Text("이미지 확인")
+                  .catalogFont(type: .TextKRMedium12)
+                  .foregroundColor(.white)
+              )
+          }
         }
       }
 
