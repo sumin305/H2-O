@@ -8,10 +8,12 @@
 import SwiftUI
 
 
-struct SimilarHMGDataCard: View {
-  
+struct SimilarHMGDataCard {
   var options: [SimilarQuotationOption]
   var intent: SimilarQuotationIntentType
+}
+
+extension SimilarHMGDataCard: View {
   
   var body: some View {
     ZStack(alignment: .leading) {
@@ -22,7 +24,6 @@ struct SimilarHMGDataCard: View {
       }
       .padding(.horizontal, 18)
       
-      
       VStack(alignment: .leading , spacing: 0) {
         Text("내 견적에 없는 옵션이에요.")
           .catalogFont(type: .TextKRMedium12)
@@ -30,18 +31,16 @@ struct SimilarHMGDataCard: View {
           .padding(.top, CGFloat(33).scaledHeight)
           .padding(.bottom, CGFloat(9).scaledHeight)
         
-        HStack(spacing: 0) {
+        HStack(spacing: 8) {
           ForEach(options.indices) { optionIndex in
             SimilarHMGOption(option: options[optionIndex]) {
               intent.send(action: .optionSelected(selectedOption: options[optionIndex]))
             }
           }
         }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-
       }
       .padding(.horizontal, 18)
     }
     .background(Color.gray50)
-    
   }
 }

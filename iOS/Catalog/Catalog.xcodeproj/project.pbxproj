@@ -233,6 +233,8 @@
 		EDD3F0AF2A8DE3BC006CE38A /* CLSheetCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3F0AE2A8DE3BC006CE38A /* CLSheetCapsule.swift */; };
 		EDD3F0B72A8DFE8D006CE38A /* LeadingTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3F0B62A8DFE8D006CE38A /* LeadingTitle.swift */; };
 		EDD3F0BC2A8E6A84006CE38A /* SummaryCarQuotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3F0BB2A8E6A84006CE38A /* SummaryCarQuotation.swift */; };
+		EDD79A3F2A928D13005692D5 /* SimilarQuotationCardHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A3E2A928D13005692D5 /* SimilarQuotationCardHead.swift */; };
+		EDD79A412A928E3E005692D5 /* SimilarQuotationCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A402A928E3E005692D5 /* SimilarQuotationCardImage.swift */; };
 		EDE434F12A8BFE75007BD0DE /* QuotationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE434F02A8BFE75007BD0DE /* QuotationIntent.swift */; };
 		EDF071A32A8CC588002AD0DB /* TrimDefaultOption.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF071A22A8CC588002AD0DB /* TrimDefaultOption.json */; };
 		EDF071A52A8CC629002AD0DB /* TrimMaxMinPrice.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF071A42A8CC629002AD0DB /* TrimMaxMinPrice.json */; };
@@ -500,6 +502,8 @@
 		EDD3F0AE2A8DE3BC006CE38A /* CLSheetCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLSheetCapsule.swift; sourceTree = "<group>"; };
 		EDD3F0B62A8DFE8D006CE38A /* LeadingTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingTitle.swift; sourceTree = "<group>"; };
 		EDD3F0BB2A8E6A84006CE38A /* SummaryCarQuotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCarQuotation.swift; sourceTree = "<group>"; };
+		EDD79A3E2A928D13005692D5 /* SimilarQuotationCardHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationCardHead.swift; sourceTree = "<group>"; };
+		EDD79A402A928E3E005692D5 /* SimilarQuotationCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationCardImage.swift; sourceTree = "<group>"; };
 		EDE434F02A8BFE75007BD0DE /* QuotationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationIntent.swift; sourceTree = "<group>"; };
 		EDF071A22A8CC588002AD0DB /* TrimDefaultOption.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TrimDefaultOption.json; sourceTree = "<group>"; };
 		EDF071A42A8CC629002AD0DB /* TrimMaxMinPrice.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TrimMaxMinPrice.json; sourceTree = "<group>"; };
@@ -1270,12 +1274,10 @@
 		ED3E87DC2A8FDA1200DCDC66 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EDD79A3D2A928C3E005692D5 /* SimilarQuotationCard */,
 				ED3E87DD2A8FDA9100DCDC66 /* SimilarQuotationView.swift */,
 				ED14DDB82A913FF20060D560 /* SimilarQuotationHelpView.swift */,
-				ED3E87F12A90CD8800DCDC66 /* SimilarQuotationCard.swift */,
 				ED3E87EF2A90CD2500DCDC66 /* SimilarQuotationTopBar.swift */,
-				ED3E87F32A910EE100DCDC66 /* SimilarHMGDataCard.swift */,
-				ED3E87F52A911F2A00DCDC66 /* SimilarHMGOption.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1506,6 +1508,18 @@
 				EDD3F0B62A8DFE8D006CE38A /* LeadingTitle.swift */,
 			);
 			path = Text;
+			sourceTree = "<group>";
+		};
+		EDD79A3D2A928C3E005692D5 /* SimilarQuotationCard */ = {
+			isa = PBXGroup;
+			children = (
+				EDD79A3E2A928D13005692D5 /* SimilarQuotationCardHead.swift */,
+				EDD79A402A928E3E005692D5 /* SimilarQuotationCardImage.swift */,
+				ED3E87F12A90CD8800DCDC66 /* SimilarQuotationCard.swift */,
+				ED3E87F32A910EE100DCDC66 /* SimilarHMGDataCard.swift */,
+				ED3E87F52A911F2A00DCDC66 /* SimilarHMGOption.swift */,
+			);
+			path = SimilarQuotationCard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1784,6 +1798,7 @@
 				B155C0DC2A7923A100F540CB /* IntentType.swift in Sources */,
 				EDA3CDD52A8243CC0001BB9C /* CLSimilarQuotationButton.swift in Sources */,
 				B16DFF432A895BE000642730 /* ModelTypeRepository.swift in Sources */,
+				EDD79A3F2A928D13005692D5 /* SimilarQuotationCardHead.swift in Sources */,
 				B1084BE72A87ACDD00AE1758 /* ModelTypeButtonContainer.swift in Sources */,
 				EDB20BF42A8F1F6D0063CB3C /* QuotationCompleteSheet.swift in Sources */,
 				B191DD322A8B4E7E008196CD /* ColorContentable.swift in Sources */,
@@ -1853,6 +1868,7 @@
 				B149BD1E2A8CC8BD009A3C6B /* HMGButton.swift in Sources */,
 				B19824202A90AF2800795B44 /* DriveTrainDTO.swift in Sources */,
 				B155C0E02A7923AE00F540CB /* Container.swift in Sources */,
+				EDD79A412A928E3E005692D5 /* SimilarQuotationCardImage.swift in Sources */,
 				ED3E87F62A911F2A00DCDC66 /* SimilarHMGOption.swift in Sources */,
 				ED1C70632A89C3C50049D275 /* Trim.swift in Sources */,
 				B19436412A80ADD400C2FD69 /* CLSingleLineAlertContentView.swift in Sources */,

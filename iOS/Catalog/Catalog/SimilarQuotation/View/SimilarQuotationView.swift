@@ -7,17 +7,6 @@
 
 import SwiftUI
 
-extension SimilarQuotationView {
-  @ViewBuilder
-  static func build(intent: SimilarQuotationIntent, navitationIntent: CLNavigationIntentType) -> some View {
-    
-    SimilarQuotationView(container: .init(
-      intent: intent as SimilarQuotationIntent,
-      state: intent.state,
-      modelChangePublisher: intent.objectWillChange), navigationIntent: navitationIntent)
-  }
-}
-
 struct SimilarQuotationView {
   @StateObject var container: Container<SimilarQuotationIntentType, SimilarQuotationModel.State>
   var intent: SimilarQuotationIntentType { container.intent }
@@ -34,12 +23,9 @@ struct SimilarQuotationView {
 extension SimilarQuotationView: View {
   
   var body: some View {
-    
+
     NavigationView {
-      
-    
       ZStack {
-        
         VStack {
           SimilarQuotationTopBar(navigationIntent: navigationIntent)
           
@@ -61,7 +47,7 @@ extension SimilarQuotationView: View {
           }
           .frame(height: CGFloat(449).scaledHeight)
           
-          // TODO: -
+          
           HStack(spacing: 10) {
             ForEach(state.similarQuotations.indices, id: \.self) { index in
               Capsule()
@@ -81,7 +67,7 @@ extension SimilarQuotationView: View {
           .disabled(state.selectedOption.isEmpty)
         }
         .padding([.top, .bottom], 1)
-
+        
         
         if showHelp {
           SimilarQuotationHelpView()
@@ -108,6 +94,19 @@ extension SimilarQuotationView: View {
   
 }
 
+
+extension SimilarQuotationView {
+  @ViewBuilder
+  static func build(intent: SimilarQuotationIntent, navitationIntent: CLNavigationIntentType) -> some View {
+    
+    SimilarQuotationView(container: .init(
+      intent: intent as SimilarQuotationIntent,
+      state: intent.state,
+      modelChangePublisher: intent.objectWillChange), navigationIntent: navitationIntent)
+  }
+}
+
+
 struct SimilarQuotationView_Previews: PreviewProvider {
   static var previews: some View {
     let navigationIntent: CLNavigationIntentType = CLNavigationIntent(initialState: .init(currentPage: 5, showQuotationSummarySheet: true))
@@ -118,3 +117,4 @@ struct SimilarQuotationView_Previews: PreviewProvider {
                                navitationIntent: navigationIntent)
   }
 }
+
