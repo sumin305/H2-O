@@ -13,7 +13,6 @@ enum SimilarQuotationModel {
 
     var similarQuotations: [SimilarQuotation]
     var selectedOption: [SimilarQuotationOption]
-    var optios: [OptionState]
   }
   
   enum ViewAction: Equatable {
