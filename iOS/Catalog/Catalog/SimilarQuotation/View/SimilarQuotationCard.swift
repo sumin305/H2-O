@@ -17,16 +17,16 @@ struct SimilarQuotationCard: View {
         VStack(spacing: 0) {
           HStack {
             VStack(alignment: .leading, spacing: 0) {
-              Text("\((index+1).toString())번째 유사견적서")
+              Text("\((index+1).count())번째 유사견적서")
                 .catalogFont(type: .TextKRRegular12)
                 .foregroundColor(Color.gray900)
               Text(trimName)
                 .catalogFont(type: .HeadKRBold26)
                 .foregroundColor(Color.primary700)
               HStack(spacing: 8) {
-                Text(intent.state.similarQuotations[index].powertrainName).modelTypeCard()
-                Text(intent.state.similarQuotations[index].bodytypeName).modelTypeCard()
-                Text(intent.state.similarQuotations[index].drivetrainName).modelTypeCard()
+                Text(intent.state.similarQuotations[index].powertrainName).modelTypeCardShape()
+                Text(intent.state.similarQuotations[index].bodytypeName).modelTypeCardShape()
+                Text(intent.state.similarQuotations[index].drivetrainName).modelTypeCardShape()
               }
             }
             Spacer()
@@ -64,8 +64,8 @@ struct SimilarQuotationCard: View {
 }
 
 
-extension Int {
-  func toString() -> String {
+fileprivate extension Int {
+  func count() -> String {
     switch self {
       case 1 :  return "첫"
       case 2: return "두"
@@ -77,13 +77,20 @@ extension Int {
   
 }
 
-extension Text {
-  @ViewBuilder
-  func modelTypeCard() -> some View {
-    self
-      .catalogFont(type: .TextKRRegular12)
+fileprivate struct ModelTypeCardShape: ViewModifier {
+
+  func body(content: Content) -> some View {
+    content
       .foregroundColor(.gray500)
       .padding(.horizontal, 4)
       .background(Color.gray100)
+  }
+}
+
+extension Text {
+  func modelTypeCardShape() -> some View {
+    self
+      .catalogFont(type: .TextKRRegular12)
+      .modifier(ModelTypeCardShape())
   }
 }

@@ -74,11 +74,11 @@ extension SimilarQuotationView: View {
           .padding(.bottom, CGFloat(12).scaledHeight)
           
           CLInActiceButton(mainText: "내 견적서에 추가하기",
-                           isInactive: !(state.selectedOption.isEmpty),
                            subText: "선택된 옵션\(state.selectedOption.count)개",
                            inActiveText: "옵션을 선택해 추가해보세요.",
                            height: CGFloat(52).scaledHeight,
                            buttonAction: { intent.send(action: .onTapAddButton) })
+          .disabled(state.selectedOption.isEmpty)
         }
         .padding([.top, .bottom], 1)
 
