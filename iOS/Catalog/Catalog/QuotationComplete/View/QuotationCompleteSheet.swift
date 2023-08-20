@@ -8,7 +8,8 @@
  import SwiftUI
 
  struct QuotationCompleteSheet: View {
-    var quotation = Quotation.shared
+    private var quotation = Quotation.shared
+   @Environment(\.presentationMode) var presentationMode
     var body: some View {
       ScrollView {
         LazyVStack {
@@ -64,7 +65,7 @@
             options: []))
           
           Button {
-            print("이미지 확인 버튼 클릭")
+            presentationMode.wrappedValue.dismiss()
           } label: {
             Capsule()
               .fill(Color("ImageCheckCapsule"))

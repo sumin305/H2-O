@@ -114,7 +114,7 @@ struct SimilarQuotationView_Previews: PreviewProvider {
     
     SimilarQuotationView.build(intent: .init(initialState: .init(similarQuotations: [SimilarQuotation.mock(),
                                                                                      SimilarQuotation.mock(),
-                                                                                     SimilarQuotation.mock()], selectedOption: [], optios: [])),
+                                                                                     SimilarQuotation.mock()], selectedOption: [])),
                                navitationIntent: navigationIntent)
   }
 }

@@ -79,11 +79,11 @@ extension ModelTypeSelectionIntent {
         }
         
         let powerTrainTitle = state.modelTypeStateArray[powerTrainID]
-          .optionStates[self.powerTrainOptionId - 1]
+          .optionStates[self.powerTrainOptionId]
           .title
         
         let driveTrainTitle = state.modelTypeStateArray[driveTrainID]
-          .optionStates[self.driveTrainOptionId - 1]
+          .optionStates[self.driveTrainOptionId]
           .title
       
         let result = try await self.repository

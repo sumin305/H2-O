@@ -29,7 +29,7 @@ final class SimilarQuotationIntent: ObservableObject {
   typealias ViewAction = SimilarQuotationModel.ViewAction
 
   @Published var state: State = .init(similarQuotations: [.mock(), .mock(), .mock()],
-                                      selectedOption: [], optios: [])
+                                      selectedOption: [])
 
   var cancellable: Set<AnyCancellable> = []
 

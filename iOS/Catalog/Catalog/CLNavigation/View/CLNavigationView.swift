@@ -50,11 +50,11 @@
                     carId: 1),
                   repository: TrimSelectionRepository(), quotation: Quotation.shared, navigationIntent: intent))
                 .tag(0)
-                ModelTypeSelectionContainerView.build(intent: .init(initialState: .mock(),
+                ModelTypeSelectionView.build(intent: .init(initialState: .init(),
                                                                     repository: MockModelTypeRepository()))
                 .tag(1)
                 
-                ExternalSelectionContainerView.build(
+                ExternalSelectionView.build(
                   intent: .init(initialState: .init(selectedTrimId: 2),
                                 repository: ExteriorColorRepository(
                                   requestManager: RequestManager(
@@ -102,7 +102,7 @@
          
           NavigationLink(destination:     SimilarQuotationView.build(intent: .init(initialState: .init(similarQuotations: [SimilarQuotation.mock(),
                                                                                                                            SimilarQuotation.mock(),
-                                                                                                                           SimilarQuotation.mock()], selectedOption: [], optios: [])), navitationIntent: intent),
+                                                                                                                           SimilarQuotation.mock()], selectedOption: [])), navitationIntent: intent),
                          isActive: showQuotationSummarySheetBinding,
                            label: { Text("") })
           }
