@@ -23,12 +23,12 @@ struct SimilarHMGOption: View {
         }
         .frame(height: CGFloat(89).scaledHeight)
 
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
           Text(option.name)
             .catalogFont(type: .HeadKRMedium14)
             .frame(height: CGFloat(35).scaledHeight)
           
-          HStack {
+          HStack(spacing: 0) {
             Text(option.price.signedWon)
               .catalogFont(type: .HeadKRMedium14)
               .frame(height: CGFloat(10).scaledHeight)
@@ -43,6 +43,7 @@ struct SimilarHMGOption: View {
       .buttonSelected(isselected: option.isSelected)
     }
     .buttonStyle(EmptyButtonStyle())
+    .padding(.bottom, 12)
   }
 
 }

@@ -34,8 +34,10 @@ struct SimilarQuotationView {
 extension SimilarQuotationView: View {
   
   var body: some View {
+    
     NavigationView {
       
+    
       ZStack {
         
         VStack {
@@ -59,6 +61,7 @@ extension SimilarQuotationView: View {
           }
           .frame(height: CGFloat(449).scaledHeight)
           
+          // TODO: -
           HStack(spacing: 10) {
             ForEach(state.similarQuotations.indices, id: \.self) { index in
               Capsule()
@@ -111,7 +114,7 @@ struct SimilarQuotationView_Previews: PreviewProvider {
     
     SimilarQuotationView.build(intent: .init(initialState: .init(similarQuotations: [SimilarQuotation.mock(),
                                                                                      SimilarQuotation.mock(),
-                                                                                     SimilarQuotation.mock()], selectedOption: [])),
+                                                                                     SimilarQuotation.mock()], selectedOption: [], optios: [])),
                                navitationIntent: navigationIntent)
   }
 }

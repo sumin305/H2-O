@@ -31,6 +31,7 @@ struct SimilarQuotationCard: View {
             }
             Spacer()
           }
+          .padding(.top, 24)
           
           HStack {
             VStack(alignment: .leading, spacing: 0) {
@@ -50,14 +51,13 @@ struct SimilarQuotationCard: View {
             }, placeholder: {
               ProgressView()
             })
-            .frame(height: CGFloat(130).scaledHeight, alignment: .trailing)
+            .frame(maxHeight: .infinity, alignment: .trailing)
           }
         }
         .padding(.leading, 21)
         
         SimilarHMGDataCard(options: intent.state.similarQuotations[index].options, intent: intent)
-        .frame(maxHeight: CGFloat(220).scaledHeight, alignment: .bottom)
-        .padding(.top)
+        .frame(maxHeight: CGFloat(220).scaledHeight)
       }
   }
   
