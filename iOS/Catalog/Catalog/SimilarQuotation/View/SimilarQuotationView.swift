@@ -36,12 +36,12 @@ extension SimilarQuotationView: View {
                     navigationIntent: navigationIntent))
           
           SnapCarousel(items: state.similarQuotations,
-                       spacing: CGFloat(16).scaledWidth,
-                       trailingSpace: CGFloat(32).scaledWidth,
+                       spacing: CGFloat(12).scaledWidth,
+                       trailingSpace: CGFloat(24).scaledWidth,
                        index: $currentIndexBinding) { trim in
             GeometryReader { proxy in
               let size = proxy.size
-              SimilarQuotationCard(intent: intent, index: currentIndexBinding, trimName: "Le Blanc")
+              SimilarQuotationCard(intent: intent, state: state, index: currentIndexBinding, trimName: "Le Blanc")
                 .frame(width: size.width, height: size.height)
             }
           }
@@ -60,11 +60,11 @@ extension SimilarQuotationView: View {
           .padding(.bottom, CGFloat(12).scaledHeight)
           
           CLInActiceButton(mainText: "내 견적서에 추가하기",
-                           subText: "선택된 옵션\(state.selectedOption.count)개",
+                           subText: "선택된 옵션\(state.selectedOptions.count)개",
                            inActiveText: "옵션을 선택해 추가해보세요.",
                            height: CGFloat(52).scaledHeight,
                            buttonAction: { intent.send(action: .onTapAddButton) })
-          .disabled(state.selectedOption.isEmpty)
+          .disabled(state.selectedOptions.isEmpty)
         }
         .padding([.top, .bottom], 1)
         
@@ -113,7 +113,7 @@ struct SimilarQuotationView_Previews: PreviewProvider {
     
     SimilarQuotationView.build(intent: .init(initialState: .init(similarQuotations: [SimilarQuotation.mock(),
                                                                                      SimilarQuotation.mock(),
-                                                                                     SimilarQuotation.mock()], selectedOption: [])),
+                                                                                     SimilarQuotation.mock()], selectedOptions: [])),
                                navitationIntent: navigationIntent)
   }
 }

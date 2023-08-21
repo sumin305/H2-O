@@ -9,6 +9,7 @@ import SwiftUI
 
 
 struct SimilarHMGDataCard {
+  var state: SimilarQuotationModel.State
   var options: [SimilarQuotationOption]
   var intent: SimilarQuotationIntentType
 }
@@ -33,9 +34,7 @@ extension SimilarHMGDataCard: View {
         
         HStack(spacing: 8) {
           ForEach(options.indices) { optionIndex in
-            SimilarHMGOption(option: options[optionIndex]) {
-              intent.send(action: .optionSelected(selectedOption: options[optionIndex]))
-            }
+            SimilarHMGOption(option: options[optionIndex], intent: intent, state: state)
           }
         }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
       }

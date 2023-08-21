@@ -10,9 +10,8 @@ import Foundation
 enum SimilarQuotationModel {
 
   struct State: Equatable {
-
     var similarQuotations: [SimilarQuotation]
-    var selectedOption: [SimilarQuotationOption]
+    var selectedOptions: [SimilarQuotationOption]
   }
   
   enum ViewAction: Equatable {
