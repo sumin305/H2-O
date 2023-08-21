@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 struct CarQuotation: Equatable {
-  var model: SummaryQuotationInfo = SummaryQuotationInfo(title: "모델", name: "팰리세이드", price: CLNumber(3880000))
+  var id: Int?
+  var model: CarModel = CarModel(id: 1, title: "모델", name: "팰리세이드", price: CLNumber(3880000))
   var trim: Trim
   var powertrain: PowerTrainModel
   var bodytype: BodyTypeModel
@@ -22,7 +23,8 @@ struct CarQuotation: Equatable {
 extension CarQuotation {
 
   func calculateTotalPrice() -> CLNumber {
-    return    model.price +
+    return
+    model.price +
     trim.price +
     powertrain.price +
     bodytype.price +

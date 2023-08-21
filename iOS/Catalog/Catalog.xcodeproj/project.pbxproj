@@ -235,6 +235,13 @@
 		EDD3F0BC2A8E6A84006CE38A /* SummaryCarQuotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3F0BB2A8E6A84006CE38A /* SummaryCarQuotation.swift */; };
 		EDD79A3F2A928D13005692D5 /* SimilarQuotationCardHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A3E2A928D13005692D5 /* SimilarQuotationCardHead.swift */; };
 		EDD79A412A928E3E005692D5 /* SimilarQuotationCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A402A928E3E005692D5 /* SimilarQuotationCardImage.swift */; };
+		EDD79A472A9292D5005692D5 /* QuotationCompleteIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A462A9292D5005692D5 /* QuotationCompleteIntent.swift */; };
+		EDD79A492A9292EA005692D5 /* QuotationCompleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A482A9292EA005692D5 /* QuotationCompleteModel.swift */; };
+		EDD79A4C2A929A90005692D5 /* QuotationCompleteRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A4B2A929A90005692D5 /* QuotationCompleteRepositoryProtocol.swift */; };
+		EDD79A4E2A929B55005692D5 /* QuotationCompleteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A4D2A929B55005692D5 /* QuotationCompleteRepository.swift */; };
+		EDD79A542A929C65005692D5 /* QuotationCompleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A532A929C65005692D5 /* QuotationCompleteRequest.swift */; };
+		EDD79A562A92F842005692D5 /* CarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A552A92F842005692D5 /* CarModel.swift */; };
+		EDD79A582A930513005692D5 /* QuotationCompleteResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A572A930513005692D5 /* QuotationCompleteResponseDTO.swift */; };
 		EDE434F12A8BFE75007BD0DE /* QuotationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE434F02A8BFE75007BD0DE /* QuotationIntent.swift */; };
 		EDF071A32A8CC588002AD0DB /* TrimDefaultOption.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF071A22A8CC588002AD0DB /* TrimDefaultOption.json */; };
 		EDF071A52A8CC629002AD0DB /* TrimMaxMinPrice.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF071A42A8CC629002AD0DB /* TrimMaxMinPrice.json */; };
@@ -504,6 +511,13 @@
 		EDD3F0BB2A8E6A84006CE38A /* SummaryCarQuotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCarQuotation.swift; sourceTree = "<group>"; };
 		EDD79A3E2A928D13005692D5 /* SimilarQuotationCardHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationCardHead.swift; sourceTree = "<group>"; };
 		EDD79A402A928E3E005692D5 /* SimilarQuotationCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationCardImage.swift; sourceTree = "<group>"; };
+		EDD79A462A9292D5005692D5 /* QuotationCompleteIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationCompleteIntent.swift; sourceTree = "<group>"; };
+		EDD79A482A9292EA005692D5 /* QuotationCompleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationCompleteModel.swift; sourceTree = "<group>"; };
+		EDD79A4B2A929A90005692D5 /* QuotationCompleteRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationCompleteRepositoryProtocol.swift; sourceTree = "<group>"; };
+		EDD79A4D2A929B55005692D5 /* QuotationCompleteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationCompleteRepository.swift; sourceTree = "<group>"; };
+		EDD79A532A929C65005692D5 /* QuotationCompleteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationCompleteRequest.swift; sourceTree = "<group>"; };
+		EDD79A552A92F842005692D5 /* CarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
+		EDD79A572A930513005692D5 /* QuotationCompleteResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationCompleteResponseDTO.swift; sourceTree = "<group>"; };
 		EDE434F02A8BFE75007BD0DE /* QuotationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationIntent.swift; sourceTree = "<group>"; };
 		EDF071A22A8CC588002AD0DB /* TrimDefaultOption.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TrimDefaultOption.json; sourceTree = "<group>"; };
 		EDF071A42A8CC629002AD0DB /* TrimMaxMinPrice.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TrimMaxMinPrice.json; sourceTree = "<group>"; };
@@ -579,8 +593,8 @@
 		B155C0AE2A7920A800F540CB /* Catalog */ = {
 			isa = PBXGroup;
 			children = (
-				EDB20C002A8FD9460063CB3C /* SimilarQuotation */,
 				B19823FF2A8F99B000795B44 /* Utils */,
+				EDB20C002A8FD9460063CB3C /* SimilarQuotation */,
 				ED2B8CEA2A8D27C700F561FA /* QuotationComplete */,
 				B167221E2A8C9E1C002B45A6 /* OptionSelectionDomain */,
 				B1F988DF2A8B1C3700C7B65F /* InteriorColorSelectionDomain */,
@@ -1229,11 +1243,9 @@
 		ED1A70942A8357FD00F7920F /* Quotation */ = {
 			isa = PBXGroup;
 			children = (
+				EDD79A442A92916D005692D5 /* Model */,
+				EDD79A422A929139005692D5 /* Quotation */,
 				EDD3041F2A8A5FF500400DF9 /* View */,
-				ED1A70A22A836F3700F7920F /* CarQuotation.swift */,
-				EDD3F0BB2A8E6A84006CE38A /* SummaryCarQuotation.swift */,
-				EDE434F02A8BFE75007BD0DE /* QuotationIntent.swift */,
-				EDD053FF2A8C02A900FBD23F /* QuotationModel.swift */,
 			);
 			path = Quotation;
 			sourceTree = "<group>";
@@ -1266,6 +1278,9 @@
 		ED2B8CEA2A8D27C700F561FA /* QuotationComplete */ = {
 			isa = PBXGroup;
 			children = (
+				EDD79A4F2A929C24005692D5 /* Data */,
+				EDD79A4A2A929A61005692D5 /* Repository */,
+				EDD79A452A9292AF005692D5 /* QuotationComplete */,
 				EDB20BFF2A8FC7760063CB3C /* View */,
 			);
 			path = QuotationComplete;
@@ -1396,7 +1411,6 @@
 				EDB20BF62A8F321C0063CB3C /* DetailQuotationList.swift */,
 				EDB20BEC2A8F1F6C0063CB3C /* QuotationCompleteSheet.swift */,
 				EDB20BEB2A8F1F6C0063CB3C /* MockDetailQuotationTitle.swift */,
-				EDB20BE92A8F1F6C0063CB3C /* QuotationCompleteView.swift */,
 				EDB20BE62A8F1F6C0063CB3C /* QuotationExteriorView.swift */,
 				EDB20BED2A8F1F6C0063CB3C /* QuotationInteriorView.swift */,
 				EDB20BEA2A8F1F6C0063CB3C /* DetailQuotationTitle.swift */,
@@ -1520,6 +1534,77 @@
 				ED3E87F52A911F2A00DCDC66 /* SimilarHMGOption.swift */,
 			);
 			path = SimilarQuotationCard;
+			sourceTree = "<group>";
+		};
+		EDD79A422A929139005692D5 /* Quotation */ = {
+			isa = PBXGroup;
+			children = (
+				EDD053FF2A8C02A900FBD23F /* QuotationModel.swift */,
+				EDE434F02A8BFE75007BD0DE /* QuotationIntent.swift */,
+			);
+			path = Quotation;
+			sourceTree = "<group>";
+		};
+		EDD79A442A92916D005692D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EDD3F0BB2A8E6A84006CE38A /* SummaryCarQuotation.swift */,
+				ED1A70A22A836F3700F7920F /* CarQuotation.swift */,
+				EDD79A552A92F842005692D5 /* CarModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EDD79A452A9292AF005692D5 /* QuotationComplete */ = {
+			isa = PBXGroup;
+			children = (
+				EDB20BE92A8F1F6C0063CB3C /* QuotationCompleteView.swift */,
+				EDD79A462A9292D5005692D5 /* QuotationCompleteIntent.swift */,
+				EDD79A482A9292EA005692D5 /* QuotationCompleteModel.swift */,
+			);
+			path = QuotationComplete;
+			sourceTree = "<group>";
+		};
+		EDD79A4A2A929A61005692D5 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				EDD79A4B2A929A90005692D5 /* QuotationCompleteRepositoryProtocol.swift */,
+				EDD79A4D2A929B55005692D5 /* QuotationCompleteRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		EDD79A4F2A929C24005692D5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EDD79A522A929C3E005692D5 /* Request */,
+				EDD79A512A929C37005692D5 /* DTO */,
+				EDD79A502A929C2D005692D5 /* Mock */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EDD79A502A929C2D005692D5 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		EDD79A512A929C37005692D5 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				EDD79A572A930513005692D5 /* QuotationCompleteResponseDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		EDD79A522A929C3E005692D5 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				EDD79A532A929C65005692D5 /* QuotationCompleteRequest.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1778,11 +1863,13 @@
 				B156463D2A865B3F00FAD379 /* ModelTypeModalContentView.swift in Sources */,
 				EDCF32C32A8A91D500C46A4B /* SummarySheetListItem.swift in Sources */,
 				ED1A709F2A836D0D00F7920F /* CLColor.swift in Sources */,
+				EDD79A492A9292EA005692D5 /* QuotationCompleteModel.swift in Sources */,
 				B155C1202A7A78A700F540CB /* CLNavigationView.swift in Sources */,
 				B1604D212A825FBA00C7B07D /* SecureType.swift in Sources */,
 				B1604D672A8545DD00C7B07D /* ModelTypeButtonView.swift in Sources */,
 				B19824182A90A1D800795B44 /* PowerTrainDTO.swift in Sources */,
 				B1084BF12A8878BB00AE1758 /* FuelEfficiencyAverageBannerView.swift in Sources */,
+				EDD79A582A930513005692D5 /* QuotationCompleteResponseDTO.swift in Sources */,
 				B16722272A8CBB19002B45A6 /* ImageTagView.swift in Sources */,
 				B1604D2B2A82A78600C7B07D /* RequestRetrier.swift in Sources */,
 				B198241E2A90A33900795B44 /* BodyTypeDTO.swift in Sources */,
@@ -1838,6 +1925,7 @@
 				B19824222A90BB0000795B44 /* TechnicalSpecResponseDTO.swift in Sources */,
 				ED1BDA762A8BB18F00E39270 /* ImageManager.swift in Sources */,
 				ED3E87EC2A90C38E00DCDC66 /* SimilarQuotationOption.swift in Sources */,
+				EDD79A542A929C65005692D5 /* QuotationCompleteRequest.swift in Sources */,
 				B1604D482A83BE8000C7B07D /* TrimMockRepository.swift in Sources */,
 				B15B4F402A8E81E800101DCB /* OptionCardViewIntent.swift in Sources */,
 				EDD304462A8A6AD300400DF9 /* API.swift in Sources */,
@@ -1860,6 +1948,7 @@
 				B191DD512A8BF157008196CD /* InteriorAPIManager.swift in Sources */,
 				B1F2BC642A7B5BA3005385E0 /* CLNavigationMenuView.swift in Sources */,
 				B15B4F492A8E9E3B00101DCB /* ExtraOptionResponseDTO.swift in Sources */,
+				EDD79A4E2A929B55005692D5 /* QuotationCompleteRepository.swift in Sources */,
 				B16DFF472A8A161700642730 /* ModelTypeResponseDTO.swift in Sources */,
 				EDD3F0AF2A8DE3BC006CE38A /* CLSheetCapsule.swift in Sources */,
 				B1E512302A8CF65B005B195D /* OptionSelectionView.swift in Sources */,
@@ -1878,6 +1967,7 @@
 				B1F988D32A8A7F6400C7B65F /* ExternalSelectionModel.swift in Sources */,
 				ED3E87F22A90CD8800DCDC66 /* SimilarQuotationCard.swift in Sources */,
 				B19824012A8F99BF00795B44 /* CGFloat+.swift in Sources */,
+				EDD79A4C2A929A90005692D5 /* QuotationCompleteRepositoryProtocol.swift in Sources */,
 				EDF882592A8A71260077558F /* ModelTypeRequest.swift in Sources */,
 				EDB20BF32A8F1F6D0063CB3C /* MockDetailQuotationTitle.swift in Sources */,
 				B191DD382A8B6282008196CD /* HorizontalScroller.swift in Sources */,
@@ -1897,10 +1987,12 @@
 				B1604D232A82609600C7B07D /* CLNetworkError.swift in Sources */,
 				ED64109C2A7FE1870033AEBC /* CLBudgetRangeIntent.swift in Sources */,
 				ED6410922A7FC4FF0033AEBC /* CLButton.swift in Sources */,
+				EDD79A472A9292D5005692D5 /* QuotationCompleteIntent.swift in Sources */,
 				ED6410942A7FC4FF0033AEBC /* CLDualChoiceButton.swift in Sources */,
 				B15B4F4F2A8EA5C100101DCB /* OptionSelectionRepository.swift in Sources */,
 				B1E512382A8D490B005B195D /* OptionCardScrollIntent.swift in Sources */,
 				B149BD252A8CEE17009A3C6B /* FilterButtonBar.swift in Sources */,
+				EDD79A562A92F842005692D5 /* CarModel.swift in Sources */,
 				B1A76B862A892CA3009C84EF /* ModelTypeSelectionIntent.swift in Sources */,
 				B1F988D92A8A812600C7B65F /* ExteriorColorRepositoryProtocol.swift in Sources */,
 				ED3E87E42A90BE7200DCDC66 /* SimilarQuotationModel.swift in Sources */,
