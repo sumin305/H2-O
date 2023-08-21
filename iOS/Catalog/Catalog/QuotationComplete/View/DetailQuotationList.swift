@@ -38,9 +38,9 @@
       Section(header: DetailQuotationTitle(title: "추가옵션", isFloating: $optionFloating)) {
         if optionFloating {
           VStack {
-            ForEach([SummaryQuotationInfo(title: "옵션", name: "nn", price: CLNumber(500)),
-                     SummaryQuotationInfo(title: "옵션", name: "nn", price: CLNumber(500)),
-                     SummaryQuotationInfo(title: "옵션", name: "nn", price: CLNumber(500))], id: \.self) { option in
+            ForEach([SummaryQuotationInfo(index: 4, title: "옵션", name: "nn", price: CLNumber(500)),
+                     SummaryQuotationInfo(index: 4, title: "옵션", name: "nn", price: CLNumber(500)),
+                     SummaryQuotationInfo(index: 4, title: "옵션", name: "nn", price: CLNumber(500))], id: \.self) { option in
               DetailQuotationItem(info: option)
             }
           }.coordinateSpace(name: "option")

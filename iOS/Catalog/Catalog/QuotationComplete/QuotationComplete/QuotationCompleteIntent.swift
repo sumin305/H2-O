@@ -17,14 +17,16 @@ protocol QuotationCompleteIntentType {
   func send(action: QuotationCompleteModel.ViewAction, viewEffect: (() -> Void)?)
   
   var repository: QuotationCompleteRepositoryProtocol { get }
+  var quotationService: QuotationCompleteService { get }
   
 }
 
 final class QuotationCompleteIntent: ObservableObject {
 
-  init(initialState: State, repository: QuotationCompleteRepositoryProtocol) {
+  init(initialState: State, repository: QuotationCompleteRepositoryProtocol, quotationService: QuotationCompleteService) {
     state = initialState
     self.repository = repository
+    self.quotationService = quotationService
   }
 
   typealias State = QuotationCompleteModel.State
@@ -33,6 +35,7 @@ final class QuotationCompleteIntent: ObservableObject {
   @Published var state: State
 
   var cancellable: Set<AnyCancellable> = []
+  var quotationService: QuotationCompleteService
   private(set) var repository: QuotationCompleteRepositoryProtocol
 }
 
@@ -44,9 +47,11 @@ extension QuotationCompleteIntent: QuotationCompleteIntentType, IntentType {
       case .onAppear:
         Task {
           do {
-//            let resultOfCalculation = repository.calculateFuelAndDisplacement(with: Int, andwith: <#T##Int#>)
+            let ids = try quotationService.getPowertrainAndDriveTrain()
+            let resultOfCalculation = try await repository.calculateFuelAndDisplacement(with: ids.0, andwith: ids.1)
+            state.technicalSpec = resultOfCalculation
           } catch {
-            
+            print("@@@@배기량 계산 실패")
           }
         }
       case .onTapDeleteButton: return

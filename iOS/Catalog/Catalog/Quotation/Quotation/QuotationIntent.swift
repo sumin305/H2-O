@@ -87,9 +87,25 @@ protocol QuotationIntentType {
 }
 
 extension Quotation: QuotationCompleteService {
-  func getPowertrainAndDriveTrain() throws -> (Int, Int) {
-    guard let powertrainId = state.quotation?.powertrain.id else { throw QuotationError.cantCalculate }
-    guard let drivetrainId = state.quotation?.drivetrain.id else { throw QuotationError.cantCalculate }
+  func getModelName() -> String {
+    return state.quotation?.model.name ?? ""
+  }
+  
+  func getPowertrainAndDriveTrain() -> (Int, Int) {
+    guard let powertrainId = state.quotation?.powertrain.id else { return (0, 0) }
+    guard let drivetrainId = state.quotation?.drivetrain.id else { return (0, 0) }
     return (powertrainId, drivetrainId)
+  }
+  
+  func getSummary() -> SummaryCarQuotation {
+    return state.quotation?.toSummary() ?? SummaryCarQuotation(
+      model: SummaryQuotationInfo(index: 0, title: "모델", name: "xx", price: CLNumber(0)),
+      trim: SummaryQuotationInfo(index: 0, title: "트림", name: "xx", price: CLNumber(0)),
+      powertrain: SummaryQuotationInfo(index: 1, title: "파워트레인", name: "xx", price: CLNumber(0)),
+      bodytype: SummaryQuotationInfo(index: 1, title: "바디타입", name: "xx", price: CLNumber(0)),
+      drivetrain: SummaryQuotationInfo(index: 1, title: "구동방식", name: "xx", price: CLNumber(0)),
+      externalColor: SummaryQuotationInfo(index: 2, title: "외장색상", name: "xx", price: CLNumber(0)),
+      internalColor: SummaryQuotationInfo(index: 3, title: "내장색상", name: "xx", price: CLNumber(0)),
+      options: [])
   }
 }

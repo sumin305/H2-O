@@ -49,6 +49,6 @@ struct DetailQuotationItem: View {
 
 struct DetailQuotationItem_Previews: PreviewProvider {
   static var previews: some View {
-    DetailQuotationItem(info: SummaryQuotationInfo(title: "파워트레인", name: "디젤 2.2", price: CLNumber(280000)))
+    DetailQuotationItem(info: SummaryQuotationInfo(index: 1, title: "파워트레인", name: "디젤 2.2", price: CLNumber(280000)))
   }
 }

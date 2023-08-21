@@ -8,12 +8,21 @@
 import SwiftUI
 import UIKit
 
+struct QuotationCompleteView: IntentBindingType {
 
-struct QuotationCompleteView {
-  var quotation = Quotation.shared
-  var (positionX, positionY): (CGFloat, CGFloat) = (0, 0)
+  @StateObject var container: Container<QuotationCompleteIntentType, QuotationCompleteModel.State>
+
+  var intent: QuotationCompleteIntentType {
+    container.intent
+  }
+
+  var state: QuotationCompleteModel.State {
+    intent.state
+  }
+  
   @SwiftUI.State var isExternal: Bool = true
   @SwiftUI.State var showSheet: Bool = false
+
 }
 
 extension QuotationCompleteView: View {
@@ -43,14 +52,21 @@ extension QuotationCompleteView: View {
 
     }
     .sheet(isPresented: $showSheet) {
-      QuotationCompleteSheet()
+      QuotationCompleteSheet(modelName: intent.quotationService.getModelName(),
+                             resultOfCalculationOfFuelAndDisplacement: intent.quotationService.getPowertrainAndDriveTrain())
     }
-    
+    .onAppear {
+      intent.send(action: .onAppear)
+    }
   }
 }
 
-struct QuotationCompleteView_Previews: PreviewProvider {
-  static var previews: some View {
-    QuotationCompleteView()
+extension QuotationCompleteView {
+
+  @ViewBuilder
+  static func build(intent: QuotationCompleteIntent) -> some View {
+    QuotationCompleteView(container: .init(intent: intent,
+                                                    state: intent.state,
+                                                    modelChangePublisher: intent.objectWillChange))
   }
 }

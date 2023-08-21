@@ -8,5 +8,7 @@
 import Foundation
 
 protocol QuotationCompleteService {
-  func getPowertrainAndDriveTrain() throws -> (Int, Int) 
+  func getPowertrainAndDriveTrain() -> (Int, Int)
+  func getModelName() -> String
+  func getSummary() -> SummaryCarQuotation
 }

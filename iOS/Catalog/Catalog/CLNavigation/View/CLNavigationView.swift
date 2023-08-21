@@ -69,7 +69,7 @@ extension CLNavigationView: View {
             OptionSelectionView.build(intent: .init(initialState: .init(currentPage: 0,
                                                                         additionalOptionState: .init(cardStates: [], selectedFilterId: 0),
                                                                         defaultOptionState: .init(cardStates: [], selectedFilterId: 0)), repository: OptionSelectionRepository(requestManager: RequestManager(apiManager: OptionSelectionAPIManager()), trimID: 2))).tag(4)
-            QuotationCompleteView()
+            QuotationCompleteView.build(intent: .init(initialState: .init(technicalSpec: .init(displacement: CLNumber(0), fuelEfficiency: 0.0), nextNavIndex: 0), repository: QuotationCompleteRepository(quotationCompleteRequestManager: RequestManager(apiManager: APIManager())), quotationService: Quotation.shared))
               .tag(5)
           }
           .onAppear { UIScrollView.appearance().isScrollEnabled = false }
@@ -106,13 +106,13 @@ extension CLNavigationView: View {
       .sheet(isPresented: $showQuotationSummarySheet) {
         CLQuotationSummarySheet(currentQuotationPrice: quotation.state.totalPrice,
                                 summaryQuotation: quotation.state.quotation?.toSummary() ?? SummaryCarQuotation(
-                                  model: SummaryQuotationInfo(title: "모델", name: "xx", price: CLNumber(0)),
-                                  trim: SummaryQuotationInfo(title: "트림", name: "xx", price: CLNumber(0)),
-                                  powertrain: SummaryQuotationInfo(title: "파워트레인", name: "xx", price: CLNumber(0)),
-                                  bodytype: SummaryQuotationInfo(title: "바디타입", name: "xx", price: CLNumber(0)),
-                                  drivetrain: SummaryQuotationInfo(title: "구동방식", name: "xx", price: CLNumber(0)),
-                                  externalColor: SummaryQuotationInfo(title: "외장색상", name: "xx", price: CLNumber(0)),
-                                  internalColor: SummaryQuotationInfo(title: "내장색상", name: "xx", price: CLNumber(0)),
+                                  model: SummaryQuotationInfo(index: 0, title: "모델", name: "xx", price: CLNumber(0)),
+                                  trim: SummaryQuotationInfo(index: 0, title: "트림", name: "xx", price: CLNumber(0)),
+                                  powertrain: SummaryQuotationInfo(index: 1, title: "파워트레인", name: "xx", price: CLNumber(0)),
+                                  bodytype: SummaryQuotationInfo(index: 1, title: "바디타입", name: "xx", price: CLNumber(0)),
+                                  drivetrain: SummaryQuotationInfo(index: 1, title: "구동방식", name: "xx", price: CLNumber(0)),
+                                  externalColor: SummaryQuotationInfo(index: 2, title: "외장색상", name: "xx", price: CLNumber(0)),
+                                  internalColor: SummaryQuotationInfo(index: 3, title: "내장색상", name: "xx", price: CLNumber(0)),
                                   options: []),
                                 showQuotationSummarySheet: $showQuotationSummarySheet)
       }

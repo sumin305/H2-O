@@ -8,6 +8,7 @@
 import Foundation
 
 struct SummaryQuotationInfo: Hashable {
+  var index: Int
   var title: String
   var name: String
   var price: CLNumber
