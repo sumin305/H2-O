@@ -27,7 +27,7 @@ enum QuotationModel {
     case isExternalColorChanged
     case isInternalColorChanged
     case isOptionChanged(option: ExtraOptionModel)
-
     case isPriceChanged
+    case onTapCompleteButton
   }
 }

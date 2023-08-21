@@ -33,8 +33,10 @@ extension CLNavigationIntent: CLNavigationIntentType, IntentType {
     case .onTapNavTab(let index):
         if index != 0 && quotation.state.quotation == nil {
           print("페이지 이동 불가")
+        } else {
+          state.currentPage = index
         }
-      state.currentPage = index
+        print(state.currentPage)
     case .onTapFinish:
       print("didTapFinish")
     case .onTapLogo:
@@ -49,7 +51,7 @@ extension CLNavigationIntent: CLNavigationIntentType, IntentType {
   }
 }
 
-protocol CLNavigationIntentType {
+protocol CLNavigationIntentType: AnyObject {
 
   var state: CLNavigationModel.State { get }
 

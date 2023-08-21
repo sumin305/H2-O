@@ -91,7 +91,10 @@ extension CLNavigationView: View {
           }
         }
         if state.currentPage != 0 {
-          BottomArea(showQuotationSummarySheet: $showQuotationSummarySheet, intent: intent)
+          QuotationView.build(intent: .shared,
+                              prevAction: { intent.send(action: .onTapNavTab(index: state.currentPage - 1))},
+                              nextAction: { intent.send(action: .onTapNavTab(index: state.currentPage + 1))},
+                              currentPage: currentPageBinding)
         }
         
         NavigationLink(destination:     SimilarQuotationView.build(intent: .init(initialState: .init(similarQuotations: [SimilarQuotation.mock(),

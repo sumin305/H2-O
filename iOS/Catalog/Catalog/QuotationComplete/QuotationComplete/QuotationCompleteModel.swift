@@ -18,7 +18,5 @@ enum QuotationCompleteModel {
     case onAppear
     case onTapModifyButton
     case onTapDeleteButton
-    case onTapCompleteButton
   }
-
 }

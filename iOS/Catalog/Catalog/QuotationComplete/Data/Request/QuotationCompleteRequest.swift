@@ -9,7 +9,6 @@ import Foundation
 
 enum QuotationCompleteRequest {
   case calculateFuelAndDisplacement(powertrainId: Int, drivetrainId: Int)
-  case saveFinalQuotation(carQuotation: CarQuotation)
 }
 
 extension QuotationCompleteRequest: RequestProtocol {
@@ -21,8 +20,6 @@ extension QuotationCompleteRequest: RequestProtocol {
     switch self {
       case .calculateFuelAndDisplacement(let powertrainId, let drivetrainId):
         return "/technical-spec"
-      case .saveFinalQuotation(_):
-        return "/quotation"
     }
   }
   
@@ -31,23 +28,7 @@ extension QuotationCompleteRequest: RequestProtocol {
   }
   
   var params: [String : Any] {
-    switch self {
-      case .saveFinalQuotation(let carQuotation):
-        return
-        ["carId": carQuotation.model.id,
-         "trimId": carQuotation.trim.id,
-         "modelTypeIds":
-          ["powertrainId": carQuotation.powertrain.id,
-           "bodytypeId": carQuotation.bodytype.id,
-           "drivetrainId": carQuotation.drivetrain.id],
-         "internalColorId": carQuotation.internalColor,
-         "externalColorId": carQuotation.externalColor,
-         "optionsIds": carQuotation.options.filter{ $0.isPackage == true }.map{ $0.id },
-         "packageIds": carQuotation.options.filter{ $0.isPackage == false }.map{ $0.id }
-        ]
-      default:
-        return [:]
-    }
+    return [:]
   }
   
   var urlParams: [String : String?] {
@@ -63,8 +44,6 @@ extension QuotationCompleteRequest: RequestProtocol {
     switch self {
       case .calculateFuelAndDisplacement(_, _):
         return .GET
-      case .saveFinalQuotation(_):
-        return .POST
     }
   }
   
@@ -80,5 +59,5 @@ extension QuotationCompleteRequest: RequestProtocol {
   var secureType: SecureType {
     return .http
   }
-
+  
 }

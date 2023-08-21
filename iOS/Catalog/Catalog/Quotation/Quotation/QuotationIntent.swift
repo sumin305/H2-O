@@ -10,13 +10,12 @@ import Combine
 
 final class Quotation: ObservableObject {
   
-  static let shared = Quotation(initialState: .init(
-    totalPrice: CLNumber(0),
-    minPrice: CLNumber(0),
-    maxPrice: CLNumber(99999999)))
+  static let shared = Quotation(initialState: .init(totalPrice: CLNumber(0), minPrice: CLNumber(50000000), maxPrice: CLNumber(99999999)),
+                                parent: CLNavigationIntent(initialState: .init(currentPage: 0, showQuotationSummarySheet: false)))
   
-  private init(initialState: State) {
+  private init(initialState: State, parent: CLNavigationIntentType) {
     state = initialState
+    self.parent = parent
   }
   
   @Published var state: State = .init(
@@ -24,6 +23,7 @@ final class Quotation: ObservableObject {
     minPrice: CLNumber(0),
     maxPrice: CLNumber(99999999))
   var cancellable: Set<AnyCancellable> = []
+  weak var parent: CLNavigationIntentType?
 }
 
 extension Quotation: QuotationIntentType, IntentType {
@@ -38,12 +38,15 @@ extension Quotation: QuotationIntentType, IntentType {
         state.minPrice = minPrice
         state.maxPrice = maxPrice
         send(action: .isPriceChanged)
+        
       case .isTrimChanged(let trim):
         state.quotation?.trim = trim
         send(action: .isPriceChanged)
+        
       case .isPowertrainChanged(let powertrain):
         state.quotation?.powertrain = powertrain
         send(action: .isPriceChanged)
+        
       case .isBodyTypeChanged(let bodytype):
         state.quotation?.bodytype = bodytype
         send(action: .isPriceChanged)
