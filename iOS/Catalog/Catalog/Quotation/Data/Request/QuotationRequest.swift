@@ -60,5 +60,4 @@ extension QuotationRequest: RequestProtocol {
   var secureType: SecureType {
     return .http
   }
-  
 }

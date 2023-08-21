@@ -31,11 +31,11 @@ extension CLNavigationIntent: CLNavigationIntentType, IntentType {
   func mutate(action: CLNavigationModel.ViewAction, viewEffect: (() -> Void)?) {
     switch action {
     case .onTapNavTab(let index):
-        if index != 0 && quotation.state.quotation == nil {
-          print("페이지 이동 불가")
-        } else {
-          state.currentPage = index
-        }
+//        if index != 0 && quotation.state.quotation == nil {
+//          print("페이지 이동 불가")
+//        } else {
+//        }
+        state.currentPage = index
         print(state.currentPage)
     case .onTapFinish:
       print("didTapFinish")

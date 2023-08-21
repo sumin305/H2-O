@@ -59,7 +59,7 @@ extension CarQuotation {
                                                                    name: externalColor.name,
                                                                    price: externalColor.price,
                                                                    image: URL(string: externalColor.hexCode)),
-                               internalColor: SummaryQuotationInfo(index: 2,
+                               internalColor: SummaryQuotationInfo(index: 3,
                                                                    title: "내장색상",
                                                                    name: internalColor.name,
                                                                    price: internalColor.price,

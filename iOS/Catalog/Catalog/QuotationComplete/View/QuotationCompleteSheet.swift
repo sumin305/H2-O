@@ -12,7 +12,7 @@ struct QuotationCompleteSheet {
   var modelName: String
   var resultOfCalculationOfFuelAndDisplacement: (displacement: Int, fuelEfficiency: Int)
   var quotation = Quotation.shared
-  
+  var intent: QuotationCompleteIntentType
 }
 extension QuotationCompleteSheet: View {
   var body: some View {
@@ -59,7 +59,8 @@ extension QuotationCompleteSheet: View {
         Text("상세견적").catalogFont(type: .HeadKRMedium16).leadingTitle()
         
         // 상세견적
-        DetailQuotationList(quotation: (quotation.state.quotation?.toSummary())!)
+        DetailQuotationList(quotation: (quotation.state.quotation?.toSummary())!,
+                            intent: intent)
         
         Button {
           presentationMode.wrappedValue.dismiss()

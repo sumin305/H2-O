@@ -7,10 +7,17 @@
 
 import SwiftUI
 
-struct DetailQuotationItem: View {
+struct DetailQuotationItem {
   let info: SummaryQuotationInfo
   let itemHeight: CGFloat = 55
   let itemImageWidth: CGFloat = 77
+  var intent: QuotationCompleteIntentType
+  @Environment(\.presentationMode) var presentationMode
+
+}
+  
+extension DetailQuotationItem: View {
+
   var body: some View {
     HStack {
 
@@ -35,7 +42,8 @@ struct DetailQuotationItem: View {
       // 가격
       VStack(alignment: .trailing) {
         Button {
-          print("수정하기 클릭")
+          intent.send(action: .onTapModifyButton(navigationIndex: info.index))
+          presentationMode.wrappedValue.dismiss()
         } label: {
           Text("수정하기").catalogFont(type: .HeadKRMedium14).foregroundColor(Color.primary0)
         }
@@ -47,8 +55,8 @@ struct DetailQuotationItem: View {
   }
 }
 
-struct DetailQuotationItem_Previews: PreviewProvider {
-  static var previews: some View {
-    DetailQuotationItem(info: SummaryQuotationInfo(index: 1, title: "파워트레인", name: "디젤 2.2", price: CLNumber(280000)))
-  }
-}
+//struct DetailQuotationItem_Previews: PreviewProvider {
+//  static var previews: some View {
+//    DetailQuotationItem(info: SummaryQuotationInfo(index: 1, title: "파워트레인", name: "디젤 2.2", price: CLNumber(280000)))
+//  }
+//}

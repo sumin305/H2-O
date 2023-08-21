@@ -5,21 +5,22 @@
 //  Created by 이수민 on 2023/08/17.
 //
 
- import SwiftUI
+import SwiftUI
 
- struct DetailQuotationList: View {
+struct DetailQuotationList: View {
   var quotation: SummaryCarQuotation
+  var intent: QuotationCompleteIntentType
   @State var modeltypeFloating = true
   @State var colorFloating = false
   @State var optionFloating = false
-
+  
   var body: some View {
     VStack {
       Section(header: DetailQuotationTitle(title: "모델타입", isFloating: $modeltypeFloating)) {
         if modeltypeFloating {
           VStack {
             ForEach([quotation.powertrain, quotation.bodytype, quotation.drivetrain], id: \.self) { modeltype in
-              DetailQuotationItem(info: modeltype)
+              DetailQuotationItem(info: modeltype, intent: intent)
             }
           }
           .coordinateSpace(name: "modeltype")
@@ -29,7 +30,7 @@
         if colorFloating {
           VStack {
             ForEach([quotation.externalColor, quotation.internalColor], id: \.self) { color in
-              DetailQuotationItem(info: color)
+              DetailQuotationItem(info: color, intent: intent)
             }
           }
           .coordinateSpace(name: "color")
@@ -41,7 +42,7 @@
             ForEach([SummaryQuotationInfo(index: 4, title: "옵션", name: "nn", price: CLNumber(500)),
                      SummaryQuotationInfo(index: 4, title: "옵션", name: "nn", price: CLNumber(500)),
                      SummaryQuotationInfo(index: 4, title: "옵션", name: "nn", price: CLNumber(500))], id: \.self) { option in
-              DetailQuotationItem(info: option)
+              DetailQuotationItem(info: option, intent: intent)
             }
           }.coordinateSpace(name: "option")
         }
@@ -65,38 +66,38 @@
         modeltypeFloating = false
       }
     }.animation(.easeIn, value: modeltypeFloating)
-    .background(GeometryReader { geometry in
-      Color.clear.preference(
-        key: ScrollOffsetKey.self,
-        value: geometry.frame(in: .named("color")).origin.y)
-    })
-    .onPreferenceChange(ScrollOffsetKey.self) { position in
-      if 200...400 ~= position {
-        colorFloating = true
-      }
-      if position > UIScreen.main.bounds.height {
-        colorFloating = false
-      }
-    }.animation(.easeIn, value: colorFloating)
-    .background(GeometryReader { geometry in
-      Color.clear.preference(
-        key: ScrollOffsetKey.self,
-        value: geometry.frame(in: .named("option")).origin.y)
-    })
-    .onPreferenceChange(ScrollOffsetKey.self) { position in
-      if 200...400 ~= position {
-        optionFloating = true
-      }
-      if position > UIScreen.main.bounds.height {
-        optionFloating = false
-      }
-    }.animation(.easeIn, value: optionFloating)
+      .background(GeometryReader { geometry in
+        Color.clear.preference(
+          key: ScrollOffsetKey.self,
+          value: geometry.frame(in: .named("color")).origin.y)
+      })
+      .onPreferenceChange(ScrollOffsetKey.self) { position in
+        if 200...400 ~= position {
+          colorFloating = true
+        }
+        if position > UIScreen.main.bounds.height {
+          colorFloating = false
+        }
+      }.animation(.easeIn, value: colorFloating)
+      .background(GeometryReader { geometry in
+        Color.clear.preference(
+          key: ScrollOffsetKey.self,
+          value: geometry.frame(in: .named("option")).origin.y)
+      })
+      .onPreferenceChange(ScrollOffsetKey.self) { position in
+        if 200...400 ~= position {
+          optionFloating = true
+        }
+        if position > UIScreen.main.bounds.height {
+          optionFloating = false
+        }
+      }.animation(.easeIn, value: optionFloating)
   }
- }
+}
 
 private struct ScrollOffsetKey: PreferenceKey {
   static var defaultValue: CGFloat = .zero
-
+  
   static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
     value += nextValue()
   }

@@ -16,7 +16,7 @@ enum QuotationCompleteModel {
 
   enum ViewAction {
     case onAppear
-    case onTapModifyButton
+    case onTapModifyButton(navigationIndex: Int)
     case onTapDeleteButton
   }
 }

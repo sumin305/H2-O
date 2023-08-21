@@ -52,7 +52,7 @@ extension QuotationCompleteRequest: RequestProtocol {
   }
   
   var secureType: SecureType {
-    return .http
+    return .https
   }
   
 }

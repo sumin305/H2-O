@@ -23,10 +23,11 @@ protocol QuotationCompleteIntentType {
 
 final class QuotationCompleteIntent: ObservableObject {
 
-  init(initialState: State, repository: QuotationCompleteRepositoryProtocol, quotationService: QuotationCompleteService) {
+  init(initialState: State, repository: QuotationCompleteRepositoryProtocol, quotationService: QuotationCompleteService, navigationIntent: CLNavigationIntentType) {
     state = initialState
     self.repository = repository
     self.quotationService = quotationService
+    self.navigationIntent = navigationIntent
   }
 
   typealias State = QuotationCompleteModel.State
@@ -36,6 +37,7 @@ final class QuotationCompleteIntent: ObservableObject {
 
   var cancellable: Set<AnyCancellable> = []
   var quotationService: QuotationCompleteService
+  var navigationIntent: CLNavigationIntentType
   private(set) var repository: QuotationCompleteRepositoryProtocol
 }
 
@@ -55,7 +57,8 @@ extension QuotationCompleteIntent: QuotationCompleteIntentType, IntentType {
           }
         }
       case .onTapDeleteButton: return
-      case .onTapModifyButton: return
+      case .onTapModifyButton(let index): return
+        navigationIntent.send(action: .onTapNavTab(index: index))
     }
   }
 }

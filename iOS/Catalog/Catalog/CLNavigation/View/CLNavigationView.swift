@@ -69,7 +69,7 @@ extension CLNavigationView: View {
             OptionSelectionView.build(intent: .init(initialState: .init(currentPage: 0,
                                                                         additionalOptionState: .init(cardStates: [], selectedFilterId: 0),
                                                                         defaultOptionState: .init(cardStates: [], selectedFilterId: 0)), repository: OptionSelectionRepository(requestManager: RequestManager(apiManager: OptionSelectionAPIManager()), trimID: 2))).tag(4)
-            QuotationCompleteView.build(intent: .init(initialState: .init(technicalSpec: .init(displacement: CLNumber(0), fuelEfficiency: 0.0), nextNavIndex: 0), repository: QuotationCompleteRepository(quotationCompleteRequestManager: RequestManager(apiManager: APIManager())), quotationService: Quotation.shared))
+            QuotationCompleteView.build(intent: .init(initialState: .init(technicalSpec: .init(displacement: CLNumber(0), fuelEfficiency: 0.0), nextNavIndex: 0), repository: QuotationCompleteRepository(quotationCompleteRequestManager: RequestManager(apiManager: APIManager())), quotationService: Quotation.shared, navigationIntent: intent) )
               .tag(5)
           }
           .onAppear { UIScrollView.appearance().isScrollEnabled = false }
