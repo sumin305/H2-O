@@ -20,20 +20,23 @@ protocol SimilarQuotationIntentType {
 
 final class SimilarQuotationIntent: ObservableObject {
   
-  init(initialState: State, repository: SimilarQuotationRepositoryProtocol) {
+  init(initialState: State, repository: SimilarQuotationRepositoryProtocol, budgetRangeIntent: CLBudgetRangeIntentType) {
     state = initialState
     self.repository = repository
+    self.budgetRangeIntent = budgetRangeIntent
   }
   
   typealias State = SimilarQuotationModel.State
   
   typealias ViewAction = SimilarQuotationModel.ViewAction
   
-  @Published var state: State = .init(similarQuotations: [.mock(), .mock(), .mock()],
+  @Published var state: State = .init(currentSimilarQuotationIndex: 0,
+                                      similarQuotations: [.mock(), .mock(), .mock()],
                                       selectedOptions: [])
   
   var cancellable: Set<AnyCancellable> = []
   private var repository: SimilarQuotationRepositoryProtocol
+  private var budgetRangeIntent: CLBudgetRangeIntentType
 }
 
 extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
@@ -46,10 +49,7 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
             let similarQuotations = try await repository.fetchSimilarQuotation(quotation: quotation)
             state.similarQuotations = similarQuotations
           } catch(let e) {
-            print("@@@@@@@@@@")
             print(String(describing: e))
-            print("@@@@@@@@@@")
-
           }
         }
       case .onTapBackButton:
@@ -65,6 +65,9 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
         } else {
           state.selectedOptions.append(selectedOption)
         }
+        
+      case .currentSimilarQuotationIndexChanged(index: let index):
+        budgetRangeIntent.send(action: .budgetChanged(newBudgetPrice: state.similarQuotations[index].price))
     }
   }
 }

@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct SimilarQuotationCard {
+  var index: Int
+  var similarQuotation: SimilarQuotation
   let quotation = Quotation.shared
   var intent: SimilarQuotationIntentType
   var state: SimilarQuotationModel.State
-  var index: Int
   var trimName: String
   let leadingPadding = CGFloat(21).scaledHeight
   let cardHeight = CGFloat(220).scaledHeight
@@ -21,12 +22,12 @@ extension SimilarQuotationCard: View {
   var body: some View {
     VStack(alignment: .leading, spacing: 0) {
         VStack(spacing: 0) {
-          SimilarQuotationCardHead(index: index, intent: intent, trimName: trimName)
-          SimilarQuotationCardImage(index: index, intent: intent, quotation: quotation)
+          SimilarQuotationCardHead(index: index, similarQuotation: similarQuotation, trimName: trimName)
+          SimilarQuotationCardImage(similarQuotation: similarQuotation, intent: intent, quotation: quotation)
         }
         .padding(.leading, leadingPadding)
         
-      SimilarHMGDataCard(state: state, options: intent.state.similarQuotations[index].options, intent: intent)
+      SimilarHMGDataCard(state: state, options: similarQuotation.options, intent: intent)
       }
   }
   

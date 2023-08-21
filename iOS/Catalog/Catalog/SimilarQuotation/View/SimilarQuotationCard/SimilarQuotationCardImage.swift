@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SimilarQuotationCardImage {
-  var index: Int
+  var similarQuotation: SimilarQuotation
   var intent: SimilarQuotationIntentType
   var quotation: Quotation
 }
@@ -20,12 +20,12 @@ extension SimilarQuotationCardImage: View {
           Text(quotation.state.totalPrice.wonWithSpacing)
             .catalogFont(type: .HeadKRMedium18)
             .foregroundColor(.primary700)
-          Text(intent.state.similarQuotations[index].price.signedWon)
+          Text(similarQuotation.price.signedWon)
             .catalogFont(type: .TextKRRegular12)
             .foregroundColor(.sand)
         }
         Spacer()
-        AsyncImage(url: intent.state.similarQuotations[index].image, content: { image in
+        AsyncImage(url: similarQuotation.image, content: { image in
           image
             .resizable()
             .scaledToFill()

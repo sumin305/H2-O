@@ -10,7 +10,7 @@ import SwiftUI
 struct SimilarQuotationCardHead {
   
   var index: Int
-  var intent: SimilarQuotationIntentType
+  var similarQuotation: SimilarQuotation
   let trimName: String
 }
 
@@ -25,9 +25,9 @@ extension SimilarQuotationCardHead: View {
           .catalogFont(type: .HeadKRBold26)
           .foregroundColor(Color.primary700)
         HStack(spacing: 8) {
-          Text(intent.state.similarQuotations[index].powertrainName).modelTypeCardShape()
-          Text(intent.state.similarQuotations[index].bodytypeName).modelTypeCardShape()
-          Text(intent.state.similarQuotations[index].drivetrainName).modelTypeCardShape()
+          Text(similarQuotation.powertrainName).modelTypeCardShape()
+          Text(similarQuotation.bodytypeName).modelTypeCardShape()
+          Text(similarQuotation.drivetrainName).modelTypeCardShape()
         }
       }
       Spacer()

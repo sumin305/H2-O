@@ -257,6 +257,7 @@
 		EDD79A842A93B772005692D5 /* SimilarQuotationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A832A93B772005692D5 /* SimilarQuotationRequest.swift */; };
 		EDD79A872A93BE45005692D5 /* SimilarQuotationMockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A862A93BE45005692D5 /* SimilarQuotationMockRepository.swift */; };
 		EDD79A8A2A93BF11005692D5 /* SimilarQuotations.json in Resources */ = {isa = PBXBuildFile; fileRef = EDD79A892A93BF11005692D5 /* SimilarQuotations.json */; };
+		EDD79A8B2A93E724005692D5 /* SimilarQuotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87DD2A8FDA9100DCDC66 /* SimilarQuotationView.swift */; };
 		EDE434F12A8BFE75007BD0DE /* QuotationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE434F02A8BFE75007BD0DE /* QuotationIntent.swift */; };
 		EDF071A32A8CC588002AD0DB /* TrimDefaultOption.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF071A22A8CC588002AD0DB /* TrimDefaultOption.json */; };
 		EDF071A52A8CC629002AD0DB /* TrimMaxMinPrice.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF071A42A8CC629002AD0DB /* TrimMaxMinPrice.json */; };
@@ -2138,6 +2139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDD79A8B2A93E724005692D5 /* SimilarQuotationView.swift in Sources */,
 				B155C0CD2A7920A900F540CB /* CatalogUITestsLaunchTests.swift in Sources */,
 				B155C0CB2A7920A900F540CB /* CatalogUITests.swift in Sources */,
 			);

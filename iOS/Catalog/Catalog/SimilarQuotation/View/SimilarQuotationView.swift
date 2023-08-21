@@ -12,18 +12,22 @@ struct SimilarQuotationView {
   var intent: SimilarQuotationIntentType { container.intent }
   var state: SimilarQuotationModel.State { intent.state }
   
-  @SwiftUI.State var currentIndexBinding: Int = 0
   @SwiftUI.State var showHelp: Bool = false
   let budgetPrice: CLNumber = CLNumber(50000000)
   let quotation = Quotation.shared
   let navigationIntent: CLNavigationIntentType
-  
+}
+extension SimilarQuotationView {
+  var currentSimilarQuotationIndexBinding: Binding<Int> {
+    .init(get: { state.currentSimilarQuotationIndex },
+          set: { index in intent.send(action: .currentSimilarQuotationIndexChanged(index: index)) })
+  }
 }
 
 extension SimilarQuotationView: View {
   
   var body: some View {
-
+    
     NavigationView {
       ZStack {
         VStack {
@@ -38,23 +42,27 @@ extension SimilarQuotationView: View {
           SnapCarousel(items: state.similarQuotations,
                        spacing: CGFloat(12).scaledWidth,
                        trailingSpace: CGFloat(24).scaledWidth,
-                       index: $currentIndexBinding) { trim in
+                       index: currentSimilarQuotationIndexBinding) { similarQuotation in
             GeometryReader { proxy in
               let size = proxy.size
-              SimilarQuotationCard(intent: intent, state: state, index: currentIndexBinding, trimName: "Le Blanc")
-                .frame(width: size.width, height: size.height)
+              SimilarQuotationCard(index: state.similarQuotations.index(of: similarQuotation) ?? 0,
+                                   similarQuotation: similarQuotation,
+                                   intent: intent,
+                                   state: state,
+                                   trimName: "Le Blanc")
+              .frame(width: size.width, height: size.height)
             }
           }
-          .frame(height: CGFloat(449).scaledHeight)
+                       .frame(height: CGFloat(449).scaledHeight)
           
           
           HStack(spacing: 10) {
             ForEach(state.similarQuotations.indices, id: \.self) { index in
               Capsule()
-                .fill(currentIndexBinding == index ? Color.primary0 : Color.gray200)
-                .frame(width: (currentIndexBinding == index ? 15 : 5), height: 5)
-                .scaleEffect((currentIndexBinding == index) ? 1.4 : 1)
-                .animation(.spring(), value: currentIndexBinding == index)
+                .fill(currentSimilarQuotationIndexBinding == index ? Color.primary0 : Color.gray200)
+                .frame(width: (currentSimilarQuotationIndexBinding == index ? 15 : 5), height: 5)
+                .scaleEffect((currentSimilarQuotationIndexBinding == index) ? 1.4 : 1)
+                .animation(.spring(), value: currentSimilarQuotationIndexBinding == index)
             }
           }
           .padding(.bottom, CGFloat(12).scaledHeight)
@@ -90,7 +98,9 @@ extension SimilarQuotationView: View {
       
     }
     //TODO: - Quotation 받아오는 방식 변경하기
-    .onAppear { intent.send(action: .onAppear(quotation: quotation.state.quotation!)) }
+    .onAppear { intent.send(action: .onAppear(quotation: quotation.state.quotation!))
+      
+    }
     .navigationBarBackButtonHidden()
   }
   
@@ -113,11 +123,10 @@ struct SimilarQuotationView_Previews: PreviewProvider {
   static var previews: some View {
     let navigationIntent: CLNavigationIntentType = CLNavigationIntent(initialState: .init(currentPage: 5, showQuotationSummarySheet: true))
     
-    SimilarQuotationView.build(intent: .init(initialState: .init(similarQuotations: [SimilarQuotation.mock(),
-                                                                                     SimilarQuotation.mock(),
-                                                                                     SimilarQuotation.mock()], selectedOptions: []),
-                                             repository: SimilarQuotationRepository(requestManager: RequestManager(apiManager: APIManager()))),
+    SimilarQuotationView.build(intent: .init(initialState: .init(currentSimilarQuotationIndex: 0, similarQuotations: [SimilarQuotation.mock(),SimilarQuotation.mock()], selectedOptions: []),
+                                             repository: SimilarQuotationRepository(requestManager: RequestManager(apiManager: APIManager())), budgetRangeIntent: CLBudgetRangeIntent(initialState: .init(currentQuotationPrice: .init(0), budgetPrice: .init(0), status: .similarQuotation), navigationIntent: CLNavigationIntent(initialState: .init(currentPage: 0, showQuotationSummarySheet: false)))),
                                navitationIntent: navigationIntent)
   }
 }
+
 
