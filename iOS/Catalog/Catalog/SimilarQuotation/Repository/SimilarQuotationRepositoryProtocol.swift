@@ -8,5 +8,6 @@
 import Foundation
 
 protocol SimilarQuotationRepositoryProtocol {
-  
+
+  func fetchSimilarQuotation(quotation: CarQuotation) async throws -> [SimilarQuotation]
 }

@@ -99,7 +99,7 @@ extension CLNavigationView: View {
         
         NavigationLink(destination:     SimilarQuotationView.build(intent: .init(initialState: .init(similarQuotations: [SimilarQuotation.mock(),
                                                                                                                          SimilarQuotation.mock(),
-                                                                                                                         SimilarQuotation.mock()], selectedOptions: [])), navitationIntent: intent),
+                                                                                                                         SimilarQuotation.mock()], selectedOptions: []), repository: SimilarQuotationMockRepository()), navitationIntent: intent),
                        isActive: showQuotationSummarySheetBinding,
                        label: { Text("") })
       }

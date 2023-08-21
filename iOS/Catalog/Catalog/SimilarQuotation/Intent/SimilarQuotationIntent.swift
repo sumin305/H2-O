@@ -20,8 +20,9 @@ protocol SimilarQuotationIntentType {
 
 final class SimilarQuotationIntent: ObservableObject {
   
-  init(initialState: State) {
+  init(initialState: State, repository: SimilarQuotationRepositoryProtocol) {
     state = initialState
+    self.repository = repository
   }
   
   typealias State = SimilarQuotationModel.State
@@ -32,7 +33,7 @@ final class SimilarQuotationIntent: ObservableObject {
                                       selectedOptions: [])
   
   var cancellable: Set<AnyCancellable> = []
-  
+  private var repository: SimilarQuotationRepositoryProtocol
 }
 
 extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
@@ -40,8 +41,17 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
   func mutate(action: SimilarQuotationModel.ViewAction, viewEffect: (() -> Void)?) {
     switch action {
       case .onAppear(let quotation):
-        // TODO: - 서버에서 유사견적 받아오기
-        print("페이지 이동")
+        Task {
+          do {
+            let similarQuotations = try await repository.fetchSimilarQuotation(quotation: quotation)
+            state.similarQuotations = similarQuotations
+          } catch(let e) {
+            print("@@@@@@@@@@")
+            print(String(describing: e))
+            print("@@@@@@@@@@")
+
+          }
+        }
       case .onTapBackButton:
         // TODO: 옵션 선택 안했을 경우
         // TODO: 옵션 선택은 했지만 추가 안한 경우

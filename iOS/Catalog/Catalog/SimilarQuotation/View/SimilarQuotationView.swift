@@ -89,6 +89,8 @@ extension SimilarQuotationView: View {
       }
       
     }
+    //TODO: - Quotation 받아오는 방식 변경하기
+    .onAppear { intent.send(action: .onAppear(quotation: quotation.state.quotation!)) }
     .navigationBarBackButtonHidden()
   }
   
@@ -113,7 +115,8 @@ struct SimilarQuotationView_Previews: PreviewProvider {
     
     SimilarQuotationView.build(intent: .init(initialState: .init(similarQuotations: [SimilarQuotation.mock(),
                                                                                      SimilarQuotation.mock(),
-                                                                                     SimilarQuotation.mock()], selectedOptions: [])),
+                                                                                     SimilarQuotation.mock()], selectedOptions: []),
+                                             repository: SimilarQuotationRepository(requestManager: RequestManager(apiManager: APIManager()))),
                                navitationIntent: navigationIntent)
   }
 }
