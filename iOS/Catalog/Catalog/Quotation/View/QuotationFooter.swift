@@ -26,24 +26,10 @@ extension QuotationFooter: View {
     VStack {
       if currentPage != 5 {
         CLQuotationPriceBar(
-          showQuotationSummarySheet:
-            $showQuotationSummarySheet,
+          showQuotationSummarySheet: $showQuotationSummarySheet,
           currentQuotationPrice: state.totalPrice,
           content: {
-            Button {
-              showQuotationSummarySheet.toggle()
-            } label: {
-              Text("견적 요약")
-                .catalogFont(type: .TextKRMedium14)
-                .frame(width: 86, height: 36)
-                .foregroundColor(Color.primary0)
-                .overlay(
-                  Capsule(style: .continuous)
-                    .stroke(Color.primary0)
-                )
-            }
-            .buttonStyle(.plain)
-            Spacer()
+            CLCapsuleButton(width: 86, height: 36, text: "견적 요약", action: { showQuotationSummarySheet.toggle() })
           })
         CLDualChoiceButton(leftText: "이전",
                            rightText: "다음",
@@ -56,14 +42,14 @@ extension QuotationFooter: View {
             $showQuotationSummarySheet,
           currentQuotationPrice: state.totalPrice,
           content: {
-            Text("합리적인 가격으로 완성된\n                                     나만의 팰리세이드가 탄생했어요!")
+            Text("합리적인 가격으로 완성된\n나만의 팰리세이드가 탄생했어요!")
               .catalogFont(type: .TextKRMedium12)
           })
         CLDualChoiceButton(leftText: "공유하기",
                            rightText: "상담신청",
                            height: 52,
-                           leftAction: { },
-                           rightAction: {  })
+                           leftAction: { intent.send(action: .onTapCompleteButton) },
+                           rightAction: { intent.send(action: .onTapCompleteButton) })
       }
       
     }

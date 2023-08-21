@@ -41,8 +41,14 @@ extension QuotationCompleteIntent: QuotationCompleteIntentType, IntentType {
 
   func mutate(action: QuotationCompleteModel.ViewAction, viewEffect: (() -> Void)?) {
     switch action {
-      case .onAppear: return
-      case .onTapCompleteButton: return
+      case .onAppear:
+        Task {
+          do {
+//            let resultOfCalculation = repository.calculateFuelAndDisplacement(with: Int, andwith: <#T##Int#>)
+          } catch {
+            
+          }
+        }
       case .onTapDeleteButton: return
       case .onTapModifyButton: return
     }

@@ -11,11 +11,11 @@ import Combine
 final class Quotation: ObservableObject {
   
   static let shared = Quotation(initialState: .init(totalPrice: CLNumber(0), minPrice: CLNumber(50000000), maxPrice: CLNumber(99999999)),
-                                parent: CLNavigationIntent(initialState: .init(currentPage: 0, showQuotationSummarySheet: false)))
+                                repository: QuotationRepository(quotationRequestManager: RequestManager(apiManager: APIManager())))
   
-  private init(initialState: State, parent: CLNavigationIntentType) {
+  private init(initialState: State, repository: QuotationRepositoryProtocol) {
     state = initialState
-    self.parent = parent
+    self.repostitory = repository
   }
   
   @Published var state: State = .init(
@@ -23,7 +23,7 @@ final class Quotation: ObservableObject {
     minPrice: CLNumber(0),
     maxPrice: CLNumber(99999999))
   var cancellable: Set<AnyCancellable> = []
-  weak var parent: CLNavigationIntentType?
+  private var repostitory: QuotationRepositoryProtocol
 }
 
 extension Quotation: QuotationIntentType, IntentType {
@@ -62,6 +62,16 @@ extension Quotation: QuotationIntentType, IntentType {
         
       case .isPriceChanged:
         state.totalPrice = (state.quotation?.calculateTotalPrice() ?? CLNumber(0))
+      case .onTapCompleteButton:
+        Task {
+          do {
+             if let requestQuotation = state.quotation {
+               let quotationId = try await repostitory.saveFinalQuotation(with: requestQuotation)
+            }
+          } catch let error {
+            print("@@@@@실패함!!!")
+          }
+        }
     }
   }
 }
@@ -74,4 +84,12 @@ protocol QuotationIntentType {
   
   func send(action: QuotationModel.ViewAction, viewEffect: (() -> Void)?)
   
+}
+
+extension Quotation: QuotationCompleteService {
+  func getPowertrainAndDriveTrain() throws -> (Int, Int) {
+    guard let powertrainId = state.quotation?.powertrain.id else { throw QuotationError.cantCalculate }
+    guard let drivetrainId = state.quotation?.drivetrain.id else { throw QuotationError.cantCalculate }
+    return (powertrainId, drivetrainId)
+  }
 }

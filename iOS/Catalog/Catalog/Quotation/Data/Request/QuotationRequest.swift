@@ -8,7 +8,7 @@
 import Foundation
 
 enum QuotationRequest {
-  case saveFinalQuotation(carQuotation: CarQuotation)
+  case saveFinalQuotation(dto: QuotationRequestDTO)
 }
 
 extension QuotationRequest: RequestProtocol {
@@ -29,26 +29,18 @@ extension QuotationRequest: RequestProtocol {
   
   var params: [String : Any] {
     switch self {
-      case .saveFinalQuotation(let carQuotation):
-        return
-        ["carId": carQuotation.model.id,
-         "trimId": carQuotation.trim.id,
-         "modelTypeIds":
-          ["powertrainId": carQuotation.powertrain.id,
-           "bodytypeId": carQuotation.bodytype.id,
-           "drivetrainId": carQuotation.drivetrain.id],
-         "internalColorId": carQuotation.internalColor,
-         "externalColorId": carQuotation.externalColor,
-         "optionsIds": carQuotation.options.filter{ $0.isPackage == true }.map{ $0.id },
-         "packageIds": carQuotation.options.filter{ $0.isPackage == false }.map{ $0.id }
-        ]
-      default:
-        return [:]
+      case .saveFinalQuotation(let dto):
+        do {
+          guard let params = try? dto.asParameter() else { return [:] }
+          return params
+        } catch {
+          return [:]
+        }
     }
   }
   
   var urlParams: [String : String?] {
-        return [:]
+    return [:]
   }
   
   var requestType: RequestType {
@@ -68,5 +60,5 @@ extension QuotationRequest: RequestProtocol {
   var secureType: SecureType {
     return .http
   }
-
+  
 }

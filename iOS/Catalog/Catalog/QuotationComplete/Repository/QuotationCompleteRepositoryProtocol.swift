@@ -11,6 +11,4 @@ protocol QuotationCompleteRepositoryProtocol {
   
   func calculateFuelAndDisplacement(with powerTrainId: Int, andwith driverTrainId: Int)
   async throws -> ResultOfCalculationOfFuelAndDisplacement
-  
-  func saveFinalQuotation(with: CarQuotation) async throws -> Int
 }

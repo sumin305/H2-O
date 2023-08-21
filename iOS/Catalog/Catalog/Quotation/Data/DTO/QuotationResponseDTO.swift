@@ -7,8 +7,9 @@
 
 import Foundation
 
-enum QuotationToDomainError: Error {
+enum QuotationError: Error {
   case noQuotationIdInRespoinse
+  case cantCalculate
 }
 
 struct QuotationResponseDTO: Decodable {
@@ -17,7 +18,7 @@ struct QuotationResponseDTO: Decodable {
 
 extension QuotationResponseDTO {
   func toDomain() throws -> Int {
-    guard let id = quotationId else { throw QuotationToDomainError.noQuotationIdInRespoinse}
+    guard let id = quotationId else { throw QuotationError.noQuotationIdInRespoinse}
     return id
   }
 }

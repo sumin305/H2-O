@@ -19,9 +19,4 @@ final class QuotationCompleteRepository: QuotationCompleteRepositoryProtocol {
     let dto: TechnicalSpecResponseDTO = try await quotationCompleteRequestManager.perform(QuotationCompleteRequest.calculateFuelAndDisplacement(powertrainId: powerTrainId, drivetrainId: driverTrainId))
     return try dto.toDomain()
   }
-  
-  func saveFinalQuotation(with quotation: CarQuotation) async throws -> Int {
-    let dto: QuotationCompleteResponseDTO = try await quotationCompleteRequestManager.perform(QuotationCompleteRequest.saveFinalQuotation(carQuotation: quotation))
-    return try dto.toDomain()
-  }
 }

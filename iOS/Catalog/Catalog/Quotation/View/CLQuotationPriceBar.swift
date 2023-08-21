@@ -19,6 +19,7 @@ extension CLQuotationPriceBar {
             ZStack {
                 HStack {
                   content
+                  Spacer()
                 }
                 .padding(.leading, 20)
                 HStack {

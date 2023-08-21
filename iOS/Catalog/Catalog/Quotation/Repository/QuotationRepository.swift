@@ -8,14 +8,18 @@
 import Foundation
 
 final class QuotationRepository: QuotationRepositoryProtocol {
-
+  
   private let quotationRequestManager: RequestManagerProtocol
   
   init(quotationRequestManager: RequestManagerProtocol) {
     self.quotationRequestManager = quotationRequestManager
   }
   func saveFinalQuotation(with quotation: CarQuotation) async throws -> Int {
-    let dto: QuotationCompleteResponseDTO = try await quotationRequestManager.perform(QuotationCompleteRequest.saveFinalQuotation(carQuotation: quotation))
+    let requestDTO = QuotationRequestDTO(carId: quotation.model.id,
+                                         modelTypeIds: ModelTypeIDRequestDTO(bodyTypeId: quotation.bodytype.id,
+                                                                             drivetrainId: quotation.drivetrain.id,
+                                                                             powertrainId: quotation.powertrain.id), internalColorId: quotation.internalColor.id, externalColorId: quotation.externalColor.id, optionIds: quotation.options.filter{ !$0.isPackage }.map{ $0.id }, packageIds: quotation.options.filter{ $0.isPackage }.map{ $0.id }, trimId: quotation.trim.id)
+    let dto: QuotationResponseDTO = try await quotationRequestManager.perform(QuotationRequest.saveFinalQuotation(dto: requestDTO))
     return try dto.toDomain()
   }
 }

@@ -48,12 +48,7 @@ extension QuotationCompleteRequest: RequestProtocol {
   }
   
   var cachePolicy: URLRequest.CachePolicy {
-    switch self {
-      case .calculateFuelAndDisplacement(_ , _):
-        return .returnCacheDataElseLoad
-      default:
-        return .useProtocolCachePolicy
-    }
+      return .returnCacheDataElseLoad
   }
   
   var secureType: SecureType {
