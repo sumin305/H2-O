@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+
+
+
+
 struct QuotationFooter: IntentBindingType {
   @StateObject var container: Container<QuotationIntentType , QuotationModel.State>
   
@@ -27,7 +31,7 @@ extension QuotationFooter: View {
       if currentPage != 5 {
         CLQuotationPriceBar(
           showQuotationSummarySheet: $showQuotationSummarySheet,
-          currentQuotationPrice: state.totalPrice,
+          state: state,
           content: {
             CLCapsuleButton(width: 86, height: 36, text: "견적 요약", action: { showQuotationSummarySheet.toggle() })
           })
@@ -40,7 +44,7 @@ extension QuotationFooter: View {
         CLQuotationPriceBar(
           showQuotationSummarySheet:
             $showQuotationSummarySheet,
-          currentQuotationPrice: state.totalPrice,
+          state: state,
           content: {
             Text("합리적인 가격으로 완성된\n나만의 팰리세이드가 탄생했어요!")
               .catalogFont(type: .TextKRMedium12)

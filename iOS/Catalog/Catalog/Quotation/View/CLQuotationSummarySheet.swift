@@ -104,7 +104,7 @@ struct CLQuotationSummarySheet: View {
       }
     CLQuotationPriceBar(showQuotationSummarySheet:
     $showQuotationSummarySheet,
-                        currentQuotationPrice: Quotation.shared.state.totalPrice,
+                        state: Quotation.shared.state,
     content: {
       Button {
           showQuotationSummarySheet.toggle()

@@ -8,6 +8,11 @@
 import Foundation
 import Combine
 
+protocol QuotationPriceViewable {
+  var totalQuotationPrice: CLNumber { get }
+}
+
+
 final class Quotation: ObservableObject {
   
   static let shared = Quotation(initialState: .init(totalPrice: CLNumber(0), minPrice: CLNumber(50000000), maxPrice: CLNumber(99999999)),
@@ -46,6 +51,7 @@ extension Quotation: QuotationIntentType, IntentType {
       case .isPowertrainChanged(let powertrain):
         state.quotation?.powertrain = powertrain
         send(action: .isPriceChanged)
+      
         
       case .isBodyTypeChanged(let bodytype):
         state.quotation?.bodytype = bodytype
@@ -77,6 +83,15 @@ extension Quotation: QuotationIntentType, IntentType {
     }
   }
 }
+
+//extension Quotation: QuotationPriceViewable {
+//  
+//  private(set) var totalQuotationPrice: CLNumber {
+//    return state.totalPrice
+//  }
+//  
+//}
+
 
 protocol QuotationIntentType {
   

@@ -21,7 +21,6 @@ protocol ModalItemable: Identifiable & PriceContainable & titleContainable {
 
 
 struct ModelTypeDetailState: Equatable, ModalItemable {
-  
   var id: Int
   var title: String
   var description: String?
@@ -29,5 +28,4 @@ struct ModelTypeDetailState: Equatable, ModalItemable {
   var imageURL: URL?
   var price: CLNumber
   var hmgData: HMGModelTypeState?
-  
 }

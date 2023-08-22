@@ -16,9 +16,9 @@ struct CarQuotation: Equatable {
   var id: Int?
   var model: CarModel = CarModel(id: 1, title: "모델", name: "팰리세이드", price: CLNumber(3880000))
   var trim: Trim
-  var powertrain: PowerTrainModel
-  var bodytype: BodyTypeModel
-  var drivetrain: DriveTrainModel
+  var powertrain: ModelTypeOption
+  var bodytype: ModelTypeOption
+  var drivetrain: ModelTypeOption
   var externalColor: ExteriorColor
   var internalColor: InteriorColor
   var options: [any QuotationOptionable]
@@ -27,15 +27,15 @@ struct CarQuotation: Equatable {
 extension CarQuotation {
 
   func calculateTotalPrice() -> CLNumber {
-    return
-    model.price +
-    trim.price +
-    powertrain.price +
-    bodytype.price +
-    drivetrain.price +
-    externalColor.price +
-    internalColor.price +
-    options.reduce(CLNumber(0)) { $0 + ($1.price) }
+    
+    return    model.price +
+              trim.price +
+              powertrain.price +
+              bodytype.price +
+              drivetrain.price +
+              externalColor.price +
+              internalColor.price +
+              options.reduce(CLNumber(0)) { $0 + ($1.price) }
   }
 
   func toSummary() -> SummaryCarQuotation {
@@ -47,17 +47,17 @@ extension CarQuotation {
                                                                 title: "파워트레인",
                                                                 name: powertrain.name,
                                                                 price: powertrain.price,
-                                                                image: powertrain.image),
+                                                                image: powertrain.imageURL),
                                bodytype: SummaryQuotationInfo(index: 1,
                                                               title: "바디타입",
                                                               name: bodytype.name,
                                                               price: bodytype.price,
-                                                              image: bodytype.image),
+                                                              image: bodytype.imageURL),
                                drivetrain: SummaryQuotationInfo(index: 1,
                                                                 title: "구동방식",
                                                                 name: drivetrain.name,
                                                                 price: drivetrain.price,
-                                                                image: drivetrain.image),
+                                                                image: drivetrain.imageURL),
                                externalColor: SummaryQuotationInfo(index: 2,
                                                                    title: "외장색상",
                                                                    name: externalColor.name,

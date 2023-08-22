@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CLQuotationPriceBar<Content>: View where Content: View {
   @Binding var showQuotationSummarySheet: Bool
-  @State var currentQuotationPrice: CLNumber
+  var state: QuotationModel.State
   @ViewBuilder let content: Content
 }
 
@@ -28,7 +28,7 @@ extension CLQuotationPriceBar {
                         Text("현재 견적 가격")
                             .catalogFont(type: .TextKRRegular12)
                             .foregroundColor(Color.gray700)
-                        Text(currentQuotationPrice.wonWithSpacing)
+                      Text(state.totalPrice.wonWithSpacing)
                             .catalogFont(type: .HeadKRMedium20)
                             .foregroundColor(Color.primary0)
                     }

@@ -13,14 +13,14 @@ struct DetailQuotationItem {
   let itemImageWidth: CGFloat = 77
   var intent: QuotationCompleteIntentType
   @Environment(\.presentationMode) var presentationMode
-
-}
   
-extension DetailQuotationItem: View {
+}
 
+extension DetailQuotationItem: View {
+  
   var body: some View {
     HStack {
-
+      
       // 이미지
       AsyncImage(url: info.image) { image in
         image
@@ -37,13 +37,13 @@ extension DetailQuotationItem: View {
         Text(info.title).catalogFont(type: .TextKRRegular14).foregroundColor(Color.gray500)
         Text(info.name).catalogFont(type: .TextKRRegular14).foregroundColor(Color.gray900)
       }
-
+      
       Spacer()
       // 가격
       VStack(alignment: .trailing) {
         if info.isSimilarOption {
           Button {
-            intent.send(action: .onTapModifyButton(navigationIndex: info.index))
+            intent.send(action: .onTapDeleteButton)
             presentationMode.wrappedValue.dismiss()
           } label: {
             Text("삭제하기").catalogFont(type: .HeadKRMedium14).foregroundColor(Color.sand)
@@ -56,7 +56,7 @@ extension DetailQuotationItem: View {
             Text("수정하기").catalogFont(type: .HeadKRMedium14).foregroundColor(Color.primary0)
           }
         }
-     
+        
         Text(info.price.signedWon).catalogFont(type: .TextKRRegular14).foregroundColor(Color.gray900)
       }
     }
