@@ -34,8 +34,7 @@ final class SimilarQuotationIntent: ObservableObject {
   @Published var state: State = .init(currentSimilarQuotationIndex: 0,
                                       similarQuotations: [.mock(), .mock(), .mock()],
                                       selectedOptions: [],
-                                      alertCase: .noOption,
-                                      showAlert: false)
+                                      alertCase: .noOption)
   
   var cancellable: Set<AnyCancellable> = []
   private var repository: SimilarQuotationRepositoryProtocol
