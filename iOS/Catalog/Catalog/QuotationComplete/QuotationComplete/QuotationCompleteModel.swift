@@ -13,11 +13,12 @@ enum QuotationCompleteModel {
     var summaryQuotation: SummaryCarQuotation
     var technicalSpec: ResultOfCalculationOfFuelAndDisplacement
     var nextNavIndex: Int
+    var showAlert: Bool
   }
 
   enum ViewAction {
     case onAppear
-    case onTapModifyButton(navigationIndex: Int)
+    case onTapModifyButton(title: String, navigationIndex: Int)
     case onTapDeleteButton
   }
 }
