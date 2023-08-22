@@ -88,11 +88,14 @@ extension CarouselModalPopUpComponent {
       content(state)
       CLInActiceButton(
         mainText: "선택하기",
+        isInactive: isInactive(state: state),
         subText: state.price.signedWon,
         inActiveText: "선택완료",
         height: CGFloat(87).scaledHeight,
         buttonAction: {
-          submitAction(state.id)
+          if let id = state.id as? Int {
+            submitAction(id)
+          }
         }
       )
       .disabled(state.id == selectedId)
@@ -122,5 +125,10 @@ extension CarouselModalPopUpComponent {
       }
     }
     .frame(height: CGFloat(60).scaledHeight)
+  }
+  
+  private func isInactive(state: Item) -> Bool {
+    guard let id = state.id as? Int else { return false }
+    return id != selectedId
   }
 }
