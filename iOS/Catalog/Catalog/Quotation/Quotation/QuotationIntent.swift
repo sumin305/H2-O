@@ -72,6 +72,8 @@ extension Quotation: QuotationIntentType, IntentType {
             print("@@@@@실패함!!!")
           }
         }
+      case .similarOptionsAdded(let options):
+        state.quotation?.options.append(contentsOf: options)
     }
   }
 }

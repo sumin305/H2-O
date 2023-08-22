@@ -10,6 +10,7 @@ import Foundation
 enum QuotationCompleteModel {
 
   struct State: Equatable {
+    var summaryQuotation: SummaryCarQuotation
     var technicalSpec: ResultOfCalculationOfFuelAndDisplacement
     var nextNavIndex: Int
   }

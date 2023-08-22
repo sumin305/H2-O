@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 struct CarQuotation: Equatable {
+  static func == (lhs: CarQuotation, rhs: CarQuotation) -> Bool {
+    lhs.id == rhs.id
+  }
+  
   var id: Int?
   var model: CarModel = CarModel(id: 1, title: "모델", name: "팰리세이드", price: CLNumber(3880000))
   var trim: Trim
@@ -17,7 +21,7 @@ struct CarQuotation: Equatable {
   var drivetrain: DriveTrainModel
   var externalColor: ExteriorColor
   var internalColor: InteriorColor
-  var options: [ExtraOptionModel]
+  var options: [any QuotationOptionable]
 }
 
 extension CarQuotation {
@@ -64,11 +68,12 @@ extension CarQuotation {
                                                                    name: internalColor.name,
                                                                    price: internalColor.price,
                                                                    image: internalColor.fabricImageURL),
-                               options: options.map { SummaryQuotationInfo(index: 3,
+                               options: options.map { SummaryQuotationInfo(index: 4,
                                                                            title: "추가옵션",
                                                                            name: $0.name,
                                                                            price: $0.price,
-                                                                           image: $0.image)
+                                                                           image: $0.image,
+                                                                           isSimilarOption:               $0.isSimilarOption)
     }
     )
   }

@@ -20,9 +20,10 @@ protocol SimilarQuotationIntentType {
 
 final class SimilarQuotationIntent: ObservableObject {
   
-  init(initialState: State, repository: SimilarQuotationRepositoryProtocol, budgetRangeIntent: CLBudgetRangeIntentType) {
+  init(initialState: State, repository: SimilarQuotationRepositoryProtocol, navigationIntent: CLNavigationIntentType, budgetRangeIntent: CLBudgetRangeIntentType) {
     state = initialState
     self.repository = repository
+    self.navigationIntent = navigationIntent
     self.budgetRangeIntent = budgetRangeIntent
   }
   
@@ -36,6 +37,7 @@ final class SimilarQuotationIntent: ObservableObject {
   
   var cancellable: Set<AnyCancellable> = []
   private var repository: SimilarQuotationRepositoryProtocol
+  private var navigationIntent: CLNavigationIntentType
   private var budgetRangeIntent: CLBudgetRangeIntentType
 }
 
@@ -53,12 +55,13 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
           }
         }
       case .onTapBackButton:
-        // TODO: 옵션 선택 안했을 경우
-        // TODO: 옵션 선택은 했지만 추가 안한 경우
+        navigationIntent.send(action: .onTapSimilarQuotationBackButton)
         print("뒤로가기 버튼 클릭")
       case .onTapAddButton:
-        // TODO: 알림창 띄우고 이전 화면으로
+        Quotation.shared.send(action: .similarOptionsAdded(option: state.selectedOptions))
+        send(action: .onTapBackButton)
         print("추가하기 버튼 클릭")
+
       case .optionSelected(let selectedOption):
         if state.selectedOptions.contains(selectedOption) {
           state.selectedOptions = state.selectedOptions.filter { $0 != selectedOption }
@@ -66,7 +69,8 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
           state.selectedOptions.append(selectedOption)
         }
         
-      case .currentSimilarQuotationIndexChanged(index: let index):
+      case .currentSimilarQuotationIndexChanged(let index):
+        state.currentSimilarQuotationIndex = index
         budgetRangeIntent.send(action: .budgetChanged(newBudgetPrice: state.similarQuotations[index].price))
     }
   }

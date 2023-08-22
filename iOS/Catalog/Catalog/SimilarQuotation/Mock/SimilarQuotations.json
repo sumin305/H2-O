@@ -6,7 +6,7 @@
       "drivetrainName" : "2WD"
     },
     "image" : "url",
-    "price" : 1212312,
+    "price" : 3434343,
     "options" : [
       {
         "id" : 2,
@@ -16,11 +16,11 @@
         "price" : 1090000
       },
       {
-        "id" : 2,
-        "category": "상세품목",
-        "name" : "컴포트II",
+        "id" : 3,
+        "category": "상세품목2",
+        "name" : "컴포트2",
         "image" : "URL1",
-        "price" : 1090000
+        "price" : 3434
       }
     ]
   },
@@ -31,10 +31,10 @@
       "drivetrainName" : "2WD"
     },
     "image" : "url",
-    "price" : 1212312,
+    "price" : 454557,
     "options" : [
       {
-        "id" : 2,
+        "id" : 5,
         "category": "상세품목",
         "name" : "컴포트II",
         "image" : "URL1",

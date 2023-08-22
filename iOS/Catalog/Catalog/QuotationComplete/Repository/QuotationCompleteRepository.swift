@@ -16,7 +16,10 @@ final class QuotationCompleteRepository: QuotationCompleteRepositoryProtocol {
   }
   
   func calculateFuelAndDisplacement(with powerTrainId: Int, andwith driverTrainId: Int) async throws -> ResultOfCalculationOfFuelAndDisplacement {
-    let dto: TechnicalSpecResponseDTO = try await quotationCompleteRequestManager.perform(QuotationCompleteRequest.calculateFuelAndDisplacement(powertrainId: powerTrainId, drivetrainId: driverTrainId))
+    
+    let dto: TechnicalSpecResponseDTO = try await
+    quotationCompleteRequestManager.perform(ModelTypeRequest.calculateFuelAndDisplacement(powertrainId: powerTrainId, drivetrainId: driverTrainId))
+    
     return try dto.toDomain()
   }
 }

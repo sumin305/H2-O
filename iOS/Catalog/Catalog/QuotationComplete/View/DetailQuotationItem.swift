@@ -41,12 +41,22 @@ extension DetailQuotationItem: View {
       Spacer()
       // 가격
       VStack(alignment: .trailing) {
-        Button {
-          intent.send(action: .onTapModifyButton(navigationIndex: info.index))
-          presentationMode.wrappedValue.dismiss()
-        } label: {
-          Text("수정하기").catalogFont(type: .HeadKRMedium14).foregroundColor(Color.primary0)
+        if info.isSimilarOption {
+          Button {
+            intent.send(action: .onTapModifyButton(navigationIndex: info.index))
+            presentationMode.wrappedValue.dismiss()
+          } label: {
+            Text("삭제하기").catalogFont(type: .HeadKRMedium14).foregroundColor(Color.sand)
+          }
+        } else {
+          Button {
+            intent.send(action: .onTapModifyButton(navigationIndex: info.index))
+            presentationMode.wrappedValue.dismiss()
+          } label: {
+            Text("수정하기").catalogFont(type: .HeadKRMedium14).foregroundColor(Color.primary0)
+          }
         }
+     
         Text(info.price.signedWon).catalogFont(type: .TextKRRegular14).foregroundColor(Color.gray900)
       }
     }
@@ -54,9 +64,3 @@ extension DetailQuotationItem: View {
     .frame(height: itemHeight)
   }
 }
-
-//struct DetailQuotationItem_Previews: PreviewProvider {
-//  static var previews: some View {
-//    DetailQuotationItem(info: SummaryQuotationInfo(index: 1, title: "파워트레인", name: "디젤 2.2", price: CLNumber(280000)))
-//  }
-//}

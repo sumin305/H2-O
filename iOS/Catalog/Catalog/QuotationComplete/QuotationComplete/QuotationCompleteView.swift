@@ -52,8 +52,8 @@ extension QuotationCompleteView: View {
 
     }
     .sheet(isPresented: $showSheet) {
-      QuotationCompleteSheet(modelName: intent.quotationService.getModelName(),
-                             resultOfCalculationOfFuelAndDisplacement: intent.quotationService.getPowertrainAndDriveTrain(),
+      QuotationCompleteSheet(state: state,
+                             modelName: intent.quotationService.getModelName(),
                              intent: intent)
     }
     .onAppear {

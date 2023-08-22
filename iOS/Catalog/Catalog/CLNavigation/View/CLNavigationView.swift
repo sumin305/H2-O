@@ -69,7 +69,15 @@ extension CLNavigationView: View {
             OptionSelectionView.build(intent: .init(initialState: .init(currentPage: 0,
                                                                         additionalOptionState: .init(cardStates: [], selectedFilterId: 0),
                                                                         defaultOptionState: .init(cardStates: [], selectedFilterId: 0)), repository: OptionSelectionRepository(requestManager: RequestManager(apiManager: OptionSelectionAPIManager()), trimID: 2))).tag(4)
-            QuotationCompleteView.build(intent: .init(initialState: .init(technicalSpec: .init(displacement: CLNumber(0), fuelEfficiency: 0.0), nextNavIndex: 0), repository: QuotationCompleteRepository(quotationCompleteRequestManager: RequestManager(apiManager: APIManager())), quotationService: Quotation.shared, navigationIntent: intent) )
+            QuotationCompleteView.build(intent: .init(initialState: .init(summaryQuotation: SummaryCarQuotation(
+              model: SummaryQuotationInfo(index: 0, title: "모델", name: "xx", price: CLNumber(0)),
+              trim: SummaryQuotationInfo(index: 0, title: "트림", name: "xx", price: CLNumber(0)),
+              powertrain: SummaryQuotationInfo(index: 1, title: "파워트레인", name: "xx", price: CLNumber(0)),
+              bodytype: SummaryQuotationInfo(index: 1, title: "바디타입", name: "xx", price: CLNumber(0)),
+              drivetrain: SummaryQuotationInfo(index: 1, title: "구동방식", name: "xx", price: CLNumber(0)),
+              externalColor: SummaryQuotationInfo(index: 2, title: "외장색상", name: "xx", price: CLNumber(0)),
+              internalColor: SummaryQuotationInfo(index: 3, title: "내장색상", name: "xx", price: CLNumber(0)),
+              options: []), technicalSpec: .init(displacement: CLNumber(0), fuelEfficiency: 0.0), nextNavIndex: 0), repository: QuotationCompleteRepository(quotationCompleteRequestManager: RequestManager(apiManager: APIManager())), quotationService: Quotation.shared, navigationIntent: intent) )
               .tag(5)
           }
           .onAppear { UIScrollView.appearance().isScrollEnabled = false }
@@ -99,7 +107,7 @@ extension CLNavigationView: View {
         
         NavigationLink(destination:     SimilarQuotationView.build(intent: .init(initialState: .init(currentSimilarQuotationIndex: 0, similarQuotations: [SimilarQuotation.mock(),
                                                                                                                          SimilarQuotation.mock(),
-                                                                                                                                                          SimilarQuotation.mock()], selectedOptions: []), repository: SimilarQuotationMockRepository(), budgetRangeIntent: CLBudgetRangeIntent(initialState: .init(currentQuotationPrice: quotation.state.totalPrice, budgetPrice: .init(0), status: .similarQuotation), navigationIntent: CLNavigationIntent(initialState: .init(currentPage: 5, showQuotationSummarySheet: false)))), navitationIntent: intent),
+                                                                                                                                                          SimilarQuotation.mock()], selectedOptions: []), repository: SimilarQuotationMockRepository(), navigationIntent: self.intent, budgetRangeIntent: CLBudgetRangeIntent(initialState: .init(currentQuotationPrice: quotation.state.totalPrice, budgetPrice: .init(0), status: .similarQuotation), navigationIntent: CLNavigationIntent(initialState: .init(currentPage: 5, showQuotationSummarySheet: false)))), navitationIntent: intent),
                        isActive: showQuotationSummarySheetBinding,
                        label: { Text("") })
       }

@@ -29,5 +29,6 @@ enum QuotationModel {
     case isOptionChanged(option: ExtraOptionModel)
     case isPriceChanged
     case onTapCompleteButton
+    case similarOptionsAdded(option: [any QuotationOptionable])
   }
 }

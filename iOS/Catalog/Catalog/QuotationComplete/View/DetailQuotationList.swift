@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct DetailQuotationList: View {
-  var quotation: SummaryCarQuotation
   var intent: QuotationCompleteIntentType
+  var state: QuotationCompleteModel.State
   @State var modeltypeFloating = true
   @State var colorFloating = false
   @State var optionFloating = false
@@ -19,7 +19,7 @@ struct DetailQuotationList: View {
       Section(header: DetailQuotationTitle(title: "모델타입", isFloating: $modeltypeFloating)) {
         if modeltypeFloating {
           VStack {
-            ForEach([quotation.powertrain, quotation.bodytype, quotation.drivetrain], id: \.self) { modeltype in
+            ForEach([state.summaryQuotation.powertrain, state.summaryQuotation.bodytype, state.summaryQuotation.drivetrain], id: \.self) { modeltype in
               DetailQuotationItem(info: modeltype, intent: intent)
             }
           }
@@ -29,7 +29,7 @@ struct DetailQuotationList: View {
       Section(header: DetailQuotationTitle(title: "색상", isFloating: $colorFloating)) {
         if colorFloating {
           VStack {
-            ForEach([quotation.externalColor, quotation.internalColor], id: \.self) { color in
+            ForEach([state.summaryQuotation.externalColor, state.summaryQuotation.internalColor], id: \.self) { color in
               DetailQuotationItem(info: color, intent: intent)
             }
           }
@@ -39,9 +39,7 @@ struct DetailQuotationList: View {
       Section(header: DetailQuotationTitle(title: "추가옵션", isFloating: $optionFloating)) {
         if optionFloating {
           VStack {
-            ForEach([SummaryQuotationInfo(index: 4, title: "옵션", name: "nn", price: CLNumber(500)),
-                     SummaryQuotationInfo(index: 4, title: "옵션", name: "nn", price: CLNumber(500)),
-                     SummaryQuotationInfo(index: 4, title: "옵션", name: "nn", price: CLNumber(500))], id: \.self) { option in
+            ForEach(state.summaryQuotation.options, id: \.self) { option in
               DetailQuotationItem(info: option, intent: intent)
             }
           }.coordinateSpace(name: "option")

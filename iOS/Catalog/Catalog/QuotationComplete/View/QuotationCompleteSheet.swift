@@ -9,8 +9,8 @@ import SwiftUI
 
 struct QuotationCompleteSheet {
   @Environment(\.presentationMode) var presentationMode
+  var state: QuotationCompleteModel.State
   var modelName: String
-  var resultOfCalculationOfFuelAndDisplacement: (displacement: Int, fuelEfficiency: Int)
   var quotation = Quotation.shared
   var intent: QuotationCompleteIntentType
 }
@@ -38,7 +38,7 @@ extension QuotationCompleteSheet: View {
             Text("평균연비")
               .catalogFont(type: .TextKRRegular12)
               .foregroundColor(Color.gray600)
-            Text("\(resultOfCalculationOfFuelAndDisplacement.displacement)cc")
+            Text("\(state.technicalSpec.displacement.description)cc")
               .catalogFont(type: .HeadKRMedium18)
               .foregroundColor(Color.gray900)
           }
@@ -46,7 +46,7 @@ extension QuotationCompleteSheet: View {
             Text("배기량")
               .catalogFont(type: .TextKRRegular12)
               .foregroundColor(Color.gray600)
-            Text("\(resultOfCalculationOfFuelAndDisplacement.fuelEfficiency)km/I")
+            Text("\(state.technicalSpec.fuelEfficiency.description)km/I")
               .catalogFont(type: .HeadKRMedium18)
               .foregroundColor(Color.gray900)
           }
@@ -59,8 +59,7 @@ extension QuotationCompleteSheet: View {
         Text("상세견적").catalogFont(type: .HeadKRMedium16).leadingTitle()
         
         // 상세견적
-        DetailQuotationList(quotation: (quotation.state.quotation?.toSummary())!,
-                            intent: intent)
+        DetailQuotationList(intent: intent, state: intent.state)
         
         Button {
           presentationMode.wrappedValue.dismiss()

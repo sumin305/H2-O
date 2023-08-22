@@ -52,10 +52,11 @@ extension QuotationCompleteIntent: QuotationCompleteIntentType, IntentType {
             let ids = try quotationService.getPowertrainAndDriveTrain()
             let resultOfCalculation = try await repository.calculateFuelAndDisplacement(with: ids.0, andwith: ids.1)
             state.technicalSpec = resultOfCalculation
-          } catch {
-            print("@@@@배기량 계산 실패")
+          } catch(let e) {
+            print("@@@@배기량 계산 실패 \(e)")
           }
         }
+        state.summaryQuotation = Quotation.shared.getSummary()
       case .onTapDeleteButton: return
       case .onTapModifyButton(let index): return
         navigationIntent.send(action: .onTapNavTab(index: index))
