@@ -114,4 +114,37 @@ fileprivate extension SimilarQuotationView {
   func toAlertString(optionName: String, count: Int) -> String {
     "[\(optionName)]외 \(count)개"
   }
+  
+  func noOptionAlertView() -> some View {
+    let buttonContent = ButtonContent(cancelAction: {
+      showAlert = false
+    }, submitAction: {
+      intent.send(action: .choiceQuit)
+    }, cancelText: "완료")
+    return CLAlertView<CLQuitAlertContentView, ButtonContent, AlertDoubleButton>(items: buttonContent) { item in
+      AlertDoubleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
+    }
+  }
+  
+  func optionButQuitAlertView() -> some View {
+    let buttonContent = ButtonContent(cancelAction: {
+      showAlert = false
+    }, submitAction: {
+      intent.send(action: .choiceQuit)
+    })
+    return CLAlertView<CLOptionQuitAlertContentView, ButtonContent, AlertDoubleButton>(info: String(state.selectedOptions.count), items: buttonContent) { item in
+      AlertDoubleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
+    }
+  }
+  
+  func addOptionAlertView() -> some View {
+    let buttonContent = ButtonContent(cancelAction: {
+      showAlert = false
+    }, submitAction: {
+      intent.send(action: .choiceQuit)
+    })
+    return CLAlertView<CLOptionSelectAlertContentView, ButtonContent, AlertSingleButton>(info: toAlertString(optionName: state.selectedOptions[0].name, count: state.selectedOptions.count), items: buttonContent) { item in
+      AlertSingleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
+    }
+  }
 }
