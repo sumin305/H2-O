@@ -193,6 +193,8 @@
 		ED1C70682A89C4EC0049D275 /* TrimCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED95AFF92A85E199002D7A4B /* TrimCardView.swift */; };
 		ED260DFB2A94DDBC00C4DA2A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED260DFA2A94DDBC00C4DA2A /* LoadingView.swift */; };
 		ED260DFD2A94E00C00C4DA2A /* RotatingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED260DFC2A94E00C00C4DA2A /* RotatingCircle.swift */; };
+		ED260DFF2A94FE3F00C4DA2A /* AlertSingleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED260DFE2A94FE3F00C4DA2A /* AlertSingleButton.swift */; };
+		ED260E012A94FE4500C4DA2A /* AlertDoubleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED260E002A94FE4500C4DA2A /* AlertDoubleButton.swift */; };
 		ED2B8CE12A8CFDBD00F561FA /* TrimDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B8CE02A8CFDBD00F561FA /* TrimDTO.swift */; };
 		ED2B8CE32A8CFDE700F561FA /* TrimOptionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B8CE22A8CFDE700F561FA /* TrimOptionDTO.swift */; };
 		ED2B8CE52A8CFDF900F561FA /* TrimDefaultOptionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B8CE42A8CFDF900F561FA /* TrimDefaultOptionDTO.swift */; };
@@ -477,6 +479,8 @@
 		ED1C70622A89C3C50049D275 /* Trim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trim.swift; sourceTree = "<group>"; };
 		ED260DFA2A94DDBC00C4DA2A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		ED260DFC2A94E00C00C4DA2A /* RotatingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingCircle.swift; sourceTree = "<group>"; };
+		ED260DFE2A94FE3F00C4DA2A /* AlertSingleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSingleButton.swift; sourceTree = "<group>"; };
+		ED260E002A94FE4500C4DA2A /* AlertDoubleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDoubleButton.swift; sourceTree = "<group>"; };
 		ED2B8CE02A8CFDBD00F561FA /* TrimDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimDTO.swift; sourceTree = "<group>"; };
 		ED2B8CE22A8CFDE700F561FA /* TrimOptionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimOptionDTO.swift; sourceTree = "<group>"; };
 		ED2B8CE42A8CFDF900F561FA /* TrimDefaultOptionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimDefaultOptionDTO.swift; sourceTree = "<group>"; };
@@ -1027,6 +1031,8 @@
 				B19436402A80ADD400C2FD69 /* CLSingleLineAlertContentView.swift */,
 				B19436422A80AE2000C2FD69 /* CLOptionSelectAlertContentView.swift */,
 				B19436442A80E5FD00C2FD69 /* AlertViewComponent.swift */,
+				ED260DFE2A94FE3F00C4DA2A /* AlertSingleButton.swift */,
+				ED260E002A94FE4500C4DA2A /* AlertDoubleButton.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -1991,6 +1997,7 @@
 				EDBA5D592A808A8A0050BC35 /* DimmedZStack.swift in Sources */,
 				EDD79A812A93B356005692D5 /* SimilarQuotationRequestDTO.swift in Sources */,
 				B19824242A90D32400795B44 /* PowerTrainModel.swift in Sources */,
+				ED260E012A94FE4500C4DA2A /* AlertDoubleButton.swift in Sources */,
 				B1F2BC6A2A7B62E8005385E0 /* CLNavigationIntent.swift in Sources */,
 				B1604D122A8256B700C7B07D /* RequestProtocol.swift in Sources */,
 				B155C0E92A792BB100F540CB /* Color+.swift in Sources */,
@@ -2184,6 +2191,7 @@
 				B1A76B862A892CA3009C84EF /* ModelTypeSelectionIntent.swift in Sources */,
 				B1F988D92A8A812600C7B65F /* ExteriorColorRepositoryProtocol.swift in Sources */,
 				ED3E87E42A90BE7200DCDC66 /* SimilarQuotationModel.swift in Sources */,
+				ED260DFF2A94FE3F00C4DA2A /* AlertSingleButton.swift in Sources */,
 				ED64109E2A7FE3F60033AEBC /* CLNumber.swift in Sources */,
 				B155C0B02A7920A800F540CB /* CatalogApp.swift in Sources */,
 				EDD79A6F2A93663C005692D5 /* CLCapsuleButton.swift in Sources */,

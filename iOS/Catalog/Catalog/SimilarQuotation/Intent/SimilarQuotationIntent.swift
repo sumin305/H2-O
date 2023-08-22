@@ -56,13 +56,17 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
           }
         }
       case .onTapBackButton:
-        navigationIntent.send(action: .onTapSimilarQuotationBackButton)
-        print("뒤로가기 버튼 클릭")
-      case .onTapAddButton:
-        Quotation.shared.send(action: .similarOptionsAdded(option: state.selectedOptions))
-        send(action: .onTapBackButton)
-        print("추가하기 버튼 클릭")
+        if state.selectedOptions.isEmpty {
+          state.alertCase = .noOption
+        } else {
+          state.alertCase = .optionButQuit
+        }
 
+      case .onTapAddButton:
+        print("추가하기 버튼 클릭")
+        state.alertCase = .addOption
+        Quotation.shared.send(action: .similarOptionsAdded(option: state.selectedOptions))
+        
       case .optionSelected(let selectedOption):
         if state.selectedOptions.contains(selectedOption) {
           state.selectedOptions = state.selectedOptions.filter { $0 != selectedOption }
@@ -73,6 +77,9 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
       case .currentSimilarQuotationIndexChanged(let index):
         state.currentSimilarQuotationIndex = index
         budgetRangeIntent.send(action: .budgetChanged(newBudgetPrice: state.similarQuotations[index].price))
+      case .choiceQuit:
+        navigationIntent.send(action: .onTapSimilarQuotationBackButton)
+        
     }
   }
 }
