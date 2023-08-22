@@ -107,7 +107,7 @@ extension CLNavigationView: View {
         
         NavigationLink(destination:     SimilarQuotationView.build(intent: .init(initialState: .init(currentSimilarQuotationIndex: 0, similarQuotations: [SimilarQuotation.mock(),
                                                                                                                          SimilarQuotation.mock(),
-                                                                                                                                                          SimilarQuotation.mock()], selectedOptions: []), repository: SimilarQuotationMockRepository(), navigationIntent: self.intent, budgetRangeIntent: CLBudgetRangeIntent(initialState: .init(currentQuotationPrice: quotation.state.totalPrice, budgetPrice: .init(0), status: .similarQuotation), navigationIntent: CLNavigationIntent(initialState: .init(currentPage: 5, showQuotationSummarySheet: false)))), navitationIntent: intent),
+                                                                                                                                                          SimilarQuotation.mock()], selectedOptions: [], alertCase: .noOption), repository: SimilarQuotationMockRepository(), navigationIntent: self.intent, budgetRangeIntent: CLBudgetRangeIntent(initialState: .init(currentQuotationPrice: quotation.state.totalPrice, budgetPrice: .init(0), status: .similarQuotation), navigationIntent: CLNavigationIntent(initialState: .init(currentPage: 5, showQuotationSummarySheet: false)))), navitationIntent: intent),
                        isActive: showQuotationSummarySheetBinding,
                        label: { Text("") })
       }
