@@ -57,9 +57,13 @@ extension QuotationCompleteIntent: QuotationCompleteIntentType, IntentType {
           }
         }
         state.summaryQuotation = Quotation.shared.getSummary()
-      case .onTapDeleteButton: return
-      case .onTapModifyButton(let index): return
+      case .onTapDeleteButton:
+        state.showAlert = true
+      
+      case .onTapModifyButton(let title, let index):
+        state.showAlert = true
         navigationIntent.send(action: .onTapNavTab(index: index))
     }
   }
 }
+

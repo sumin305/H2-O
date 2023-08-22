@@ -12,6 +12,7 @@ struct DetailQuotationItem {
   let itemHeight: CGFloat = 55
   let itemImageWidth: CGFloat = 77
   var intent: QuotationCompleteIntentType
+  @State var showAlert: Bool = false
   @Environment(\.presentationMode) var presentationMode
   
 }

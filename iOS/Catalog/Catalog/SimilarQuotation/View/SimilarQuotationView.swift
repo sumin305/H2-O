@@ -140,7 +140,7 @@ fileprivate extension SimilarQuotationView {
       showAlert = false
     }, submitAction: {
       intent.send(action: .choiceQuit)
-    }, cancelText: "완료")
+    }, submitText: "종료")
     return CLAlertView<CLQuitAlertContentView, ButtonContent, AlertDoubleButton>(items: buttonContent) { item in
       AlertDoubleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
     }
