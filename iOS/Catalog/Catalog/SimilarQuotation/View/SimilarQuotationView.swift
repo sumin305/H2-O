@@ -110,3 +110,8 @@ extension SimilarQuotationView {
   }
 }
 
+fileprivate extension SimilarQuotationView {
+  func toAlertString(optionName: String, count: Int) -> String {
+    "[\(optionName)]외 \(count)개"
+  }
+}
