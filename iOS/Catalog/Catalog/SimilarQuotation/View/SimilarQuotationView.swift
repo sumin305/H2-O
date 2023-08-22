@@ -13,6 +13,7 @@ struct SimilarQuotationView {
   var state: SimilarQuotationModel.State { intent.state }
   
   @SwiftUI.State var showHelp: Bool = false
+  @SwiftUI.State var showAlert: Bool = false
   @SwiftUI.State var currentIndex: Int = 0 {
     didSet(index) {
       intent.send(action: .currentSimilarQuotationIndexChanged(index: index))
@@ -38,7 +39,7 @@ extension SimilarQuotationView: View {
     NavigationView {
       ZStack {
         VStack {
-          SimilarQuotationTopBar(intent: intent)
+          SimilarQuotationTopBar(showAlert: $showAlert, intent: intent)
           
           CLBudgetRangeView.build(intent:
               .init(initialState:
@@ -79,8 +80,9 @@ extension SimilarQuotationView: View {
                            subText: "선택된 옵션\(state.selectedOptions.count)개",
                            inActiveText: "옵션을 선택해 추가해보세요.",
                            height: CGFloat(52).scaledHeight,
-                           buttonAction: { intent.send(action: .onTapAddButton)
-          })
+                           buttonAction: {
+            showAlert = true
+            intent.send(action: .onTapAddButton)           })
           .disabled(state.selectedOptions.isEmpty)
         }
         .padding([.top, .bottom], 1)
@@ -105,6 +107,37 @@ extension SimilarQuotationView: View {
         .padding(.horizontal, 16)
         
         // 경고창
+        if showAlert {
+          switch state.alertCase {
+            case .noOption:
+              
+              CLAlertView<CLQuitAlertContentView, AlertDoubleButton> (submitText: "완료") {
+                  showAlert = false
+                } submitAction: {
+                  intent.send(action: .choiceQuit)
+              }
+              
+//              (
+//                cancelAction: {
+//                  showAlert = false
+//                }, submitAction: {
+//                  intent.send(action: .choiceQuit)
+//                }, submitText: submitText )
+//
+            case .optionButQuit:
+              CLAlertView<CLOptionQuitAlertContentView, AlertDoubleButton>(info: String(state.selectedOptions.count)) {
+                showAlert = false
+              } submitAction: {
+                intent.send(action: .choiceQuit)
+              }
+            case .addOption:
+              CLAlertView<CLOptionSelectAlertContentView, AlertSingleButton>(info: toAlertString(optionName: state.selectedOptions[0].name, count: state.selectedOptions.count)) {
+                showAlert = false
+              } submitAction: {
+                intent.send(action: .choiceQuit)
+              }
+          }
+        }
       }
       
     }
@@ -129,15 +162,8 @@ extension SimilarQuotationView {
   }
 }
 
-
-//struct SimilarQuotationView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    let navigationIntent: CLNavigationIntentType = CLNavigationIntent(initialState: .init(currentPage: 5, showQuotationSummarySheet: true))
-//
-//    SimilarQuotationView.build(intent: .init(initialState: .init(currentSimilarQuotationIndex: 0, similarQuotations: [SimilarQuotation.mock(),SimilarQuotation.mock()], selectedOptions: []),
-//                                             repository: SimilarQuotationRepository(requestManager: RequestManager(apiManager: APIManager())), budgetRangeIntent: CLBudgetRangeIntent(initialState: .init(currentQuotationPrice: .init(0), budgetPrice: .init(0), status: .similarQuotation), navigationIntent: CLNavigationIntent(initialState: .init(currentPage: 0, showQuotationSummarySheet: false)))),
-//                               navitationIntent: navigationIntent)
-//  }
-//}
-//
-//
+fileprivate extension SimilarQuotationView {
+  func toAlertString(optionName: String, count: Int) -> String {
+    "[\(optionName)]외 \(count)개"
+  }
+}

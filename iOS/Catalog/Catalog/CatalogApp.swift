@@ -11,8 +11,10 @@ import SwiftUI
 struct CatalogApp: App {
     var body: some Scene {
         WindowGroup {
-          LoadingView(title: "데이터를 불러오는 중입니다.")
-//          EntryPointView()
+          ZStack {
+            EntryPointView()
+//            LoadingView(title: "데이터를 불러오는 중입니다.")
+          }
         }
     }
 }
