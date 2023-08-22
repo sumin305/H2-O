@@ -7,28 +7,16 @@
 
 import SwiftUI
 
-struct CLAlertView<AlertContent: AlertContentable, ButtonContent: ButtonContentable>: AlertView {
-    
+struct CLAlertView<AlertContent: AlertContentable, ButtonContent: ButtonContentable, ButtonContentView: View>: AlertView {
+
   var info: String?
-  var cancelAction: (() -> Void)?
-  var submitAction: () -> Void
-  var cancelText: String?
-  var submitText: String?
-  var body: AlertViewComponent<AlertContent, ButtonContent> {
-    AlertViewComponent(cancelAction: cancelAction, submitAction: submitAction, cancelText: cancelText, submitText: submitText, content: {
+  var items: ButtonContent
+  @ViewBuilder var contents: (ButtonContent) -> ButtonContentView
+  var body: AlertViewComponent<AlertContent, ButtonContent, ButtonContentView> {
+    AlertViewComponent(cancelAction: items.cancelAction, submitAction: items.submitAction, cancelText: items.cancelText, submitText: items.submitText) {
       AlertContent(info: info)
-    }) {
-      ButtonContent(cancelAction: cancelAction, submitAction: submitAction, cancelText: cancelText, submitText: submitText)
+    } buttonContentView: { (buttonContent: ButtonContent) in
+      contents(buttonContent)
     }
   }
 }
-
-extension CLAlertView {
-  @ViewBuilder
-  static func build(cancelAction: @escaping () -> Void, submitAction: @escaping () -> Void, cancelText: String?, submitText: String?) -> some View {
-    CLAlertView(cancelAction: cancelAction, submitAction: submitAction, cancelText: cancelText, submitText: submitText)
-  }
-}
-
-
-

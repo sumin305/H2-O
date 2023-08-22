@@ -65,17 +65,16 @@ extension SimilarQuotationView: View {
                        .frame(height: CGFloat(449).scaledHeight)
           
           
-          HStack(spacing: 10) {
-            ForEach(state.similarQuotations.indices, id: \.self) { index in
-              Capsule()
-                .fill(currentIndex == index ? Color.primary0 : Color.gray200)
-                .frame(width: (currentIndex == index ? 15 : 5), height: 5)
-                .scaleEffect((currentIndex == index) ? 1.4 : 1)
-                .animation(.spring(), value: currentIndex == index)
-            }
-          }
-          .padding(.bottom, CGFloat(12).scaledHeight)
-          
+          ScrollIndicator(spacing: 10,
+                          count: state.similarQuotations.count,
+                          bigWidth: 15,
+                          smallWidth: 5,
+                          height: 5,
+                          bigScaleEffect: 1.4,
+                          smallScaleEffect: 1,
+                          bottomPadding: 12,
+                          currentIndex: $currentIndex)
+    
           CLInActiceButton(mainText: "내 견적서에 추가하기",
                            subText: "선택된 옵션\(state.selectedOptions.count)개",
                            inActiveText: "옵션을 선택해 추가해보세요.",
@@ -88,61 +87,30 @@ extension SimilarQuotationView: View {
         .padding([.top, .bottom], 1)
         
         
+        // Dimmed 도움말
         if showHelp {
           SimilarQuotationHelpView()
         }
         
-        VStack(alignment: .trailing) {
-          HStack(alignment: .top) {
-            Spacer()
-            Button {
-              showHelp.toggle()
-            } label: {
-              Image("help").frame(width: 24, height: 24)
-            }
-          }
-          Spacer()
-        }
-        .padding(.top, 32)
-        .padding(.horizontal, 16)
+        // 도움말 버튼
+        HelpIcon(showHelp: $showHelp)
         
         // 경고창
         if showAlert {
           switch state.alertCase {
             case .noOption:
+              noOptionAlertView()
               
-              CLAlertView<CLQuitAlertContentView, AlertDoubleButton> (submitText: "완료") {
-                  showAlert = false
-                } submitAction: {
-                  intent.send(action: .choiceQuit)
-              }
-              
-//              (
-//                cancelAction: {
-//                  showAlert = false
-//                }, submitAction: {
-//                  intent.send(action: .choiceQuit)
-//                }, submitText: submitText )
-//
             case .optionButQuit:
-              CLAlertView<CLOptionQuitAlertContentView, AlertDoubleButton>(info: String(state.selectedOptions.count)) {
-                showAlert = false
-              } submitAction: {
-                intent.send(action: .choiceQuit)
-              }
+              optionButQuitAlertView()
+              
             case .addOption:
-              CLAlertView<CLOptionSelectAlertContentView, AlertSingleButton>(info: toAlertString(optionName: state.selectedOptions[0].name, count: state.selectedOptions.count)) {
-                showAlert = false
-              } submitAction: {
-                intent.send(action: .choiceQuit)
-              }
+              addOptionAlertView()
           }
         }
       }
-      
-    }
-    //TODO: - Quotation 받아오는 방식 변경하기
-    .onAppear { intent.send(action: .onAppear(quotation: quotation.state.quotation!))
+      //TODO: - Quotation 받아오는 방식 변경하기
+      .onAppear { intent.send(action: .onAppear(quotation: quotation.state.quotation!)) }
       
     }
     .navigationBarBackButtonHidden()
@@ -165,5 +133,38 @@ extension SimilarQuotationView {
 fileprivate extension SimilarQuotationView {
   func toAlertString(optionName: String, count: Int) -> String {
     "[\(optionName)]외 \(count)개"
+  }
+  
+  func noOptionAlertView() -> some View {
+    let buttonContent = ButtonContent(cancelAction: {
+      showAlert = false
+    }, submitAction: {
+      intent.send(action: .choiceQuit)
+    }, cancelText: "완료")
+    return CLAlertView<CLQuitAlertContentView, ButtonContent, AlertDoubleButton>(items: buttonContent) { item in
+      AlertDoubleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
+    }
+  }
+  
+  func optionButQuitAlertView() -> some View {
+    let buttonContent = ButtonContent(cancelAction: {
+      showAlert = false
+    }, submitAction: {
+      intent.send(action: .choiceQuit)
+    })
+    return CLAlertView<CLOptionQuitAlertContentView, ButtonContent, AlertDoubleButton>(info: String(state.selectedOptions.count), items: buttonContent) { item in
+      AlertDoubleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
+    }
+  }
+  
+  func addOptionAlertView() -> some View {
+    let buttonContent = ButtonContent(cancelAction: {
+      showAlert = false
+    }, submitAction: {
+      intent.send(action: .choiceQuit)
+    })
+    return CLAlertView<CLOptionSelectAlertContentView, ButtonContent, AlertSingleButton>(info: toAlertString(optionName: state.selectedOptions[0].name, count: state.selectedOptions.count), items: buttonContent) { item in
+      AlertSingleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
+    }
   }
 }

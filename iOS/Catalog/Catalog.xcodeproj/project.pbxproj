@@ -195,6 +195,8 @@
 		ED260DFD2A94E00C00C4DA2A /* RotatingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED260DFC2A94E00C00C4DA2A /* RotatingCircle.swift */; };
 		ED260DFF2A94FE3F00C4DA2A /* AlertSingleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED260DFE2A94FE3F00C4DA2A /* AlertSingleButton.swift */; };
 		ED260E012A94FE4500C4DA2A /* AlertDoubleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED260E002A94FE4500C4DA2A /* AlertDoubleButton.swift */; };
+		ED260E042A9536ED00C4DA2A /* HelpIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED260E032A9536ED00C4DA2A /* HelpIcon.swift */; };
+		ED260E072A9537CF00C4DA2A /* ScrollIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED260E062A9537CF00C4DA2A /* ScrollIndicator.swift */; };
 		ED2B8CE12A8CFDBD00F561FA /* TrimDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B8CE02A8CFDBD00F561FA /* TrimDTO.swift */; };
 		ED2B8CE32A8CFDE700F561FA /* TrimOptionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B8CE22A8CFDE700F561FA /* TrimOptionDTO.swift */; };
 		ED2B8CE52A8CFDF900F561FA /* TrimDefaultOptionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B8CE42A8CFDF900F561FA /* TrimDefaultOptionDTO.swift */; };
@@ -481,6 +483,8 @@
 		ED260DFC2A94E00C00C4DA2A /* RotatingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingCircle.swift; sourceTree = "<group>"; };
 		ED260DFE2A94FE3F00C4DA2A /* AlertSingleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSingleButton.swift; sourceTree = "<group>"; };
 		ED260E002A94FE4500C4DA2A /* AlertDoubleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDoubleButton.swift; sourceTree = "<group>"; };
+		ED260E032A9536ED00C4DA2A /* HelpIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIcon.swift; sourceTree = "<group>"; };
+		ED260E062A9537CF00C4DA2A /* ScrollIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollIndicator.swift; sourceTree = "<group>"; };
 		ED2B8CE02A8CFDBD00F561FA /* TrimDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimDTO.swift; sourceTree = "<group>"; };
 		ED2B8CE22A8CFDE700F561FA /* TrimOptionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimOptionDTO.swift; sourceTree = "<group>"; };
 		ED2B8CE42A8CFDF900F561FA /* TrimDefaultOptionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimDefaultOptionDTO.swift; sourceTree = "<group>"; };
@@ -1354,6 +1358,25 @@
 			path = Loading;
 			sourceTree = "<group>";
 		};
+		ED260E022A9536D600C4DA2A /* SimilarQuotationHead */ = {
+			isa = PBXGroup;
+			children = (
+				ED14DDB82A913FF20060D560 /* SimilarQuotationHelpView.swift */,
+				ED3E87EF2A90CD2500DCDC66 /* SimilarQuotationTopBar.swift */,
+				ED260E032A9536ED00C4DA2A /* HelpIcon.swift */,
+			);
+			path = SimilarQuotationHead;
+			sourceTree = "<group>";
+		};
+		ED260E052A9537B600C4DA2A /* SnapCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				ED978FEC2A86B8C800B69548 /* SnapCarousel.swift */,
+				ED260E062A9537CF00C4DA2A /* ScrollIndicator.swift */,
+			);
+			path = SnapCarousel;
+			sourceTree = "<group>";
+		};
 		ED2B8CDF2A8CFD1E00F561FA /* DTO */ = {
 			isa = PBXGroup;
 			children = (
@@ -1381,10 +1404,9 @@
 		ED3E87DC2A8FDA1200DCDC66 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ED260E022A9536D600C4DA2A /* SimilarQuotationHead */,
 				EDD79A3D2A928C3E005692D5 /* SimilarQuotationCard */,
 				ED3E87DD2A8FDA9100DCDC66 /* SimilarQuotationView.swift */,
-				ED14DDB82A913FF20060D560 /* SimilarQuotationHelpView.swift */,
-				ED3E87EF2A90CD2500DCDC66 /* SimilarQuotationTopBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1460,6 +1482,7 @@
 		ED779C3E2A7A799A007F67B7 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				ED260E052A9537B600C4DA2A /* SnapCarousel */,
 				ED260DF72A94D61900C4DA2A /* Loading */,
 				B1CB88B92A93D86800E12981 /* ExpandableText */,
 				B19824382A91FD7A00795B44 /* ModalPopUpComponent */,
@@ -1484,7 +1507,6 @@
 				ED95AFF92A85E199002D7A4B /* TrimCardView.swift */,
 				ED3DC0272A865B9C009EE04C /* HMGDataCard.swift */,
 				EDD303FC2A8A09E600400DF9 /* HMGTag.swift */,
-				ED978FEC2A86B8C800B69548 /* SnapCarousel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2104,6 +2126,7 @@
 				B149BD202A8CE50A009A3C6B /* FilterButtonView.swift in Sources */,
 				ED14DDB92A913FF20060D560 /* SimilarQuotationHelpView.swift in Sources */,
 				EDCF32C12A8A91D500C46A4B /* CLQuotationPriceBar.swift in Sources */,
+				ED260E072A9537CF00C4DA2A /* ScrollIndicator.swift in Sources */,
 				ED2B8CE52A8CFDF900F561FA /* TrimDefaultOptionDTO.swift in Sources */,
 				B194363B2A8095B800C2FD69 /* CLQuitAlertContentView.swift in Sources */,
 				B198242C2A91388D00795B44 /* ModalPopUpComponent.swift in Sources */,
@@ -2150,6 +2173,7 @@
 				EDD79A412A928E3E005692D5 /* SimilarQuotationCardImage.swift in Sources */,
 				ED3E87F62A911F2A00DCDC66 /* SimilarHMGOption.swift in Sources */,
 				ED1C70632A89C3C50049D275 /* Trim.swift in Sources */,
+				ED260E042A9536ED00C4DA2A /* HelpIcon.swift in Sources */,
 				B19436412A80ADD400C2FD69 /* CLSingleLineAlertContentView.swift in Sources */,
 				B1E512342A8D2F16005B195D /* OptionSelectionIntent.swift in Sources */,
 				B1604D512A83EB7700C7B07D /* CLRetryResult.swift in Sources */,

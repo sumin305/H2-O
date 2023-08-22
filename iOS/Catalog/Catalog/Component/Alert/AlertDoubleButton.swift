@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AlertDoubleButton: ButtonContentable {
+struct AlertDoubleButton: View {
 
   var cancelAction: (() -> Void)?
   var submitAction: () -> Void

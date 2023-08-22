@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol ButtonContentable: View {
+protocol ButtonContentable {
   var cancelAction: (() -> Void)? { get set }
   var submitAction: () -> Void { get set }
   var cancelText: String? { get set }
@@ -16,19 +16,19 @@ protocol ButtonContentable: View {
   init(cancelAction: (() -> Void)?, submitAction: @escaping () -> Void, cancelText: String?, submitText: String?)
 }
 
-struct AlertViewComponent<AlertContent: View, ButtonContent: ButtonContentable>: View {
+struct AlertViewComponent<AlertContent: View, ButtonContent: ButtonContentable, ButtonContentView: View>: View {
 
   var cancelAction: (() -> Void)?
   var submitAction: () -> Void
   var cancelText: String?
   var submitText: String?
   @ViewBuilder var content: () -> AlertContent
-  @ViewBuilder var buttonContent: () -> ButtonContent
+  @ViewBuilder var buttonContentView: (ButtonContent) -> ButtonContentView
   var body: some View {
     DimmedZStack {
       VStack {
         content()
-        buttonContent()
+        buttonContentView(ButtonContent(cancelAction: cancelAction, submitAction: submitAction, cancelText: cancelText, submitText: submitText))
       }
       .background(.white)
       .cornerRadius(5)
@@ -37,33 +37,22 @@ struct AlertViewComponent<AlertContent: View, ButtonContent: ButtonContentable>:
   }
 }
 
-struct AlertSingleViewComponent<AlertContent: View>: View {
-
-  var cancelAction: () -> Void
+struct ButtonContent: ButtonContentable {
+  var cancelAction: (() -> Void)?
+  
   var submitAction: () -> Void
-
-  @ViewBuilder var content: () -> AlertContent
-  var body: some View {
-    DimmedZStack {
-      VStack {
-        content()
-        if ((content.self as? (any AlertContentable)) as? CLOptionSelectAlertContentView) != nil {
-          CLButton(mainText: "확인",
-                   height: 52,
-                   backgroundColor: Color.primary,
-                   buttonAction: { submitAction() })
-        } else {
-          CLDualChoiceButton(leftText: "취소",
-                             rightText: "종료",
-                             height: 52,
-                             leftAction: { cancelAction() },
-                             rightAction: { submitAction() })
-        }
-      
-      }
-      .background(.white)
-      .cornerRadius(5)
-      .padding(.horizontal, 20)
-    }
+  
+  var cancelText: String?
+  
+  var submitText: String?
+  
+  init(cancelAction: (() -> Void)? = nil, submitAction: @escaping () -> Void, cancelText: String? = nil, submitText: String? = nil) {
+    
+    self.cancelText = cancelText
+    self.cancelAction = cancelAction
+    self.submitText = submitText
+    self.submitAction = submitAction
   }
+  
+  
 }
