@@ -85,3 +85,4 @@ extension QuotationCompleteIntent: QuotationCompleteIntentType, IntentType {
     }
   }
 }
+
