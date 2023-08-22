@@ -23,6 +23,14 @@ struct SimilarQuotationView {
   let navigationIntent: CLNavigationIntentType
 }
 
+extension SimilarQuotationView {
+  enum AlertCase {
+    case noOption
+    case optionButQuit
+    case addOption
+  }
+}
+
 extension SimilarQuotationView: View {
   
   var body: some View {
@@ -95,6 +103,8 @@ extension SimilarQuotationView: View {
         }
         .padding(.top, 32)
         .padding(.horizontal, 16)
+        
+        // 경고창
       }
       
     }
