@@ -15,19 +15,20 @@ extension CLNavigationView {
   }
 }
 extension CLNavigationView {
+  @ViewBuilder
   func makeAlertView(alertCase: AlertCase) -> some View {
     switch alertCase {
       case .quit:
         let buttonContent = ButtonContent(cancelAction: {
-          showQuitAlert = false
+          intent.send(action: .showAlertChanged(showAlert: false))
         }, submitAction: {
-          showQuitAlert = true
+          intent.send(action:.onTapFinish)
         }, submitText: "종료")
         
-        return CLAlertView<CLQuitAlertContentView, ButtonContent, AlertDoubleButton>(items: buttonContent) { item in
+         CLAlertView<CLQuitAlertContentView, ButtonContent, AlertDoubleButton>(items: buttonContent) { item in
           AlertDoubleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)}
       case .guide:
-        return EntryGuide()
+      EntryGuide(intent: intent)
         
     }
   }
