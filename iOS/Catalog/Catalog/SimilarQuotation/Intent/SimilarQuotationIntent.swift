@@ -77,7 +77,6 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
         } else {
           state.selectedOptions.append(selectedOption)
         }
-        
       case .currentSimilarQuotationIndexChanged(let index):
         state.currentSimilarQuotationIndex = index
         budgetRangeIntent.send(action: .budgetChanged(newBudgetPrice: state.similarQuotations[index].price))
