@@ -13,6 +13,8 @@ enum QuotationCompleteModel {
     var summaryQuotation: SummaryCarQuotation
     var technicalSpec: ResultOfCalculationOfFuelAndDisplacement
     var nextNavIndex: Int
+    var alertCase: QuotationCompleteView.AlertCase
+    var showSheet: Bool 
     var showAlert: Bool
     var alertTitle: String
   }
@@ -24,5 +26,6 @@ enum QuotationCompleteModel {
     case movePage(navigationIndex: Int)
     case deleteOption(optionId: Int)
     case onTapCancelButton
+    case showSheetChanged(showSheet: Bool)
   }
 }

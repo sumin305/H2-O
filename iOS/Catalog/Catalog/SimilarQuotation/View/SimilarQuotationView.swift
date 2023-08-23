@@ -68,10 +68,8 @@ extension SimilarQuotationView: View {
                            subText: "선택된 옵션\(state.selectedOptions.count)개",
                            inActiveText: "옵션을 선택해 추가해보세요.",
                            height: CGFloat(52).scaledHeight,
-                           buttonAction: {
-                                            showAlert = true
+                           buttonAction: {  showAlert = true
                                             intent.send(action: .onTapAddButton)
-                                            
                                           })
           .disabled(state.selectedOptions.isEmpty)
         }

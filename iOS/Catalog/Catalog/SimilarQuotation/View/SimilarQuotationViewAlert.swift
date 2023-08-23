@@ -25,7 +25,7 @@ extension SimilarQuotationView {
       showAlert = false
       intent.send(action: .choiceQuit)
     }, submitText: "종료")
-    return CLAlertView<CLQuitAlertContentView, ButtonContent, AlertDoubleButton>(items: buttonContent) { item in
+    return CLAlertView<CLSingleLineAlertContentView, ButtonContent, AlertDoubleButton>(info: "유사견적 페이지를 닫으시겠습니까?", items: buttonContent) { item in
       AlertDoubleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
     }
   }

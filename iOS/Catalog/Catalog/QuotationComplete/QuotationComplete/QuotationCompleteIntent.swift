@@ -39,6 +39,7 @@ final class QuotationCompleteIntent: ObservableObject {
   var quotationService: QuotationCompleteService
   var navigationIntent: CLNavigationIntentType
   private(set) var repository: QuotationCompleteRepositoryProtocol
+  
 }
 
 extension QuotationCompleteIntent: QuotationCompleteIntentType, IntentType {
@@ -58,21 +59,28 @@ extension QuotationCompleteIntent: QuotationCompleteIntentType, IntentType {
         }
         state.summaryQuotation = Quotation.shared.getSummary()
         
-      case .onTapDeleteButton:
+      case .onTapDeleteButton(let id):
+        state.alertCase = .delete(id: id)
         state.showAlert = true
         
-      case .onTapModifyButton:
+      case .onTapModifyButton(let navigationIndex, let title):
+        state.alertCase = .modify(index: navigationIndex, title: title)
         state.showAlert = true
         
       case .movePage(let index):
-        navigationIntent.send(action: .onTapNavTab(index: index))
+        send(action: .showSheetChanged(showSheet: false))
         send(action: .onTapCancelButton)
+        navigationIntent.send(action: .onTapNavTab(index: index))
         
       case .deleteOption(let option):
         // 옵션삭제 로직
         send(action: .onTapCancelButton)
+        
       case .onTapCancelButton:
         state.showAlert = false
+        
+      case .showSheetChanged(let showSheet):
+        state.showSheet = showSheet
     }
   }
 }
