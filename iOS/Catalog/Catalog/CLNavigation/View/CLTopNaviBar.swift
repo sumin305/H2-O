@@ -10,7 +10,8 @@ import SwiftUI
 struct CLTopNaviBar: View {
 
   var intent: CLNavigationIntentType
-
+  @State var showQuitAlert: Bool = false
+  
   var body: some View {
     ZStack(alignment: .center) {
       HStack(alignment: .center) {
@@ -25,7 +26,7 @@ struct CLTopNaviBar: View {
         .buttonStyle(.plain)
         Spacer()
         Button {
-          intent.send(action: .onTapFinish)
+          showQuitAlert = true
         } label: {
           Text("종료")
             .catalogFont(type: .TextKRMedium14)
@@ -40,5 +41,9 @@ struct CLTopNaviBar: View {
       }
     }
     .padding(.bottom, 10)
+    .CLDialogFullScreenCover(show: $showQuitAlert) {
+     
+      }
+    }
   }
 }

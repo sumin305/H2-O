@@ -234,6 +234,7 @@
 		EDBA3E3F2A84869000BDB00F /* CLInactableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBA3E3E2A84869000BDB00F /* CLInactableButton.swift */; };
 		EDBA5D582A808A8A0050BC35 /* CLPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBA5D562A808A8A0050BC35 /* CLPopUp.swift */; };
 		EDBA5D592A808A8A0050BC35 /* DimmedZStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBA5D572A808A8A0050BC35 /* DimmedZStack.swift */; };
+		EDBC07AD2A95F69200FE1F06 /* CLNavigationViewAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBC07AC2A95F69200FE1F06 /* CLNavigationViewAlert.swift */; };
 		EDC1862F2A893577009EB498 /* CLInactiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC1862E2A893577009EB498 /* CLInactiveButtonStyle.swift */; };
 		EDCF32BF2A8A91D500C46A4B /* CLToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32B92A8A91D500C46A4B /* CLToggle.swift */; };
 		EDCF32C02A8A91D500C46A4B /* QuotationFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF32BA2A8A91D500C46A4B /* QuotationFooter.swift */; };
@@ -534,6 +535,7 @@
 		EDBA3E3E2A84869000BDB00F /* CLInactableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLInactableButton.swift; sourceTree = "<group>"; };
 		EDBA5D562A808A8A0050BC35 /* CLPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLPopUp.swift; sourceTree = "<group>"; };
 		EDBA5D572A808A8A0050BC35 /* DimmedZStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmedZStack.swift; sourceTree = "<group>"; };
+		EDBC07AC2A95F69200FE1F06 /* CLNavigationViewAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLNavigationViewAlert.swift; sourceTree = "<group>"; };
 		EDC1862E2A893577009EB498 /* CLInactiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLInactiveButtonStyle.swift; sourceTree = "<group>"; };
 		EDCF32B92A8A91D500C46A4B /* CLToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CLToggle.swift; path = Catalog/Quotation/View/CLToggle.swift; sourceTree = SOURCE_ROOT; };
 		EDCF32BA2A8A91D500C46A4B /* QuotationFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuotationFooter.swift; path = Catalog/Quotation/View/QuotationFooter.swift; sourceTree = SOURCE_ROOT; };
@@ -1601,6 +1603,7 @@
 				B1F2BC612A7B5B7A005385E0 /* CLNavigationMenuTitleView.swift */,
 				B1F2BC632A7B5BA3005385E0 /* CLNavigationMenuView.swift */,
 				B155C11F2A7A78A700F540CB /* CLNavigationView.swift */,
+				EDBC07AC2A95F69200FE1F06 /* CLNavigationViewAlert.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2132,6 +2135,7 @@
 				EDB20BF52A8F1F6D0063CB3C /* QuotationInteriorView.swift in Sources */,
 				B1604D652A8544C300C7B07D /* ModelTypeCellView.swift in Sources */,
 				B149BD202A8CE50A009A3C6B /* FilterButtonView.swift in Sources */,
+				EDBC07AD2A95F69200FE1F06 /* CLNavigationViewAlert.swift in Sources */,
 				ED14DDB92A913FF20060D560 /* SimilarQuotationHelpView.swift in Sources */,
 				EDCF32C12A8A91D500C46A4B /* CLQuotationPriceBar.swift in Sources */,
 				ED260E072A9537CF00C4DA2A /* ScrollIndicator.swift in Sources */,
