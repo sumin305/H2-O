@@ -15,7 +15,7 @@ struct EntryPointView: View {
           CLNavigationView.build(intent: CLNavigationIntent(initialState: .init(currentPage: 0, showQuotationSummarySheet: false)))
         }
         if showPopUp {
-          EntryGuide(showEntryGuide: $showPopUp)
+          
         }
       }
       .ignoresSafeArea()

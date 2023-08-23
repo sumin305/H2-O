@@ -56,13 +56,14 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
             print(String(describing: e))
           }
         }
+        
       case .onTapBackButton:
         if state.selectedOptions.isEmpty {
           state.alertCase = .noOption
         } else {
           state.alertCase = .optionButQuit
         }
-
+        
       case .onTapAddButton(let title, let count):
         state.alertCase = .addOption(title: title, count: count)
         send(action: .showAlertChanged(showAlert: true))
@@ -70,7 +71,6 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
       case .onTapHelpButton:
         state.alertCase = .help
         send(action: .showAlertChanged(showAlert: true))
-
         
       case .optionSelected(let selectedOption):
         if state.selectedOptions.contains(selectedOption) {
@@ -91,7 +91,7 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
       case .choiceAdd:
         Quotation.shared.send(action: .similarOptionsAdded(option: state.selectedOptions))
         send(action: .choiceQuit)
-
+        
       case .showAlertChanged(let showAlert):
         state.showAlert = showAlert
     }
