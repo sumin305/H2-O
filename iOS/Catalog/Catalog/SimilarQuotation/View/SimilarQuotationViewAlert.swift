@@ -9,20 +9,19 @@ import Foundation
 import SwiftUI
 
 extension SimilarQuotationView {
-  enum AlertCase {
+  enum AlertCase: Equatable {
     case help
     case noOption
     case optionButQuit
-    case addOption
+    case addOption(title: String, count: Int)
   }
 }
 
 extension SimilarQuotationView {
   func noOptionAlertView() -> some View {
     let buttonContent = ButtonContent(cancelAction: {
-      showAlert = false
+      intent.send(action: .showAlertChanged(showAlert: false))
     }, submitAction: {
-      showAlert = false
       intent.send(action: .choiceQuit)
     }, submitText: "종료")
     return CLAlertView<CLSingleLineAlertContentView, ButtonContent, AlertDoubleButton>(info: "유사견적 페이지를 닫으시겠습니까?", items: buttonContent) { item in
@@ -32,9 +31,8 @@ extension SimilarQuotationView {
   
   func optionButQuitAlertView() -> some View {
     let buttonContent = ButtonContent(cancelAction: {
-      showAlert = false
+      intent.send(action: .showAlertChanged(showAlert: false))
     }, submitAction: {
-      showAlert = false
       intent.send(action: .choiceQuit)
     })
     return CLAlertView<CLOptionQuitAlertContentView, ButtonContent, AlertDoubleButton>(info: String(state.selectedOptions.count), items: buttonContent) { item in
@@ -42,14 +40,14 @@ extension SimilarQuotationView {
     }
   }
   
-  func addOptionAlertView() -> some View {
+  func addOptionAlertView(title: String, count: Int) -> some View {
     let buttonContent = ButtonContent(cancelAction: {
-      showAlert = false
+      intent.send(action: .showAlertChanged(showAlert: false))
     }, submitAction: {
-      showAlert = false
-      intent.send(action: .choiceQuit)
+      intent.send(action: .choiceAdd)
     })
-    return CLAlertView<CLOptionSelectAlertContentView, ButtonContent, AlertSingleButton>(info: toAlertString(optionName: state.selectedOptions[0].name, count: state.selectedOptions.count), items: buttonContent) { item in
+    
+    return CLAlertView<CLOptionSelectAlertContentView, ButtonContent, AlertSingleButton>(info: toAlertString(optionName: title, count: count), items: buttonContent) { item in
       AlertSingleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
     }
   }

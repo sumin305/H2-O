@@ -12,11 +12,17 @@ struct SimilarQuotationView {
   var intent: SimilarQuotationIntentType { container.intent }
   var state: SimilarQuotationModel.State { intent.state }
   
-  @SwiftUI.State var showAlert: Bool = false
   @SwiftUI.State var currentIndex: Int = 0
   let budgetPrice: CLNumber = CLNumber(50000000)
   let quotation = Quotation.shared
   let navigationIntent: CLNavigationIntentType
+}
+
+extension SimilarQuotationView {
+  var showAlertBinding: Binding<Bool> {
+    .init(get: { state.showAlert } ,
+          set: { bool in intent.send(action: .showAlertChanged(showAlert: bool)) })
+  }
 }
 
 extension SimilarQuotationView: View {
@@ -26,7 +32,7 @@ extension SimilarQuotationView: View {
     NavigationView {
       ZStack {
         VStack {
-          SimilarQuotationTopBar(showAlert: $showAlert, intent: intent)
+          SimilarQuotationTopBar(showAlert: showAlertBinding, intent: intent)
           
           CLBudgetRangeView.build(intent:
               .init(initialState:
@@ -68,26 +74,24 @@ extension SimilarQuotationView: View {
                            subText: "선택된 옵션\(state.selectedOptions.count)개",
                            inActiveText: "옵션을 선택해 추가해보세요.",
                            height: CGFloat(52).scaledHeight,
-                           buttonAction: {  showAlert = true
-                                            intent.send(action: .onTapAddButton)
-                                          })
+                           buttonAction: {  intent.send(action: .onTapAddButton(title: state.selectedOptions[0].name, count: state.selectedOptions.count)) })
           .disabled(state.selectedOptions.isEmpty)
         }
-        HelpIcon(intent: intent, showAlert: $showAlert)
+        HelpIcon(intent: intent, showAlert: showAlertBinding)
       }
       .onAppear { intent.send(action: .onAppear(quotation: quotation.state.quotation!))
       }
     }
-    .CLDialogFullScreenCover(show: $showAlert) {
+    .CLDialogFullScreenCover(show: showAlertBinding) {
       switch state.alertCase {
         case .noOption:
           noOptionAlertView()
         case .optionButQuit:
           optionButQuitAlertView()
-        case .addOption:
-          addOptionAlertView()
+        case .addOption(let title, let count):
+          addOptionAlertView(title: title, count: count)
         case .help:
-          SimilarQuotationHelpView(showAlert: $showAlert, intent: intent)
+          SimilarQuotationHelpView(showAlert: showAlertBinding, intent: intent)
       }
     }
     .navigationBarBackButtonHidden()
