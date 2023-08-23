@@ -32,11 +32,6 @@ extension CLNavigationView {
     .init(get: { state.showQuotationSummarySheet },
           set: {_ in })
   }
-  
-  var showAlertBinding: Binding<Bool> {
-    .init(get: { state.showAlert },
-          set: { bool in intent.send(action: .showAlertChanged(showAlert: bool))})
-  }
 }
 
 extension CLNavigationView: View {
@@ -115,22 +110,11 @@ extension CLNavigationView: View {
           
           
         }
-        
-        NavigationLink(destination:     SimilarQuotationView.build(intent: .init(initialState: .init(currentSimilarQuotationIndex: 0, similarQuotations: [SimilarQuotation.mock(),
-                                                                                                                         SimilarQuotation.mock(),
-                                                                                                                                                          SimilarQuotation.mock()], selectedOptions: [], alertCase: .noOption, showAlert: false), repository: SimilarQuotationMockRepository(), navigationIntent: self.intent, budgetRangeIntent: CLBudgetRangeIntent(initialState: .init(currentQuotationPrice: quotation.state.totalPrice, budgetPrice: .init(0), status: .similarQuotation), navigationIntent: CLNavigationIntent(initialState: .init(currentPage: 5, showQuotationSummarySheet: false, alertCase: .guide, showAlert: false)))), navitationIntent: intent),
-                       isActive: showQuotationSummarySheetBinding,
-                       label: { Text("") })
       }
       if state.showAlert {
         makeAlertView(alertCase: state.alertCase)
       }
     }
-    .CLDialogFullScreenCover(show: showAlertBinding) {
-      makeAlertView(alertCase: state.alertCase)
-    }
-  }
-}
 
   }
   
