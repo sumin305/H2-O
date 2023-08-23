@@ -12,20 +12,11 @@ struct SimilarQuotationView {
   var intent: SimilarQuotationIntentType { container.intent }
   var state: SimilarQuotationModel.State { intent.state }
   
-  @SwiftUI.State var showHelp: Bool = false
   @SwiftUI.State var showAlert: Bool = false
   @SwiftUI.State var currentIndex: Int = 0
   let budgetPrice: CLNumber = CLNumber(50000000)
   let quotation = Quotation.shared
   let navigationIntent: CLNavigationIntentType
-}
-
-extension SimilarQuotationView {
-  enum AlertCase {
-    case noOption
-    case optionButQuit
-    case addOption
-  }
 }
 
 extension SimilarQuotationView: View {
@@ -78,34 +69,27 @@ extension SimilarQuotationView: View {
                            inActiveText: "옵션을 선택해 추가해보세요.",
                            height: CGFloat(52).scaledHeight,
                            buttonAction: {
-            showAlert = true
-            intent.send(action: .onTapAddButton)           })
+                                            showAlert = true
+                                            intent.send(action: .onTapAddButton)
+                                            
+                                          })
           .disabled(state.selectedOptions.isEmpty)
         }
-        // Dimmed 도움말
-        if showHelp {
-          SimilarQuotationHelpView(showHelp: $showHelp)
-        }
-        
-        // 도움말 버튼
-        HelpIcon(showHelp: $showHelp)
-        
+        HelpIcon(intent: intent, showAlert: $showAlert)
       }
-      //TODO: - Quotation 받아오는 방식 변경하기
       .onAppear { intent.send(action: .onAppear(quotation: quotation.state.quotation!))
       }
     }
-    // 경고창
     .CLDialogFullScreenCover(show: $showAlert) {
       switch state.alertCase {
         case .noOption:
           noOptionAlertView()
-          
         case .optionButQuit:
           optionButQuitAlertView()
-          
         case .addOption:
           addOptionAlertView()
+        case .help:
+          SimilarQuotationHelpView(showAlert: $showAlert, intent: intent)
       }
     }
     .navigationBarBackButtonHidden()
@@ -117,7 +101,6 @@ extension SimilarQuotationView: View {
 extension SimilarQuotationView {
   @ViewBuilder
   static func build(intent: SimilarQuotationIntent, navitationIntent: CLNavigationIntentType) -> some View {
-    
     SimilarQuotationView(container: .init(
       intent: intent as SimilarQuotationIntent,
       state: intent.state,
@@ -125,44 +108,3 @@ extension SimilarQuotationView {
   }
 }
 
-fileprivate extension SimilarQuotationView {
-  func toAlertString(optionName: String, count: Int) -> String {
-    "[\(optionName)]외 \(count)개"
-  }
-  
-  func noOptionAlertView() -> some View {
-    let buttonContent = ButtonContent(cancelAction: {
-      showAlert = false
-    }, submitAction: {
-      showAlert = false
-      intent.send(action: .choiceQuit)
-    }, submitText: "종료")
-    return CLAlertView<CLQuitAlertContentView, ButtonContent, AlertDoubleButton>(items: buttonContent) { item in
-      AlertDoubleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
-    }
-  }
-  
-  func optionButQuitAlertView() -> some View {
-    let buttonContent = ButtonContent(cancelAction: {
-      showAlert = false
-    }, submitAction: {
-      showAlert = false
-      intent.send(action: .choiceQuit)
-    })
-    return CLAlertView<CLOptionQuitAlertContentView, ButtonContent, AlertDoubleButton>(info: String(state.selectedOptions.count), items: buttonContent) { item in
-      AlertDoubleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
-    }
-  }
-  
-  func addOptionAlertView() -> some View {
-    let buttonContent = ButtonContent(cancelAction: {
-      showAlert = false
-    }, submitAction: {
-      showAlert = false
-      intent.send(action: .choiceQuit)
-    })
-    return CLAlertView<CLOptionSelectAlertContentView, ButtonContent, AlertSingleButton>(info: toAlertString(optionName: state.selectedOptions[0].name, count: state.selectedOptions.count), items: buttonContent) { item in
-      AlertSingleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
-    }
-  }
-}

@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct HelpIcon: View {
-  @Binding var showHelp: Bool 
+  var intent: SimilarQuotationIntentType
+  @Binding var showAlert: Bool
+  
   var body: some View {
       VStack(alignment: .trailing) {
         HStack(alignment: .top, spacing: 0) {
           Spacer()
           Button {
-            showHelp.toggle()
+            showAlert.toggle()
+            intent.send(action: .onTapHelpButton)
           } label: {
             Image("help").frame(width: 24, height: 24)
           }

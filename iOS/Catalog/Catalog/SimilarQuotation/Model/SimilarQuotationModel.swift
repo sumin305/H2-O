@@ -22,6 +22,7 @@ enum SimilarQuotationModel {
     case optionSelected(selectedOption: SimilarQuotationOption)
     case onTapAddButton
     case onTapBackButton
+    case onTapHelpButton
     case choiceQuit
   }
 }
