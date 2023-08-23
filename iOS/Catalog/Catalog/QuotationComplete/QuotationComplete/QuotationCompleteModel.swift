@@ -14,6 +14,7 @@ enum QuotationCompleteModel {
     var technicalSpec: ResultOfCalculationOfFuelAndDisplacement
     var nextNavIndex: Int
     var showAlert: Bool
+    var alertTitle: String
   }
 
   enum ViewAction {
