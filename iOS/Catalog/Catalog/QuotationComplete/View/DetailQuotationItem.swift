@@ -44,15 +44,17 @@ extension DetailQuotationItem: View {
       VStack(alignment: .trailing) {
         if info.isSimilarOption {
           Button {
-            intent.send(action: .onTapDeleteButton(optionId: info.id))
-            presentationMode.wrappedValue.dismiss()
+            intent.send(action: .onTapDeleteButton(optionId: info.id)) {
+              presentationMode.wrappedValue.dismiss()
+            }
           } label: {
             Text("삭제하기").catalogFont(type: .HeadKRMedium14).foregroundColor(Color.sand)
           }
         } else {
           Button {
-            intent.send(action: .onTapModifyButton(navigationIndex: info.index, title: info.title))
-            presentationMode.wrappedValue.dismiss()
+            intent.send(action: .onTapModifyButton(navigationIndex: info.index, title: info.title)) {
+              presentationMode.wrappedValue.dismiss()
+            }
           } label: {
             Text("수정하기").catalogFont(type: .HeadKRMedium14).foregroundColor(Color.primary0)
           }

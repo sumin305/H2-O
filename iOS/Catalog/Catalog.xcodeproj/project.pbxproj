@@ -199,6 +199,7 @@
 		ED260E072A9537CF00C4DA2A /* ScrollIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED260E062A9537CF00C4DA2A /* ScrollIndicator.swift */; };
 		ED260E092A95BFDF00C4DA2A /* SimilarQuotationViewAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED260E082A95BFDF00C4DA2A /* SimilarQuotationViewAlert.swift */; };
 		ED260E0B2A95C91D00C4DA2A /* QuotationCompleteViewAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED260E0A2A95C91D00C4DA2A /* QuotationCompleteViewAlert.swift */; };
+		ED260E0C2A95D47C00C4DA2A /* SimilarQuotationViewAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED260E082A95BFDF00C4DA2A /* SimilarQuotationViewAlert.swift */; };
 		ED2B8CE12A8CFDBD00F561FA /* TrimDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B8CE02A8CFDBD00F561FA /* TrimDTO.swift */; };
 		ED2B8CE32A8CFDE700F561FA /* TrimOptionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B8CE22A8CFDE700F561FA /* TrimOptionDTO.swift */; };
 		ED2B8CE52A8CFDF900F561FA /* TrimDefaultOptionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2B8CE42A8CFDF900F561FA /* TrimDefaultOptionDTO.swift */; };
@@ -1411,6 +1412,7 @@
 				ED260E022A9536D600C4DA2A /* SimilarQuotationHead */,
 				EDD79A3D2A928C3E005692D5 /* SimilarQuotationCard */,
 				ED3E87DD2A8FDA9100DCDC66 /* SimilarQuotationView.swift */,
+				ED260E082A95BFDF00C4DA2A /* SimilarQuotationViewAlert.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1528,6 +1530,7 @@
 		EDB20BFF2A8FC7760063CB3C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ED260E0A2A95C91D00C4DA2A /* QuotationCompleteViewAlert.swift */,
 				EDB20BE82A8F1F6C0063CB3C /* DetailQuotationItem.swift */,
 				EDB20BF62A8F321C0063CB3C /* DetailQuotationList.swift */,
 				EDB20BEC2A8F1F6C0063CB3C /* QuotationCompleteSheet.swift */,
@@ -1656,7 +1659,6 @@
 				ED3E87F12A90CD8800DCDC66 /* SimilarQuotationCard.swift */,
 				ED3E87F32A910EE100DCDC66 /* SimilarHMGDataCard.swift */,
 				ED3E87F52A911F2A00DCDC66 /* SimilarHMGOption.swift */,
-				ED260E082A95BFDF00C4DA2A /* SimilarQuotationViewAlert.swift */,
 			);
 			path = SimilarQuotationCard;
 			sourceTree = "<group>";
@@ -1687,7 +1689,6 @@
 				EDD79A462A9292D5005692D5 /* QuotationCompleteIntent.swift */,
 				EDD79A482A9292EA005692D5 /* QuotationCompleteModel.swift */,
 				EDD79A742A938B12005692D5 /* QuotationCompleteService.swift */,
-				ED260E0A2A95C91D00C4DA2A /* QuotationCompleteViewAlert.swift */,
 			);
 			path = QuotationComplete;
 			sourceTree = "<group>";
@@ -2245,6 +2246,7 @@
 			files = (
 				EDD79A8B2A93E724005692D5 /* SimilarQuotationView.swift in Sources */,
 				B155C0CD2A7920A900F540CB /* CatalogUITestsLaunchTests.swift in Sources */,
+				ED260E0C2A95D47C00C4DA2A /* SimilarQuotationViewAlert.swift in Sources */,
 				B155C0CB2A7920A900F540CB /* CatalogUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -66,14 +66,17 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
         print("추가하기 버튼 클릭")
         state.alertCase = .addOption
         Quotation.shared.send(action: .similarOptionsAdded(option: state.selectedOptions))
+        
       case .onTapHelpButton:
         state.alertCase = .help
+        
       case .optionSelected(let selectedOption):
         if state.selectedOptions.contains(selectedOption) {
           state.selectedOptions = state.selectedOptions.filter { $0 != selectedOption }
         } else {
           state.selectedOptions.append(selectedOption)
         }
+        
       case .currentSimilarQuotationIndexChanged(let index):
         state.currentSimilarQuotationIndex = index
         budgetRangeIntent.send(action: .budgetChanged(newBudgetPrice: state.similarQuotations[index].price))
