@@ -62,6 +62,7 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
         } else {
           state.alertCase = .optionButQuit
         }
+<<<<<<< feature/iOS/#265
         
       case .onTapAddButton(let title, let count):
         state.alertCase = .addOption(title: title, count: count)
@@ -70,6 +71,16 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
       case .onTapHelpButton:
         state.alertCase = .help
         send(action: .showAlertChanged(showAlert: true))
+=======
+
+      case .onTapAddButton:
+        print("추가하기 버튼 클릭")
+        state.alertCase = .addOption
+        Quotation.shared.send(action: .similarOptionsAdded(option: state.selectedOptions))
+        
+      case .onTapHelpButton:
+        state.alertCase = .help
+>>>>>>> feat: 견적 완료 페이지 수정하기, 삭제하기 로직 작성 2
         
       case .optionSelected(let selectedOption):
         if state.selectedOptions.contains(selectedOption) {
@@ -77,6 +88,7 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
         } else {
           state.selectedOptions.append(selectedOption)
         }
+        
       case .currentSimilarQuotationIndexChanged(let index):
         state.currentSimilarQuotationIndex = index
         budgetRangeIntent.send(action: .budgetChanged(newBudgetPrice: state.similarQuotations[index].price))

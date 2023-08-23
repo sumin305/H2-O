@@ -1664,7 +1664,6 @@
 				ED3E87F12A90CD8800DCDC66 /* SimilarQuotationCard.swift */,
 				ED3E87F32A910EE100DCDC66 /* SimilarHMGDataCard.swift */,
 				ED3E87F52A911F2A00DCDC66 /* SimilarHMGOption.swift */,
-				ED260E082A95BFDF00C4DA2A /* SimilarQuotationViewAlert.swift */,
 			);
 			path = SimilarQuotationCard;
 			sourceTree = "<group>";
@@ -1695,7 +1694,6 @@
 				EDD79A462A9292D5005692D5 /* QuotationCompleteIntent.swift */,
 				EDD79A482A9292EA005692D5 /* QuotationCompleteModel.swift */,
 				EDD79A742A938B12005692D5 /* QuotationCompleteService.swift */,
-				ED260E0A2A95C91D00C4DA2A /* QuotationCompleteViewAlert.swift */,
 			);
 			path = QuotationComplete;
 			sourceTree = "<group>";
