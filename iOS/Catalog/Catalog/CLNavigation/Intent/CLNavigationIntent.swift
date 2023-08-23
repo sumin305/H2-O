@@ -21,7 +21,7 @@ final class CLNavigationIntent: ObservableObject {
   @Published var state: State = State(currentPage: 0,
                                       showQuotationSummarySheet: false,
                                       alertCase: .guide,
-                                      showAlert: false)
+                                      showAlert: true)
   var quotation = Quotation.shared
   var cancellable: Set<AnyCancellable> = []
 }
@@ -42,8 +42,8 @@ extension CLNavigationIntent: CLNavigationIntentType, IntentType {
         print(state.currentPage)
         
       case .onTapFinish:
-        state.alertCase = .quit
         send(action: .showAlertChanged(showAlert: true))
+        state.alertCase = .quit
         
       case .onTapLogo:
         state.currentPage = 0
