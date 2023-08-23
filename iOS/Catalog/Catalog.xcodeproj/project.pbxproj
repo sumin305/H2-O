@@ -1415,6 +1415,8 @@
 				EDD79A3D2A928C3E005692D5 /* SimilarQuotationCard */,
 				ED3E87DD2A8FDA9100DCDC66 /* SimilarQuotationView.swift */,
 				ED260E082A95BFDF00C4DA2A /* SimilarQuotationViewAlert.swift */,
+				ED14DDB82A913FF20060D560 /* SimilarQuotationHelpView.swift */,
+				ED3E87EF2A90CD2500DCDC66 /* SimilarQuotationTopBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
