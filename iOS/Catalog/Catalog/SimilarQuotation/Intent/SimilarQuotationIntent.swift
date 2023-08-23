@@ -63,7 +63,6 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
         } else {
           state.alertCase = .optionButQuit
         }
-<<<<<<< feature/iOS/#265
         
       case .onTapAddButton(let title, let count):
         state.alertCase = .addOption(title: title, count: count)
@@ -72,16 +71,6 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
       case .onTapHelpButton:
         state.alertCase = .help
         send(action: .showAlertChanged(showAlert: true))
-=======
-
-      case .onTapAddButton(let title, let count):
-        state.alertCase = .addOption(title: title, count: count)
-        send(action: .showAlertChanged(showAlert: true))
-        
-      case .onTapHelpButton:
-        state.alertCase = .help
-        send(action: .showAlertChanged(showAlert: true))
-
         
       case .optionSelected(let selectedOption):
         if state.selectedOptions.contains(selectedOption) {
@@ -102,7 +91,7 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
       case .choiceAdd:
         Quotation.shared.send(action: .similarOptionsAdded(option: state.selectedOptions))
         send(action: .choiceQuit)
-
+        
       case .showAlertChanged(let showAlert):
         state.showAlert = showAlert
     }

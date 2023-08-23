@@ -25,7 +25,7 @@ struct CLTopNaviBar: View {
         .buttonStyle(.plain)
         Spacer()
         Button {
-          intent.send(action: .onTapFinish)
+          showQuitAlert = true
         } label: {
           Text("종료")
             .catalogFont(type: .TextKRMedium14)
