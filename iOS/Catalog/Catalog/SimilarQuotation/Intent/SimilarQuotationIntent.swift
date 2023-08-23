@@ -36,6 +36,7 @@ final class SimilarQuotationIntent: ObservableObject {
                                       selectedOptions: [],
                                       alertCase: .noOption,
                                       showAlert: false)
+
   
   var cancellable: Set<AnyCancellable> = []
   private var repository: SimilarQuotationRepositoryProtocol
