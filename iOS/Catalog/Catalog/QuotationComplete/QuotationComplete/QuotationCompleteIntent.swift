@@ -61,9 +61,18 @@ extension QuotationCompleteIntent: QuotationCompleteIntentType, IntentType {
       case .onTapDeleteButton:
         state.showAlert = true
         
-      case .onTapModifyButton(let title, let index):
+      case .onTapModifyButton:
         state.showAlert = true
+        
+      case .movePage(let index):
         navigationIntent.send(action: .onTapNavTab(index: index))
+        send(action: .onTapCancelButton)
+        
+      case .deleteOption(let option):
+        // 옵션삭제 로직
+        send(action: .onTapCancelButton)
+      case .onTapCancelButton:
+        state.showAlert = false
     }
   }
 }
