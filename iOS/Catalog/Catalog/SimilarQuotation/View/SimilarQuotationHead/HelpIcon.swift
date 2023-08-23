@@ -11,7 +11,7 @@ struct HelpIcon: View {
   @Binding var showHelp: Bool 
   var body: some View {
       VStack(alignment: .trailing) {
-        HStack(alignment: .top) {
+        HStack(alignment: .top, spacing: 0) {
           Spacer()
           Button {
             showHelp.toggle()

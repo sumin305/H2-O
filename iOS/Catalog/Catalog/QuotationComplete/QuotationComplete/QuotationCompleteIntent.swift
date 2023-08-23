@@ -9,11 +9,11 @@ import Foundation
 import Combine
 
 protocol QuotationCompleteIntentType {
-
+  
   var state: QuotationCompleteModel.State { get }
-
+  
   func send(action: QuotationCompleteModel.ViewAction)
-
+  
   func send(action: QuotationCompleteModel.ViewAction, viewEffect: (() -> Void)?)
   
   var repository: QuotationCompleteRepositoryProtocol { get }
@@ -22,19 +22,19 @@ protocol QuotationCompleteIntentType {
 }
 
 final class QuotationCompleteIntent: ObservableObject {
-
+  
   init(initialState: State, repository: QuotationCompleteRepositoryProtocol, quotationService: QuotationCompleteService, navigationIntent: CLNavigationIntentType) {
     state = initialState
     self.repository = repository
     self.quotationService = quotationService
     self.navigationIntent = navigationIntent
   }
-
+  
   typealias State = QuotationCompleteModel.State
   typealias ViewAction = QuotationCompleteModel.ViewAction
-
+  
   @Published var state: State
-
+  
   var cancellable: Set<AnyCancellable> = []
   var quotationService: QuotationCompleteService
   var navigationIntent: CLNavigationIntentType
@@ -42,8 +42,8 @@ final class QuotationCompleteIntent: ObservableObject {
 }
 
 extension QuotationCompleteIntent: QuotationCompleteIntentType, IntentType {
-
-
+  
+  
   func mutate(action: QuotationCompleteModel.ViewAction, viewEffect: (() -> Void)?) {
     switch action {
       case .onAppear:
@@ -57,13 +57,13 @@ extension QuotationCompleteIntent: QuotationCompleteIntentType, IntentType {
           }
         }
         state.summaryQuotation = Quotation.shared.getSummary()
+        
       case .onTapDeleteButton:
         state.showAlert = true
-      
+        
       case .onTapModifyButton(let title, let index):
         state.showAlert = true
         navigationIntent.send(action: .onTapNavTab(index: index))
     }
   }
 }
-

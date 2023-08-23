@@ -51,7 +51,7 @@ extension DetailQuotationItem: View {
           }
         } else {
           Button {
-            intent.send(action: .onTapModifyButton(navigationIndex: info.index))
+            intent.send(action: .onTapModifyButton(title: info.title, navigationIndex: info.index))
             presentationMode.wrappedValue.dismiss()
           } label: {
             Text("수정하기").catalogFont(type: .HeadKRMedium14).foregroundColor(Color.primary0)
