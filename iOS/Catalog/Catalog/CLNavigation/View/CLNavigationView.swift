@@ -107,8 +107,6 @@ extension CLNavigationView: View {
           CLQuotationSummarySheet(currentQuotationPrice: quotation.state.totalPrice,
                                   summaryQuotation: quotation.state.quotation?.toSummary() ?? SummaryCarQuotation.mock(),
                                   showQuotationSummarySheet: $showQuotationSummarySheet)
-          
-          
         }
       }
       if state.showAlert {

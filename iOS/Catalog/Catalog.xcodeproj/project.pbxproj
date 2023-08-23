@@ -277,6 +277,7 @@
 		EDD79A8A2A93BF11005692D5 /* SimilarQuotations.json in Resources */ = {isa = PBXBuildFile; fileRef = EDD79A892A93BF11005692D5 /* SimilarQuotations.json */; };
 		EDD79A8B2A93E724005692D5 /* SimilarQuotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87DD2A8FDA9100DCDC66 /* SimilarQuotationView.swift */; };
 		EDE434F12A8BFE75007BD0DE /* QuotationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE434F02A8BFE75007BD0DE /* QuotationIntent.swift */; };
+		EDE7D3A82A966A130080F3C7 /* ButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D3A72A966A130080F3C7 /* ButtonContent.swift */; };
 		EDF071A32A8CC588002AD0DB /* TrimDefaultOption.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF071A22A8CC588002AD0DB /* TrimDefaultOption.json */; };
 		EDF071A52A8CC629002AD0DB /* TrimMaxMinPrice.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF071A42A8CC629002AD0DB /* TrimMaxMinPrice.json */; };
 		EDF071A72A8CC772002AD0DB /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF071A62A8CC772002AD0DB /* MockError.swift */; };
@@ -585,6 +586,7 @@
 		EDD79A862A93BE45005692D5 /* SimilarQuotationMockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationMockRepository.swift; sourceTree = "<group>"; };
 		EDD79A892A93BF11005692D5 /* SimilarQuotations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SimilarQuotations.json; sourceTree = "<group>"; };
 		EDE434F02A8BFE75007BD0DE /* QuotationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationIntent.swift; sourceTree = "<group>"; };
+		EDE7D3A72A966A130080F3C7 /* ButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonContent.swift; sourceTree = "<group>"; };
 		EDF071A22A8CC588002AD0DB /* TrimDefaultOption.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TrimDefaultOption.json; sourceTree = "<group>"; };
 		EDF071A42A8CC629002AD0DB /* TrimMaxMinPrice.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TrimMaxMinPrice.json; sourceTree = "<group>"; };
 		EDF071A62A8CC772002AD0DB /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
@@ -1044,6 +1046,7 @@
 				B19436442A80E5FD00C2FD69 /* AlertViewComponent.swift */,
 				ED260DFE2A94FE3F00C4DA2A /* AlertSingleButton.swift */,
 				ED260E002A94FE4500C4DA2A /* AlertDoubleButton.swift */,
+				EDE7D3A72A966A130080F3C7 /* ButtonContent.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -2059,6 +2062,7 @@
 				ED3E87E62A90BE7E00DCDC66 /* SimilarQuotationIntent.swift in Sources */,
 				ED1C70612A89C3A50049D275 /* EntryGuide.swift in Sources */,
 				B1604D142A8256DA00C7B07D /* RequestType.swift in Sources */,
+				EDE7D3A82A966A130080F3C7 /* ButtonContent.swift in Sources */,
 				B1F988EE2A8B4AB800C7B65F /* InteriorColorDisplayView.swift in Sources */,
 				B1F988DB2A8A8D1900C7B65F /* ExteriorColor.swift in Sources */,
 				B155C0FA2A79327A00F540CB /* Font+.swift in Sources */,
