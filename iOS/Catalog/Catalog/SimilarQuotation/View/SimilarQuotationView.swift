@@ -14,11 +14,7 @@ struct SimilarQuotationView {
   
   @SwiftUI.State var showHelp: Bool = false
   @SwiftUI.State var showAlert: Bool = false
-  @SwiftUI.State var currentIndex: Int = 0 {
-    didSet(index) {
-      intent.send(action: .currentSimilarQuotationIndexChanged(index: index))
-    }
-  }
+  @SwiftUI.State var currentIndex: Int = 0
   let budgetPrice: CLNumber = CLNumber(50000000)
   let quotation = Quotation.shared
   let navigationIntent: CLNavigationIntentType
@@ -63,7 +59,9 @@ extension SimilarQuotationView: View {
             }
           }
                        .frame(height: CGFloat(449).scaledHeight)
-          
+                       .onChange(of: currentIndex) { newValue in
+                         intent.send(action: .currentSimilarQuotationIndexChanged(index: newValue))
+                       }
           
           ScrollIndicator(spacing: 10,
                           count: state.similarQuotations.count,
@@ -74,7 +72,7 @@ extension SimilarQuotationView: View {
                           smallScaleEffect: 1,
                           bottomPadding: 12,
                           currentIndex: $currentIndex)
-    
+          
           CLInActiceButton(mainText: "내 견적서에 추가하기",
                            subText: "선택된 옵션\(state.selectedOptions.count)개",
                            inActiveText: "옵션을 선택해 추가해보세요.",
@@ -84,34 +82,31 @@ extension SimilarQuotationView: View {
             intent.send(action: .onTapAddButton)           })
           .disabled(state.selectedOptions.isEmpty)
         }
-        .padding([.top, .bottom], 1)
-        
-        
         // Dimmed 도움말
         if showHelp {
-          SimilarQuotationHelpView()
+          SimilarQuotationHelpView(showHelp: $showHelp)
         }
         
         // 도움말 버튼
         HelpIcon(showHelp: $showHelp)
         
-        // 경고창
-        if showAlert {
-          switch state.alertCase {
-            case .noOption:
-              noOptionAlertView()
-              
-            case .optionButQuit:
-              optionButQuitAlertView()
-              
-            case .addOption:
-              addOptionAlertView()
-          }
-        }
       }
       //TODO: - Quotation 받아오는 방식 변경하기
-      .onAppear { intent.send(action: .onAppear(quotation: quotation.state.quotation!)) }
-      
+      .onAppear { intent.send(action: .onAppear(quotation: quotation.state.quotation!))
+      }
+    }
+    // 경고창
+    .CLDialogFullScreenCover(show: $showAlert) {
+      switch state.alertCase {
+        case .noOption:
+          noOptionAlertView()
+          
+        case .optionButQuit:
+          optionButQuitAlertView()
+          
+        case .addOption:
+          addOptionAlertView()
+      }
     }
     .navigationBarBackButtonHidden()
   }
@@ -139,6 +134,7 @@ fileprivate extension SimilarQuotationView {
     let buttonContent = ButtonContent(cancelAction: {
       showAlert = false
     }, submitAction: {
+      showAlert = false
       intent.send(action: .choiceQuit)
     }, submitText: "종료")
     return CLAlertView<CLQuitAlertContentView, ButtonContent, AlertDoubleButton>(items: buttonContent) { item in
@@ -150,6 +146,7 @@ fileprivate extension SimilarQuotationView {
     let buttonContent = ButtonContent(cancelAction: {
       showAlert = false
     }, submitAction: {
+      showAlert = false
       intent.send(action: .choiceQuit)
     })
     return CLAlertView<CLOptionQuitAlertContentView, ButtonContent, AlertDoubleButton>(info: String(state.selectedOptions.count), items: buttonContent) { item in
@@ -161,6 +158,7 @@ fileprivate extension SimilarQuotationView {
     let buttonContent = ButtonContent(cancelAction: {
       showAlert = false
     }, submitAction: {
+      showAlert = false
       intent.send(action: .choiceQuit)
     })
     return CLAlertView<CLOptionSelectAlertContentView, ButtonContent, AlertSingleButton>(info: toAlertString(optionName: state.selectedOptions[0].name, count: state.selectedOptions.count), items: buttonContent) { item in

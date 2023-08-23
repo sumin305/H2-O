@@ -51,7 +51,6 @@ extension Quotation: QuotationIntentType, IntentType {
       case .isPowertrainChanged(let powertrain):
         state.quotation?.powertrain = powertrain
         send(action: .isPriceChanged)
-      
         
       case .isBodyTypeChanged(let bodytype):
         state.quotation?.bodytype = bodytype
@@ -75,7 +74,7 @@ extension Quotation: QuotationIntentType, IntentType {
                let quotationId = try await repostitory.saveFinalQuotation(with: requestQuotation)
             }
           } catch let error {
-            print("@@@@@실패함!!!")
+            print(error.localizedDescription)
           }
         }
       case .similarOptionsAdded(let options):
