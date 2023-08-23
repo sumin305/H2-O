@@ -34,7 +34,8 @@ final class SimilarQuotationIntent: ObservableObject {
   @Published var state: State = .init(currentSimilarQuotationIndex: 0,
                                       similarQuotations: [.mock(), .mock(), .mock()],
                                       selectedOptions: [],
-                                      alertCase: .noOption)
+                                      alertCase: .noOption,
+                                      showAlert: false)
   
   var cancellable: Set<AnyCancellable> = []
   private var repository: SimilarQuotationRepositoryProtocol
@@ -73,14 +74,14 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
         send(action: .showAlertChanged(showAlert: true))
 =======
 
-      case .onTapAddButton:
-        print("추가하기 버튼 클릭")
-        state.alertCase = .addOption
-        Quotation.shared.send(action: .similarOptionsAdded(option: state.selectedOptions))
+      case .onTapAddButton(let title, let count):
+        state.alertCase = .addOption(title: title, count: count)
+        send(action: .showAlertChanged(showAlert: true))
         
       case .onTapHelpButton:
         state.alertCase = .help
->>>>>>> feat: 견적 완료 페이지 수정하기, 삭제하기 로직 작성 2
+        send(action: .showAlertChanged(showAlert: true))
+
         
       case .optionSelected(let selectedOption):
         if state.selectedOptions.contains(selectedOption) {
@@ -101,7 +102,7 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
       case .choiceAdd:
         Quotation.shared.send(action: .similarOptionsAdded(option: state.selectedOptions))
         send(action: .choiceQuit)
-        
+
       case .showAlertChanged(let showAlert):
         state.showAlert = showAlert
     }

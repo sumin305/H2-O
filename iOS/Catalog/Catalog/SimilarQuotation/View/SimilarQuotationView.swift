@@ -12,12 +12,7 @@ struct SimilarQuotationView {
   var intent: SimilarQuotationIntentType { container.intent }
   var state: SimilarQuotationModel.State { intent.state }
   
-  @SwiftUI.State var showAlert: Bool = false
-  @SwiftUI.State var currentIndex: Int = 0 {
-    didSet(index) {
-      intent.send(action: .currentSimilarQuotationIndexChanged(index: index))
-    }
-  }
+  @SwiftUI.State var currentIndex: Int = 0
   let budgetPrice: CLNumber = CLNumber(50000000)
   let quotation = Quotation.shared
   let navigationIntent: CLNavigationIntentType
@@ -82,34 +77,23 @@ extension SimilarQuotationView: View {
                            buttonAction: {  intent.send(action: .onTapAddButton(title: state.selectedOptions[0].name, count: state.selectedOptions.count)) })
           .disabled(state.selectedOptions.isEmpty)
         }
-        .padding([.top, .bottom], 1)
-        
-        
-        // Dimmed 도움말
-        if showHelp {
-          SimilarQuotationHelpView()
-        }
-        
-        // 도움말 버튼
-        HelpIcon(showHelp: $showHelp)
-        
-        // 경고창
-        if showAlert {
-          switch state.alertCase {
-            case .noOption:
-              noOptionAlertView()
-              
-            case .optionButQuit:
-              optionButQuitAlertView()
-              
-            case .addOption:
-              addOptionAlertView()
-          }
-        }
+        HelpIcon(intent: intent, showAlert: showAlertBinding)
       }
       //TODO: - Quotation 받아오는 방식 변경하기
       .onAppear { intent.send(action: .onAppear(quotation: quotation.state.quotation!)) }
       
+    }
+    .CLDialogFullScreenCover(show: showAlertBinding) {
+      switch state.alertCase {
+        case .noOption:
+          noOptionAlertView()
+        case .optionButQuit:
+          optionButQuitAlertView()
+        case .addOption(let title, let count):
+          addOptionAlertView(title: title, count: count)
+        case .help:
+          SimilarQuotationHelpView(showAlert: showAlertBinding, intent: intent)
+      }
     }
     .navigationBarBackButtonHidden()
   }
