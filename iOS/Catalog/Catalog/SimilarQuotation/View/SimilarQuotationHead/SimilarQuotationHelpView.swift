@@ -37,12 +37,6 @@ struct SimilarQuotationHelpView: View {
           Color.clear.ignoresSafeArea()
         }
       }
-      HelpIcon(showHelp: $showHelp)
-      Button {
-        showHelp = false
-      } label: {
-        Color.clear.ignoresSafeArea()
-      }
     }
   }
 }

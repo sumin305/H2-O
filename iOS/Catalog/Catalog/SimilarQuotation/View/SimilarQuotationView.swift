@@ -12,7 +12,6 @@ struct SimilarQuotationView {
   var intent: SimilarQuotationIntentType { container.intent }
   var state: SimilarQuotationModel.State { intent.state }
   
-  @SwiftUI.State var showHelp: Bool = false
   @SwiftUI.State var showAlert: Bool = false
   @SwiftUI.State var currentIndex: Int = 0 {
     didSet(index) {
@@ -128,44 +127,3 @@ extension SimilarQuotationView {
   }
 }
 
-fileprivate extension SimilarQuotationView {
-  func toAlertString(optionName: String, count: Int) -> String {
-    "[\(optionName)]외 \(count)개"
-  }
-  
-  func noOptionAlertView() -> some View {
-    let buttonContent = ButtonContent(cancelAction: {
-      showAlert = false
-    }, submitAction: {
-      showAlert = false
-      intent.send(action: .choiceQuit)
-    }, submitText: "종료")
-    return CLAlertView<CLQuitAlertContentView, ButtonContent, AlertDoubleButton>(items: buttonContent) { item in
-      AlertDoubleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
-    }
-  }
-  
-  func optionButQuitAlertView() -> some View {
-    let buttonContent = ButtonContent(cancelAction: {
-      showAlert = false
-    }, submitAction: {
-      showAlert = false
-      intent.send(action: .choiceQuit)
-    })
-    return CLAlertView<CLOptionQuitAlertContentView, ButtonContent, AlertDoubleButton>(info: String(state.selectedOptions.count), items: buttonContent) { item in
-      AlertDoubleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
-    }
-  }
-  
-  func addOptionAlertView() -> some View {
-    let buttonContent = ButtonContent(cancelAction: {
-      showAlert = false
-    }, submitAction: {
-      showAlert = false
-      intent.send(action: .choiceQuit)
-    })
-    return CLAlertView<CLOptionSelectAlertContentView, ButtonContent, AlertSingleButton>(info: toAlertString(optionName: state.selectedOptions[0].name, count: state.selectedOptions.count), items: buttonContent) { item in
-      AlertSingleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
-    }
-  }
-}
