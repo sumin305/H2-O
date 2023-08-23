@@ -19,7 +19,10 @@ enum QuotationCompleteModel {
 
   enum ViewAction {
     case onAppear
-    case onTapModifyButton(title: String, navigationIndex: Int)
-    case onTapDeleteButton
+    case onTapModifyButton(navigationIndex: Int, title: String)
+    case onTapDeleteButton(optionId: Int)
+    case movePage(navigationIndex: Int)
+    case deleteOption(optionId: Int)
+    case onTapCancelButton
   }
 }

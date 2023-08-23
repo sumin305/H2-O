@@ -69,15 +69,7 @@ extension CLNavigationView: View {
             OptionSelectionView.build(intent: .init(initialState: .init(currentPage: 0,
                                                                         additionalOptionState: .init(cardStates: [], selectedFilterId: 0),
                                                                         defaultOptionState: .init(cardStates: [], selectedFilterId: 0)), repository: OptionSelectionRepository(requestManager: RequestManager(apiManager: OptionSelectionAPIManager()), trimID: 2))).tag(4)
-            QuotationCompleteView.build(intent: .init(initialState: .init(summaryQuotation: SummaryCarQuotation(
-              model: SummaryQuotationInfo(index: 0, title: "모델", name: "xx", price: CLNumber(0)),
-              trim: SummaryQuotationInfo(index: 0, title: "트림", name: "xx", price: CLNumber(0)),
-              powertrain: SummaryQuotationInfo(index: 1, title: "파워트레인", name: "xx", price: CLNumber(0)),
-              bodytype: SummaryQuotationInfo(index: 1, title: "바디타입", name: "xx", price: CLNumber(0)),
-              drivetrain: SummaryQuotationInfo(index: 1, title: "구동방식", name: "xx", price: CLNumber(0)),
-              externalColor: SummaryQuotationInfo(index: 2, title: "외장색상", name: "xx", price: CLNumber(0)),
-              internalColor: SummaryQuotationInfo(index: 3, title: "내장색상", name: "xx", price: CLNumber(0)),
-              options: []), technicalSpec: .init(displacement: CLNumber(0), fuelEfficiency: 0.0), nextNavIndex: 0, showAlert: false), repository: QuotationCompleteRepository(quotationCompleteRequestManager: RequestManager(apiManager: APIManager())), quotationService: Quotation.shared, navigationIntent: intent) )
+            QuotationCompleteView.build(intent: .init(initialState: .init(summaryQuotation: SummaryCarQuotation.mock(), technicalSpec: .init(displacement: CLNumber(0), fuelEfficiency: 0.0), nextNavIndex: 0, showAlert: false, alertTitle: ""), repository: QuotationCompleteRepository(quotationCompleteRequestManager: RequestManager(apiManager: APIManager())), quotationService: Quotation.shared, navigationIntent: intent) )
               .tag(5)
           }
           .onAppear { UIScrollView.appearance().isScrollEnabled = false }
@@ -114,13 +106,13 @@ extension CLNavigationView: View {
       .sheet(isPresented: $showQuotationSummarySheet) {
         CLQuotationSummarySheet(currentQuotationPrice: quotation.state.totalPrice,
                                 summaryQuotation: quotation.state.quotation?.toSummary() ?? SummaryCarQuotation(
-                                  model: SummaryQuotationInfo(index: 0, title: "모델", name: "xx", price: CLNumber(0)),
-                                  trim: SummaryQuotationInfo(index: 0, title: "트림", name: "xx", price: CLNumber(0)),
-                                  powertrain: SummaryQuotationInfo(index: 1, title: "파워트레인", name: "xx", price: CLNumber(0)),
-                                  bodytype: SummaryQuotationInfo(index: 1, title: "바디타입", name: "xx", price: CLNumber(0)),
-                                  drivetrain: SummaryQuotationInfo(index: 1, title: "구동방식", name: "xx", price: CLNumber(0)),
-                                  externalColor: SummaryQuotationInfo(index: 2, title: "외장색상", name: "xx", price: CLNumber(0)),
-                                  internalColor: SummaryQuotationInfo(index: 3, title: "내장색상", name: "xx", price: CLNumber(0)),
+                                  model: SummaryQuotationInfo(id: 0,  index: 0, title: "모델", name: "xx", price: CLNumber(0)),
+                                  trim: SummaryQuotationInfo(id: 0, index: 0, title: "트림", name: "xx", price: CLNumber(0)),
+                                  powertrain: SummaryQuotationInfo(id: 0, index: 1, title: "파워트레인", name: "xx", price: CLNumber(0)),
+                                  bodytype: SummaryQuotationInfo(id: 0, index: 1, title: "바디타입", name: "xx", price: CLNumber(0)),
+                                  drivetrain: SummaryQuotationInfo(id: 0, index: 1, title: "구동방식", name: "xx", price: CLNumber(0)),
+                                  externalColor: SummaryQuotationInfo(id: 0, index: 2, title: "외장색상", name: "xx", price: CLNumber(0)),
+                                  internalColor: SummaryQuotationInfo(id: 0, index: 3, title: "내장색상", name: "xx", price: CLNumber(0)),
                                   options: []),
                                 showQuotationSummarySheet: $showQuotationSummarySheet)
       }
