@@ -12,7 +12,13 @@ struct SimilarQuotationView {
   var intent: SimilarQuotationIntentType { container.intent }
   var state: SimilarQuotationModel.State { intent.state }
   
-  @SwiftUI.State var currentIndex: Int = 0
+  @SwiftUI.State var showHelp: Bool = false
+  @SwiftUI.State var showAlert: Bool = false
+  @SwiftUI.State var currentIndex: Int = 0 {
+    didSet(index) {
+      intent.send(action: .currentSimilarQuotationIndexChanged(index: index))
+    }
+  }
   let budgetPrice: CLNumber = CLNumber(50000000)
   let quotation = Quotation.shared
   let navigationIntent: CLNavigationIntentType
@@ -77,22 +83,34 @@ extension SimilarQuotationView: View {
                            buttonAction: {  intent.send(action: .onTapAddButton(title: state.selectedOptions[0].name, count: state.selectedOptions.count)) })
           .disabled(state.selectedOptions.isEmpty)
         }
-        HelpIcon(intent: intent, showAlert: showAlertBinding)
+        .padding([.top, .bottom], 1)
+        
+        
+        // Dimmed 도움말
+        if showHelp {
+          SimilarQuotationHelpView()
+        }
+        
+        // 도움말 버튼
+        HelpIcon(showHelp: $showHelp)
+        
+        // 경고창
+        if showAlert {
+          switch state.alertCase {
+            case .noOption:
+              noOptionAlertView()
+              
+            case .optionButQuit:
+              optionButQuitAlertView()
+              
+            case .addOption:
+              addOptionAlertView()
+          }
+        }
       }
-      .onAppear { intent.send(action: .onAppear(quotation: quotation.state.quotation!))
-      }
-    }
-    .CLDialogFullScreenCover(show: showAlertBinding) {
-      switch state.alertCase {
-        case .noOption:
-          noOptionAlertView()
-        case .optionButQuit:
-          optionButQuitAlertView()
-        case .addOption(let title, let count):
-          addOptionAlertView(title: title, count: count)
-        case .help:
-          SimilarQuotationHelpView(showAlert: showAlertBinding, intent: intent)
-      }
+      //TODO: - Quotation 받아오는 방식 변경하기
+      .onAppear { intent.send(action: .onAppear(quotation: quotation.state.quotation!)) }
+      
     }
     .navigationBarBackButtonHidden()
   }
@@ -119,6 +137,7 @@ fileprivate extension SimilarQuotationView {
     let buttonContent = ButtonContent(cancelAction: {
       showAlert = false
     }, submitAction: {
+      showAlert = false
       intent.send(action: .choiceQuit)
     }, submitText: "종료")
     return CLAlertView<CLQuitAlertContentView, ButtonContent, AlertDoubleButton>(items: buttonContent) { item in
@@ -130,6 +149,7 @@ fileprivate extension SimilarQuotationView {
     let buttonContent = ButtonContent(cancelAction: {
       showAlert = false
     }, submitAction: {
+      showAlert = false
       intent.send(action: .choiceQuit)
     })
     return CLAlertView<CLOptionQuitAlertContentView, ButtonContent, AlertDoubleButton>(info: String(state.selectedOptions.count), items: buttonContent) { item in
@@ -141,6 +161,7 @@ fileprivate extension SimilarQuotationView {
     let buttonContent = ButtonContent(cancelAction: {
       showAlert = false
     }, submitAction: {
+      showAlert = false
       intent.send(action: .choiceQuit)
     })
     return CLAlertView<CLOptionSelectAlertContentView, ButtonContent, AlertSingleButton>(info: toAlertString(optionName: state.selectedOptions[0].name, count: state.selectedOptions.count), items: buttonContent) { item in
