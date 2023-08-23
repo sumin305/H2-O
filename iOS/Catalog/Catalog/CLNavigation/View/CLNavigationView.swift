@@ -32,6 +32,11 @@ extension CLNavigationView {
     .init(get: { state.showQuotationSummarySheet },
           set: {_ in })
   }
+  
+  var showAlertBinding: Binding<Bool> {
+    .init(get: { state.showAlert },
+          set: { bool in intent.send(action: .showAlertChanged(showAlert: bool))})
+  }
 }
 
 extension CLNavigationView: View {
@@ -99,7 +104,7 @@ extension CLNavigationView: View {
         
         NavigationLink(destination:     SimilarQuotationView.build(intent: .init(initialState: .init(currentSimilarQuotationIndex: 0, similarQuotations: [SimilarQuotation.mock(),
                                                                                                                          SimilarQuotation.mock(),
-                                                                                                                                                          SimilarQuotation.mock()], selectedOptions: [], alertCase: .noOption, showAlert: false), repository: SimilarQuotationMockRepository(), navigationIntent: self.intent, budgetRangeIntent: CLBudgetRangeIntent(initialState: .init(currentQuotationPrice: quotation.state.totalPrice, budgetPrice: .init(0), status: .similarQuotation), navigationIntent: CLNavigationIntent(initialState: .init(currentPage: 5, showQuotationSummarySheet: false)))), navitationIntent: intent),
+                                                                                                                                                          SimilarQuotation.mock()], selectedOptions: [], alertCase: .noOption, showAlert: false), repository: SimilarQuotationMockRepository(), navigationIntent: self.intent, budgetRangeIntent: CLBudgetRangeIntent(initialState: .init(currentQuotationPrice: quotation.state.totalPrice, budgetPrice: .init(0), status: .similarQuotation), navigationIntent: CLNavigationIntent(initialState: .init(currentPage: 5, showQuotationSummarySheet: false, alertCase: .guide, showAlert: false)))), navitationIntent: intent),
                        isActive: showQuotationSummarySheetBinding,
                        label: { Text("") })
       }
@@ -117,6 +122,9 @@ extension CLNavigationView: View {
                                 showQuotationSummarySheet: $showQuotationSummarySheet)
       }
     }
+    .CLDialogFullScreenCover(show: showAlertBinding) {
+      makeAlertView(alertCase: state.alertCase)
+    }
   }
 }
 
@@ -133,7 +141,7 @@ extension CLNavigationView {
 
 struct CLNavigationView_Previews: PreviewProvider {
   static var previews: some View {
-    return CLNavigationView.build(intent: CLNavigationIntent(initialState: .init(currentPage: 0, showQuotationSummarySheet: false)))
+    return CLNavigationView.build(intent: CLNavigationIntent(initialState: .init(currentPage: 0, showQuotationSummarySheet: false, alertCase: .guide, showAlert: false)))
   }
 }
 
