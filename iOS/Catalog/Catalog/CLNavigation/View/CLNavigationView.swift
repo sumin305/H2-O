@@ -115,6 +115,8 @@ extension CLNavigationView: View {
         makeAlertView(alertCase: state.alertCase)
       }
     }
+  }
+}
 
   }
   
