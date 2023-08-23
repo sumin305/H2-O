@@ -50,7 +50,7 @@ extension QuotationCompleteView: View {
           DragGesture()
             .onChanged { gesture in
               if gesture.translation.height < 20 {
-                showSheetBinding.wrappedValue.toggle()
+                showSheetBinding.wrappedValue = true
               }
             }
         )

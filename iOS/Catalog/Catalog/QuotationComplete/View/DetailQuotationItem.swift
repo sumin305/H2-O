@@ -13,7 +13,6 @@ struct DetailQuotationItem {
   let itemImageWidth: CGFloat = 77
   var intent: QuotationCompleteIntentType
   @State var showAlert: Bool = false
-  @Environment(\.presentationMode) var presentationMode
   
 }
 
@@ -44,17 +43,13 @@ extension DetailQuotationItem: View {
       VStack(alignment: .trailing) {
         if info.isSimilarOption {
           Button {
-            intent.send(action: .onTapDeleteButton(optionId: info.id)) {
-              presentationMode.wrappedValue.dismiss()
-            }
+            intent.send(action: .onTapDeleteButton(optionId: info.id))
           } label: {
             Text("삭제하기").catalogFont(type: .HeadKRMedium14).foregroundColor(Color.sand)
           }
         } else {
           Button {
-            intent.send(action: .onTapModifyButton(navigationIndex: info.index, title: info.title)) {
-              presentationMode.wrappedValue.dismiss()
-            }
+            intent.send(action: .onTapModifyButton(navigationIndex: info.index, title: info.title))
           } label: {
             Text("수정하기").catalogFont(type: .HeadKRMedium14).foregroundColor(Color.primary0)
           }
