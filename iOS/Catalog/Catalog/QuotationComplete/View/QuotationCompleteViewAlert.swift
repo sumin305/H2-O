@@ -19,7 +19,7 @@ extension QuotationCompleteView {
 extension QuotationCompleteSheet {
   func modifyAlertView(index: Int, title: String) -> some View {
     let buttonContent = ButtonContent(cancelAction: {
-      intent.send(action: .onTapCancelButton)
+      intent.send(action: .showSheetChanged(showSheet: false))
     }, submitAction: {
       intent.send(action: .movePage(navigationIndex: index))
     }, submitText: "이동")
@@ -30,7 +30,7 @@ extension QuotationCompleteSheet {
   
   func deleteAlertView(id: Int) -> some View {
     let buttonContent = ButtonContent(cancelAction: {
-      intent.send(action: .onTapCancelButton)
+      intent.send(action: .showSheetChanged(showSheet: false))
     }, submitAction: {
       intent.send(action: .deleteOption(optionId: id))
     }, submitText: "삭제")

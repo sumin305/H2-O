@@ -61,26 +61,27 @@ extension QuotationCompleteIntent: QuotationCompleteIntentType, IntentType {
         
       case .onTapDeleteButton(let id):
         state.alertCase = .delete(id: id)
-        state.showAlert = true
+        send(action: .showAlertChanged(showAlert: true))
         
       case .onTapModifyButton(let navigationIndex, let title):
         state.alertCase = .modify(index: navigationIndex, title: title)
-        state.showAlert = true
-        
+        send(action: .showAlertChanged(showAlert: true))
+
       case .movePage(let index):
+        send(action: .showAlertChanged(showAlert: false))
         send(action: .showSheetChanged(showSheet: false))
-        send(action: .onTapCancelButton)
         navigationIntent.send(action: .onTapNavTab(index: index))
         
       case .deleteOption(let option):
         // 옵션삭제 로직
-        send(action: .onTapCancelButton)
-        
-      case .onTapCancelButton:
-        state.showAlert = false
-        
+        Quotation.shared.send(action: .similarOptionsDeleted(option: option))
+        send(action: .onAppear)
+        send(action: .showAlertChanged(showAlert: false))
+
       case .showSheetChanged(let showSheet):
         state.showSheet = showSheet
+      case .showAlertChanged(let showAlert):
+        state.showAlert = showAlert
     }
   }
 }

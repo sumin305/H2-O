@@ -72,6 +72,7 @@ extension Quotation: QuotationIntentType, IntentType {
           do {
              if let requestQuotation = state.quotation {
                let quotationId = try await repostitory.saveFinalQuotation(with: requestQuotation)
+               print(quotationId)
             }
           } catch let error {
             print(error.localizedDescription)
@@ -79,6 +80,8 @@ extension Quotation: QuotationIntentType, IntentType {
         }
       case .similarOptionsAdded(let options):
         state.quotation?.options.append(contentsOf: options)
+      case .similarOptionsDeleted(let optionIndex):
+        state.quotation?.options = (state.quotation?.options.filter{$0.id != optionIndex}) ?? []
     }
   }
 }

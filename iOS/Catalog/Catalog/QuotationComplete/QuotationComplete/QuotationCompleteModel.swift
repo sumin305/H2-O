@@ -25,7 +25,7 @@ enum QuotationCompleteModel {
     case onTapDeleteButton(optionId: Int)
     case movePage(navigationIndex: Int)
     case deleteOption(optionId: Int)
-    case onTapCancelButton
     case showSheetChanged(showSheet: Bool)
+    case showAlertChanged(showAlert: Bool)
   }
 }
