@@ -12,6 +12,7 @@ struct DefaultOption {
   var id: Int
   var name: String
   var image: URL?
+  var price: CLNumber
   var containsHmgData: Bool
   var hashTags: [String]
   var category: OptionCategory

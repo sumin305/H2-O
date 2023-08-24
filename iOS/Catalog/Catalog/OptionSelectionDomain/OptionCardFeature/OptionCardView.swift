@@ -103,7 +103,7 @@ extension OptionCardView {
   @ViewBuilder
   private func priceView() -> some View {
     
-    Text(state.price?.signedWon ?? "기본포함")
+    Text(state.price.signedWon)
       .foregroundColor(.gray900)
       .catalogFont(type: .TextKRMedium14)
     

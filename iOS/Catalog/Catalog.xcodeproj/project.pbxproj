@@ -270,8 +270,8 @@
 		EDD79A4E2A929B55005692D5 /* QuotationCompleteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A4D2A929B55005692D5 /* QuotationCompleteRepository.swift */; };
 		EDD79A542A929C65005692D5 /* QuotationCompleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A532A929C65005692D5 /* QuotationCompleteRequest.swift */; };
 		EDD79A562A92F842005692D5 /* CarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A552A92F842005692D5 /* CarModel.swift */; };
-		EDD79A5F2A936138005692D5 /* QuotationRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A5E2A936138005692D5 /* QuotationRepositoryProtocol.swift */; };
-		EDD79A612A936159005692D5 /* QuotationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A602A936159005692D5 /* QuotationRepository.swift */; };
+		EDD79A5F2A936138005692D5 /* QuotationFooterRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A5E2A936138005692D5 /* QuotationFooterRepositoryProtocol.swift */; };
+		EDD79A612A936159005692D5 /* QuotationFooterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A602A936159005692D5 /* QuotationFooterRepository.swift */; };
 		EDD79A642A9361C2005692D5 /* QuotationResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A632A9361C2005692D5 /* QuotationResponseDTO.swift */; };
 		EDD79A692A936235005692D5 /* QuotationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A682A936235005692D5 /* QuotationRequest.swift */; };
 		EDD79A6B2A93645C005692D5 /* QuotationAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A6A2A93645C005692D5 /* QuotationAPIManager.swift */; };
@@ -600,8 +600,8 @@
 		EDD79A4D2A929B55005692D5 /* QuotationCompleteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationCompleteRepository.swift; sourceTree = "<group>"; };
 		EDD79A532A929C65005692D5 /* QuotationCompleteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationCompleteRequest.swift; sourceTree = "<group>"; };
 		EDD79A552A92F842005692D5 /* CarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
-		EDD79A5E2A936138005692D5 /* QuotationRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationRepositoryProtocol.swift; sourceTree = "<group>"; };
-		EDD79A602A936159005692D5 /* QuotationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationRepository.swift; sourceTree = "<group>"; };
+		EDD79A5E2A936138005692D5 /* QuotationFooterRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationFooterRepositoryProtocol.swift; sourceTree = "<group>"; };
+		EDD79A602A936159005692D5 /* QuotationFooterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationFooterRepository.swift; sourceTree = "<group>"; };
 		EDD79A632A9361C2005692D5 /* QuotationResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationResponseDTO.swift; sourceTree = "<group>"; };
 		EDD79A682A936235005692D5 /* QuotationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationRequest.swift; sourceTree = "<group>"; };
 		EDD79A6A2A93645C005692D5 /* QuotationAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationAPIManager.swift; sourceTree = "<group>"; };
@@ -1804,8 +1804,8 @@
 		EDD79A5B2A935F58005692D5 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				EDD79A602A936159005692D5 /* QuotationRepository.swift */,
-				EDD79A5E2A936138005692D5 /* QuotationRepositoryProtocol.swift */,
+				EDD79A602A936159005692D5 /* QuotationFooterRepository.swift */,
+				EDD79A5E2A936138005692D5 /* QuotationFooterRepositoryProtocol.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -2113,7 +2113,7 @@
 				EDBA3E3B2A83E48400BDB00F /* CLCancelButton.swift in Sources */,
 				B1604D6B2A854D3A00C7B07D /* HMGButtonArrowStyle.swift in Sources */,
 				ED3E87F02A90CD2500DCDC66 /* SimilarQuotationTopBar.swift in Sources */,
-				EDD79A612A936159005692D5 /* QuotationRepository.swift in Sources */,
+				EDD79A612A936159005692D5 /* QuotationFooterRepository.swift in Sources */,
 				B16722212A8C9E36002B45A6 /* OptionCardView.swift in Sources */,
 				ED1A70982A83646E00F7920F /* (null) in Sources */,
 				B191DD492A8BE0F4008196CD /* ExteriorColorAPIManager.swift in Sources */,
@@ -2238,7 +2238,7 @@
 				B1BEF0FB2A8F1890009943A3 /* OptionSelectionAPIManager.swift in Sources */,
 				B16DFF3C2A8958DB00642730 /* MaxTorqueFromEngine.swift in Sources */,
 				B1F2BC5E2A7B5B50005385E0 /* CLTopNaviBar.swift in Sources */,
-				EDD79A5F2A936138005692D5 /* QuotationRepositoryProtocol.swift in Sources */,
+				EDD79A5F2A936138005692D5 /* QuotationFooterRepositoryProtocol.swift in Sources */,
 				EDE7D3BE2A974D020080F3C7 /* QuotationCompleteService.swift in Sources */,
 				ED2B8CE32A8CFDE700F561FA /* TrimOptionDTO.swift in Sources */,
 				EDD3F0BC2A8E6A84006CE38A /* SummaryCarQuotation.swift in Sources */,

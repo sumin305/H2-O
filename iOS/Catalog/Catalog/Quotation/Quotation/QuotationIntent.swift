@@ -10,12 +10,8 @@ import Combine
 
 final class Quotation: ObservableObject {
   
-  static let shared = Quotation(initialState: .init(totalPrice: CLNumber(0), quotation: CarQuotation.mock(), minPrice: CLNumber(50000000), maxPrice: CLNumber(99999999)),
-                                repository: QuotationRepository(quotationRequestManager: RequestManager(apiManager: APIManager())))
-  
-  private init(initialState: State, repository: QuotationRepositoryProtocol) {
+  init(initialState: State) {
     state = initialState
-    self.repostitory = repository
   }
   
   @Published var state: State = .init(
@@ -24,7 +20,6 @@ final class Quotation: ObservableObject {
     minPrice: CLNumber(0),
     maxPrice: CLNumber(99999999))
   var cancellable: Set<AnyCancellable> = []
-  private var repostitory: QuotationRepositoryProtocol
 }
 
 extension Quotation: QuotationIntentType, IntentType {
@@ -64,19 +59,21 @@ extension Quotation: QuotationIntentType, IntentType {
         
       case .isPriceChanged:
         state.totalPrice = state.quotation.calculateTotalPrice()
-      case .onTapCompleteButton:
-        Task {
-          do {
-               let quotationId = try await repostitory.saveFinalQuotation(with: state.quotation )
-               print(quotationId)
-          } catch let error {
-            print(error.localizedDescription)
-          }
-        }
+//      case .onTapCompleteButton:
+//        Task {
+//          do {
+//               let quotationId = try await repostitory.saveFinalQuotation(with: state.quotation )
+//               print(quotationId)
+//          } catch let error {
+//            print(error.localizedDescription)
+//          }
+//        }
       case .similarOptionsAdded(let options):
         state.quotation.options.append(contentsOf: options)
       case .similarOptionsDeleted(let optionIndex):
         state.quotation.options = state.quotation.options.filter{$0.id != optionIndex}
+      case .onTapCompleteButton:
+        return
     }
   }
 }

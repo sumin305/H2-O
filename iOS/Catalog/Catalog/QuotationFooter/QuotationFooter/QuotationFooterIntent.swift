@@ -20,29 +20,34 @@ protocol QuotationFooterIntentType {
 
 final class QuotationFooterIntent: ObservableObject {
   
-  init(initialState: State) {
+  init(initialState: State, quotation: QuotationFooterService) {
     state = initialState
+    self.quotation = quotation
   }
   
   typealias State = QuotationFooterModel.State
   typealias ViewAction = QuotationFooterModel.ViewAction
   
-  @Published var state: State = .init()
+  @Published var state: State = .init(totalPrice: CLNumber(0), summary: SummaryCarQuotation.mock())
   
   var cancellable: Set<AnyCancellable> = []
   
   private var repostitory: QuotationRepositoryProtocol
-  
+  private var quotation: QuotationFooterService
 }
 
 extension QuotationFooterIntent: QuotationFooterIntentType, IntentType {
-  
-  typealias State = QuotationModel.State
-  typealias ViewAction = QuotationModel.ViewAction
-  
-  func mutate(action: QuotationModel.ViewAction, viewEffect: (() -> Void)?) {
-  
+  func mutate(action: QuotationFooterModel.ViewAction, viewEffect: (() -> Void)?) {
+    switch action {
+      case .priceChanged(let price):
+        state.totalPrice = quotation.totalPrice()
+      case .summaryChanged:
+        state.summary = quotation.summaryQuotation()
+      case .showSheet(_):
+        return
+    }
   }
+ 
 }
 
 

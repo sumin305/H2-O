@@ -86,7 +86,7 @@ extension CarQuotation {
                                                                            title: "추가옵션",
                                                                            name: $0.name,
                                                                            price: $0.price,
-                                                                           image: $0.image,
+                                                                           image: $0.imageURL,
                                                                            isSimilarOption:               $0.isSimilarOption)
     }
     )

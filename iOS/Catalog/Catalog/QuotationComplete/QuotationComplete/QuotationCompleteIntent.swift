@@ -18,6 +18,8 @@ protocol QuotationCompleteIntentType {
   
   var repository: QuotationCompleteRepositoryProtocol { get }
   
+  var quotation: QuotationCompleteService { get }
+  
 }
 
 final class QuotationCompleteIntent: ObservableObject {
@@ -35,9 +37,9 @@ final class QuotationCompleteIntent: ObservableObject {
   @Published var state: State
   
   var cancellable: Set<AnyCancellable> = []
-  private var quotation: QuotationCompleteService
   var navigationIntent: CLNavigationIntentType
   private(set) var repository: QuotationCompleteRepositoryProtocol
+  private(set) var quotation: QuotationCompleteService
   
 }
 

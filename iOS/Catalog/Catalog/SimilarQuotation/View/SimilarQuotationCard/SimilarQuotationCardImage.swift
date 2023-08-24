@@ -10,14 +10,13 @@ import SwiftUI
 struct SimilarQuotationCardImage {
   var similarQuotation: SimilarQuotation
   var intent: SimilarQuotationIntentType
-  var quotation: Quotation
 }
 
 extension SimilarQuotationCardImage: View {
     var body: some View {
       HStack {
         VStack(alignment: .leading, spacing: 0) {
-          Text(quotation.state.totalPrice.wonWithSpacing)
+          Text(intent.quotation.totalPrice().wonWithSpacing)
             .catalogFont(type: .HeadKRMedium18)
             .foregroundColor(.primary700)
           Text(similarQuotation.price.signedWon)

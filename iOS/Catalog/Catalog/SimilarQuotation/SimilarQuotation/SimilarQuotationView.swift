@@ -14,7 +14,6 @@ struct SimilarQuotationView {
   
   @SwiftUI.State var currentIndex: Int = 0
   let budgetPrice: CLNumber = CLNumber(50000000)
-  let quotation = Quotation.shared
   let navigationIntent: CLNavigationIntentType
 }
 
@@ -36,7 +35,7 @@ extension SimilarQuotationView: View {
           
           CLBudgetRangeView.build(intent:
               .init(initialState:
-                  .init(currentQuotationPrice: quotation.state.totalPrice,
+                  .init(currentQuotationPrice: intent.quotation.totalPrice(),
                         budgetPrice: budgetPrice,
                         status: .similarQuotation),
                     navigationIntent: navigationIntent))
@@ -80,8 +79,7 @@ extension SimilarQuotationView: View {
         HelpIcon(intent: intent, showAlert: showAlertBinding)
       }
       .onAppear {
-        guard let q = quotation.state.quotation else { return }
-        intent.send(action: .onAppear(quotation: q))
+        intent.send(action: .onAppear(quotation: intent.quotation.quotation()))
       }
     }
     .CLDialogFullScreenCover(show: showAlertBinding) {

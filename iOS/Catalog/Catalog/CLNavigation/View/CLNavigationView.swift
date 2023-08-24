@@ -12,7 +12,7 @@ struct CLNavigationView: IntentBindingType {
   var intent: CLNavigationIntentType { container.intent }
   var state: CLNavigationModel.State { intent.state }
   let mockImageName: [String] = ["trim", "modelType", "external", "internal", "option", "complete"]
-  var quotation = Quotation.shared
+  let quotation = Quotation(initialState: .init(totalPrice: CLNumber(0), quotation: CarQuotation.mock(), minPrice: CLNumber(0), maxPrice: CLNumber(0)))
   @SwiftUI.State var menuStatus: [CLNavigationMenuTitleView.Status] = [.inactive,
                                                                        .inactive,
                                                                        .inactive,
@@ -48,9 +48,9 @@ extension CLNavigationView: View {
               TrimSelectionView.build(intent: TrimSelectionIntent(
                 initialState: .init(
                   carId: 1),
-                repository: TrimSelectionRepository(), quotation: Quotation.shared, navigationIntent: intent))
+                repository: TrimSelectionRepository(), quotation: quotation, navigationIntent: intent))
               .tag(0)
-              ModelTypeSelectionView.build(intent: .init(initialState: .init(), repository: ModelTypeRepository(modelTypeRequestManager: RequestManager(apiManager: APIManager())), quotation: <#ModeltypeSelectionService#>))
+              ModelTypeSelectionView.build(intent: .init(initialState: .init(), repository: ModelTypeRepository(modelTypeRequestManager: RequestManager(apiManager: APIManager())), quotation: quotation))
                 .tag(1)
               ExteriorSelectionView.build(
                 intent: .init(initialState: .init(selectedTrimId: 2),
@@ -91,7 +91,7 @@ extension CLNavigationView: View {
             }
           }
           if state.currentPage != 0 {
-            QuotationFootView.build(intent: .shared,
+            QuotationFooterView.build(intent: .shared,
                                   prevAction: { intent.send(action: .onTapNavTab(index: state.currentPage - 1))},
                                   nextAction: { intent.send(action: .onTapNavTab(index: state.currentPage + 1))},
                                   currentPage: currentPageBinding)
@@ -105,7 +105,7 @@ extension CLNavigationView: View {
         }
         .sheet(isPresented: $showQuotationSummarySheet) {
           CLQuotationSummarySheet(currentQuotationPrice: quotation.state.totalPrice,
-                                  summaryQuotation: quotation.state.quotation?.toSummary() ?? SummaryCarQuotation.mock(),
+                                  summaryQuotation: quotation.state.quotation.toSummary(),
                                   showQuotationSummarySheet: $showQuotationSummarySheet)
           
           

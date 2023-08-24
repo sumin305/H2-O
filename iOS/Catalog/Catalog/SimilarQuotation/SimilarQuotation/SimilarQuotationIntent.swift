@@ -16,6 +16,7 @@ protocol SimilarQuotationIntentType {
   
   func send(action: SimilarQuotationModel.ViewAction)
   
+  var quotation: SimilarQuotationService { get }
 }
 
 final class SimilarQuotationIntent: ObservableObject {
@@ -41,7 +42,7 @@ final class SimilarQuotationIntent: ObservableObject {
   private var repository: SimilarQuotationRepositoryProtocol
   private var navigationIntent: CLNavigationIntentType
   private var budgetRangeIntent: CLBudgetRangeIntentType
-  private var quotation: SimilarQuotationService
+  private(set) var quotation: SimilarQuotationService
 }
 
 extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
