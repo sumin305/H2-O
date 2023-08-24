@@ -10,8 +10,7 @@ struct ExteriorImageView {
   var intent: ExteriorSelectionIntentType
   var state: ExteriorSelectionModel.State
   @SwiftUI.State var currentIndex: Int = 0
-  
-  
+  let imageCacher = ImageCacheService.shared
 }
 
 extension ExteriorImageView: View {
@@ -26,11 +25,7 @@ extension ExteriorImageView: View {
             image
               .resizable()
               .frame(height: CGFloat(198).scaledHeight, alignment: .bottom)
-          } placeholder: {
-            EmptyView()
           }
-
-     
           .gesture(
             DragGesture()
               .onChanged { drag in

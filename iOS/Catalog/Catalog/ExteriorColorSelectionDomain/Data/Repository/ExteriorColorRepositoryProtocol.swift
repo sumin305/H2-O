@@ -11,6 +11,6 @@ protocol ExteriorColorRepositoryProtocol {
 
   func fetch(with trimId: Int) async throws -> [ExteriorColor]
   
-  func fetch(with urls: [URL]) async throws -> [Data]
+//  func fetch(with urls: [URL]) async throws -> [Data]
 
 }
