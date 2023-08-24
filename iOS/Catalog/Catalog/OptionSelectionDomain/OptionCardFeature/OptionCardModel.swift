@@ -9,11 +9,11 @@ import Foundation
 
 enum OptionCardModel {
 
-  struct State: Equatable, Hashable {
+  struct State: Equatable, Hashable, QuotationOptionable {
+    
     static func == (lhs: OptionCardModel.State, rhs: OptionCardModel.State) -> Bool {
       lhs.id == rhs.id
     }
-    
     
     func hash(into hasher: inout Hasher) {
       hasher.combine(id)
@@ -25,17 +25,17 @@ enum OptionCardModel {
     var name: String
     var choiceRatio: CLNumber?
     var imageURL: URL?
-    var price: CLNumber?
+    var price: CLNumber
     var containsHmgData: Bool
     var category: OptionCategory
     var defaultOptionDetail: DetailOptionInfo = .mock()
     var packageOption: PackageInfo = .mock()
-    
+    var isSimilarOption: Bool = false
+
   }
 
   enum ViewAction {
     case onTapDetail
     case onTap(id: Int)
   }
-
 }

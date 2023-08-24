@@ -294,6 +294,7 @@
 		EDE7D3B62A972BAB0080F3C7 /* ModelTypeSelectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D3B52A972BAB0080F3C7 /* ModelTypeSelectionService.swift */; };
 		EDE7D3B82A9732900080F3C7 /* ExteriorSelectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D3B72A9732900080F3C7 /* ExteriorSelectionService.swift */; };
 		EDE7D3BA2A9742860080F3C7 /* InteriorSelectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D3B92A9742860080F3C7 /* InteriorSelectionService.swift */; };
+		EDE7D3BC2A9745DC0080F3C7 /* OptionSelectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D3BB2A9745DC0080F3C7 /* OptionSelectionService.swift */; };
 		EDF071A32A8CC588002AD0DB /* TrimDefaultOption.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF071A22A8CC588002AD0DB /* TrimDefaultOption.json */; };
 		EDF071A52A8CC629002AD0DB /* TrimMaxMinPrice.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF071A42A8CC629002AD0DB /* TrimMaxMinPrice.json */; };
 		EDF071A72A8CC772002AD0DB /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF071A62A8CC772002AD0DB /* MockError.swift */; };
@@ -619,6 +620,7 @@
 		EDE7D3B52A972BAB0080F3C7 /* ModelTypeSelectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTypeSelectionService.swift; sourceTree = "<group>"; };
 		EDE7D3B72A9732900080F3C7 /* ExteriorSelectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExteriorSelectionService.swift; sourceTree = "<group>"; };
 		EDE7D3B92A9742860080F3C7 /* InteriorSelectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteriorSelectionService.swift; sourceTree = "<group>"; };
+		EDE7D3BB2A9745DC0080F3C7 /* OptionSelectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionSelectionService.swift; sourceTree = "<group>"; };
 		EDF071A22A8CC588002AD0DB /* TrimDefaultOption.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TrimDefaultOption.json; sourceTree = "<group>"; };
 		EDF071A42A8CC629002AD0DB /* TrimMaxMinPrice.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TrimMaxMinPrice.json; sourceTree = "<group>"; };
 		EDF071A62A8CC772002AD0DB /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
@@ -1146,6 +1148,7 @@
 				B1E5122F2A8CF65B005B195D /* OptionSelectionView.swift */,
 				B1E512312A8D2E31005B195D /* OptionSelectionModel.swift */,
 				B1E512332A8D2F16005B195D /* OptionSelectionIntent.swift */,
+				EDE7D3BB2A9745DC0080F3C7 /* OptionSelectionService.swift */,
 			);
 			path = OptionSelection;
 			sourceTree = "<group>";
@@ -2173,6 +2176,7 @@
 				B1084BEB2A87DF2B00AE1758 /* BlurredFullScreenCover.swift in Sources */,
 				B1CB88B12A929A2400E12981 /* OptionModalHMGDataView.swift in Sources */,
 				B191DD4D2A8BE21F008196CD /* ExteriorColorRepository.swift in Sources */,
+				EDE7D3BC2A9745DC0080F3C7 /* OptionSelectionService.swift in Sources */,
 				EDD79A7F2A93B2AD005692D5 /* SimilarQuotationResponseDTO.swift in Sources */,
 				EDCF32C42A8A91D500C46A4B /* CLQuotationSummarySheet.swift in Sources */,
 				EDD79A712A93693B005692D5 /* QuotationRequestDTO.swift in Sources */,

@@ -17,7 +17,7 @@ struct SimilarHMGOption: View {
       intent.send(action: .optionSelected(selectedOption: option))
     } label: {
       VStack(spacing: 0) {
-        AsyncCachedImage(url: option.image) { image in
+        AsyncCachedImage(url: option.imageURL) { image in
           image
             .resizable()
         } 

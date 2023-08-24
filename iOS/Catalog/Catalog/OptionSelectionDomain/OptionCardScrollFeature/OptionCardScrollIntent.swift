@@ -97,9 +97,6 @@ extension OptionCardScrollIntent {
                                                                          containsHmgData: $0.containsHmgData,
                                                                          category: $0.category, defaultOptionDetail: .mock(), packageOption: .mock()) }
         
-        
-        
-        
         self.totalCardState = defaultCellInfos
         send(action: .cardStates(states: totalCardState))
       } catch (let e) {

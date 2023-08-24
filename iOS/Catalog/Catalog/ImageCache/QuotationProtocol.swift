@@ -15,13 +15,6 @@ import Combine
 
 
 
-protocol QuotationCompleteService {
-  func powertrainId() -> Int
-  func privetrainId() -> Int
-  func modelName() -> String
-  func Summary() -> SummaryCarQuotation
-  func deleteSimilarOption(id: Int)
-}
 
 protocol SimilarQuotationService {
   

@@ -12,7 +12,7 @@ struct ExtraOptionModel: Encodable, Equatable, QuotationOptionable {
   var isPackage: Bool
   var category: Category
   var name: String
-  var image: URL?
+  var imageURL: URL?
   var hashTags: [HashTag]
   var conainsHmgData: Bool
   var choiceRatio: Int
