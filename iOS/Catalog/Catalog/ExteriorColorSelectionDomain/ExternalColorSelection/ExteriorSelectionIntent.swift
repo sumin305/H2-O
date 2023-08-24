@@ -20,9 +20,10 @@ protocol ExteriorSelectionIntentType {
 
 final class ExternalSelectionIntent: ObservableObject {
 
-  init(initialState: State, repository: ExteriorColorRepositoryProtocol) {
+  init(initialState: State, repository: ExteriorColorRepositoryProtocol, quotation: ExteriorSelectionService) {
     state = initialState
     self.repository = repository
+    self.quotation = quotation
   }
 
   private var repository: ExteriorColorRepositoryProtocol
@@ -35,6 +36,7 @@ final class ExternalSelectionIntent: ObservableObject {
 
   var cancellable: Set<AnyCancellable> = []
 
+  private var quotation: ExteriorSelectionService
 }
 
 extension ExternalSelectionIntent: ExteriorSelectionIntentType, IntentType {
@@ -62,6 +64,7 @@ extension ExternalSelectionIntent: ExteriorSelectionIntentType, IntentType {
       print("External Image Urls")
     case .onTapColor(let id):
       state.selectedColorId = id
+        quotation.updateExteriorColor(to: state.colors[state.colors.firstIndex(where: {$0.isSelected}) ?? 0].color)
       for i in state.colors.indices {
         if state.colors[i].color.id == id {
           state.colors[i].isSelected = true

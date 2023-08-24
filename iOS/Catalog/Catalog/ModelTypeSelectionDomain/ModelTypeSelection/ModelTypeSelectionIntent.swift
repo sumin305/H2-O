@@ -34,7 +34,7 @@ final class ModelTypeSelectionIntent: ObservableObject {
   @Published var state: State
   
   var cancellable: Set<AnyCancellable> = []
-  private var quotation = Quotation.shared
+  private weak var quotation: ModeltypeSelectionService?
   private var powerTrainOptionId: Int = 1
   private var driveTrainOptionId: Int = 1
   
@@ -84,10 +84,9 @@ extension ModelTypeSelectionIntent {
         self.driveTrainOptionId = selectedOptionId
       }
       
-      let powerTrainTitle = quotation.state.quotation?.powertrain.name ?? ""
-      let driveTrainTitle = quotation.state.quotation?.drivetrain.name ?? ""
+      let powerTrainTitle = quotation?.powertrainName() ?? ""
+      let driveTrainTitle = quotation?.drivetrainName() ?? ""
       
-      print(powerTrainOptionId, driveTrainOptionId)
       let result = try await self.repository
         .calculateFuelAndDisplacement(with: self.driveTrainOptionId,
                                       andwith: self.powerTrainOptionId)

@@ -91,4 +91,13 @@ extension CarQuotation {
     }
     )
   }
+  
+  static func mock() -> CarQuotation {
+    CarQuotation(trim: Trim(id: 0, name: "", description: "", price: CLNumber(0), hmgData: []),
+                 powertrain: .init(id: 0, name: "", price: CLNumber(0)),
+                 bodytype: .init(id: 0, name: "", price: CLNumber(0)),
+                 drivetrain: .init(id: 0, name: "", price: CLNumber(0)),
+                 externalColor: .init(id: 0, name: "", price: CLNumber(0), hexCode: "", exteriorImages: []),
+                 internalColor: .init(id: 0, name: "", price: CLNumber(0)), options: [])
+  }
 }
