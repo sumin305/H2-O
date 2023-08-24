@@ -8,11 +8,6 @@
 import Foundation
 import Combine
 
-protocol QuotationPriceViewable {
-  var totalQuotationPrice: CLNumber { get }
-}
-
-
 final class Quotation: ObservableObject {
   
   static let shared = Quotation(initialState: .init(totalPrice: CLNumber(0), quotation: CarQuotation.mock(), minPrice: CLNumber(50000000), maxPrice: CLNumber(99999999)),

@@ -91,7 +91,7 @@ extension CLNavigationView: View {
             }
           }
           if state.currentPage != 0 {
-            QuotationFooter.build(intent: .shared,
+            QuotationFootView.build(intent: .shared,
                                   prevAction: { intent.send(action: .onTapNavTab(index: state.currentPage - 1))},
                                   nextAction: { intent.send(action: .onTapNavTab(index: state.currentPage + 1))},
                                   currentPage: currentPageBinding)

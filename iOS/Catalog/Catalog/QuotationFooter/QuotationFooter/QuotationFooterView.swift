@@ -1,5 +1,5 @@
 //
-//  QuotationFooter.swift
+//  QuotationFooterView.swift
 //  Catalog
 //
 //  Created by 이수민 on 2023/08/13.
@@ -11,7 +11,7 @@ import SwiftUI
 
 
 
-struct QuotationFooter: IntentBindingType {
+struct QuotationFooterView: IntentBindingType {
   @StateObject var container: Container<QuotationIntentType , QuotationModel.State>
   
   var intent: QuotationIntentType { container.intent }
@@ -25,7 +25,7 @@ struct QuotationFooter: IntentBindingType {
 }
 
 
-extension QuotationFooter: View {
+extension QuotationFooterView: View {
   var body: some View {
     VStack {
       if currentPage != 5 {
@@ -60,11 +60,11 @@ extension QuotationFooter: View {
   }
 }
 
-extension QuotationFooter {
+extension QuotationFooterView {
   @ViewBuilder
   static func build(intent: Quotation, prevAction: @escaping () -> Void, nextAction: @escaping () -> Void, currentPage: Binding<Int>) -> some View {
     
-    QuotationFooter(container: .init(
+    QuotationFooterView(container: .init(
       intent: intent as QuotationIntentType,
       state: intent.state,
       modelChangePublisher: intent.objectWillChange), prevAction: prevAction, nextAction: nextAction, showQuotationSummarySheet: .constant(false), currentPage: currentPage)

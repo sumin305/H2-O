@@ -20,7 +20,7 @@ protocol SimilarQuotationIntentType {
 
 final class SimilarQuotationIntent: ObservableObject {
   
-  init(initialState: State, repository: SimilarQuotationRepositoryProtocol, navigationIntent: CLNavigationIntentType, budgetRangeIntent: CLBudgetRangeIntentType) {
+  init(initialState: State, repository: SimilarQuotationRepositoryProtocol, navigationIntent: CLNavigationIntentType, budgetRangeIntent: CLBudgetRangeIntentType, quotation: SimilarQuotationService) {
     state = initialState
     self.repository = repository
     self.navigationIntent = navigationIntent
@@ -41,6 +41,7 @@ final class SimilarQuotationIntent: ObservableObject {
   private var repository: SimilarQuotationRepositoryProtocol
   private var navigationIntent: CLNavigationIntentType
   private var budgetRangeIntent: CLBudgetRangeIntentType
+  private var quotation: SimilarQuotationService
 }
 
 extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
@@ -89,9 +90,8 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
         state.selectedOptions = []
         
       case .choiceAdd:
-        Quotation.shared.send(action: .similarOptionsAdded(option: state.selectedOptions))
+        quotation.addSimilarOption(options: state.selectedOptions)
         send(action: .choiceQuit)
-        
       case .showAlertChanged(let showAlert):
         state.showAlert = showAlert
     }
