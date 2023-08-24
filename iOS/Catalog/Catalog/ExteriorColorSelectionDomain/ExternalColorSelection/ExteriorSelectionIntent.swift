@@ -1,5 +1,5 @@
 //
-//  ExternalSelectionIntent.swift
+//  ExteriorSelectionIntentType.swift
 //  Catalog
 //
 //  Created by Jung peter on 8/15/23.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-protocol ExternalSelectionIntentType {
+protocol ExteriorSelectionIntentType {
 
   var state: ExteriorSelectionModel.State { get }
 
@@ -37,7 +37,7 @@ final class ExternalSelectionIntent: ObservableObject {
 
 }
 
-extension ExternalSelectionIntent: ExternalSelectionIntentType, IntentType {
+extension ExternalSelectionIntent: ExteriorSelectionIntentType, IntentType {
 
   func mutate(action: ExteriorSelectionModel.ViewAction, viewEffect: (() -> Void)?) {
     switch action {
@@ -58,14 +58,14 @@ extension ExternalSelectionIntent: ExternalSelectionIntentType, IntentType {
         send(action: .onTapColor(id: colorStates[0].color.id))
         // TODO:
       } 
-    case .changeSelectedExternalImageURL:
+    case .changeSelectedExteriorImageURL:
       print("External Image Urls")
     case .onTapColor(let id):
       state.selectedColorId = id
       for i in state.colors.indices {
         if state.colors[i].color.id == id {
           state.colors[i].isSelected = true
-          send(action: .changeSelectedExternalImageURL(url: state.colors[i].color.exteriorImages))
+          send(action: .changeSelectedExteriorImageURL(url: state.colors[i].color.exteriorImages))
         } else {
           state.colors[i].isSelected = false
         }

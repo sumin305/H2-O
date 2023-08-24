@@ -1,5 +1,5 @@
 //
-//  ExternalSelectionModel.swift
+//  ExteriorSelectionModel.swift
 //  Catalog
 //
 //  Created by Jung peter on 8/15/23.
@@ -18,7 +18,7 @@ enum ExteriorSelectionModel {
   enum ViewAction {
     case onAppear
     case fetchColors(colors: [ExteriorColor])
-    case changeSelectedExternalImageURL(url: [URL])
+    case changeSelectedExteriorImageURL(url: [URL])
     case onTapColor(id: Int)
   }
 }

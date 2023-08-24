@@ -1,5 +1,5 @@
 //
-//  ExternalColorDisplayView.swift
+//  ExteriorColorDisplayView.swift
 //  Catalog
 //
 //  Created by Jung peter on 8/15/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExternalColorDisplayView: ColorContentable {
+struct ExteriorColorDisplayView: ColorContentable {
 
   var isSelected: Bool
   var color: CarColorType

@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
-struct ExternalImageView {
-  var intent: ExternalSelectionIntentType
+struct ExteriorImageView {
+  var intent: ExteriorSelectionIntentType
   var state: ExteriorSelectionModel.State
   @SwiftUI.State var currentIndex: Int = 0
   
   
 }
 
-extension ExternalImageView: View {
+extension ExteriorImageView: View {
   var body: some View {
     GeometryReader { proxy in
       VStack {
