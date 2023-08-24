@@ -13,6 +13,6 @@ protocol ExteriorSelectionService: AnyObject {
 
 extension Quotation {
   func updateExteriorColor(to color: ExteriorColor) {
-    state.quotation?.externalColor = color
+    state.quotation.externalColor = color
   }
 }

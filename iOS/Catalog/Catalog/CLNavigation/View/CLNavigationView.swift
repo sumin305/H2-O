@@ -50,7 +50,7 @@ extension CLNavigationView: View {
                   carId: 1),
                 repository: TrimSelectionRepository(), quotation: Quotation.shared, navigationIntent: intent))
               .tag(0)
-              ModelTypeSelectionView.build(intent: .init(initialState: .init(), repository: ModelTypeRepository(modelTypeRequestManager: RequestManager(apiManager: APIManager()))))
+              ModelTypeSelectionView.build(intent: .init(initialState: .init(), repository: ModelTypeRepository(modelTypeRequestManager: RequestManager(apiManager: APIManager())), quotation: <#ModeltypeSelectionService#>))
                 .tag(1)
               ExteriorSelectionView.build(
                 intent: .init(initialState: .init(selectedTrimId: 2),

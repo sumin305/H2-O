@@ -293,6 +293,7 @@
 		EDE7D3B42A972A070080F3C7 /* TrimSelectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D3B32A972A070080F3C7 /* TrimSelectionService.swift */; };
 		EDE7D3B62A972BAB0080F3C7 /* ModelTypeSelectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D3B52A972BAB0080F3C7 /* ModelTypeSelectionService.swift */; };
 		EDE7D3B82A9732900080F3C7 /* ExteriorSelectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D3B72A9732900080F3C7 /* ExteriorSelectionService.swift */; };
+		EDE7D3BA2A9742860080F3C7 /* InteriorSelectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D3B92A9742860080F3C7 /* InteriorSelectionService.swift */; };
 		EDF071A32A8CC588002AD0DB /* TrimDefaultOption.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF071A22A8CC588002AD0DB /* TrimDefaultOption.json */; };
 		EDF071A52A8CC629002AD0DB /* TrimMaxMinPrice.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF071A42A8CC629002AD0DB /* TrimMaxMinPrice.json */; };
 		EDF071A72A8CC772002AD0DB /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF071A62A8CC772002AD0DB /* MockError.swift */; };
@@ -617,6 +618,7 @@
 		EDE7D3B32A972A070080F3C7 /* TrimSelectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimSelectionService.swift; sourceTree = "<group>"; };
 		EDE7D3B52A972BAB0080F3C7 /* ModelTypeSelectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTypeSelectionService.swift; sourceTree = "<group>"; };
 		EDE7D3B72A9732900080F3C7 /* ExteriorSelectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExteriorSelectionService.swift; sourceTree = "<group>"; };
+		EDE7D3B92A9742860080F3C7 /* InteriorSelectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteriorSelectionService.swift; sourceTree = "<group>"; };
 		EDF071A22A8CC588002AD0DB /* TrimDefaultOption.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TrimDefaultOption.json; sourceTree = "<group>"; };
 		EDF071A42A8CC629002AD0DB /* TrimMaxMinPrice.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TrimMaxMinPrice.json; sourceTree = "<group>"; };
 		EDF071A62A8CC772002AD0DB /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
@@ -1051,6 +1053,7 @@
 				B1F988E02A8B1C7300C7B65F /* InteriorColorSelectionView.swift */,
 				B191DD412A8B8607008196CD /* InteriorColorSelectionModel.swift */,
 				B191DD3E2A8B85E4008196CD /* InteriorColorSelectionIntent.swift */,
+				EDE7D3B92A9742860080F3C7 /* InteriorSelectionService.swift */,
 			);
 			path = InteriorColorSelection;
 			sourceTree = "<group>";
@@ -2148,6 +2151,7 @@
 				B1A76B842A892C86009C84EF /* ModelTypeSelectionModel.swift in Sources */,
 				B1CB88DC2A96726100E12981 /* Log.swift in Sources */,
 				B191DD362A8B5B52008196CD /* ColorInfoState.swift in Sources */,
+				EDE7D3BA2A9742860080F3C7 /* InteriorSelectionService.swift in Sources */,
 				B156463D2A865B3F00FAD379 /* ModelTypeModalContentView.swift in Sources */,
 				EDCF32C32A8A91D500C46A4B /* SummarySheetListItem.swift in Sources */,
 				ED1A709F2A836D0D00F7920F /* CLColor.swift in Sources */,

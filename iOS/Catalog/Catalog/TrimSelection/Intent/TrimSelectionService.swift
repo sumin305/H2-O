@@ -11,6 +11,7 @@ protocol TrimSelectionService {
   
   func saveDefaultQuotation(trim: Trim, carQuotation: CarQuotation, minPrice: CLNumber, maxPrice: CLNumber)
     
+  var totalPrice
 }
 
 extension Quotation: TrimSelectionService {
@@ -20,6 +21,7 @@ extension Quotation: TrimSelectionService {
     state.maxPrice = maxPrice
     state.minPrice = minPrice
     state.totalPrice = state.quotation.calculateTotalPrice()
+    
   }
 }
 

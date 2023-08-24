@@ -12,17 +12,8 @@ import Combine
 
 
 
-protocol InteriorSelectionService {
-  
-  func updateInteriorColor(to color: InteriorColor)
-  
-}
 
-protocol OptionSelectionService {
-  
-  func updateOption(to option: some QuotationOptionable)
-  
-}
+
 
 protocol QuotationCompleteService {
   func powertrainId() -> Int
