@@ -10,11 +10,11 @@ import Combine
 
 protocol ExternalSelectionIntentType {
 
-  var state: ExternalSelectionModel.State { get }
+  var state: ExteriorSelectionModel.State { get }
 
-  func send(action: ExternalSelectionModel.ViewAction)
+  func send(action: ExteriorSelectionModel.ViewAction)
 
-  func send(action: ExternalSelectionModel.ViewAction, viewEffect: (() -> Void)?)
+  func send(action: ExteriorSelectionModel.ViewAction, viewEffect: (() -> Void)?)
 
 }
 
@@ -27,9 +27,9 @@ final class ExternalSelectionIntent: ObservableObject {
 
   private var repository: ExteriorColorRepositoryProtocol
 
-  typealias State = ExternalSelectionModel.State
+  typealias State = ExteriorSelectionModel.State
 
-  typealias ViewAction = ExternalSelectionModel.ViewAction
+  typealias ViewAction = ExteriorSelectionModel.ViewAction
 
   @Published var state: State
 
@@ -39,13 +39,14 @@ final class ExternalSelectionIntent: ObservableObject {
 
 extension ExternalSelectionIntent: ExternalSelectionIntentType, IntentType {
 
-  func mutate(action: ExternalSelectionModel.ViewAction, viewEffect: (() -> Void)?) {
+  func mutate(action: ExteriorSelectionModel.ViewAction, viewEffect: (() -> Void)?) {
     switch action {
     case .onAppear:
       Task {
         do {
           let externalColors = try await repository.fetch(with: state.selectedTrimId)
           send(action: .fetchColors(colors: externalColors))
+          
         } catch let _ {
           // TODO: Error Handling
         }
@@ -56,7 +57,7 @@ extension ExternalSelectionIntent: ExternalSelectionIntentType, IntentType {
       if !colorStates.isEmpty {
         send(action: .onTapColor(id: colorStates[0].color.id))
         // TODO:
-      }
+      } 
     case .changeSelectedExternalImageURL:
       print("External Image Urls")
     case .onTapColor(let id):
@@ -64,7 +65,7 @@ extension ExternalSelectionIntent: ExternalSelectionIntentType, IntentType {
       for i in state.colors.indices {
         if state.colors[i].color.id == id {
           state.colors[i].isSelected = true
-          send(action: .changeSelectedExternalImageURL(url: []))
+          send(action: .changeSelectedExternalImageURL(url: state.colors[i].color.exteriorImages))
         } else {
           state.colors[i].isSelected = false
         }

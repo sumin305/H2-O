@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ExternalSelectionView: IntentBindingType {
 
-  @StateObject var container: Container<ExternalSelectionIntentType, ExternalSelectionModel.State>
+  @StateObject var container: Container<ExternalSelectionIntentType, ExteriorSelectionModel.State>
 
   var intent: ExternalSelectionIntentType {
     container.intent
   }
 
-  var state: ExternalSelectionModel.State {
+  var state: ExteriorSelectionModel.State {
     intent.state
   }
 
@@ -26,7 +26,7 @@ extension ExternalSelectionView: View {
   var body: some View {
     ScrollView {
       VStack {
-        ProgressView()
+        ExternalImageView(intent: intent, state: state)
           .frame(height: CGFloat(292).scaledHeight)
         Spacer().frame(height: CGFloat(20).scaledHeight)
         VStack(alignment: .leading, spacing: 0) {

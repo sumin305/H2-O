@@ -79,7 +79,9 @@ extension SimilarQuotationView: View {
         }
         HelpIcon(intent: intent, showAlert: showAlertBinding)
       }
-      .onAppear { intent.send(action: .onAppear(quotation: quotation.state.quotation!))
+      .onAppear {
+        guard let q = quotation.state.quotation else { return }
+        intent.send(action: .onAppear(quotation: q))
       }
     }
     .CLDialogFullScreenCover(show: showAlertBinding) {

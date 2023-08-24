@@ -9,6 +9,7 @@ import Foundation
 
 final class ExteriorColorRepository: ExteriorColorRepositoryProtocol {
 
+
   private var requestManager: RequestManagerProtocol
 
   init(requestManager: RequestManagerProtocol) {
@@ -27,6 +28,10 @@ final class ExteriorColorRepository: ExteriorColorRepositoryProtocol {
       }
     }
 
+  }
+  
+  func fetch(with urls: [URL]) async throws -> [Data] {
+    let 
   }
 
 }

@@ -175,7 +175,7 @@
 		B1F2BC642A7B5BA3005385E0 /* CLNavigationMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F2BC632A7B5BA3005385E0 /* CLNavigationMenuView.swift */; };
 		B1F2BC682A7B613B005385E0 /* CLNavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F2BC672A7B613B005385E0 /* CLNavigationModel.swift */; };
 		B1F2BC6A2A7B62E8005385E0 /* CLNavigationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F2BC692A7B62E7005385E0 /* CLNavigationIntent.swift */; };
-		B1F988D32A8A7F6400C7B65F /* ExternalSelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F988D22A8A7F6400C7B65F /* ExternalSelectionModel.swift */; };
+		B1F988D32A8A7F6400C7B65F /* ExteriorSelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F988D22A8A7F6400C7B65F /* ExteriorSelectionModel.swift */; };
 		B1F988D52A8A7F8600C7B65F /* ExternalSelectionIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F988D42A8A7F8600C7B65F /* ExternalSelectionIntent.swift */; };
 		B1F988D92A8A812600C7B65F /* ExteriorColorRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F988D82A8A812600C7B65F /* ExteriorColorRepositoryProtocol.swift */; };
 		B1F988DB2A8A8D1900C7B65F /* ExteriorColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F988DA2A8A8D1900C7B65F /* ExteriorColor.swift */; };
@@ -288,6 +288,8 @@
 		EDD79A8A2A93BF11005692D5 /* SimilarQuotations.json in Resources */ = {isa = PBXBuildFile; fileRef = EDD79A892A93BF11005692D5 /* SimilarQuotations.json */; };
 		EDD79A8B2A93E724005692D5 /* SimilarQuotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87DD2A8FDA9100DCDC66 /* SimilarQuotationView.swift */; };
 		EDE434F12A8BFE75007BD0DE /* QuotationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE434F02A8BFE75007BD0DE /* QuotationIntent.swift */; };
+		EDE7D3AC2A970ABD0080F3C7 /* ExternalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D3AB2A970ABD0080F3C7 /* ExternalImageView.swift */; };
+		EDE7D3AE2A971E960080F3C7 /* LoadingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D3AD2A971E960080F3C7 /* LoadingComponent.swift */; };
 		EDF071A32A8CC588002AD0DB /* TrimDefaultOption.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF071A22A8CC588002AD0DB /* TrimDefaultOption.json */; };
 		EDF071A52A8CC629002AD0DB /* TrimMaxMinPrice.json in Resources */ = {isa = PBXBuildFile; fileRef = EDF071A42A8CC629002AD0DB /* TrimMaxMinPrice.json */; };
 		EDF071A72A8CC772002AD0DB /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF071A62A8CC772002AD0DB /* MockError.swift */; };
@@ -485,7 +487,7 @@
 		B1F2BC632A7B5BA3005385E0 /* CLNavigationMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLNavigationMenuView.swift; sourceTree = "<group>"; };
 		B1F2BC672A7B613B005385E0 /* CLNavigationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLNavigationModel.swift; sourceTree = "<group>"; };
 		B1F2BC692A7B62E7005385E0 /* CLNavigationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLNavigationIntent.swift; sourceTree = "<group>"; };
-		B1F988D22A8A7F6400C7B65F /* ExternalSelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalSelectionModel.swift; sourceTree = "<group>"; };
+		B1F988D22A8A7F6400C7B65F /* ExteriorSelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExteriorSelectionModel.swift; sourceTree = "<group>"; };
 		B1F988D42A8A7F8600C7B65F /* ExternalSelectionIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalSelectionIntent.swift; sourceTree = "<group>"; };
 		B1F988D82A8A812600C7B65F /* ExteriorColorRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExteriorColorRepositoryProtocol.swift; sourceTree = "<group>"; };
 		B1F988DA2A8A8D1900C7B65F /* ExteriorColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExteriorColor.swift; sourceTree = "<group>"; };
@@ -607,6 +609,8 @@
 		EDD79A862A93BE45005692D5 /* SimilarQuotationMockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationMockRepository.swift; sourceTree = "<group>"; };
 		EDD79A892A93BF11005692D5 /* SimilarQuotations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SimilarQuotations.json; sourceTree = "<group>"; };
 		EDE434F02A8BFE75007BD0DE /* QuotationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationIntent.swift; sourceTree = "<group>"; };
+		EDE7D3AB2A970ABD0080F3C7 /* ExternalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalImageView.swift; sourceTree = "<group>"; };
+		EDE7D3AD2A971E960080F3C7 /* LoadingComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingComponent.swift; sourceTree = "<group>"; };
 		EDF071A22A8CC588002AD0DB /* TrimDefaultOption.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TrimDefaultOption.json; sourceTree = "<group>"; };
 		EDF071A42A8CC629002AD0DB /* TrimMaxMinPrice.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TrimMaxMinPrice.json; sourceTree = "<group>"; };
 		EDF071A62A8CC772002AD0DB /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
@@ -682,14 +686,13 @@
 			isa = PBXGroup;
 			children = (
 				B1CB88C32A94E14100E12981 /* ImageCache */,
-				EDB20C002A8FD9460063CB3C /* SimilarQuotation */,
 				B19823FF2A8F99B000795B44 /* Utils */,
 				EDB20C002A8FD9460063CB3C /* SimilarQuotation */,
 				ED2B8CEA2A8D27C700F561FA /* QuotationComplete */,
 				B167221E2A8C9E1C002B45A6 /* OptionSelectionDomain */,
 				B1F988DF2A8B1C3700C7B65F /* InteriorColorSelectionDomain */,
-				B16DFF482A8A3E2C00642730 /* ExternalColorSelectionDomain */,
 				B1604D0E2A8255D200C7B07D /* TrimSelection */,
+				B16DFF482A8A3E2C00642730 /* ExternalColorSelectionDomain */,
 				B1604D5E2A853FA200C7B07D /* ModelTypeSelectionDomain */,
 				B1604D102A82569800C7B07D /* NetworkCore */,
 				ED1A70992A8364DE00F7920F /* CLModel */,
@@ -1177,9 +1180,10 @@
 		B19824312A91F7BA00795B44 /* ExternalColorSelection */ = {
 			isa = PBXGroup;
 			children = (
-				B1F988D22A8A7F6400C7B65F /* ExternalSelectionModel.swift */,
+				B1F988D22A8A7F6400C7B65F /* ExteriorSelectionModel.swift */,
 				B1F988D42A8A7F8600C7B65F /* ExternalSelectionIntent.swift */,
 				B16DFF492A8A3E4800642730 /* ExternalSelectionView.swift */,
+				EDE7D3AB2A970ABD0080F3C7 /* ExternalImageView.swift */,
 			);
 			path = ExternalColorSelection;
 			sourceTree = "<group>";
@@ -1418,6 +1422,7 @@
 			children = (
 				ED260DFA2A94DDBC00C4DA2A /* LoadingView.swift */,
 				ED260DFC2A94E00C00C4DA2A /* RotatingCircle.swift */,
+				EDE7D3AD2A971E960080F3C7 /* LoadingComponent.swift */,
 			);
 			path = Loading;
 			sourceTree = "<group>";
@@ -2070,6 +2075,7 @@
 				ED1A70982A83646E00F7920F /* (null) in Sources */,
 				B191DD492A8BE0F4008196CD /* ExteriorColorAPIManager.swift in Sources */,
 				B1E5122A2A8CF2DC005B195D /* OptionCategory.swift in Sources */,
+				EDE7D3AE2A971E960080F3C7 /* LoadingComponent.swift in Sources */,
 				B198241C2A90A20F00795B44 /* MaxTorqueDTO.swift in Sources */,
 				B1CB88B52A92F1E800E12981 /* OptionModalTabContentView.swift in Sources */,
 				B191DD422A8B8607008196CD /* InteriorColorSelectionModel.swift in Sources */,
@@ -2162,6 +2168,7 @@
 				B1CB88AB2A928FA800E12981 /* OptionModalContentView.swift in Sources */,
 				B155C0DC2A7923A100F540CB /* IntentType.swift in Sources */,
 				EDA3CDD52A8243CC0001BB9C /* CLSimilarQuotationButton.swift in Sources */,
+				EDE7D3AC2A970ABD0080F3C7 /* ExternalImageView.swift in Sources */,
 				B16DFF432A895BE000642730 /* ModelTypeRepository.swift in Sources */,
 				EDD79A3F2A928D13005692D5 /* SimilarQuotationCardHead.swift in Sources */,
 				B1084BE72A87ACDD00AE1758 /* ModelTypeButtonContainer.swift in Sources */,
@@ -2257,7 +2264,7 @@
 				B1E512342A8D2F16005B195D /* OptionSelectionIntent.swift in Sources */,
 				B1604D512A83EB7700C7B07D /* CLRetryResult.swift in Sources */,
 				B198240F2A8FCCA000795B44 /* PackageComponent.swift in Sources */,
-				B1F988D32A8A7F6400C7B65F /* ExternalSelectionModel.swift in Sources */,
+				B1F988D32A8A7F6400C7B65F /* ExteriorSelectionModel.swift in Sources */,
 				ED3E87F22A90CD8800DCDC66 /* SimilarQuotationCard.swift in Sources */,
 				B19824012A8F99BF00795B44 /* CGFloat+.swift in Sources */,
 				EDD79A4C2A929A90005692D5 /* QuotationCompleteRepositoryProtocol.swift in Sources */,
