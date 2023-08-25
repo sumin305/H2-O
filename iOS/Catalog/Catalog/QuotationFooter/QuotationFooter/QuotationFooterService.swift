@@ -14,6 +14,7 @@ protocol QuotationFooterService {
   
   func summaryQuotation() -> SummaryCarQuotation
   
+  func quotationInQuotationFooter() -> CarQuotation
 }
 
 extension Quotation: QuotationFooterService {
@@ -24,6 +25,10 @@ extension Quotation: QuotationFooterService {
   
   func summaryQuotation() -> SummaryCarQuotation {
     state.quotation.toSummary()
+  }
+  
+  func quotationInQuotationFooter() -> CarQuotation {
+    state.quotation
   }
 
 }

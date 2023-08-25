@@ -7,15 +7,11 @@
 
 import SwiftUI
 
-
-
-
-
 struct QuotationFooterView: IntentBindingType {
-  @StateObject var container: Container<QuotationIntentType , QuotationModel.State>
+  @StateObject var container: Container<QuotationFooterIntentType , QuotationFooterModel.State>
   
-  var intent: QuotationIntentType { container.intent }
-  var state: QuotationModel.State { intent.state }
+  var intent: QuotationFooterIntentType { container.intent }
+  var state: QuotationFooterModel.State { intent.state }
   
   var prevAction: () -> Void
   var nextAction: () -> Void
@@ -31,10 +27,10 @@ extension QuotationFooterView: View {
       if currentPage != 5 {
         CLQuotationPriceBar(
           showQuotationSummarySheet: $showQuotationSummarySheet,
-          state: state,
           content: {
             CLCapsuleButton(width: 86, height: 36, text: "견적 요약", action: { showQuotationSummarySheet.toggle() })
-          })
+          },
+          quotation: intent.quotation as! Quotation)
         CLDualChoiceButton(leftText: "이전",
                            rightText: "다음",
                            height: 52,
@@ -44,11 +40,10 @@ extension QuotationFooterView: View {
         CLQuotationPriceBar(
           showQuotationSummarySheet:
             $showQuotationSummarySheet,
-          state: state,
           content: {
             Text("합리적인 가격으로 완성된\n나만의 팰리세이드가 탄생했어요!")
               .catalogFont(type: .TextKRMedium12)
-          })
+          }, quotation: intent.quotation as! Quotation)
         CLDualChoiceButton(leftText: "공유하기",
                            rightText: "상담신청",
                            height: 52,
@@ -62,10 +57,10 @@ extension QuotationFooterView: View {
 
 extension QuotationFooterView {
   @ViewBuilder
-  static func build(intent: Quotation, prevAction: @escaping () -> Void, nextAction: @escaping () -> Void, currentPage: Binding<Int>) -> some View {
+  static func build(intent: QuotationFooterIntent, prevAction: @escaping () -> Void, nextAction: @escaping () -> Void, currentPage: Binding<Int>) -> some View {
     
     QuotationFooterView(container: .init(
-      intent: intent as QuotationIntentType,
+      intent: intent,
       state: intent.state,
       modelChangePublisher: intent.objectWillChange), prevAction: prevAction, nextAction: nextAction, showQuotationSummarySheet: .constant(false), currentPage: currentPage)
     

@@ -13,7 +13,7 @@ protocol SimilarQuotationService {
   
   func addSimilarOption(options: [any QuotationOptionable])
   
-  func totalPrice() -> CLNumber
+  func totalPriceInSimilarQuotation() -> CLNumber
 }
 
 extension Quotation: SimilarQuotationService {
@@ -23,6 +23,10 @@ extension Quotation: SimilarQuotationService {
   
   func addSimilarOption(options: [any QuotationOptionable]) {
     state.quotation.options.append(contentsOf: options)
+  }
+  
+  func totalPriceInSimilarQuotation() -> CLNumber {
+    state.totalPrice
   }
 
 }

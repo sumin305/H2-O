@@ -30,7 +30,7 @@ struct SimilarHMGOption: View {
             .frame(height: CGFloat(35).scaledHeight)
           
           HStack(spacing: 0) {
-            Text(option.price.signedWon)
+            Text(option.price?.signedWon ?? "")
               .catalogFont(type: .HeadKRMedium14)
               .foregroundColor(state.selectedOptions.contains(option) ? Color.gray900 : Color.gray600)
               .frame(height: CGFloat(10).scaledHeight)

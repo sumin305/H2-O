@@ -16,7 +16,7 @@ extension SimilarQuotationCardImage: View {
     var body: some View {
       HStack {
         VStack(alignment: .leading, spacing: 0) {
-          Text(intent.quotation.totalPrice().wonWithSpacing)
+          Text(intent.quotation.totalPriceInSimilarQuotation().wonWithSpacing)
             .catalogFont(type: .HeadKRMedium18)
             .foregroundColor(.primary700)
           Text(similarQuotation.price.signedWon)

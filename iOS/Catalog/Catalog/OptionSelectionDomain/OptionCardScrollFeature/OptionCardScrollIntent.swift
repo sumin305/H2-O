@@ -93,8 +93,7 @@ extension OptionCardScrollIntent {
         let states: [DefaultOption] = try await repository.fetchAllOptions()
         let defaultCellInfos = states.map { return OptionCardModel.State(id: $0.id, hashTags: $0.hashTags,
                                                                          name: $0.name,
-                                                                         imageURL: $0.image,
-                                                                         price: $0.price, containsHmgData: $0.containsHmgData,
+                                                                         imageURL: $0.image, containsHmgData: $0.containsHmgData,
                                                                          category: $0.category, defaultOptionDetail: .mock(), packageOption: .mock()) }
         
         self.totalCardState = defaultCellInfos
@@ -150,7 +149,7 @@ extension OptionCardScrollIntent {
                                          hashTags: $0.hashTags,
                                          name: $0.name,
                                          imageURL: $0.image,
-                                         price: $0.price, containsHmgData: $0.containsHmgData,
+                                         containsHmgData: $0.containsHmgData,
                                          category: $0.category)
           }
           send(action: .cardStates(states: carStateArray))

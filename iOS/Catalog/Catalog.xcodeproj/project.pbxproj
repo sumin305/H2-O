@@ -185,6 +185,8 @@
 		B1F988E72A8B3E2E00C7B65F /* InteriorColorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F988E62A8B3E2E00C7B65F /* InteriorColorState.swift */; };
 		B1F988EA2A8B3E5300C7B65F /* InteriorColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F988E92A8B3E5300C7B65F /* InteriorColor.swift */; };
 		B1F988EE2A8B4AB800C7B65F /* InteriorColorDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F988ED2A8B4AB800C7B65F /* InteriorColorDisplayView.swift */; };
+		ED142CE82A97A0230056A4C3 /* CLBudgetPriceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED142CE72A97A0230056A4C3 /* CLBudgetPriceService.swift */; };
+		ED142CEA2A987C120056A4C3 /* Quotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED142CE92A987C120056A4C3 /* Quotation.swift */; };
 		ED14DDB72A9139530060D560 /* SimilarHMGDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E87F32A910EE100DCDC66 /* SimilarHMGDataCard.swift */; };
 		ED14DDB92A913FF20060D560 /* SimilarQuotationHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED14DDB82A913FF20060D560 /* SimilarQuotationHelpView.swift */; };
 		ED1A70982A83646E00F7920F /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -285,7 +287,6 @@
 		EDD79A842A93B772005692D5 /* SimilarQuotationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A832A93B772005692D5 /* SimilarQuotationRequest.swift */; };
 		EDD79A872A93BE45005692D5 /* SimilarQuotationMockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD79A862A93BE45005692D5 /* SimilarQuotationMockRepository.swift */; };
 		EDD79A8A2A93BF11005692D5 /* SimilarQuotations.json in Resources */ = {isa = PBXBuildFile; fileRef = EDD79A892A93BF11005692D5 /* SimilarQuotations.json */; };
-		EDE434F12A8BFE75007BD0DE /* QuotationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE434F02A8BFE75007BD0DE /* QuotationIntent.swift */; };
 		EDE7D3AC2A970ABD0080F3C7 /* ExteriorImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D3AB2A970ABD0080F3C7 /* ExteriorImageView.swift */; };
 		EDE7D3AE2A971E960080F3C7 /* LoadingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D3AD2A971E960080F3C7 /* LoadingComponent.swift */; };
 		EDE7D3B42A972A070080F3C7 /* TrimSelectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7D3B32A972A070080F3C7 /* TrimSelectionService.swift */; };
@@ -505,6 +506,8 @@
 		B1F988E62A8B3E2E00C7B65F /* InteriorColorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteriorColorState.swift; sourceTree = "<group>"; };
 		B1F988E92A8B3E5300C7B65F /* InteriorColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteriorColor.swift; sourceTree = "<group>"; };
 		B1F988ED2A8B4AB800C7B65F /* InteriorColorDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteriorColorDisplayView.swift; sourceTree = "<group>"; };
+		ED142CE72A97A0230056A4C3 /* CLBudgetPriceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLBudgetPriceService.swift; sourceTree = "<group>"; };
+		ED142CE92A987C120056A4C3 /* Quotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotation.swift; sourceTree = "<group>"; };
 		ED14DDB82A913FF20060D560 /* SimilarQuotationHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationHelpView.swift; sourceTree = "<group>"; };
 		ED1A70952A83581300F7920F /* CLQuotationPriceBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLQuotationPriceBar.swift; sourceTree = "<group>"; };
 		ED1A709E2A836D0D00F7920F /* CLColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLColor.swift; sourceTree = "<group>"; };
@@ -615,7 +618,6 @@
 		EDD79A832A93B772005692D5 /* SimilarQuotationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationRequest.swift; sourceTree = "<group>"; };
 		EDD79A862A93BE45005692D5 /* SimilarQuotationMockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarQuotationMockRepository.swift; sourceTree = "<group>"; };
 		EDD79A892A93BF11005692D5 /* SimilarQuotations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SimilarQuotations.json; sourceTree = "<group>"; };
-		EDE434F02A8BFE75007BD0DE /* QuotationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationIntent.swift; sourceTree = "<group>"; };
 		EDE7D3AB2A970ABD0080F3C7 /* ExteriorImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExteriorImageView.swift; sourceTree = "<group>"; };
 		EDE7D3AD2A971E960080F3C7 /* LoadingComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingComponent.swift; sourceTree = "<group>"; };
 		EDE7D3B32A972A070080F3C7 /* TrimSelectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimSelectionService.swift; sourceTree = "<group>"; };
@@ -1512,6 +1514,7 @@
 			isa = PBXGroup;
 			children = (
 				ED64109B2A7FE1870033AEBC /* CLBudgetRangeIntent.swift */,
+				ED142CE72A97A0230056A4C3 /* CLBudgetPriceService.swift */,
 			);
 			path = Intent;
 			sourceTree = "<group>";
@@ -1742,7 +1745,7 @@
 			isa = PBXGroup;
 			children = (
 				EDD053FF2A8C02A900FBD23F /* QuotationModel.swift */,
-				EDE434F02A8BFE75007BD0DE /* QuotationIntent.swift */,
+				ED142CE92A987C120056A4C3 /* Quotation.swift */,
 			);
 			path = Quotation;
 			sourceTree = "<group>";
@@ -2149,7 +2152,6 @@
 				B1604D2F2A8335CA00C7B07D /* TrimSelectionRequest.swift in Sources */,
 				B1E512322A8D2E31005B195D /* OptionSelectionModel.swift in Sources */,
 				B1F988EA2A8B3E5300C7B65F /* InteriorColor.swift in Sources */,
-				EDE434F12A8BFE75007BD0DE /* QuotationIntent.swift in Sources */,
 				B16DFF362A89548300642730 /* ModelTypeRepositoryProtocol.swift in Sources */,
 				ED260DFD2A94E00C00C4DA2A /* RotatingCircle.swift in Sources */,
 				B1604D252A8261B400C7B07D /* ContentType.swift in Sources */,
@@ -2280,6 +2282,7 @@
 				B191DD472A8BDF67008196CD /* ExteriorColorRequest.swift in Sources */,
 				B19824142A8FDF2A00795B44 /* ExtraOptionModel.swift in Sources */,
 				B198240B2A8FB31100795B44 /* DetailOptionInfo.swift in Sources */,
+				ED142CEA2A987C120056A4C3 /* Quotation.swift in Sources */,
 				ED2B8CE92A8CFEFA00F561FA /* TrimAPIManager.swift in Sources */,
 				B16DFF4A2A8A3E4800642730 /* ExteriorSelectionView.swift in Sources */,
 				B19436332A7E8C2300C2FD69 /* CLAlertView.swift in Sources */,
@@ -2315,6 +2318,7 @@
 				B198240F2A8FCCA000795B44 /* PackageComponent.swift in Sources */,
 				B1F988D32A8A7F6400C7B65F /* ExteriorSelectionModel.swift in Sources */,
 				ED3E87F22A90CD8800DCDC66 /* SimilarQuotationCard.swift in Sources */,
+				ED142CE82A97A0230056A4C3 /* CLBudgetPriceService.swift in Sources */,
 				B19824012A8F99BF00795B44 /* CGFloat+.swift in Sources */,
 				EDD79A4C2A929A90005692D5 /* QuotationCompleteRepositoryProtocol.swift in Sources */,
 				ED260DFB2A94DDBC00C4DA2A /* LoadingView.swift in Sources */,

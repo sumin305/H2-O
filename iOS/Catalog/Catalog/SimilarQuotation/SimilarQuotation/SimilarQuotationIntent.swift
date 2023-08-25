@@ -26,6 +26,7 @@ final class SimilarQuotationIntent: ObservableObject {
     self.repository = repository
     self.navigationIntent = navigationIntent
     self.budgetRangeIntent = budgetRangeIntent
+    self.quotation = quotation
   }
   
   typealias State = SimilarQuotationModel.State

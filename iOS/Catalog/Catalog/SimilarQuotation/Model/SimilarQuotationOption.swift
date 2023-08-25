@@ -12,7 +12,7 @@ struct SimilarQuotationOption: Equatable, Identifiable, QuotationOptionable {
   var id: Int
   var name: String
   var imageURL: URL?
-  var price: CLNumber
+  var price: CLNumber?
   var isPackage: Bool = false
   var isSimilarOption: Bool = true
 
@@ -28,7 +28,7 @@ protocol QuotationOptionable: Equatable {
   var id: Int { get set }
   var name: String { get set }
   var imageURL: URL? { get set }
-  var price: CLNumber { get set }
+  var price: CLNumber? { get set }
   var isPackage: Bool { get set }
   var isSimilarOption: Bool { get set }
 }

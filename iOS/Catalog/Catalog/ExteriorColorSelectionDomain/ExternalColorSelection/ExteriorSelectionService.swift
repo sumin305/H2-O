@@ -11,7 +11,7 @@ protocol ExteriorSelectionService: AnyObject {
   func updateExteriorColor(to color: ExteriorColor)
 }
 
-extension Quotation {
+extension Quotation: ExteriorSelectionService {
   func updateExteriorColor(to color: ExteriorColor) {
     state.quotation.externalColor = color
   }

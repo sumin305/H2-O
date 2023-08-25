@@ -16,12 +16,16 @@ protocol QuotationFooterIntentType {
   
   func send(action: QuotationFooterModel.ViewAction, viewEffect: (() -> Void)?)
   
+  var quotation: QuotationFooterService { get }
+  
+  
 }
 
 final class QuotationFooterIntent: ObservableObject {
   
-  init(initialState: State, quotation: QuotationFooterService) {
+  init(initialState: State, repository: QuotationFooterRepositoryProtocol , quotation: QuotationFooterService) {
     state = initialState
+    self.repository = repository
     self.quotation = quotation
   }
   
@@ -32,8 +36,8 @@ final class QuotationFooterIntent: ObservableObject {
   
   var cancellable: Set<AnyCancellable> = []
   
-  private var repostitory: QuotationRepositoryProtocol
-  private var quotation: QuotationFooterService
+  private var repository: QuotationFooterRepositoryProtocol
+  internal var quotation: QuotationFooterService
 }
 
 extension QuotationFooterIntent: QuotationFooterIntentType, IntentType {
@@ -45,6 +49,14 @@ extension QuotationFooterIntent: QuotationFooterIntentType, IntentType {
         state.summary = quotation.summaryQuotation()
       case .showSheet(_):
         return
+      case .onTapCompleteButton:
+        Task {
+          do {
+            let quotationId = try await repository.saveFinalQuotation(with: quotation.quotationInQuotationFooter())
+          } catch let error {
+            print(error.localizedDescription)
+          }
+        }
     }
   }
  

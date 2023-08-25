@@ -35,7 +35,7 @@ extension CarQuotation {
               drivetrain.price +
               externalColor.price +
               internalColor.price +
-              options.reduce(CLNumber(0)) { $0 + ($1.price) }
+              options.reduce(CLNumber(0)) { $0 + ($1.price ?? CLNumber(0)) }
   }
 
   func toSummary() -> SummaryCarQuotation {
@@ -85,7 +85,7 @@ extension CarQuotation {
                                                                            index: 4,
                                                                            title: "추가옵션",
                                                                            name: $0.name,
-                                                                           price: $0.price,
+                                                                           price: $0.price ?? CLNumber(0),
                                                                            image: $0.imageURL,
                                                                            isSimilarOption:               $0.isSimilarOption)
     }

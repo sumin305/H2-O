@@ -56,7 +56,7 @@ extension OptionSelectionIntent: OptionSelectionCollectable {
     } else {
       selectedExtraOptions.insert(id)
     }
-    let options = state.defaultOptionState.cardStates
+    let options = state.additionalOptionState.cardStates
     let option = options[options.firstIndex(where: {$0.id == id}) ?? 0]
     quotation.updateOption(to: option)
   }

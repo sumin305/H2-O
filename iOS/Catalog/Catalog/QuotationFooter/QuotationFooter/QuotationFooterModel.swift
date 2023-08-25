@@ -18,5 +18,6 @@ enum QuotationFooterModel {
     case priceChanged(price: CLNumber)
     case showSheet(showShet: Bool)
     case summaryChanged
+    case onTapCompleteButton
   }
 }

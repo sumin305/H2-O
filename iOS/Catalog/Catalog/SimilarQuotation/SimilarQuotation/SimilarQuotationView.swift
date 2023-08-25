@@ -35,10 +35,10 @@ extension SimilarQuotationView: View {
           
           CLBudgetRangeView.build(intent:
               .init(initialState:
-                  .init(currentQuotationPrice: intent.quotation.totalPrice(),
+                  .init(currentQuotationPrice: intent.quotation.totalPriceInSimilarQuotation(),
                         budgetPrice: budgetPrice,
                         status: .similarQuotation),
-                    navigationIntent: navigationIntent))
+                    navigationIntent: navigationIntent, quotation: intent.quotation as! CLBudgetPriceService))
           
           SnapCarousel(items: state.similarQuotations,
                        spacing: CGFloat(12).scaledWidth,
