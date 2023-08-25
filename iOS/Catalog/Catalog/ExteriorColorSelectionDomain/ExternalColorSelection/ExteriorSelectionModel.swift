@@ -13,6 +13,8 @@ enum ExteriorSelectionModel {
     var selectedTrimId: Int
     var selectedColorId: Int = 1
     var colors: [ExteriorColorState] = []
+    var currentSelectedIndex: Int = 0
+    var images: [[Data]] = []
   }
 
   enum ViewAction {

@@ -9,11 +9,8 @@ import SwiftUI
 struct ExteriorImageView {
   var intent: ExteriorSelectionIntentType
   var state: ExteriorSelectionModel.State
-  @SwiftUI.State var images: [[Data]] = []
   @SwiftUI.State var currentIndex: Int = 0
   @SwiftUI.State var beforeIndex: Int = 0
-  
-  let imageCacher = ImageCacheService.shared
 }
 
 extension ExteriorImageView: View {
@@ -24,25 +21,28 @@ extension ExteriorImageView: View {
         if state.colors.isEmpty {
           EmptyView()
         } else {
-          AsyncImage(url: state.colors[state.colors.firstIndex(where: {$0.isSelected}) ?? 0].color.exteriorImages[currentIndex]) { image in
+          AsyncImage(url: state.colors[state.currentSelectedIndex].color.exteriorImages[currentIndex]) { image in
             image
               .resizable()
               .frame(height: CGFloat(198).scaledHeight, alignment: .bottom)
           } placeholder: {
             VStack {
-              if !images.isEmpty {
-                Image(data: images[state.colors.firstIndex(where: {$0.isSelected}) ?? 0][beforeIndex])?
+              if !state.images[0].isEmpty {
+                Image(data: state.colors[state.currentSelectedIndex][beforeIndex])?
                   .resizable()
               } else {
                 ProgressView()
               }
             }
+
             .frame(height: CGFloat(198).scaledHeight, alignment: .bottom)
           }
+
           .gesture(
             DragGesture()
               .onChanged { drag in
-                let count = state.colors[state.colors.firstIndex(where: {$0.isSelected}) ?? 0].color.exteriorImages.count
+                print(state.currentSelectedIndex)
+                let count = state.colors[state.currentSelectedIndex].color.exteriorImages.count
                 // 왼쪽으로 스크롤
                 if drag.translation.width < 0 {
                   beforeIndex = currentIndex
@@ -60,54 +60,12 @@ extension ExteriorImageView: View {
                   }
 
                 }
-                print(currentIndex)
-                print(state.colors[state.colors.firstIndex(where: {$0.isSelected}) ?? 0].color.exteriorImages[currentIndex])
+                //print(currentIndex)
+                print(state.colors[state.colors.firstIndex(where: {$0.color.id == state.selectedColorId}) ?? 0].color.exteriorImages[currentIndex])
               }
           )
         }
       }
     }
-    .onAppear {
-      let colorCount = state.colors.count
-      images = Array(repeating: [], count: colorCount)
-      Task {
-        do {
-          for i in 0..<colorCount {
-            for url in state.colors[colorCount-1].color.exteriorImages {
-              images[i].append(try await imageCacher.setImage(url))
-            }
-          }
-        } catch {
-          images = []
-        }
-      }
-    }
   }
 }
-
-//struct ExternalImageView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    ExternalImageView(intent: ExternalSelectionIntent(initialState: .init(selectedTrimId: 2),
-//                                                      repository: ExteriorColorRepository(
-//                                                        requestManager: RequestManager(
-//                                                          apiManager: ExteriorColorAPIManager()))))
-//  }
-//}
-
-
-//GeometryReader { proxy in
-//  AsyncCachedImage(url: quotation.state.quotation?.trim.internalImage) { img in
-//    img
-//      .offset(x: offset)
-//      .gesture(
-//        DragGesture()
-//          .onChanged { drag inag
-//            let nextOffset = offset + (drag.translation.width * 0.1)
-//            if abs(nextOffset) < imageHalfWidth {
-//              offset = nextOffset
-//            }
-//          }
-//      )
-//  }
-//  .frame(minWidth: proxy.size.width, maxHeight: proxy.size.height)
-//}
