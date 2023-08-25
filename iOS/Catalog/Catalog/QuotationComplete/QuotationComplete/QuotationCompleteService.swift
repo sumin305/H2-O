@@ -22,34 +22,34 @@ protocol QuotationCompleteService {
 extension Quotation: QuotationCompleteService {
 
   func powertrainId() -> Int {
-    state.quotation.powertrain.id
+    quotation.powertrain.id
   }
   
   func drivetrainId() -> Int {
-    state.quotation.drivetrain.id
+    quotation.drivetrain.id
   }
   
   func modelName() -> String {
-    state.quotation.model.name
+    quotation.model.name
   }
   func trimName() -> String {
-    state.quotation.trim.name
+    quotation.trim.name
   }
   
   func summary() -> SummaryCarQuotation {
-    state.quotation.toSummary()
+    quotation.toSummary()
   }
   
   func deleteSimilarOption(id: Int) {
-    state.quotation.options = state.quotation.options.filter({$0.id != id})
+    quotation.options = quotation.options.filter({$0.id != id})
   }
 
   func exteriorImage() -> URL? {
-    state.quotation.externalColor.exteriorImages[0]
+    quotation.externalColor.exteriorImages[0]
   }
   
   func interiorImage() -> URL? {
-    state.quotation.internalColor.bannerImageURL
+    quotation.internalColor.bannerImageURL
 
   }
   

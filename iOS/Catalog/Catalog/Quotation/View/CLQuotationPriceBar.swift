@@ -28,7 +28,7 @@ extension CLQuotationPriceBar {
                         Text("현재 견적 가격")
                             .catalogFont(type: .TextKRRegular12)
                             .foregroundColor(Color.gray700)
-                      Text(quotation.state.totalPrice.wonWithSpacing)
+                      Text(quotation.totalPrice.wonWithSpacing)
                             .catalogFont(type: .HeadKRMedium20)
                             .foregroundColor(Color.primary0)
                     }

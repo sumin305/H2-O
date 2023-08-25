@@ -9,18 +9,16 @@ import Foundation
 
 protocol CLBudgetPriceService {
   func totalPriceInBudgetPrice() -> CLNumber
-  func minPrice() -> CLNumber
-  func maxPrice() -> CLNumber
+  
+  var minPrice: CLNumber { get }
+  var maxPrice: CLNumber { get }
+  
 }
 
 extension Quotation: CLBudgetPriceService {
+  
   func totalPriceInBudgetPrice() -> CLNumber {
-    state.totalPrice
+    return totalPrice
   }
-  func minPrice() -> CLNumber {
-    state.minPrice
-  }
-  func maxPrice() -> CLNumber {
-    state.maxPrice
-  }
+  
 }

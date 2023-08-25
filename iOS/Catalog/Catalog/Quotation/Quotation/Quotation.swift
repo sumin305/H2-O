@@ -9,19 +9,11 @@ import Foundation
 import Combine
 
 
-final class Quotation: ObservableObject {
+final class Quotation {
+    
+  var totalPrice: CLNumber = CLNumber(0)
+  var minPrice: CLNumber = CLNumber(0)
+  var maxPrice: CLNumber = CLNumber(99999999)
+  var quotation: CarQuotation = .mock()
   
-  init(initialState: State) {
-    state = initialState
-  }
-  
-  typealias State = QuotationModel.State
-  
-  
-  @Published var state: State = .init(
-    totalPrice: CLNumber(0),
-    quotation: CarQuotation.mock(),
-    minPrice: CLNumber(0),
-    maxPrice: CLNumber(99999999))
-  var cancellable: Set<AnyCancellable> = []
 }

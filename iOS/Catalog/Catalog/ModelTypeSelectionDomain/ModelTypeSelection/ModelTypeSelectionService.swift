@@ -20,23 +20,23 @@ protocol ModeltypeSelectionService {
 
 extension Quotation: ModeltypeSelectionService {
   func powertrainName() -> String {
-    state.quotation.powertrain.name
+    quotation.powertrain.name
   }
   
   func drivetrainName() -> String {
-    state.quotation.drivetrain.name
+    quotation.drivetrain.name
   }
   
   func updatePowertrain(option: ModelTypeOption) {
-    state.quotation.powertrain = option
+    quotation.powertrain = option
   }
   
   func updateBodytype(option: ModelTypeOption) {
-    state.quotation.bodytype = option
+    quotation.bodytype = option
   }
   
   func updateDrivetrain(option: ModelTypeOption) {
-    state.quotation.drivetrain = option
+    quotation.drivetrain = option
   }
 
 }

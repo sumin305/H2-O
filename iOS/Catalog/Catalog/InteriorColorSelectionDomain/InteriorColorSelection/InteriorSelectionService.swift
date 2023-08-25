@@ -15,7 +15,7 @@ protocol InteriorSelectionService {
 
 extension Quotation: InteriorSelectionService {
   func updateInteriorColor(to color: InteriorColor) {
-    state.quotation.internalColor = color
+    quotation.internalColor = color
   }
 
 }

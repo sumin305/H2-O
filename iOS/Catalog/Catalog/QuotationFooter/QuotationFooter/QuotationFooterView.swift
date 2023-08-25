@@ -52,6 +52,9 @@ extension QuotationFooterView: View {
       }
       
     }
+    .onAppear {
+      intent.send(action: .onAppear)
+    }
   }
 }
 

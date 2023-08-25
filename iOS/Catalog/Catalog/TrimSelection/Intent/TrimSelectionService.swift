@@ -15,11 +15,12 @@ protocol TrimSelectionService {
 
 extension Quotation: TrimSelectionService {
   func saveDefaultQuotation(trim: Trim, carQuotation: CarQuotation, minPrice: CLNumber, maxPrice: CLNumber) {
-    state.quotation = CarQuotation(trim: trim, powertrain: carQuotation.powertrain, bodytype: carQuotation.bodytype, drivetrain: carQuotation.drivetrain, externalColor: carQuotation.externalColor, internalColor: carQuotation.internalColor, options: carQuotation.options)
     
-    state.maxPrice = maxPrice
-    state.minPrice = minPrice
-    state.totalPrice = state.quotation.calculateTotalPrice()
+    quotation = CarQuotation(trim: trim, powertrain: carQuotation.powertrain, bodytype: carQuotation.bodytype, drivetrain: carQuotation.drivetrain, externalColor: carQuotation.externalColor, internalColor: carQuotation.internalColor, options: carQuotation.options)
+    
+    self.maxPrice = maxPrice
+    self.minPrice = minPrice
+    totalPrice = quotation.calculateTotalPrice()
     
   }
 }

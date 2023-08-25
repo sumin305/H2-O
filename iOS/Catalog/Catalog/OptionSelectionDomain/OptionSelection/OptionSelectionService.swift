@@ -15,6 +15,7 @@ protocol OptionSelectionService {
 
 extension Quotation: OptionSelectionService {
   func updateOption(to options: [any QuotationOptionable]) {
-    self.state.quotation.options = options
+    self.quotation.options = options
+    totalPrice = quotation.calculateTotalPrice()
   }
 }

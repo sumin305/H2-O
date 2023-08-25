@@ -6,29 +6,31 @@
 //
 
 import Foundation
+import SwiftUI
 
 
 protocol QuotationFooterService {
   
-  func totalPrice() -> CLNumber
+  var totalPrice : CLNumber { get }
   
   func summaryQuotation() -> SummaryCarQuotation
   
   func quotationInQuotationFooter() -> CarQuotation
+  
+  var quotation: CarQuotation { get }
+    
+  
 }
 
 extension Quotation: QuotationFooterService {
   
-  func totalPrice() -> CLNumber {
-    state.totalPrice
-  }
   
   func summaryQuotation() -> SummaryCarQuotation {
-    state.quotation.toSummary()
+    quotation.toSummary()
   }
   
   func quotationInQuotationFooter() -> CarQuotation {
-    state.quotation
+    quotation
   }
 
 }

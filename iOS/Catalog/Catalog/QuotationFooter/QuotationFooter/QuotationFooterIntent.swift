@@ -7,9 +7,9 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 protocol QuotationFooterIntentType {
-  
   var state: QuotationFooterModel.State { get }
   
   func send(action: QuotationFooterModel.ViewAction)
@@ -17,8 +17,6 @@ protocol QuotationFooterIntentType {
   func send(action: QuotationFooterModel.ViewAction, viewEffect: (() -> Void)?)
   
   var quotation: QuotationFooterService { get }
-  
-  
 }
 
 final class QuotationFooterIntent: ObservableObject {
@@ -37,17 +35,21 @@ final class QuotationFooterIntent: ObservableObject {
   var cancellable: Set<AnyCancellable> = []
   
   private var repository: QuotationFooterRepositoryProtocol
-  internal var quotation: QuotationFooterService
+  
+  var quotation: QuotationFooterService
+  
 }
 
 extension QuotationFooterIntent: QuotationFooterIntentType, IntentType {
   func mutate(action: QuotationFooterModel.ViewAction, viewEffect: (() -> Void)?) {
     switch action {
       case .priceChanged(let price):
-        state.totalPrice = quotation.totalPrice()
+        state.totalPrice = quotation.totalPrice
       case .summaryChanged:
         state.summary = quotation.summaryQuotation()
       case .showSheet(_):
+        return
+      case .onAppear:
         return
       case .onTapCompleteButton:
         Task {
@@ -59,7 +61,6 @@ extension QuotationFooterIntent: QuotationFooterIntentType, IntentType {
         }
     }
   }
- 
 }
 
 

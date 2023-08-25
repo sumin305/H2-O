@@ -43,8 +43,8 @@ extension CLBudgetRangeIntent: CLBudgetRangeIntentType, IntentType {
         switch action {
             case .onAppear:
             state.currentQuotationPrice = quotation.totalPriceInBudgetPrice()
-            state.minimumPrice = quotation.minPrice()
-            state.maximumPrice = quotation.maxPrice()
+            state.minimumPrice = quotation.minPrice
+            state.maximumPrice = quotation.maxPrice
             case .budgetChanged(let newBudgetPrice):
                 state.budgetPrice = newBudgetPrice
                 send(action: .budgetGapChanged)

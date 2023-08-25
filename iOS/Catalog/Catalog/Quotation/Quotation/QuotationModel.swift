@@ -15,6 +15,4 @@ enum QuotationModel {
     var minPrice: CLNumber
     var maxPrice: CLNumber
   }
-  
-  
 }

@@ -19,5 +19,6 @@ enum QuotationFooterModel {
     case showSheet(showShet: Bool)
     case summaryChanged
     case onTapCompleteButton
+    case onAppear
   }
 }

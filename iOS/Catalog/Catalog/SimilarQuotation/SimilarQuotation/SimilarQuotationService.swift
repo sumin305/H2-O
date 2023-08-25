@@ -9,7 +9,7 @@ import Foundation
 
 protocol SimilarQuotationService {
   
-  func quotation() -> CarQuotation
+  var quotation: CarQuotation { get }
   
   func addSimilarOption(options: [any QuotationOptionable])
   
@@ -17,16 +17,13 @@ protocol SimilarQuotationService {
 }
 
 extension Quotation: SimilarQuotationService {
-  func quotation() -> CarQuotation {
-    state.quotation
-  }
   
   func addSimilarOption(options: [any QuotationOptionable]) {
-    state.quotation.options.append(contentsOf: options)
+    quotation.options.append(contentsOf: options)
   }
   
   func totalPriceInSimilarQuotation() -> CLNumber {
-    state.totalPrice
+    totalPrice
   }
 
 }
