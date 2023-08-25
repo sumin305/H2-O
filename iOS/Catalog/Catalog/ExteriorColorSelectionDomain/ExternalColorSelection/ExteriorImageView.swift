@@ -9,7 +9,10 @@ import SwiftUI
 struct ExteriorImageView {
   var intent: ExteriorSelectionIntentType
   var state: ExteriorSelectionModel.State
+  @SwiftUI.State var images: [[Data]] = []
   @SwiftUI.State var currentIndex: Int = 0
+  @SwiftUI.State var beforeIndex: Int = 0
+  
   let imageCacher = ImageCacheService.shared
 }
 
@@ -21,10 +24,20 @@ extension ExteriorImageView: View {
         if state.colors.isEmpty {
           EmptyView()
         } else {
-          AsyncCachedImage(url: state.colors[state.colors.firstIndex(where: {$0.isSelected}) ?? 0].color.exteriorImages[currentIndex]) { image in
+          AsyncImage(url: state.colors[state.colors.firstIndex(where: {$0.isSelected}) ?? 0].color.exteriorImages[currentIndex]) { image in
             image
               .resizable()
               .frame(height: CGFloat(198).scaledHeight, alignment: .bottom)
+          } placeholder: {
+            VStack {
+              if !images.isEmpty {
+                Image(data: images[state.colors.firstIndex(where: {$0.isSelected}) ?? 0][beforeIndex])?
+                  .resizable()
+              } else {
+                ProgressView()
+              }
+            }
+            .frame(height: CGFloat(198).scaledHeight, alignment: .bottom)
           }
           .gesture(
             DragGesture()
@@ -32,6 +45,7 @@ extension ExteriorImageView: View {
                 let count = state.colors[state.colors.firstIndex(where: {$0.isSelected}) ?? 0].color.exteriorImages.count
                 // 왼쪽으로 스크롤
                 if drag.translation.width < 0 {
+                  beforeIndex = currentIndex
                   currentIndex += 1
                   if currentIndex > count - 1 {
                     currentIndex = 0
@@ -39,15 +53,32 @@ extension ExteriorImageView: View {
                 }
                 // 오른쪽으로 스크롤
                 else {
+                  beforeIndex = currentIndex
                   currentIndex -= 1
                   if currentIndex < 0 {
                     currentIndex = count - 1
                   }
+
                 }
                 print(currentIndex)
                 print(state.colors[state.colors.firstIndex(where: {$0.isSelected}) ?? 0].color.exteriorImages[currentIndex])
               }
           )
+        }
+      }
+    }
+    .onAppear {
+      let colorCount = state.colors.count
+      images = Array(repeating: [], count: colorCount)
+      Task {
+        do {
+          for i in 0..<colorCount {
+            for url in state.colors[colorCount-1].color.exteriorImages {
+              images[i].append(try await imageCacher.setImage(url))
+            }
+          }
+        } catch {
+          images = []
         }
       }
     }
