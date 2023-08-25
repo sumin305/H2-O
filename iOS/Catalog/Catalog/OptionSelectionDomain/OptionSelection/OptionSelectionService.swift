@@ -9,16 +9,12 @@ import Foundation
 
 protocol OptionSelectionService {
   
-  func updateOption(to option: some QuotationOptionable)
+  func updateOption(to options: [any QuotationOptionable])
   
 }
 
 extension Quotation: OptionSelectionService {
-  func updateOption(to option: some QuotationOptionable) {
-    if state.quotation.options.contains(where: {$0.id == option.id}) {
-      state.quotation.options.append(option)
-    } else {
-      state.quotation.options = state.quotation.options.filter {$0.id != option.id}
-    }
+  func updateOption(to options: [any QuotationOptionable]) {
+    self.state.quotation.options = options
   }
 }

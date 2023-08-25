@@ -37,6 +37,6 @@ enum OptionCardModel {
 
   enum ViewAction {
     case onTapDetail
-    case onTap(id: Int)
+    case onTap(option: OptionCardModel.State)
   }
 }

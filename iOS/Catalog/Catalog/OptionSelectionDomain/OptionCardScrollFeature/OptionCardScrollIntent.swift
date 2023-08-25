@@ -51,9 +51,9 @@ extension OptionCardScrollIntent: OptionCardScrollIntentType, IntentType {
       filterOptions(with: state.filterState.filters[index])
     case .fetchCardState(let from, let to):
       fetchCardState(from: from, to: to)
-    case .onTapOption(let id):
+      case .onTapOption(let option):
       if state.isExtraOptionTab {
-        parent?.selectedOption(with: id)
+        parent?.selectedOption(with: option)
       }
     case .cardStates(let states):
       state.cardStates = states
