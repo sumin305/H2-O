@@ -27,14 +27,13 @@ extension ExteriorImageView: View {
               .frame(height: CGFloat(198).scaledHeight, alignment: .bottom)
           } placeholder: {
             VStack {
-              if !state.images[0].isEmpty {
+              if (state.images[state.currentSelectedIndex].count == 60) {
                 Image(data: state.images[state.currentSelectedIndex][beforeIndex])?
                   .resizable()
               } else {
-                ProgressView()
+                LoadingComponent()
               }
             }
-
             .frame(height: CGFloat(198).scaledHeight, alignment: .bottom)
           }
 
