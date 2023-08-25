@@ -28,7 +28,7 @@ extension ExteriorImageView: View {
           } placeholder: {
             VStack {
               if !state.images[0].isEmpty {
-                Image(data: state.colors[state.currentSelectedIndex][beforeIndex])?
+                Image(data: state.images[state.currentSelectedIndex][beforeIndex])?
                   .resizable()
               } else {
                 ProgressView()
@@ -61,7 +61,7 @@ extension ExteriorImageView: View {
 
                 }
                 //print(currentIndex)
-                print(state.colors[state.colors.firstIndex(where: {$0.color.id == state.selectedColorId}) ?? 0].color.exteriorImages[currentIndex])
+                //print(state.colors[state.colors.firstIndex(where: {$0.color.id == state.selectedColorId}) ?? 0].color.exteriorImages[currentIndex])
               }
           )
         }
