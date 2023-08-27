@@ -174,10 +174,7 @@ extension ModelTypeSelectionIntent {
       
     }
     
-    
-    
     return content
-    
   }
   
 }

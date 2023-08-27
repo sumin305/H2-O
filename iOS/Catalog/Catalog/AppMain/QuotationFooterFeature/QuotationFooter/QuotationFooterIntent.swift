@@ -30,7 +30,7 @@ final class QuotationFooterIntent: ObservableObject {
   typealias State = QuotationFooterModel.State
   typealias ViewAction = QuotationFooterModel.ViewAction
   
-  @Published var state: State = .init(totalPrice: CLNumber(0), summary: SummaryCarQuotation.mock())
+  @Published var state: State = .init(totalPrice: CLNumber(0), summary: SummaryCarQuotation.mock(), showSheet: false)
   
   var cancellable: Set<AnyCancellable> = []
   
@@ -48,8 +48,8 @@ extension QuotationFooterIntent: QuotationFooterIntentType, IntentType {
         return
       case .summaryChanged:
         state.summary = quotation.summaryQuotation()
-      case .showSheet(_):
-        return
+      case .showSheet(let showSheet):
+        state.showSheet = showSheet
       case .onAppear:
       quotation.totalPricePublisher
         .receive(on: RunLoop.main)

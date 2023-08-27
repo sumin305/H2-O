@@ -12,6 +12,7 @@ enum QuotationFooterModel {
   struct State: Equatable {
     var totalPrice: CLNumber
     var summary: SummaryCarQuotation
+    var showSheet: Bool
   }
   
   enum ViewAction: Equatable {
