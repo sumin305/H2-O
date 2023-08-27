@@ -31,8 +31,8 @@ final class CLBudgetRangeIntent: ObservableObject {
     typealias State = CLBudgetRangeModel.State
     typealias ViewAction = CLBudgetRangeModel.ViewAction
 
-    @Published var state: State = State(currentQuotationPrice: CLNumber(30000000),
-                                        budgetPrice: CLNumber(40000000), status: .default)
+    @Published var state: State = State(currentQuotationPrice: CLNumber(0),
+                                        budgetPrice: CLNumber(0), status: .default)
     let navigationIntent: AppMainRouteIntentType
     var quotation: CLBudgetPriceService
     var cancellable: Set<AnyCancellable> = []

@@ -103,6 +103,8 @@ extension CLBudgetRangeView: View {
       intent.send(action: .onAppear)
       if state.status == .similarQuotation || state.status == .complete {
         isFloatingExpanded = true
+      } else {
+        isFloatingExpanded = false
       }
     }
   }
