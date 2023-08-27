@@ -81,7 +81,11 @@ extension QuotationCompleteIntent: QuotationCompleteIntentType, IntentType {
         send(action: .showAlertChanged(showAlert: false))
 
       case .showSheetChanged(let showSheet):
+        if showSheet == true {
+          state.summaryQuotation = quotation.summary()
+        }
         state.showSheet = showSheet
+        
       case .showAlertChanged(let showAlert):
         state.showAlert = showAlert
     }

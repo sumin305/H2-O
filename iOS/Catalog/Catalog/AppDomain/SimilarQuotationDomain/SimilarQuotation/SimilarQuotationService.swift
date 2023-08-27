@@ -22,7 +22,13 @@ protocol SimilarQuotationService {
 extension Quotation: SimilarQuotationService {
   
   func addSimilarOption(options: [SimilarQuotationOption]) {
-    quotation.options.append(contentsOf: Array(Set(options)))
+    
+    let set = Set(options)
+    
+    let array = Array(set)
+    
+    quotation.options.append(contentsOf: array)
+    
     totalPrice = quotation.calculateTotalPrice()
   }
   

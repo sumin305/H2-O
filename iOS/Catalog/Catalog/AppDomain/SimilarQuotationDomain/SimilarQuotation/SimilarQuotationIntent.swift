@@ -78,10 +78,8 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
       case .optionSelected(let selectedOption):
         if state.selectedOptions.contains(selectedOption) {
           state.selectedOptions = state.selectedOptions.filter { $0 != selectedOption }
-          quotation.addSimilarOption(options: state.selectedOptions)
         } else {
           state.selectedOptions.append(selectedOption)
-          quotation.addSimilarOption(options: state.selectedOptions)
         }
         
       case .currentSimilarQuotationIndexChanged(let index):
