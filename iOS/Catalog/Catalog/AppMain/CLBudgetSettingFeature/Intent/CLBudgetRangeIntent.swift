@@ -15,7 +15,8 @@ protocol CLBudgetRangeIntentType {
     func send(action: CLBudgetRangeModel.ViewAction)
 
     func send(action: CLBudgetRangeModel.ViewAction, viewEffect: (() -> Void)?)
-
+  
+    var quotation: CLBudgetPriceService { get }
 }
 
 final class CLBudgetRangeIntent: ObservableObject {

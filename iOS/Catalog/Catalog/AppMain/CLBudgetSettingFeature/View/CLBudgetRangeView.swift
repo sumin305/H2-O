@@ -137,14 +137,3 @@ extension CLBudgetRangeView {
     }
 }
 
-// struct CLBudgetRangeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CLBudgetRangeView.build(
-//            intent: CLBudgetRangeIntent(initialState: .init(
-//              currentQuotationPrice: CLNumber(40000000),
-//              budgetPrice: CLNumber(40750000),
-//              status: .default), navigationIntent: <#CLNavigationIntentType#>
-//            )
-//        )
-//    }
-// }
