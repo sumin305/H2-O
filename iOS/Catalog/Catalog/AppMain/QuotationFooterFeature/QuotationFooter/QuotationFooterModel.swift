@@ -12,12 +12,10 @@ enum QuotationFooterModel {
   struct State: Equatable {
     var totalPrice: CLNumber
     var summary: SummaryCarQuotation
-    var showSheet: Bool
   }
   
   enum ViewAction: Equatable {
     case priceChanged(price: CLNumber)
-    case showSheet(showShet: Bool)
     case summaryChanged
     case onTapCompleteButton
     case onAppear
