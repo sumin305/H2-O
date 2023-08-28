@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct SimilarHMGDataCard {
-  var state: SimilarQuotationModel.State
+  var state: SimilarQuotationModel.ViewState
   var options: [SimilarQuotationOption]
   var intent: SimilarQuotationIntentType
 }

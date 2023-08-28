@@ -81,10 +81,8 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
       case .optionSelected(let selectedOption):
         if viewState.selectedOptions.contains(selectedOption) {
           viewState.selectedOptions = viewState.selectedOptions.filter { $0 != selectedOption }
-          quotation.addSimilarOption(options: viewState.selectedOptions)
         } else {
           viewState.selectedOptions.append(selectedOption)
-          quotation.addSimilarOption(options: viewState.selectedOptions)
         }
         
       case .currentSimilarQuotationIndexChanged(let index):
@@ -99,8 +97,10 @@ extension SimilarQuotationIntent: SimilarQuotationIntentType, IntentType {
       case .choiceAdd:
         quotation.addSimilarOption(options: viewState.selectedOptions)
         send(action: .choiceQuit)
+        
       case .showAlertChanged(let showAlert):
         viewState.showAlert = showAlert
+        
       case .priceChanged(let price):
         viewState.currentSimilarQuotationPrice = price
     }

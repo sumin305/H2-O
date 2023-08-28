@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct SimilarHMGOption: View {
+  
   var option: SimilarQuotationOption
   var intent: SimilarQuotationIntentType
-  var state: SimilarQuotationModel.State
+  var state: SimilarQuotationModel.ViewState
   
   var body: some View {
     Button {
@@ -26,24 +27,24 @@ struct SimilarHMGOption: View {
         VStack(alignment: .leading, spacing: 0) {
           Text(option.name)
             .catalogFont(type: .HeadKRMedium14)
-            .foregroundColor(intent.viewState.selectedOptions.contains(option) ? Color.gray900 : Color.gray600)
+            .foregroundColor(state.selectedOptions.contains(option) ? Color.gray900 : Color.gray600)
             .frame(height: CGFloat(35).scaledHeight)
           
           HStack(spacing: 0) {
             Text(option.price?.signedWon ?? "")
               .catalogFont(type: .HeadKRMedium14)
-              .foregroundColor(intent.viewState.selectedOptions.contains(option) ? Color.gray900 : Color.gray600)
+              .foregroundColor(state.selectedOptions.contains(option) ? Color.gray900 : Color.gray600)
               .frame(height: CGFloat(10).scaledHeight)
 
             Spacer()
-            (intent.viewState.selectedOptions.contains(option) ? Image("blue_check") : Image("gray_check"))
+            (state.selectedOptions.contains(option) ? Image("blue_check") : Image("gray_check"))
               .padding(10)
           }
         }
         .padding(.horizontal, 8)
       }
-      .selectedCardStyle(isSelected: intent.viewState.selectedOptions.contains(option))
-      .buttonSelected(isselected: intent.viewState.selectedOptions.contains(option))
+      .selectedCardStyle(isSelected: state.selectedOptions.contains(option))
+      .buttonSelected(isselected: state.selectedOptions.contains(option))
     }
     .buttonStyle(EmptyButtonStyle())
     .padding(.bottom, 12)

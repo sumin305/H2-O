@@ -12,7 +12,11 @@ enum SimilarQuotationModel {
   struct ViewState: Equatable {
     var currentSimilarQuotationIndex: Int
     var similarQuotations: [SimilarQuotation]
-    var selectedOptions: [SimilarQuotationOption]
+    var selectedOptions: [SimilarQuotationOption] {
+      didSet {
+        print(selectedOptions)
+      }
+    }
     var alertCase: SimilarQuotationView.AlertCase
     var showAlert: Bool
     var currentSimilarQuotationPrice: CLNumber

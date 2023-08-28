@@ -11,7 +11,7 @@ struct SimilarQuotationCard {
   @Binding var index: Int
   var similarQuotation: SimilarQuotation
   var intent: SimilarQuotationIntentType
-  var state: SimilarQuotationModel.State
+  var viewState: SimilarQuotationModel.ViewState
   var trimName: String
   let leadingPadding = CGFloat(21).scaledHeight
   let cardHeight = CGFloat(220).scaledHeight
@@ -26,7 +26,7 @@ extension SimilarQuotationCard: View {
         }
         .padding(.leading, leadingPadding)
         
-      SimilarHMGDataCard(state: state, options: similarQuotation.options, intent: intent)
+      SimilarHMGDataCard(state: viewState, options: similarQuotation.options, intent: intent)
       }
   }
   

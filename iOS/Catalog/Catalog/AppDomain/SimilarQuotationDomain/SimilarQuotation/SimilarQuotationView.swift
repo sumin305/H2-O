@@ -11,7 +11,6 @@ struct SimilarQuotationView {
   @StateObject var container: Container<SimilarQuotationIntentType, SimilarQuotationModel.ViewState, SimilarQuotationModel.State>
   
   var intent: SimilarQuotationIntentType { container.intent }
-  var state: SimilarQuotationModel.State { intent.state }
   var viewState: SimilarQuotationModel.ViewState { intent.viewState}
   
   @SwiftUI.State var currentIndex: Int = 0
@@ -56,7 +55,7 @@ extension SimilarQuotationView: View {
               SimilarQuotationCard(index: $currentIndex,
                                    similarQuotation: similarQuotation,
                                    intent: intent,
-                                   state: state,
+                                   viewState: viewState,
                                    trimName: "Le Blanc")
               .frame(width: size.width, height: size.height)
             }
