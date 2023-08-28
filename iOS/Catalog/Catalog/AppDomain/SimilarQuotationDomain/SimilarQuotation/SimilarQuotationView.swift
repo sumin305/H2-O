@@ -24,7 +24,7 @@ extension SimilarQuotationView {
   }
   
   var isSelectedOptionsEmpty: Binding<Bool> {
-    .init(get: { state.selectedOptions.isEmpty },
+    .init(get: { !state.selectedOptions.isEmpty },
           set: { _ in })
   }
 }
@@ -51,7 +51,7 @@ extension SimilarQuotationView: View {
                        index: $currentIndex) { similarQuotation in
             GeometryReader { proxy in
               let size = proxy.size
-              SimilarQuotationCard(index: 0,
+              SimilarQuotationCard(index: $currentIndex,
                                    similarQuotation: similarQuotation,
                                    intent: intent,
                                    state: state,
