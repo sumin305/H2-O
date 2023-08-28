@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct QuotationFooterView: IntentBindingType {
-  @StateObject var container: Container<QuotationFooterIntentType , QuotationFooterModel.State>
+  @StateObject var container: Container<QuotationFooterIntentType , QuotationFooterModel.ViewState, QuotationFooterModel.State>
   
   var intent: QuotationFooterIntentType { container.intent }
   var state: QuotationFooterModel.State { intent.state }
+  var viewState: QuotationFooterModel.ViewState { intent.viewState }
   
   var prevAction: () -> Void
   var nextAction: () -> Void
@@ -64,7 +65,7 @@ extension QuotationFooterView {
   static func build(intent: QuotationFooterIntent, prevAction: @escaping () -> Void, nextAction: @escaping () -> Void, currentPage: Binding<Int>, showQuotationSummarySheet: Binding<Bool>) -> some View {
     
     QuotationFooterView(container: .init(
-      intent: intent,
+      intent: intent, viewState: intent.viewState,
       state: intent.state,
       modelChangePublisher: intent.objectWillChange), prevAction: prevAction, nextAction: nextAction, showQuotationSummarySheet: showQuotationSummarySheet, currentPage: currentPage)
     
