@@ -137,7 +137,7 @@ extension AppMainRouteView {
                                                             quotation: quotation),
                               prevAction: { intent.send(action: .onTapNavTab(index: viewState.currentPage - 1))},
                               nextAction: { intent.send(action: .onTapNavTab(index: viewState.currentPage + 1))},
-                              currentPage: currentPageBinding, showQuotationSummarySheet: showQuotationSummarySheetBinding)
+                              currentPage: currentPageBinding, showQuotationSummarySheet: $showQuotationSummarySheet)
   }
   
   func makeTrimSelectionView() -> some View {
