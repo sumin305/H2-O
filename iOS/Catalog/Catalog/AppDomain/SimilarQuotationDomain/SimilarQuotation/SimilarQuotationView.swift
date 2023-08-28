@@ -22,6 +22,11 @@ extension SimilarQuotationView {
     .init(get: { state.showAlert } ,
           set: { bool in intent.send(action: .showAlertChanged(showAlert: bool)) })
   }
+  
+  var isSelectedOptionsEmpty: Binding<Bool> {
+    .init(get: { state.selectedOptions.isEmpty },
+          set: { _ in })
+  }
 }
 
 extension SimilarQuotationView: View {
@@ -70,11 +75,11 @@ extension SimilarQuotationView: View {
                           currentIndex: $currentIndex)
           
           CLInActiceButton(mainText: "내 견적서에 추가하기",
+                           isEnabled: isSelectedOptionsEmpty,
                            subText: "선택된 옵션\(state.selectedOptions.count)개",
                            inActiveText: "옵션을 선택해 추가해보세요.",
                            height: CGFloat(52).scaledHeight,
                            buttonAction: {  intent.send(action: .onTapAddButton(title: state.selectedOptions[0].name, count: state.selectedOptions.count)) })
-          .disabled(state.selectedOptions.isEmpty)
         }
         HelpIcon(intent: intent, showAlert: showAlertBinding)
       }

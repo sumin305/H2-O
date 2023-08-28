@@ -68,6 +68,7 @@ extension TrimSelectionIntent: TrimSelectionIntentType, IntentType {
         }
         // 트림 선택할 경우. 트림 id
       case .trimSelected(let index):
+        
         state.selectedTrim = state.trims[index]
 
       case .onTapTrimSelectButton:

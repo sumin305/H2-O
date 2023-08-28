@@ -13,7 +13,13 @@ struct TrimSelectionView: IntentBindingType {
   var state: TrimSelectionModel.State { intent.state }
   @SwiftUI.State var currentIndexBinding: Int = 0
 
+  var isLeblancSelectedBinding: Binding<Bool> {
+    .init(get: { currentIndexBinding == 1 },
+          set: { _ in })
+  }
 }
+
+
 
 extension TrimSelectionView: View {
   var body: some View {
@@ -34,6 +40,7 @@ extension TrimSelectionView: View {
       }
      .onChange(of: currentIndexBinding) { _ in
        intent.send(action: .trimSelected(index: currentIndexBinding))
+       print(state.selectedTrim?.id)
      }
      .frame(height: CGFloat(480).scaledHeight)
 
@@ -51,16 +58,19 @@ extension TrimSelectionView: View {
       .padding(.top, 12)
       .padding(.bottom, 20)
 
-      CLButton(mainText: "\(state.trims.isEmpty ? "Exclusive" :  state.trims[currentIndexBinding].name ?? "") 선택하기",
-               height: CGFloat(60).scaledHeight,
-               backgroundColor: Color.primary700,
-               buttonAction: { intent.send(action: .onTapTrimSelectButton) })
+      CLInActiceButton(mainText: "\(state.trims.isEmpty ? "Exclusive" :  state.trims[currentIndexBinding].name ?? "") 선택하기",
+                       isEnabled: isLeblancSelectedBinding,
+                       inActiveText: "트림을 선택할 수 없습니다.",
+                       height: CGFloat(60).scaledHeight,
+                       buttonAction: { intent.send(action: .onTapTrimSelectButton) }
+      )
     }
     .onAppear(perform: { intent.send(action: .enteredTrimPage) })
   }
 }
 
 extension TrimSelectionView {
+  
   @ViewBuilder
   static func build(intent: TrimSelectionIntent) -> some View {
 
