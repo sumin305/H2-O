@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct TrimCardView: View {
-  
+
   var trim: Trim
-  
+
   var body: some View {
     VStack(spacing: 0) {
-      
+
       HStack {
         VStack(alignment: .leading) {
           Text(trim.description)
@@ -31,7 +31,7 @@ struct TrimCardView: View {
         Spacer()
       }
       .frame(height: CGFloat(130).scaledHeight)
-      
+
       GeometryReader { proxy in
         AsyncCachedImage(url: trim.externalImage, content: { image in
           image
@@ -43,8 +43,7 @@ struct TrimCardView: View {
       }
       .frame(height: CGFloat(160).scaledHeight)
       .clipped()
-      
-      
+
       HMGDataCard(options: trim.hmgData)
         .frame(height: CGFloat(188).scaledHeight)
     }

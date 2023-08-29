@@ -12,7 +12,7 @@ protocol ButtonContentable {
   var submitAction: () -> Void { get set }
   var cancelText: String? { get set }
   var submitText: String? { get set }
-  
+
   init(cancelAction: (() -> Void)?, submitAction: @escaping () -> Void, cancelText: String?, submitText: String?)
 }
 
@@ -39,20 +39,19 @@ struct AlertViewComponent<AlertContent: View, ButtonContent: ButtonContentable, 
 
 struct ButtonContent: ButtonContentable {
   var cancelAction: (() -> Void)?
-  
+
   var submitAction: () -> Void
-  
+
   var cancelText: String?
-  
+
   var submitText: String?
-  
+
   init(cancelAction: (() -> Void)? = nil, submitAction: @escaping () -> Void, cancelText: String? = nil, submitText: String? = nil) {
-    
+
     self.cancelText = cancelText
     self.cancelAction = cancelAction
     self.submitText = submitText
     self.submitAction = submitAction
   }
-  
-  
+
 }

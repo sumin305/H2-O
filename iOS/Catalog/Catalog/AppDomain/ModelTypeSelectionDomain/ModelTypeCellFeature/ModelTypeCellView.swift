@@ -8,30 +8,30 @@
 import SwiftUI
 
 struct ModelTypeCellView: IntentBindingType {
-  
+
   @StateObject var container: Container<ModelTypeCellIntentType, ModelTypeCellModel.ViewState, ModelTypeCellModel.State>
-  
+
   var intent: ModelTypeCellIntentType { container.intent }
-  
+
   var viewState: ModelTypeCellModel.ViewState { intent.viewState }
-  
+
   var state: ModelTypeCellModel.State { intent.state }
-  
+
   var action: (String, ModelTypeOption) -> Void
-  
+
 }
 
 extension ModelTypeCellView {
-  
+
   private var isModalPresenting: Binding<Bool> {
     .init(get: { viewState.isModalPresenting && !state.modelTypeDetailState.isEmpty },
           set: { intent.send(action: .onTapDetailButton(isPresenting: $0)) })
   }
-  
+
 }
 
 extension ModelTypeCellView: View {
-  
+
   var body: some View {
     VStack(alignment: .leading) {
       Text(viewState.title)
@@ -47,8 +47,7 @@ extension ModelTypeCellView: View {
           HMGButton {
             intent.send(action: .onTapDetailButton(isPresenting: !viewState.isModalPresenting))
           }
-          
-          
+
         }
         Spacer().frame(height: 8)
         ModelTypeButtonContainer(options: state.optionStates) {
@@ -62,7 +61,7 @@ extension ModelTypeCellView: View {
       .cornerRadius(8)
     }
     .CLDialogFullScreenCover(show: isModalPresenting) {
-      CarouselModalPopUpComponent(modalContentItems: state.modelTypeDetailState, selectedId: viewState.selectedId ,submitAction: { id in
+      CarouselModalPopUpComponent(modalContentItems: state.modelTypeDetailState, selectedId: viewState.selectedId, submitAction: { id in
         intent.send(action: .onTapOptions(id: id))
         intent.send(action: .onTapDetailButton(isPresenting: !viewState.isModalPresenting))
         // TODO 가격 추가하기

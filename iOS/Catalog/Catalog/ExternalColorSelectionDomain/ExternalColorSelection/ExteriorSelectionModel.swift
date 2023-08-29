@@ -14,9 +14,9 @@ enum ExteriorSelectionModel {
     var selectedColorId: Int = 1
     var colors: [ExteriorColorState] = []
   }
-  
+
   struct State: Equatable {
-    
+
   }
 
   enum ViewAction {

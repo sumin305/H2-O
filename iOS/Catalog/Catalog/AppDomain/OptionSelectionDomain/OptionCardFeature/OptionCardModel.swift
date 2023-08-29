@@ -10,16 +10,15 @@ import Foundation
 enum OptionCardModel {
 
   struct ViewState: Equatable, Hashable, QuotationOptionable {
-    
-    
+
     static func == (lhs: OptionCardModel.ViewState, rhs: OptionCardModel.ViewState) -> Bool {
       lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
       hasher.combine(id)
     }
-    
+
     var id: Int
     var isPackage: Bool = false
     var hashTags: [String]
@@ -34,9 +33,9 @@ enum OptionCardModel {
     var isSimilarOption: Bool = false
 
   }
-  
+
   struct State: Equatable {
-    
+
   }
 
   enum ViewAction {

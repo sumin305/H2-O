@@ -17,7 +17,7 @@ struct SimilarQuotationCard {
   let cardHeight = CGFloat(220).scaledHeight
 }
 extension SimilarQuotationCard: View {
- 
+
   var body: some View {
     VStack(alignment: .leading, spacing: 0) {
         VStack(spacing: 0) {
@@ -25,10 +25,9 @@ extension SimilarQuotationCard: View {
           SimilarQuotationCardImage(similarQuotation: similarQuotation, intent: intent)
         }
         .padding(.leading, leadingPadding)
-        
+
       SimilarHMGDataCard(state: viewState, options: similarQuotation.options, intent: intent)
       }
   }
-  
-}
 
+}

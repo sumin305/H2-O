@@ -15,9 +15,9 @@ enum OptionSelectionModel {
     var additionalOptionState: OptionListState
     var defaultOptionState: OptionListState
   }
-  
+
   struct State: Equatable {
-    
+
   }
 
   enum ViewAction {
@@ -32,5 +32,3 @@ struct OptionListState: Equatable {
   var cardStates: [OptionCardModel.State]
   var selectedFilterId: Int
 }
-
-

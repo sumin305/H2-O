@@ -28,7 +28,7 @@ extension SimilarQuotationView {
       AlertDoubleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
     }
   }
-  
+
   func optionButQuitAlertView() -> some View {
     let buttonContent = ButtonContent(cancelAction: {
       intent.send(action: .showAlertChanged(showAlert: false))
@@ -39,14 +39,14 @@ extension SimilarQuotationView {
       AlertDoubleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
     }
   }
-  
+
   func addOptionAlertView(title: String, count: Int) -> some View {
     let buttonContent = ButtonContent(cancelAction: {
       intent.send(action: .showAlertChanged(showAlert: false))
     }, submitAction: {
       intent.send(action: .choiceAdd)
     })
-    
+
     return CLAlertView<CLOptionSelectAlertContentView, ButtonContent, AlertSingleButton>(info: toAlertString(optionName: title, count: count), items: buttonContent) { item in
       AlertSingleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)
     }

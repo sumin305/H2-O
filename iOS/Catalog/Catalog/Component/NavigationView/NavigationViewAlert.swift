@@ -22,14 +22,14 @@ extension AppMainRouteView {
         let buttonContent = ButtonContent(cancelAction: {
           intent.send(action: .showAlertChanged(showAlert: false))
         }, submitAction: {
-          intent.send(action:.onTapFinish)
+          intent.send(action: .onTapFinish)
         }, submitText: "종료")
-        
+
          CLAlertView<CLQuitAlertContentView, ButtonContent, AlertDoubleButton>(items: buttonContent) { item in
           AlertDoubleButton(cancelAction: item.cancelAction, submitAction: item.submitAction, cancelText: item.cancelText, submitText: item.submitText)}
       case .guide:
       EntryGuide(intent: intent)
-        
+
     }
   }
 }

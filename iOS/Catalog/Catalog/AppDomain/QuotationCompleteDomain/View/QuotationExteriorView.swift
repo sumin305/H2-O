@@ -32,4 +32,3 @@ struct QuotationExteriorView: View {
       )
     }
 }
-

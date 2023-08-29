@@ -12,7 +12,7 @@ struct CarQuotation: Equatable {
   static func == (lhs: CarQuotation, rhs: CarQuotation) -> Bool {
     lhs.id == rhs.id
   }
-  
+
   var id: Int?
   var model: CarModel = CarModel(id: 1, title: "모델", name: "팰리세이드", price: CLNumber(3880000))
   var trim: Trim
@@ -28,7 +28,7 @@ struct CarQuotation: Equatable {
 extension CarQuotation {
 
   func calculateTotalPrice() -> CLNumber {
-    
+
     return    model.price +
               trim.price +
               powertrain.price +
@@ -88,11 +88,11 @@ extension CarQuotation {
                                                                            name: $0.name,
                                                                            price: $0.price ?? CLNumber(0),
                                                                            image: $0.imageURL,
-                                                                           isSimilarOption:               $0.isSimilarOption)
+                                                                           isSimilarOption: $0.isSimilarOption)
     }
     )
   }
-  
+
   static func mock() -> CarQuotation {
     CarQuotation(trim: Trim(id: 0, name: "", description: "", price: CLNumber(0), hmgData: []),
                  powertrain: .init(id: 0, name: "", price: CLNumber(0)),

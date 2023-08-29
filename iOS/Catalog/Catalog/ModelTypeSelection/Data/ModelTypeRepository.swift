@@ -16,19 +16,19 @@ final class ModelTypeRepository: ModelTypeRepositoryProtocol {
   }
 
   func fetch(carId: Int) async throws -> [ModelType] {
-    
+
     let dto: ModelTypeResponseDTO = try await modelTypeRequestManager.perform(ModelTypeRequest.fetchOptions(carId: carId))
-    
+
     return dto.toDomain()
-    
+
   }
 
   func calculateFuelAndDisplacement(with powerTrainId: Int, andwith driverTrainId: Int) async throws -> ResultOfCalculationOfFuelAndDisplacement {
-    
+
     let dto: TechnicalSpecResponseDTO = try await modelTypeRequestManager.perform(ModelTypeRequest.calculateFuelAndDisplacement(powertrainId: powerTrainId, drivetrainId: driverTrainId))
-    
+
     return try dto.toDomain()
-    
+
   }
 
 }

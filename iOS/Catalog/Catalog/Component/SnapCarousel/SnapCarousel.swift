@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SnapCarousel<Content: View, T: Identifiable>: View {
-  
+
   enum BorderStyle {
     case `default`
     case none
@@ -55,7 +55,7 @@ extension SnapCarousel {
 
         ForEach(items.indices, id: \.self) { itemIndex in
           switch borderStyle {
-          
+
           case .`default`:
             content(items[itemIndex])
               .frame(width: proxy.size.width - 2 * trailingSpace)
@@ -64,7 +64,7 @@ extension SnapCarousel {
             content(items[itemIndex])
               .frame(width: proxy.size.width - 2 * trailingSpace)
           }
-            
+
         }
       }
       .padding(.horizontal, spacing)

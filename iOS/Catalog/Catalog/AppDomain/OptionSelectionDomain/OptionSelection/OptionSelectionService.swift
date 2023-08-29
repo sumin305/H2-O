@@ -8,9 +8,9 @@
 import Foundation
 
 protocol OptionSelectionService {
-  
+
   func updateOption(to options: [any QuotationOptionable])
-  
+
 }
 
 extension Quotation: OptionSelectionService {

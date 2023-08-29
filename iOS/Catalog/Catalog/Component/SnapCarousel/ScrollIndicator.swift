@@ -19,9 +19,9 @@ struct ScrollIndicator {
   @Binding var currentIndex: Int
 }
 extension ScrollIndicator: View {
-  
+
   var body: some View {
-    
+
     HStack(spacing: spacing) {
       ForEach(0..<count) { (index: Int) in
         Capsule()

@@ -55,7 +55,7 @@ extension CLNumber {
   static func + (lhs: CLNumber, rhs: CLNumber) -> CLNumber {
     return CLNumber(lhs.value + rhs.value)
   }
-  
+
   static func - (lhs: CLNumber, rhs: CLNumber) -> CLNumber {
     return CLNumber(lhs.value - rhs.value)
   }

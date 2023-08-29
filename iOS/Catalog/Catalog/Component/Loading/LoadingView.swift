@@ -17,7 +17,7 @@ extension LoadingView: View {
     DimmedZStack {
       Rectangle()
         .fill(.white)
-        .frame(width: CGFloat(335).scaledWidth, height:  CGFloat(200).scaledHeight)
+        .frame(width: CGFloat(335).scaledWidth, height: CGFloat(200).scaledHeight)
         .overlay {
           VStack {
             RotatingCircle()

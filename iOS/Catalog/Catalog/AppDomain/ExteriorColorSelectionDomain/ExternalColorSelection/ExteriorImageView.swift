@@ -15,7 +15,7 @@ struct ExteriorImageView {
 
 extension ExteriorImageView: View {
   var body: some View {
-    GeometryReader { proxy in
+    GeometryReader { _ in
       VStack {
         Spacer()
         ZStack {
@@ -46,11 +46,11 @@ extension ExteriorImageView: View {
               }
             placeholder: {
               VStack {
-                if (viewState.images[viewState.currentSelectedIndex].count == 60) {
+                if viewState.images[viewState.currentSelectedIndex].count == 60 {
                   Image(data: viewState.images[viewState.currentSelectedIndex][beforeIndex])?
                     .resizable()
                     .frame(height: CGFloat(198).scaledHeight, alignment: .bottom)
-                  
+
                 } else {
                   LoadingComponent()
                 }
@@ -61,7 +61,7 @@ extension ExteriorImageView: View {
         }
         .frame(height: CGFloat(198).scaledHeight, alignment: .bottom)
       }
-      
+
       .gesture(
         DragGesture()
           .onChanged { drag in
@@ -88,4 +88,3 @@ extension ExteriorImageView: View {
     }
   }
 }
-

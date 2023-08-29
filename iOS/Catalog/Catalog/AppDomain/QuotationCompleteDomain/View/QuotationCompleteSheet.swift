@@ -15,13 +15,11 @@ struct QuotationCompleteSheet {
   var intent: QuotationCompleteIntentType
 }
 
-
 extension QuotationCompleteSheet {
   var showAlertBinding: Binding<Bool> {
     .init(get: { viewState.showAlert }, set: { _ in })
   }
 }
-
 
 extension QuotationCompleteSheet: View {
   var body: some View {
@@ -29,10 +27,10 @@ extension QuotationCompleteSheet: View {
       LazyVStack {
         // capsule
         CLSheetCapsule(height: 4)
-        
+
         // 요약견적 제목
         Text("요약견적").catalogFont(type: .HeadKRMedium16).leadingTitle()
-        
+
         // 요약 견적
         HStack(spacing: 46) {
           VStack(alignment: .leading, spacing: 1) {
@@ -63,13 +61,13 @@ extension QuotationCompleteSheet: View {
         .frame(maxWidth: .infinity, minHeight: 95)
         .padding(.horizontal, 21)
         .background(Color.skyBlueCardBG)
-        
+
         // 상세견적 제목
         Text("상세견적").catalogFont(type: .HeadKRMedium16).leadingTitle()
-        
+
         // 상세견적
         DetailQuotationList(intent: intent, state: intent.viewState)
-        
+
         Button {
           presentationMode.wrappedValue.dismiss()
         } label: {

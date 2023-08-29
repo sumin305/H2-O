@@ -23,14 +23,13 @@ enum ModelTypeCellModel: Equatable {
     var isModalPresenting = false
 
   }
-  
+
   struct State: Equatable, Hashable {
-    
-    
+
     func hash(into hasher: inout Hasher) {
       hasher.combine(title)
     }
-    
+
     var selectedOption: ModelTypeOption = .init(id: 0, name: "", price: CLNumber(0))
     var title: String = "파워트레인"
     var imageURL: URL?
@@ -47,7 +46,6 @@ enum ModelTypeCellModel: Equatable {
     case onTapOptions(id: Int)
   }
 }
-
 
 struct ModelTypeOptionState: Equatable, Hashable {
 

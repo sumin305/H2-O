@@ -14,9 +14,9 @@ enum ModelTypeSelectionModel {
     var modelTypeStateArray: [ModelTypeCellModel.State] = []
     var fuelEfficiencyAverageState: FuelEfficiencyAverageBannerModel.State = .mock()
   }
-  
+
   struct State: Equatable {
-    
+
   }
 
   enum ViewAction {
@@ -27,12 +27,11 @@ enum ModelTypeSelectionModel {
     case bodytypeSelected(option: ModelTypeOption)
     case drivetrainSelected(option: ModelTypeOption)
   }
-  
+
   enum ModelTypeID: Int {
     case powerTrain = 0
     case bodyType
     case driveTrain
   }
-  
 
 }

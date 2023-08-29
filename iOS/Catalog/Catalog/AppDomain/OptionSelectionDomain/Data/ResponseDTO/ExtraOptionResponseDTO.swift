@@ -13,9 +13,8 @@ enum ExtraOptionToDomainError: LocalizedError {
   case noPriceInResponse
 }
 
-
 struct ExtraOptionResponseDTO: Codable {
-  
+
   var id: Int?
   var isPackage: Bool?
   var category: String?
@@ -25,34 +24,34 @@ struct ExtraOptionResponseDTO: Codable {
   var choiceRatio: Int?
   var price: Int?
   var image: String?
-  
+
 }
 
 extension ExtraOptionResponseDTO {
-  
+
   func toDomain() throws -> ExtraOption {
-    
+
     guard let id = id else { throw ExtraOptionToDomainError.noIdInResponse }
     guard let name = name else { throw ExtraOptionToDomainError.noNameInResponse }
     guard let price = price else { throw ExtraOptionToDomainError.noPriceInResponse }
-    
+
     var optionCategory = OptionCategory.total
-    
+
     if let categoryStr = category {
       optionCategory = OptionCategory(categoryStr) ?? .total
     }
-    
+
     var choiceRatioDomain: CLNumber?
     if let choiceRatio = choiceRatio {
       choiceRatioDomain = CLNumber(Int32(choiceRatio))
     }
-    
+
     var optionImageURL: URL?
-    
+
     if let optionImageURLStr = image {
       optionImageURL = URL(string: optionImageURLStr)
     }
-    
+
     return ExtraOption(id: id,
                        isPackage: isPackage ?? false,
                        category: optionCategory,
@@ -63,7 +62,6 @@ extension ExtraOptionResponseDTO {
                        price: CLNumber(Int32(price)),
                        image: optionImageURL
       )
-    
-    
+
   }
 }

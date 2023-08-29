@@ -11,7 +11,7 @@ import SwiftUI
 struct MockDetailQuotationTitle: View {
   var title: String
   @SwiftUI.State var isFloating: Bool = false
-  
+
   var body: some View {
     ZStack {
       Text(title).catalogFont(type: .HeadKRMedium16).leadingTitle()

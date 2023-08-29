@@ -8,7 +8,7 @@
 import Foundation
 
 protocol QuotationCompleteRepositoryProtocol {
-  
+
   func calculateFuelAndDisplacement(with powerTrainId: Int, andwith driverTrainId: Int)
   async throws -> ResultOfCalculationOfFuelAndDisplacement
 }

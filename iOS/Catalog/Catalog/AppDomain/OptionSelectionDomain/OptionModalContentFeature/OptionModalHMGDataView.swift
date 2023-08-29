@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct OptionModalHMGDataView: View {
-  
+
   var state: DetailOptionInfo.HMGData
-  
+
     var body: some View {
       HStack {
         if let overhalf = state.isOverHalf, let choiceCount = state.choiceCount {

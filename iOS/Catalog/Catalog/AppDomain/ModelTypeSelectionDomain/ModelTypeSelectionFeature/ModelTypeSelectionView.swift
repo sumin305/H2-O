@@ -14,15 +14,15 @@ struct ModelTypeSelectionView: IntentBindingType {
   var intent: ModelTypeSelectionIntentType {
     container.intent
   }
-  
+
   var viewState: ModelTypeSelectionModel.ViewState {
     intent.viewState
   }
-  
+
   var state: ModelTypeSelectionModel.State {
     intent.state
   }
-  
+
 }
 
 extension ModelTypeSelectionView: View {
@@ -61,4 +61,3 @@ extension ModelTypeSelectionView {
         .init(intent: intent, viewState: intent.viewState, state: intent.state, modelChangePublisher: intent.objectWillChange))
   }
 }
-

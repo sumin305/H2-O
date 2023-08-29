@@ -42,11 +42,10 @@ extension TrimSelectionError {
      var carId: Int
      var isTrimSelected: Bool = false
   }
-  
+
    struct State: Equatable {
-     
+
    }
-   
 
   enum ViewAction: Equatable {
     case onTapTrimSelectButton

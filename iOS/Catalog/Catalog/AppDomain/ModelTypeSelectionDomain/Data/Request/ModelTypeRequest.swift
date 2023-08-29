@@ -24,19 +24,19 @@ extension ModelTypeRequest: RequestProtocol {
         return "/technical-spec"
     }
   }
-  
+
   var headers: [String: String] {
     [:]
   }
-  
+
   var params: [String: Any] {
     [:]
   }
-  
+
   var requestType: RequestType {
     .GET
   }
-  
+
   var cachePolicy: URLRequest.CachePolicy {
     switch self {
     case .fetchOptions:
@@ -44,20 +44,20 @@ extension ModelTypeRequest: RequestProtocol {
     case .calculateFuelAndDisplacement:
       return .reloadIgnoringLocalCacheData
     }
-    
+
   }
 
   var timeOutInterval: TimeInterval {
     return 2
   }
-  
+
   var urlParams: [String: String?] {
     switch self {
     case .calculateFuelAndDisplacement(let powertrainId, let drivetrainId):
-      return ["drivetrainId":"\(drivetrainId)", "powertrainId": "\(powertrainId)"]
+      return ["drivetrainId": "\(drivetrainId)", "powertrainId": "\(powertrainId)"]
     default:
       return [:]
     }
   }
-  
+
 }

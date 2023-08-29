@@ -16,24 +16,24 @@ protocol CLBudgetRangeIntentType {
     func send(action: CLBudgetRangeModel.ViewAction)
 
     func send(action: CLBudgetRangeModel.ViewAction, viewEffect: (() -> Void)?)
-  
+
     var quotation: CLBudgetPriceService { get }
 }
 
 final class CLBudgetRangeIntent: ObservableObject {
-  
+
   // MARK: - LifeCycle
   init(initialState: ViewState, navigationIntent: AppMainRouteIntentType, quotation: CLBudgetPriceService) {
     viewState = initialState
     self.navigationIntent = navigationIntent
     self.quotation = quotation
   }
-  
+
   // MARK: - Internal
   typealias ViewState = CLBudgetRangeModel.ViewState
   typealias ViewAction = CLBudgetRangeModel.ViewAction
   typealias State = CLBudgetRangeModel.State
-  
+
   @Published var viewState: ViewState = ViewState(currentQuotationPrice: CLNumber(30000000),
                                                   budgetPrice: CLNumber(40000000), status: .default)
   var state: CLBudgetRangeModel.State = .init()
@@ -43,7 +43,7 @@ final class CLBudgetRangeIntent: ObservableObject {
 }
 
 extension CLBudgetRangeIntent: CLBudgetRangeIntentType, IntentType {
-  
+
   func mutate(action: CLBudgetRangeModel.ViewAction, viewEffect: (() -> Void)?) {
     switch action {
     case .onAppear:
@@ -53,23 +53,23 @@ extension CLBudgetRangeIntent: CLBudgetRangeIntentType, IntentType {
           send(action: .quotationPriceChanged(newQuotationPrice: totalPrice))
         }
         .store(in: &cancellable)
-      
+
       viewState.minimumPrice = quotation.minPrice
       viewState.maximumPrice = quotation.maxPrice
     case .budgetChanged(let newBudgetPrice):
       viewState.budgetPrice = newBudgetPrice
       send(action: .budgetGapChanged)
       send(action: .exceedBudgetChanged)
-      
+
     case .quotationPriceChanged(let newQuotationPrice):
-      
+
       viewState.currentQuotationPrice = newQuotationPrice
       send(action: .budgetGapChanged)
       send(action: .exceedBudgetChanged)
-      
+
     case .exceedBudgetChanged:
       viewState.isExceedBudget = viewState.budgetPrice < viewState.currentQuotationPrice
-      
+
     case .budgetGapChanged:
       viewState.budgetGap = CLNumber(abs(viewState.budgetPrice.value - viewState.currentQuotationPrice.value))
     case .onTapSimilarQuotationButton:

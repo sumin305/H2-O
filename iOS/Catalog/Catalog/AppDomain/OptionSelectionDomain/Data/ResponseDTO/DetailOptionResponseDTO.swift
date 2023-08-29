@@ -8,11 +8,10 @@
 import Foundation
 
 enum DetailOptionToDomainError: Error {
-  
 
   case noNameInResponse
   case noPriceInResponse
-  
+
 }
 
 struct HmgDataResponseDTO: Codable {
@@ -26,17 +25,17 @@ extension HmgDataResponseDTO {
     if isOverHalf == nil && choiceCount == nil && useCount == nil {
       return nil
     }
-    
-    var choiceCountDomain : CLNumber?
+
+    var choiceCountDomain: CLNumber?
     if let choiceCount = choiceCount {
       choiceCountDomain = CLNumber(Int32(choiceCount))
     }
-    
-    var useCountDomain : CLNumber?
+
+    var useCountDomain: CLNumber?
     if let useCount = useCount {
       choiceCountDomain = CLNumber(Int32(useCount))
     }
-    
+
     return .init(isOverHalf: isOverHalf, choiceCount: choiceCountDomain, useCount: useCountDomain)
   }
 }
@@ -54,23 +53,22 @@ struct DetailOptionResponseDTO: Codable {
 }
 
 extension DetailOptionResponseDTO {
-  
+
   func toDomain(with optionID: Int) throws -> DetailOptionInfo {
-    
+
     guard let name = name else { throw DetailOptionToDomainError.noNameInResponse }
     guard let price = price else { throw DetailOptionToDomainError.noNameInResponse }
-    
+
     var optionCategory: OptionCategory = .total
     if let category = category {
       optionCategory = OptionCategory(category) ?? .total
     }
-    
+
     var imageURL: URL?
     if let imageURLstr = image {
       imageURL = URL(string: imageURLstr)
     }
-    
-    
+
     return DetailOptionInfo(id: optionID, category: optionCategory,
                             containsChoiceCount: containsChoiceCount ?? false,
                             containsUseCount: containsUseCount ?? false,
@@ -80,11 +78,7 @@ extension DetailOptionResponseDTO {
                             image: imageURL,
                             title: name,
                             price: CLNumber(Int32(price)))
-    
+
   }
-  
-  
+
 }
-
-
-

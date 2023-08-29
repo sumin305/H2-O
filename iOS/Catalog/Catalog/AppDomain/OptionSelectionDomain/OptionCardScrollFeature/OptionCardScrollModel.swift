@@ -18,9 +18,9 @@ enum OptionCardScrollModel {
     var isExtraOptionTab: Bool = true
     var error: Error?
   }
-  
+
   struct State {
-    
+
   }
 
   enum ViewAction {
@@ -31,4 +31,3 @@ enum OptionCardScrollModel {
     case onTapOption(id: OptionCardModel.ViewState)
   }
 }
-

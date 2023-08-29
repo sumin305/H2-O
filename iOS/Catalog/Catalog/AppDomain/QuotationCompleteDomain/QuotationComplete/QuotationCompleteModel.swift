@@ -14,13 +14,13 @@ enum QuotationCompleteModel {
     var technicalSpec: ResultOfCalculationOfFuelAndDisplacement
     var nextNavIndex: Int
     var alertCase: QuotationCompleteView.AlertCase
-    var showSheet: Bool 
+    var showSheet: Bool
     var showAlert: Bool
     var alertTitle: String
   }
-  
+
   struct State: Equatable {
-    
+
   }
 
   enum ViewAction {

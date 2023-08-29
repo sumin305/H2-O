@@ -38,7 +38,7 @@ extension RequestProtocol {
   var contentType: ContentType {
     .JSON
   }
-  
+
   var secureType: SecureType {
     .https
   }
@@ -82,11 +82,11 @@ extension RequestProtocol {
     if !params.isEmpty {
       urlRequest.httpBody = try JSONSerialization.data(withJSONObject: params)
     }
-    
-    if let httpBody = urlRequest.httpBody, let json = try? JSONSerialization.jsonObject(with: httpBody, options: []) as? [String : Any] {
+
+    if let httpBody = urlRequest.httpBody, let json = try? JSONSerialization.jsonObject(with: httpBody, options: []) as? [String: Any] {
          print(json)
        }
-    
+
     return Request(urlRequest: urlRequest)
   }
 

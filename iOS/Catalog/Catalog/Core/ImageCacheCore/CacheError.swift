@@ -16,7 +16,7 @@ enum ImageCacheError: LocalizedError {
 }
 
 extension ImageCacheError {
-  
+
   var localizedDescription: String? {
     switch self {
     case .imageNotModified:
@@ -31,27 +31,27 @@ extension ImageCacheError {
       return "파일메니저 애러 \(reason)"
     }
   }
-  
+
 }
 
 enum DiskCacheError: LocalizedError {
-  case notAvailableOfFetchingData(key: String)
-  case notAvailableOfFetchingData(path: String)
+  case notAvailableOfFetchingDataKey(key: String)
+  case notAvailableOfFetchingDataPath(path: String)
   case notAvailableOfWritingDataWith(key: String, path: String)
   case notAvailabletoUpdateDate
   case notAvailableToLoadFolderInSubDirectory
   case notAvailableToLoadFileAttributes
   case notAvailableToDeleteFile(path: String)
   case notAvailableToFindFile(path: String)
-  
+
 }
 
 extension DiskCacheError {
   var localizedDescription: String? {
     switch self {
-    case .notAvailableOfFetchingData(let key):
+    case .notAvailableOfFetchingDataKey(let key):
       return "\(key)값을 가진 data를 받아올 수 없습니다."
-    case .notAvailableOfFetchingData(let path):
+    case .notAvailableOfFetchingDataPath(let path):
       return "\(path)에서 data를 받아올 수 없습니다."
     case .notAvailableOfWritingDataWith(let key, let path):
       return "해당 키값\(key)을 가진 fileURL \(path)에 데이터 쓰기 실패했습니다."

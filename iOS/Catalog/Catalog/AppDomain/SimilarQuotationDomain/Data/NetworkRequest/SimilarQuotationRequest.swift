@@ -15,16 +15,16 @@ extension SimilarQuotationRequest: RequestProtocol {
   var host: String {
     return API.host
   }
-  
+
   var path: String {
     return "/quotation/similar"
   }
-  
-  var headers: [String : String] {
+
+  var headers: [String: String] {
     return [:]
   }
-  
-  var params: [String : Any] {
+
+  var params: [String: Any] {
     switch self {
       case .fetchSimilarQuotation(let dto):
         do {
@@ -35,18 +35,17 @@ extension SimilarQuotationRequest: RequestProtocol {
         }
     }
   }
-  
-  var urlParams: [String : String?] {
+
+  var urlParams: [String: String?] {
     return [:]
   }
-  
+
   var requestType: RequestType {
     .POST
   }
-  
+
   var cachePolicy: URLRequest.CachePolicy {
     .useProtocolCachePolicy
   }
-  
-}
 
+}

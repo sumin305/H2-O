@@ -16,9 +16,9 @@ enum ExteriorSelectionModel {
     var currentSelectedIndex: Int = 0
     var images: [[Data]] = []
   }
-  
+
   struct State: Equatable {
-    
+
   }
 
   enum ViewAction {

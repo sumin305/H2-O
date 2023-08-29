@@ -9,7 +9,6 @@ import Foundation
 
 final class ExteriorColorRepository: ExteriorColorRepositoryProtocol {
 
-
   private var requestManager: RequestManagerProtocol
 
   init(requestManager: RequestManagerProtocol) {
@@ -29,6 +28,5 @@ final class ExteriorColorRepository: ExteriorColorRepositoryProtocol {
     }
 
   }
-
 
 }

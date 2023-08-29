@@ -26,7 +26,7 @@ extension InteriorColorSelectionView: View {
           image
             .resizable()
             .frame(width: UIScreen.main.bounds.width)
-        } 
+        }
         .frame(height: CGFloat(292).scaledHeight)
         Spacer().frame(height: 20)
         VStack(alignment: .leading, spacing: 0) {

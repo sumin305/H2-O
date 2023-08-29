@@ -13,7 +13,7 @@ struct FilterState {
 }
 
 struct FilterButtonBar: View {
-  
+
   let state: FilterState
   let intent: OptionCardScrollIntentType
 

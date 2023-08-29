@@ -13,7 +13,7 @@ struct FilterButtonStyle: ButtonStyle {
 
   func makeBody(configuration: Configuration) -> some View {
     configuration.label
-      .padding(EdgeInsets(top: CGFloat(6).scaledHeight, leading: CGFloat(20).scaledWidth, bottom:  CGFloat(6).scaledHeight, trailing: CGFloat(20).scaledWidth))
+      .padding(EdgeInsets(top: CGFloat(6).scaledHeight, leading: CGFloat(20).scaledWidth, bottom: CGFloat(6).scaledHeight, trailing: CGFloat(20).scaledWidth))
       .foregroundColor(isSelected ? .primary0 : .gray600)
       .background(isSelected ? Color.skyBlueCardBG : .white)
       .cornerRadius(20)

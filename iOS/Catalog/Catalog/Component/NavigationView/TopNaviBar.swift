@@ -10,7 +10,7 @@ import SwiftUI
 struct TopNaviBar: View {
 
   var intent: AppMainRouteIntentType
-  
+
   var body: some View {
     ZStack(alignment: .center) {
       HStack(alignment: .center) {
@@ -42,4 +42,3 @@ struct TopNaviBar: View {
     .padding(.bottom, 10)
     }
   }
-

@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ExteriorSelectionView: IntentBindingType {
-  
+
   @StateObject var container: Container<ExteriorSelectionIntentType, ExteriorSelectionModel.ViewState, ExteriorSelectionModel.State>
 
   var intent: ExteriorSelectionIntentType {
     container.intent
   }
-  
+
   var viewState: ExteriorSelectionModel.ViewState {
     intent.viewState
   }

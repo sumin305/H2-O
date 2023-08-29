@@ -29,5 +29,3 @@ extension CLCapsuleButton: View {
       .buttonStyle(.plain)
     }
 }
-
-

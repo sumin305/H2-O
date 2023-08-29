@@ -20,13 +20,13 @@ struct ModelTypeModalContentView: View {
 extension ModelTypeModalContentView {
 
   var body: some View {
-    
+
       VStack {
         AsyncCachedImage(url: state.imageURL) { image in
           image
             .resizable()
             .frame(height: CGFloat(170).scaledHeight)
-        } 
+        }
         VStack(alignment: .leading) {
           HStack {
             Text(state.title)
@@ -53,9 +53,8 @@ extension ModelTypeModalContentView {
           }
           .frame(height: CGFloat(110).scaledHeight)
         }
-        
+
       }
   }
 
 }
-

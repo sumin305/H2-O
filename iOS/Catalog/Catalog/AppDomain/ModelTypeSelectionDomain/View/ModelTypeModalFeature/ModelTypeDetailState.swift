@@ -11,18 +11,17 @@ protocol PriceContainable {
   var price: CLNumber { get }
 }
 
-protocol titleContainable {
+protocol TitleContainable {
   var title: String { get }
 }
 
-protocol ModalItemable: Identifiable & PriceContainable & titleContainable {
+protocol ModalItemable: Identifiable & PriceContainable & TitleContainable {
   var id: ID { get }
 }
 
-
 struct ModelTypeDetailState: Equatable, ModalItemable {
   typealias ID = Int
-  
+
   var id: Int
   var title: String
   var description: String?

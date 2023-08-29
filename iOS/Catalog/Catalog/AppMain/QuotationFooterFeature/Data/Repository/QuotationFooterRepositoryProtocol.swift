@@ -8,5 +8,5 @@
 import Foundation
 
 protocol QuotationFooterRepositoryProtocol {
-  func saveFinalQuotation(with quotation: CarQuotation) async throws -> Int 
+  func saveFinalQuotation(with quotation: CarQuotation) async throws -> Int
 }

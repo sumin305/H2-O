@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol IntentType: AnyObject {
-  
+
   associatedtype ViewAction
   associatedtype ViewState
   associatedtype State

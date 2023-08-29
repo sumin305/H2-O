@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SimilarQuotationError :Error {
+enum SimilarQuotationError: Error {
   case failedToDomain
 }
 struct SimilarQuotationResponseDTO: Decodable {
@@ -22,14 +22,14 @@ extension SimilarQuotationResponseDTO {
     guard let typeNames = modelType else { throw SimilarQuotationError.failedToDomain }
     guard let similarPrice = price else { throw SimilarQuotationError.failedToDomain }
     guard let similarOptions = options else { throw SimilarQuotationError.failedToDomain }
-    
+
     var imageURL: URL?
     if let imageStr = image {
       imageURL = URL(string: imageStr)
     }
-    
+
     let typeNamesDomain = try typeNames.toDomain()
-    return SimilarQuotation(id: .init(), powertrainName: typeNamesDomain[0] ,
+    return SimilarQuotation(id: .init(), powertrainName: typeNamesDomain[0],
                             bodytypeName: typeNamesDomain[1],
                             drivetrainName: typeNamesDomain[2],
                             price: CLNumber(Int32(similarPrice)),
@@ -66,12 +66,10 @@ extension SimilarQuotationOptionResponseDTO {
     guard let optionName = name else { throw SimilarQuotationError.failedToDomain }
     guard let optionImage = image else { throw SimilarQuotationError.failedToDomain }
     guard let optionPrice = price else { throw SimilarQuotationError.failedToDomain }
-    
+
     return SimilarQuotationOption(id: optionId,
                                   name: optionName,
                                   imageURL: URL(string: optionImage),
                                   price: CLNumber(Int32(optionPrice)))
   }
 }
-
-

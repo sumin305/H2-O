@@ -10,7 +10,7 @@ import SwiftUI
 struct HelpIcon: View {
   var intent: SimilarQuotationIntentType
   @Binding var showAlert: Bool
-  
+
   var body: some View {
       VStack(alignment: .trailing) {
         HStack(alignment: .top, spacing: 0) {
@@ -28,4 +28,3 @@ struct HelpIcon: View {
       .padding(.horizontal, 16)
     }
 }
-

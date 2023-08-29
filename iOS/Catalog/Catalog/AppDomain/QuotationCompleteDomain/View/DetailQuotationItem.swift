@@ -13,14 +13,14 @@ struct DetailQuotationItem {
   let itemImageWidth: CGFloat = 77
   var intent: QuotationCompleteIntentType
   @State var showAlert: Bool = false
-  
+
 }
 
 extension DetailQuotationItem: View {
-  
+
   var body: some View {
     HStack {
-      
+
       // 이미지
       AsyncCachedImage(url: info.image) { image in
         image
@@ -37,7 +37,7 @@ extension DetailQuotationItem: View {
         Text(info.title).catalogFont(type: .TextKRRegular14).foregroundColor(Color.gray500)
         Text(info.name).catalogFont(type: .TextKRRegular14).foregroundColor(Color.gray900)
       }
-      
+
       Spacer()
       // 가격
       VStack(alignment: .trailing) {
@@ -54,7 +54,7 @@ extension DetailQuotationItem: View {
             Text("수정하기").catalogFont(type: .HeadKRMedium14).foregroundColor(Color.primary0)
           }
         }
-        
+
         Text(info.price.signedWon).catalogFont(type: .TextKRRegular14).foregroundColor(Color.gray900)
       }
     }

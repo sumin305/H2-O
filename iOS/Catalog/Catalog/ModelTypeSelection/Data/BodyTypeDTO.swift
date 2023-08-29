@@ -17,24 +17,23 @@ struct BodyTypeDTO: Codable {
 }
 
 extension BodyTypeDTO: ModelTypeDomainConvertable {
-  
+
   func toDomain() throws -> ModelTypeOption {
-    
+
     guard let id = id else { throw ModelTypeToDomainError.noIdInResponse(from: .BodyType) }
     guard let name = name else { throw ModelTypeToDomainError.noNameInResponse(from: .BodyType) }
     guard let price = price else { throw ModelTypeToDomainError.noPriceInResponse(from: .BodyType) }
-    
-    
+
     var choiceRatioDomain: CLNumber?
     if let choiceRatio = choiceRatio {
       choiceRatioDomain = CLNumber(Int32(choiceRatio))
     }
-    
+
     var imageURL: URL?
     if let imageURLstr = image {
       imageURL = URL(string: imageURLstr)
     }
-    
+
     return ModelTypeOption(id: id,
                            name: name,
                            choiceRatio: choiceRatioDomain,
@@ -42,9 +41,9 @@ extension BodyTypeDTO: ModelTypeDomainConvertable {
                            description: description,
                            thumbnailImageURL: nil,
                            imageURL: imageURL)
-    
+
   }
-  
+
   func toDomain() throws -> BodyTypeModel {
     return BodyTypeModel(
                            id: id ?? 0,

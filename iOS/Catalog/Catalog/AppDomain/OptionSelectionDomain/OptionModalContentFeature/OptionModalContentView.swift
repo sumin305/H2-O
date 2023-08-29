@@ -1,4 +1,4 @@
-  //
+//
 //  OptionModalContentView.swift
 //  Catalog
 //
@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct OptionModalContentView: View {
-  
+
   var state: DetailOptionInfo
   @State var isFold = false
-  
+
     var body: some View {
       VStack(alignment: .leading, spacing: 0) {
         OptionModalImageView(imageURL: state.image, hashTags: state.hashTags)
@@ -24,7 +24,7 @@ struct OptionModalContentView: View {
           .fixedSize(horizontal: false, vertical: true)
           .padding(.horizontal, 16)
           .frame(height: CGFloat(104).scaledHeight, alignment: .top)
-          
+
         if !isFold {
           Group {
             if let hmgData = state.hmgData {

@@ -20,8 +20,6 @@ struct TrimSelectionView: IntentBindingType {
   }
 }
 
-
-
 extension TrimSelectionView: View {
   var body: some View {
     VStack(spacing: 0) {
@@ -43,7 +41,6 @@ extension TrimSelectionView: View {
        intent.send(action: .trimSelected(index: currentIndexBinding))
      }
      .frame(height: CGFloat(480).scaledHeight)
-
 
       // Indicator
       HStack(spacing: 10) {
@@ -70,7 +67,7 @@ extension TrimSelectionView: View {
 }
 
 extension TrimSelectionView {
-  
+
   @ViewBuilder
   static func build(intent: TrimSelectionIntent) -> some View {
 

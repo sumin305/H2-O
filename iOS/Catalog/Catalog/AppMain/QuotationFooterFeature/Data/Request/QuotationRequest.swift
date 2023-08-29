@@ -15,19 +15,19 @@ extension QuotationRequest: RequestProtocol {
   var host: String {
     return API.host
   }
-  
+
   var path: String {
     switch self {
-      case .saveFinalQuotation(_):
+      case .saveFinalQuotation:
         return "/quotation"
     }
   }
-  
-  var headers: [String : String] {
+
+  var headers: [String: String] {
     return [:]
   }
-  
-  var params: [String : Any] {
+
+  var params: [String: Any] {
     switch self {
       case .saveFinalQuotation(let dto):
         do {
@@ -38,23 +38,23 @@ extension QuotationRequest: RequestProtocol {
         }
     }
   }
-  
-  var urlParams: [String : String?] {
+
+  var urlParams: [String: String?] {
     return [:]
   }
-  
+
   var requestType: RequestType {
     switch self {
-      case .saveFinalQuotation(_):
+      case .saveFinalQuotation:
         return .POST
     }
   }
-  
+
   var cachePolicy: URLRequest.CachePolicy {
     switch self {
       default:
         return .useProtocolCachePolicy
     }
   }
-  
+
 }

@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct OptionModalTabContentView: View {
-  
+
   @State var currentPage: Int = 0
   var state: PackageInfo
-  
+
     var body: some View {
       VStack(alignment: .leading) {
         NavigationMenuView(currentPage: $currentPage,
                              navigationMenuTitles: state.components.map { $0.name },
                              titleFont: .TextKRMedium14,
-                             verticalSpacing:0,
+                             verticalSpacing: 0,
                              barType: .dynamic,
                              scrollable: true)
           .frame(maxWidth: .infinity)
           .padding(.leading, CGFloat(30).scaledWidth)
-        
+
         TabView(selection: $currentPage) {
           if state.components.count > 0 {
             ForEach(state.components.indices) { i in

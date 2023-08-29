@@ -10,32 +10,32 @@ import SwiftUI
 extension ExpandableText {
     public func font(_ font: UIFont) -> ExpandableText {
         var result = self
-        
+
         result.font = font
-        
+
         return result
     }
     public func lineLimit(_ lineLimit: Int) -> ExpandableText {
         var result = self
-        
+
         result.lineLimit = lineLimit
         return result
     }
-    
+
     public func foregroundColor(_ color: Color) -> ExpandableText {
         var result = self
-        
+
         result.foregroundColor = color
         return result
     }
-    
+
     public func expandButton(_ expandButton: TextSet) -> ExpandableText {
         var result = self
-        
+
         result.expandButton = expandButton
         return result
     }
-    
+
 }
 
 extension String {
@@ -44,7 +44,7 @@ extension String {
         let size = self.size(withAttributes: fontAttributes)
         return size.height
     }
-    
+
     func widthOfString(usingFont font: UIFont) -> CGFloat {
         let fontAttributes = [NSAttributedString.Key.font: font]
         let size = self.size(withAttributes: fontAttributes)

@@ -15,9 +15,9 @@ enum InteriorColorSelectionModel {
     var trimColors: [InteriorColorState]
     var selectedInteriorImageURL: URL?
   }
-  
+
   struct State: Equatable {
-    
+
   }
 
   enum ViewAction {

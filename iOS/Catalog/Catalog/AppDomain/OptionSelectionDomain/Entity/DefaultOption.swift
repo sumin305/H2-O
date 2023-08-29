@@ -8,12 +8,12 @@
 import Foundation
 
 struct DefaultOption {
-  
+
   var id: Int
   var name: String
   var image: URL?
   var containsHmgData: Bool
   var hashTags: [String]
   var category: OptionCategory
-  
+
 }

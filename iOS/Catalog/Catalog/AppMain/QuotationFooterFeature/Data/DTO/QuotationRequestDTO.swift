@@ -22,4 +22,3 @@ struct QuotationRequestDTO: Encodable {
   var packageIds: [Int]
   var trimId: Int
 }
-

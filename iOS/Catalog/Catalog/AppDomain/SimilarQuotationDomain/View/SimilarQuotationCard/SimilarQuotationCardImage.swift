@@ -21,7 +21,7 @@ extension SimilarQuotationCardImage: View {
               .catalogFont(type: .HeadKRMedium18)
               .foregroundColor(.primary700)
             Text((similarQuotation.price - intent.quotation.totalPrice).signedWon)
-            
+
               .catalogFont(type: .TextKRRegular12)
               .foregroundColor(.sand)
           }

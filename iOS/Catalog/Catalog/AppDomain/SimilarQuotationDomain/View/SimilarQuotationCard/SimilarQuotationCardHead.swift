@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SimilarQuotationCardHead {
-  
+
   @Binding var index: Int
   var similarQuotation: SimilarQuotation
   let trimName: String
@@ -39,7 +39,7 @@ extension SimilarQuotationCardHead: View {
 fileprivate extension Int {
   func count() -> String {
     switch self {
-      case 1 :  return "첫"
+      case 1: return "첫"
       case 2: return "두"
       case 3: return "세"
       case 4: return "네"
@@ -48,8 +48,8 @@ fileprivate extension Int {
   }
 }
 
-fileprivate struct ModelTypeCardShape: ViewModifier {
-  
+private struct ModelTypeCardShape: ViewModifier {
+
   func body(content: Content) -> some View {
     content
       .foregroundColor(.gray500)

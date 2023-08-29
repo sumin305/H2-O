@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OptionCardView: IntentBindingType {
-  
+
   var container: Container<OptionCardViewIntentType, OptionCardModel.ViewState, OptionCardModel.State>
   var intent: OptionCardViewIntentType { container.intent }
   var viewState: OptionCardModel.ViewState { intent.viewState }
@@ -16,13 +16,12 @@ struct OptionCardView: IntentBindingType {
   @SwiftUI.State var isModalPresenting = false
   @SwiftUI.State var isSelected: Bool = false
 
-
 }
 
 extension OptionCardView: View {
-  
+
   var body: some View {
-    
+
     Button {
       intent.send(action: .onTap(option: viewState)) {
         if viewState.price != nil {
@@ -80,14 +79,14 @@ extension OptionCardView: View {
       })
     }
     .buttonStyle(EmptyButtonStyle())
-    
+
   }
-  
+
 }
 
 // MARK: - Private View
 extension OptionCardView {
-  
+
   @ViewBuilder
   private func choiceRatioView() -> some View {
     if let choiceRatio = viewState.choiceRatio {
@@ -100,16 +99,16 @@ extension OptionCardView {
         .catalogFont(type: .TextKRMedium12)
     }
   }
-  
+
   @ViewBuilder
   private func priceView() -> some View {
-    
+
     Text(viewState.price?.signedWon ?? "기본포함")
       .foregroundColor(.gray900)
       .catalogFont(type: .TextKRMedium14)
-    
+
   }
-  
+
   @ViewBuilder
   private func titleView() -> some View {
     Text(viewState.name)
@@ -117,10 +116,10 @@ extension OptionCardView {
       .multilineTextAlignment(.leading)
       .foregroundColor(.gray900)
   }
-  
+
   @ViewBuilder
   private func optionCheckView() -> some View {
-    
+
     ZStack {
       Rectangle()
         .foregroundColor(.clear)
@@ -132,12 +131,12 @@ extension OptionCardView {
             .stroke(isSelected ? .activeBlue : Color.gray100, lineWidth: 1))
       Image("check").renderingMode(.template).foregroundColor(isSelected ? .white : .gray200)
     }
-    
+
   }
-  
+
   @ViewBuilder
   private func optionImageView() -> some View {
-    
+
     ZStack {
       AsyncCachedImage(url: viewState.imageURL) { image in
         image.resizable()
@@ -154,11 +153,11 @@ extension OptionCardView {
             })
           } else {
             Button(action: {
-              
+
               intent.send(action: .onTapDetail) {
                 isModalPresenting.toggle()
               }
-              
+
             }) {
               Text("상세보기")
                 .catalogFont(type: .TextKRMedium12)
@@ -178,12 +177,12 @@ extension OptionCardView {
       .padding(.bottom, 8)
     }
   }
-  
+
 }
 
 // MARK: - Builder
 extension OptionCardView {
-  
+
   @ViewBuilder
   static func build(intent: OptionCardViewIntent) -> some View {
     OptionCardView(container: .init(intent: intent,
@@ -191,7 +190,7 @@ extension OptionCardView {
                                     state: intent.state,
                                     modelChangePublisher: intent.objectWillChange))
   }
-  
+
 }
 
 // MARK: - Private Modifier

@@ -9,43 +9,43 @@ import Foundation
 import Combine
 
 protocol ExteriorSelectionIntentType {
-  
+
   var state: ExteriorSelectionModel.State { get }
-  
+
   var viewState: ExteriorSelectionModel.ViewState { get }
-  
+
   func send(action: ExteriorSelectionModel.ViewAction)
-  
+
   func send(action: ExteriorSelectionModel.ViewAction, viewEffect: (() -> Void)?)
-  
+
 }
 
 final class ExternalSelectionIntent: ObservableObject {
-  
+
   init(initialViewState: ViewState, repository: ExteriorColorRepositoryProtocol, quotation: ExteriorSelectionService) {
     viewState = initialViewState
     self.repository = repository
     self.quotation = quotation
   }
-  
+
   private var repository: ExteriorColorRepositoryProtocol
-  
+
   typealias State = ExteriorSelectionModel.State
   typealias ViewState = ExteriorSelectionModel.ViewState
   typealias ViewAction = ExteriorSelectionModel.ViewAction
-  
+
   @Published var viewState: ExteriorSelectionModel.ViewState
   var state: State = .init()
-  
+
   var cancellable: Set<AnyCancellable> = []
-  
+
   private var quotation: ExteriorSelectionService
   let imageCacher = ImageCacheService.shared
   var imgs: [Data] = Array(repeating: Data(), count: 60)
 }
 
 extension ExternalSelectionIntent: ExteriorSelectionIntentType, IntentType {
-  
+
   func mutate(action: ExteriorSelectionModel.ViewAction, viewEffect: (() -> Void)?) {
     switch action {
       case .onAppear:
@@ -85,7 +85,7 @@ extension ExternalSelectionIntent: ExteriorSelectionIntentType, IntentType {
       viewState.currentSelectedIndex = viewState.colors.firstIndex(where: {$0.color.id == id}) ?? 0
         print("@@@@\(id)")
       quotation.updateExteriorColor(to: viewState.colors.first(where: { $0.color.id == id })?.color)
-      
+
         for i in viewState.colors.indices {
           if viewState.colors[i].color.id == id {
             viewState.colors[i].isSelected = true
@@ -96,5 +96,5 @@ extension ExternalSelectionIntent: ExteriorSelectionIntentType, IntentType {
         }
     }
   }
-  
+
 }

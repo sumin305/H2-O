@@ -13,7 +13,7 @@ struct RotatingCircle {
   @State private var animateEnd = true
 }
 extension RotatingCircle: View {
-  
+
   var body: some View {
     ZStack {
       Image("loading_small_circle")
@@ -21,7 +21,7 @@ extension RotatingCircle: View {
       Image("loading_circle")
       Image("loading_big_circle")
       Circle()
-        .trim(from: animateStart ? 1/2 : 1/9,to: animateEnd ? 2/5 : 1)
+        .trim(from: animateStart ? 1/2 : 1/9, to: animateEnd ? 2/5 : 1)
         .stroke(lineWidth: 3)
         .rotationEffect(.degrees(isRotating ? 360 : 0))
         .frame(width: 54, height: 54)

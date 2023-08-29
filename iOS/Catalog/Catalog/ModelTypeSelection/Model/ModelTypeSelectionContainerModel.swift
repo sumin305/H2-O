@@ -21,12 +21,11 @@ enum ModelTypeSelectionContainerModel {
     case modelTypeOptions(options: [ModelType])
     case calculateFuelEfficiency(typeId: Int, selectedOptionId: Int)
   }
-  
+
   enum ModelTypeID: Int {
     case powerTrain = 0
     case bodyType
     case driveTrain
   }
-  
 
 }

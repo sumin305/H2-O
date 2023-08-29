@@ -25,7 +25,7 @@ struct NavigationMenuTitleView: View {
       }
     }
   }
-  
+
   enum BarType {
     case fixed
     case dynamic
@@ -39,7 +39,7 @@ struct NavigationMenuTitleView: View {
   var font: CatalogTextType
   var spacing: CGFloat = 6
   var barWidthType: BarType = .fixed
-  
+
   @State private var barWidth: CGFloat = 18
   @State private var textSize: CGSize = .zero
 
@@ -78,7 +78,6 @@ struct NavigationMenuTitleView: View {
 
   }
 }
-
 
 struct ViewSizeKey: PreferenceKey {
     static var defaultValue: CGSize = .zero

@@ -21,7 +21,7 @@ extension AppMainRouteView {
     .init(get: { viewState.currentPage },
           set: { intent.send(action: .onTapNavTab(index: $0)) })
   }
-  
+
   var showQuotationSummarySheetBinding: Binding<Bool> {
     .init(get: { viewState.showQuotationSummarySheet },
           set: {_ in })
@@ -53,29 +53,27 @@ extension AppMainRouteView: View {
   }
 }
 
-
 extension AppMainRouteView {
-  
+
   func makeQuotationSummarySheet() -> some View {
     CLQuotationSummarySheet(currentQuotationPrice: quotation.totalPrice,
                             quotation: quotation,
                             summaryQuotation: quotation.summary(), showQuotationSummarySheet: $showQuotationSummarySheet)
   }
-  
+
   @ViewBuilder
   func ifTrimSelectionPageShowFooterView() -> some View {
     if viewState.currentPage != 0 {
       makeFooterView()
     }
   }
-  
+
   func navigationLinkToSimilarQuotationView() -> some View {
     NavigationLink(destination: makeSimilarQuotationView(),
                    isActive: showQuotationSummarySheetBinding,
                    label: { Text("") })
   }
-  
-  
+
   @ViewBuilder
   func carTalogBudgetView() -> some View {
     if viewState.currentPage != 0 && viewState.currentPage != 5 {
@@ -94,44 +92,61 @@ extension AppMainRouteView {
                   status: .complete), navigationIntent: intent, quotation: quotation))
     }
   }
-  
+
   func carTalogTabView() -> some View {
     TabView(selection: currentPageBinding) {
-      
+
       makeTrimSelectionView()
       makeModelSelectionView()
       makeExteriorView()
       makeInteriorView()
       makeOptionSelectionView()
       makeQuotationCompleteView()
-      
+
     }
     .onAppear { UIScrollView.appearance().isScrollEnabled = false }
     .tabViewStyle(.page(indexDisplayMode: .never))
   }
-  
+
   func makeQuotationCompleteView() -> some View {
-    QuotationCompleteView.build(intent: .init(initialState: .init(summaryQuotation: SummaryCarQuotation.mock(), technicalSpec: .init(displacement: CLNumber(0), fuelEfficiency: 0.0), nextNavIndex: 0, alertCase: .delete(id: 0), showSheet: false, showAlert: false, alertTitle: ""), repository: QuotationCompleteRepository(quotationCompleteRequestManager: RequestManager(apiManager: APIManager())), quotation: quotation, navigationIntent: intent) )
+    QuotationCompleteView.build(intent: .init(initialState: .init(
+      summaryQuotation: SummaryCarQuotation.mock(),
+      technicalSpec: .init(displacement: CLNumber(0), fuelEfficiency: 0.0),
+      nextNavIndex: 0,
+      alertCase: .delete(id: 0),
+      showSheet: false,
+      showAlert: false,
+      alertTitle: ""),
+      repository: QuotationCompleteRepository(quotationCompleteRequestManager: RequestManager(apiManager: APIManager())), quotation: quotation, navigationIntent: intent) )
       .tag(5)
   }
-  
+
   func makeOptionSelectionView() -> some View {
-    
+
     OptionSelectionView.build(intent: .init(initialState: .init(currentPage: 0,
                                                                 additionalOptionState: .init(cardStates: [], selectedFilterId: 0),
-                                                                defaultOptionState: .init(cardStates: [], selectedFilterId: 0)), repository: OptionSelectionRepository(requestManager: RequestManager(apiManager: OptionSelectionAPIManager()), trimID: 2), quotation: quotation)).tag(4)
-    
+
+                                                                defaultOptionState: .init(
+                                                                  cardStates: [],
+                                                                  selectedFilterId: 0)),
+                                            repository: OptionSelectionRepository(requestManager: RequestManager(apiManager: OptionSelectionAPIManager()), trimID: 2), quotation: quotation)).tag(4)
+
   }
-  
+
   func makeSimilarQuotationView() -> some View {
-    
-    SimilarQuotationView.build(intent: .init(initialState: .init(currentSimilarQuotationIndex: 0, similarQuotations: [], selectedOptions: [], alertCase: .noOption, showAlert: false, currentSimilarQuotationPrice: CLNumber(0)), repository: SimilarQuotationRepository(requestManager: RequestManager(apiManager: APIManager())), navigationIntent: self.intent, budgetRangeIntent: makeCLBudgetRangeIntent(), quotation: quotation), navitationIntent: intent)
-    
+
+    SimilarQuotationView.build(intent:
+        .init(initialState:
+            .init(currentSimilarQuotationIndex: 0, similarQuotations: [], selectedOptions: [], alertCase: .noOption, showAlert: false, currentSimilarQuotationPrice: CLNumber(0)),
+              repository: SimilarQuotationRepository(requestManager: RequestManager(apiManager: APIManager())),
+              navigationIntent: self.intent,
+              budgetRangeIntent: makeCLBudgetRangeIntent(), quotation: quotation),
+              navitationIntent: intent)
+
   }
-  
-  
+
   func makeFooterView() -> some View {
-    
+
     QuotationFooterView.build(intent: QuotationFooterIntent(initialViewState: .init(totalPrice: quotation.totalPrice, summary: quotation.summary()), initialState: .init(),
                                                             repository: QuotationFooterRepository(quotationFooterRequestManager: RequestManager(apiManager: APIManager())),
                                                             quotation: quotation),
@@ -139,7 +154,7 @@ extension AppMainRouteView {
                               nextAction: { intent.send(action: .onTapNavTab(index: viewState.currentPage + 1))},
                               currentPage: currentPageBinding, showQuotationSummarySheet: $showQuotationSummarySheet)
   }
-  
+
   func makeTrimSelectionView() -> some View {
     TrimSelectionView.build(intent: TrimSelectionIntent(
       initialState: .init(
@@ -147,14 +162,16 @@ extension AppMainRouteView {
       repository: TrimSelectionRepository(), quotation: quotation, navigationIntent: intent))
     .tag(0)
   }
-  
+
   func makeModelSelectionView() -> some View {
-    ModelTypeSelectionView.build(intent: .init(initialState: .init(), initialViewState: .init(), repository: ModelTypeRepository(modelTypeRequestManager: RequestManager(apiManager: APIManager())), quotation: quotation))
+    ModelTypeSelectionView.build(intent: .init(initialState: .init(),
+                                               initialViewState: .init(),
+                                               repository: ModelTypeRepository(modelTypeRequestManager: RequestManager(apiManager: APIManager())), quotation: quotation))
       .tag(1)
   }
-  
+
   func makeInteriorView() -> some View {
-    
+
     InteriorColorSelectionView.build(
       intent: .init(initialState: .init(selectedTrimID: 2,
                                         selectedColorId: 1,
@@ -163,24 +180,30 @@ extension AppMainRouteView {
                       requestManager: RequestManager(
                         apiManager: InteriorAPIManager())), quotation: quotation))
     .tag(3)
-    
+
   }
-  
+
   func makeExteriorView() -> some View {
-    
+
     ExteriorSelectionView.build(
       intent: .init(initialViewState: .init(selectedTrimId: 2),
                     repository: ExteriorColorRepository(
                       requestManager: RequestManager(
                         apiManager: ExteriorColorAPIManager())), quotation: quotation))
     .tag(2)
-    
+
   }
-  
+
   func makeCLBudgetRangeIntent() -> CLBudgetRangeIntent {
-    CLBudgetRangeIntent(initialState: .init(currentQuotationPrice: quotation.totalPrice, budgetPrice: .init(0), status: .similarQuotation), navigationIntent: AppMainRouteIntent(initialState: .init(currentPage: 5, showQuotationSummarySheet: false, alertCase: .guide, showAlert: false)), quotation: quotation)
+    CLBudgetRangeIntent(initialState:
+        .init(currentQuotationPrice: quotation.totalPrice, budgetPrice: .init(0), status: .similarQuotation),
+                        navigationIntent: AppMainRouteIntent(initialState: .init(currentPage: 5,
+                                                                                 showQuotationSummarySheet: false,
+                                                                                 alertCase: .guide,
+                                                                                 showAlert: false)),
+                        quotation: quotation)
   }
-  
+
   @ViewBuilder
   static func build(intent: AppMainRouteIntent) -> some View {
     AppMainRouteView(container: .init(

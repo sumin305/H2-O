@@ -32,7 +32,7 @@ final class ModelTypeIntent: ObservableObject {
   @Published var state: State = .init()
 
   var cancellable: Set<AnyCancellable> = []
-  
+
   weak var parent: ModelTypeSelectionContainerIntentType?
 
 }
@@ -44,11 +44,11 @@ extension ModelTypeIntent: ModelTypeIntentType, IntentType {
     case .onTapDetailButton(let isPresenting):
       state.isModalPresenting = isPresenting
     case .onTapOptions(let index, let id):
-      
+
       toggleAll(index: index)
       state.selectedId = id
       state.selectedIndex = index
-            
+
       if state.title == "파워트레인" {
         parent?.send(action: .calculateFuelEfficiency(typeId: 0, selectedOptionId: state.selectedId))
       } else if state.title == "구동방식" {
@@ -60,7 +60,7 @@ extension ModelTypeIntent: ModelTypeIntentType, IntentType {
 }
 
 extension ModelTypeIntent {
-  
+
   private func toggleAll(index: Int) {
     for i in 0..<state.optionStates.count {
       if i == index {
@@ -70,5 +70,5 @@ extension ModelTypeIntent {
       }
     }
   }
-  
+
 }

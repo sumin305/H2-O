@@ -8,9 +8,9 @@
 import Foundation
 
 protocol InteriorSelectionService {
-  
+
   func updateInteriorColor(to color: InteriorColor?)
-  
+
 }
 
 extension Quotation: InteriorSelectionService {

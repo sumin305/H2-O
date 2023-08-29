@@ -8,28 +8,28 @@
 import Foundation
 
 protocol CachedResponseHandler {
-  
+
   func dataTask(_ task: URLSessionDataTask,
                 willCacheResponse response: CachedURLResponse) async -> CachedURLResponse?
-  
+
 }
 
 struct CLResponseCacher: CachedResponseHandler {
 
   enum CacheBehavior {
-    
+
     case cache
-    
+
     case doNotCache
-    
+
   }
-  
+
   static let cache = CLResponseCacher(behavior: .cache)
-  
+
   static let doNotCache = CLResponseCacher(behavior: .doNotCache)
-  
+
   let behavior: CacheBehavior
-  
+
   func dataTask(_ task: URLSessionDataTask, willCacheResponse response: CachedURLResponse) async -> CachedURLResponse? {
 
     switch behavior {
@@ -38,8 +38,7 @@ struct CLResponseCacher: CachedResponseHandler {
     case .doNotCache:
       return nil
     }
-  
+
   }
-  
-  
+
 }

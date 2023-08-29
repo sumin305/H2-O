@@ -11,23 +11,23 @@ import Combine
 protocol OptionSelectionIntentType {
 
   var viewState: OptionSelectionModel.ViewState { get }
-  
+
   var state: OptionSelectionModel.State { get }
 
   func send(action: OptionSelectionModel.ViewAction)
 
   func send(action: OptionSelectionModel.ViewAction, viewEffect: (() -> Void)?)
-  
+
   var repository: OptionSelectionRepositoryProtocol { get }
 
 }
 
 protocol OptionSelectionCollectable: AnyObject {
-  
+
   var selectedExtraOptions: Set<OptionCardModel.ViewState> { get }
-  
+
   func selectedOption(with option: OptionCardModel.ViewState)
-  
+
 }
 
 final class OptionSelectionIntent: ObservableObject {
@@ -52,15 +52,15 @@ final class OptionSelectionIntent: ObservableObject {
 }
 
 extension OptionSelectionIntent: OptionSelectionCollectable {
-  
+
   func selectedOption(with option: OptionCardModel.ViewState) {
-    
+
     if selectedExtraOptions.contains(option) {
       selectedExtraOptions.remove(option)
     } else {
       selectedExtraOptions.insert(option)
     }
-    quotation.updateOption(to: Array(selectedExtraOptions))    
+    quotation.updateOption(to: Array(selectedExtraOptions))
   }
 
 }

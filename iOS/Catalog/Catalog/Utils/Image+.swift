@@ -32,7 +32,5 @@ extension Image {
     return nil
 #endif
   }
-  
-}
 
-  
+}

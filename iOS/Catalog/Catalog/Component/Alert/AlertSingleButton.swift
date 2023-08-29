@@ -22,6 +22,6 @@ struct AlertSingleButton: View {
   }
 
   var body: some View {
-    CLButton(mainText: submitText ?? "확인", height: 52, backgroundColor: Color.primary700, buttonAction: {submitAction()} )
+    CLButton(mainText: submitText ?? "확인", height: 52, backgroundColor: Color.primary700, buttonAction: {submitAction()})
   }
 }

@@ -9,11 +9,11 @@ import SwiftUI
 
 struct CLBudgetRangeView: IntentBindingType {
   @StateObject var container: Container<CLBudgetRangeIntentType, CLBudgetRangeModel.ViewState, CLBudgetRangeModel.State>
-  
+
   var intent: CLBudgetRangeIntentType { container.intent }
   var state: CLBudgetRangeModel.State { intent.state }
   var viewState: CLBudgetRangeModel.ViewState { intent.viewState }
-  
+
   @SwiftUI.State var isFloatingExpanded: Bool = false
 }
 
@@ -22,12 +22,12 @@ extension CLBudgetRangeView {
     .init(get: { viewState.budgetPrice },
           set: { intent.send(action: .budgetChanged(newBudgetPrice: $0)) })
   }
-  
+
   var isExceedBudgetBinding: Binding<Bool> {
     .init(get: { viewState.isExceedBudget },
           set: { _ in intent.send(action: .exceedBudgetChanged) })
   }
-  
+
   var currentQuotationPriceBinding: Binding<CLNumber> {
     .init(get: { viewState.currentQuotationPrice }, set: { _ in })
   }
@@ -69,7 +69,7 @@ extension CLBudgetRangeView: View {
         }
         .padding(.top, CGFloat(9.5).scaledHeight)
         .padding(.bottom, isFloatingExpanded ? CGFloat(15.5).scaledHeight : CGFloat(8.5).scaledHeight)
-        
+
         if isFloatingExpanded {
           // MARK: - 슬라이더
           switch viewState.status {
@@ -111,7 +111,6 @@ extension CLBudgetRangeView: View {
   }
 }
 
-
 extension CLBudgetRangeView {
   @ViewBuilder
   static func build(intent: CLBudgetRangeIntent) -> some View {
@@ -138,4 +137,3 @@ extension CLBudgetRangeView {
     return text
   }
 }
-

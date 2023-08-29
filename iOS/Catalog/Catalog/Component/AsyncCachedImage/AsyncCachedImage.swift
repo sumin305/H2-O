@@ -8,31 +8,30 @@
 import SwiftUI
 
 struct AsyncCachedImage<Content: View, Placeholder: View, Fail: View>: View {
-  
+
   enum AsyncCachedImageError: Error {
     case invalidData
   }
-  
+
   enum Status {
     case idle
     case loading
     case failed(Error)
     case loaded(Image)
   }
-  
+
   @ViewBuilder
   let content: (Image) -> Content
-  
+
   @ViewBuilder
   let placeholder: (() -> Placeholder)?
-  
+
   @ViewBuilder
   let fail: ((Error) -> Fail)?
-  
+
   private var imageCacher = ImageCacheService.shared
   var imageURL: URL?
   @State private var status: Status = .idle
-  
 
   init(
     url: URL?,
@@ -40,18 +39,18 @@ struct AsyncCachedImage<Content: View, Placeholder: View, Fail: View>: View {
     placeholder: (() -> Placeholder)?,
     fail: ((Error) -> Fail)?
   ) {
-    
+
     self.imageURL = url
     self.content = content
     self.placeholder = placeholder
     self.fail = fail
-    
+
     if let imageURL = self.imageURL {
       startLoading(url: imageURL)
     }
-    
+
   }
-  
+
     var body: some View {
       Group {
         imageView
@@ -69,7 +68,7 @@ struct AsyncCachedImage<Content: View, Placeholder: View, Fail: View>: View {
         startLoading(url: url)
       }
     }
-  
+
   @ViewBuilder
   var imageView: some View {
       switch status {
@@ -87,9 +86,9 @@ struct AsyncCachedImage<Content: View, Placeholder: View, Fail: View>: View {
           content(image)
       }
   }
-  
+
   func startLoading(url: URL) {
-    
+
     status = .loading
     Task {
       do {
@@ -103,14 +102,14 @@ struct AsyncCachedImage<Content: View, Placeholder: View, Fail: View>: View {
       } catch {
         status = .failed(error)
       }
-      
+
     }
   }
-  
+
 }
 
 extension AsyncCachedImage {
-  
+
   init(
       url: URL?,
       content: @escaping (Image) -> Content,
@@ -122,11 +121,11 @@ extension AsyncCachedImage {
       self.fail = fail
       self.status = status
   }
-  
+
   init(
       url: URL?,
       content: @escaping (Image) -> Content
-  ) where Placeholder == EmptyView , Fail == EmptyView {
+  ) where Placeholder == EmptyView, Fail == EmptyView {
       self.imageURL = url
       self.content = content
       self.placeholder = nil
@@ -146,7 +145,7 @@ extension AsyncCachedImage {
       self.fail = fail
       self.status = status
   }
-  
+
   init(
       url: URL?,
       content: @escaping (Image) -> Content,

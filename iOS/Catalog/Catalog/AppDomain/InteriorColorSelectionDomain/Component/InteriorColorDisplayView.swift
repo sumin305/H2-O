@@ -15,7 +15,7 @@ struct InteriorColorDisplayView: ColorContentable {
   var body: some View {
     imageDisplayView()
   }
-  
+
   @ViewBuilder
   private func imageDisplayView() -> some View {
     switch color {
@@ -25,7 +25,7 @@ struct InteriorColorDisplayView: ColorContentable {
         .resizable()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
-    case .exterior(_):
+    case .exterior:
       EmptyView()
     }
   }

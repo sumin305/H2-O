@@ -8,7 +8,7 @@
 import Foundation
 
 struct PackageInfo: ModalItemable, Equatable {
-  
+
   let id: Int
   let title: String
   let category: OptionCategory = .total
@@ -18,13 +18,13 @@ struct PackageInfo: ModalItemable, Equatable {
   let isOverHalf: Bool?
   let hashTags: [String]
   let components: [PackageComponent]
-  
+
 }
 
 extension PackageInfo {
-  
+
   static func mock() -> Self {
     .init(id: .init(), title: "", price: .init(0), choiceRatio: nil, choiceCount: nil, isOverHalf: nil, hashTags: [], components: [])
   }
-  
+
 }

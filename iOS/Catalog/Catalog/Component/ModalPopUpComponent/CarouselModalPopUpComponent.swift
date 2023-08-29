@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct CarouselModalPopUpComponent<ModalPopUpContent: View, Item: ModalItemable>: View {
 
   var modalContentItems: [Item]
@@ -25,7 +24,6 @@ struct CarouselModalPopUpComponent<ModalPopUpContent: View, Item: ModalItemable>
   @State var currentIndexBinding: Int = 0
 
 }
-
 
 extension CarouselModalPopUpComponent {
 
@@ -46,7 +44,7 @@ extension CarouselModalPopUpComponent {
           .onChange(of: currentIndexBinding) { _ in
           }
           .frame(height: CGFloat(487).scaledHeight)
-          
+
         }
         Spacer().frame(height: CGFloat(48).scaledHeight)
         HStack(spacing: 10) {
@@ -78,16 +76,15 @@ extension CarouselModalPopUpComponent {
 }
 
 extension CarouselModalPopUpComponent {
-  
-  
+
   @ViewBuilder
   func contentView(state: Item) -> some View {
-    
+
     var isSelectedBinding: Binding<Bool> {
       .init(get: { isInactive(state: state)},
             set: { _ in })
     }
-    
+
     VStack {
       titleView(state.title)
         .padding(.horizontal, 16)
@@ -107,9 +104,9 @@ extension CarouselModalPopUpComponent {
       .frame(height: CGFloat(56).scaledHeight)
     }
     .background(.white)
-    
+
   }
-  
+
   @ViewBuilder
   func titleView(_ text: String) -> some View {
     ZStack(alignment: .center) {
@@ -131,7 +128,7 @@ extension CarouselModalPopUpComponent {
     }
     .frame(height: CGFloat(60).scaledHeight)
   }
-  
+
   private func isInactive(state: Item) -> Bool {
     guard let id = state.id as? Int else { return false }
     return id != selectedId

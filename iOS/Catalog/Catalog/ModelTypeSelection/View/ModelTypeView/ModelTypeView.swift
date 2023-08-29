@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct ModelTypeView: IntentBindingType {
-  
+
   @StateObject var container: Container<ModelTypeIntentType, ModelTypeModel.State>
   var intent: ModelTypeIntentType { container.intent }
   var state: ModelTypeModel.State { intent.state }
 }
 
 extension ModelTypeView {
-  
+
   private var isModalPresenting: Binding<Bool> {
     .init(get: { state.isModalPresenting && !state.modelTypeDetailState.isEmpty },
           set: { intent.send(action: .onTapDetailButton(isPresenting: $0)) })
   }
-  
+
 }
 
 extension ModelTypeView: View {
-  
+
   var body: some View {
     VStack(alignment: .leading) {
       Text(state.title)
@@ -42,7 +42,7 @@ extension ModelTypeView: View {
           HMGButton {
             intent.send(action: .onTapDetailButton(isPresenting: !state.isModalPresenting))
           }
-          
+
         }
         Spacer().frame(height: 8)
         ModelTypeButtonContainer(intent: intent, options: state.optionStates)

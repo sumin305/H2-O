@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HMGModelTypeState: Equatable {
- 
+
   var engineOutput: MaxOutputFromEngine
   var torque: MaxTorqueFromEngine
   var enginePercent: Double
@@ -54,15 +54,15 @@ extension HMGDataWithHorizontalGraphView {
 }
 
 fileprivate extension Double {
-  
+
   func toRPMMetricDescription() -> String {
-    
+
     if Double(Int(self)) == self {
       return "\(Int(self))"
     } else {
       return String(format: "%.1f", self)
     }
-      
+
   }
-  
+
 }

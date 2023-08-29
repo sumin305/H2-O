@@ -21,11 +21,11 @@ enum SimilarQuotationModel {
     var showAlert: Bool
     var currentSimilarQuotationPrice: CLNumber
   }
-  
+
   struct State: Equatable {
-    
+
   }
-  
+
   enum ViewAction: Equatable {
     case onAppear(quotation: CarQuotation)
     case currentSimilarQuotationIndexChanged(index: Int)

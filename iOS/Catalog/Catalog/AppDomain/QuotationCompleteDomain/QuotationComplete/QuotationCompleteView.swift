@@ -11,18 +11,18 @@ import UIKit
 struct QuotationCompleteView: IntentBindingType {
 
   @StateObject var container: Container<QuotationCompleteIntentType, QuotationCompleteModel.ViewState, QuotationCompleteModel.State>
-  
+
   var intent: QuotationCompleteIntentType {  container.intent }
   var viewState: QuotationCompleteModel.ViewState { intent.viewState }
   var state: QuotationCompleteModel.State { intent.state }
-  
+
   @SwiftUI.State var isExternal: Bool = true
 }
 
 extension QuotationCompleteView {
   var showSheetBinding: Binding<Bool> {
     .init(get: { viewState.showSheet },
-          set: { bool in intent.send(action: .showSheetChanged(showSheet: bool)) } )
+          set: { bool in intent.send(action: .showSheetChanged(showSheet: bool)) })
   }
 }
 

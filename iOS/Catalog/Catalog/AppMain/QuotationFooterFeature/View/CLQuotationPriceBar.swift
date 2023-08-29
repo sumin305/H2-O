@@ -38,5 +38,3 @@ extension CLQuotationPriceBar {
         }
     }
 }
-
-

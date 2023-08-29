@@ -13,7 +13,7 @@ struct DetailQuotationList: View {
   @State var modeltypeFloating = true
   @State var colorFloating = false
   @State var optionFloating = false
-  
+
   var body: some View {
     VStack {
       Section(header: DetailQuotationTitle(title: "모델타입", isFloating: $modeltypeFloating)) {
@@ -95,7 +95,7 @@ struct DetailQuotationList: View {
 
 private struct ScrollOffsetKey: PreferenceKey {
   static var defaultValue: CGFloat = .zero
-  
+
   static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
     value += nextValue()
   }

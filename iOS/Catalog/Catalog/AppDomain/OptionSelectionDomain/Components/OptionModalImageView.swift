@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct OptionModalImageView: View {
-  
+
   var imageURL: URL?
   var hashTags: [String] = []
-  
+
     var body: some View {
       ZStack {
         AsyncCachedImage(url: imageURL) { image in

@@ -10,39 +10,39 @@ import Combine
 import SwiftUI
 
 protocol QuotationFooterIntentType {
-  
+
   var state: QuotationFooterModel.State { get }
   var viewState: QuotationFooterModel.ViewState { get }
-  
+
   func send(action: QuotationFooterModel.ViewAction)
-  
+
   func send(action: QuotationFooterModel.ViewAction, viewEffect: (() -> Void)?)
-  
+
   var quotation: QuotationFooterService { get }
 }
 
 final class QuotationFooterIntent: ObservableObject {
-  
-  init(initialViewState: ViewState, initialState: State, repository: QuotationFooterRepositoryProtocol , quotation: QuotationFooterService) {
+
+  init(initialViewState: ViewState, initialState: State, repository: QuotationFooterRepositoryProtocol, quotation: QuotationFooterService) {
     state = initialState
-    
+
     self.repository = repository
     self.quotation = quotation
   }
-  
+
   typealias State = QuotationFooterModel.State
   typealias ViewState = QuotationFooterModel.ViewState
   typealias ViewAction = QuotationFooterModel.ViewAction
-  
+
   @Published var viewState: ViewState = .init(totalPrice: CLNumber(0), summary: SummaryCarQuotation.mock())
   var state: QuotationFooterModel.State = .init()
-  
+
   var cancellable: Set<AnyCancellable> = []
-  
+
   private var repository: QuotationFooterRepositoryProtocol
-  
+
   var quotation: QuotationFooterService
-  
+
 }
 
 extension QuotationFooterIntent: QuotationFooterIntentType, IntentType {
@@ -71,6 +71,3 @@ extension QuotationFooterIntent: QuotationFooterIntentType, IntentType {
     }
   }
 }
-
-
-

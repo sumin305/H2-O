@@ -21,18 +21,18 @@ struct HMGDataCard {
 extension HMGDataCard: View {
   var body: some View {
     ZStack(alignment: .leading) {
-      
+
       VStack(alignment: .leading) {
         HMGTag()
         Spacer()
       }
-      
-      VStack(alignment: .leading , spacing: CGFloat(16).scaledHeight) {
+
+      VStack(alignment: .leading, spacing: CGFloat(16).scaledHeight) {
         Text(attributedString)
           .catalogFont(type: .TextKRMedium12)
           .frame(width: CGFloat(252).scaledWidth, height: CGFloat(16).scaledWidth, alignment: .leading)
           .padding(.top, CGFloat(12).scaledHeight)
-        
+
         if options.isEmpty {
           Spacer().frame(height: CGFloat(94).scaledHeight)
         } else {
@@ -43,9 +43,9 @@ extension HMGDataCard: View {
                   .catalogFont(type: .TextKRRegular10)
                   .foregroundColor(Color.gray900)
                   .frame(height: CGFloat(36).scaledHeight, alignment: .topLeading)
-                
+
                 Divider().frame(width: CGFloat(60).scaledWidth)
-                
+
                 Text("\(options[idx].optionFrequency)회")
                   .catalogFont(type: .HeadKRRegular24)
                   .foregroundColor(Color.gray900)
@@ -71,5 +71,3 @@ struct HMGDataCard_Previews: PreviewProvider {
                           HMGDatum(optionTitle: "후방 교차\n충돌방지 보조", optionFrequency: 42)])
   }
 }
-
-

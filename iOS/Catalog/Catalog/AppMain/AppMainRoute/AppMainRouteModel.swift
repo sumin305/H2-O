@@ -20,11 +20,11 @@ enum AppMainRouteModel {
     var showAlert: Bool
 
   }
-  
+
   struct State: Equatable {
-    
+
   }
-  
+
   enum ViewAction: Equatable {
     case onTapNavTab(index: Int)
     case onTapFinish

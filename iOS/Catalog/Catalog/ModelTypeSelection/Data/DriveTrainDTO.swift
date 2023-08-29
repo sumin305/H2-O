@@ -17,24 +17,23 @@ struct DriveTrainDTO: Codable {
 }
 
 extension DriveTrainDTO: ModelTypeDomainConvertable {
-  
+
   func toDomain() throws -> ModelTypeOption {
-    
+
     guard let id = id else { throw ModelTypeToDomainError.noIdInResponse(from: .DriveTrain) }
     guard let name = name else { throw ModelTypeToDomainError.noNameInResponse(from: .DriveTrain) }
     guard let price = price else { throw ModelTypeToDomainError.noPriceInResponse(from: .DriveTrain) }
-    
-    
+
     var choiceRatioDomain: CLNumber?
     if let choiceRatio = choiceRatio {
       choiceRatioDomain = CLNumber(Int32(choiceRatio))
     }
-    
+
     var imageURL: URL?
     if let imageURLstr = image {
       imageURL = URL(string: imageURLstr)
     }
-    
+
     return ModelTypeOption(id: id,
                            name: name,
                            choiceRatio: choiceRatioDomain,
@@ -42,9 +41,9 @@ extension DriveTrainDTO: ModelTypeDomainConvertable {
                            description: description,
                            thumbnailImageURL: nil,
                            imageURL: imageURL)
-    
+
   }
-  
+
   func toDomain() throws -> DriveTrainModel {
     return DriveTrainModel(
                            id: id ?? 0,

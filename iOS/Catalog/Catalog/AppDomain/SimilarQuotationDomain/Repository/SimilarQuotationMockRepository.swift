@@ -8,7 +8,7 @@
 import Foundation
 
 struct SimilarQuotationMockRepository: SimilarQuotationRepositoryProtocol {
-    
+
   func fetchSimilarQuotation(quotation: CarQuotation) async throws -> [SimilarQuotation] {
     let manager = RequestManager(apiManager: MockAPIManager())
     guard let data = JSONLoader.load(with: "SimilarQuotations") else { return [] }
@@ -23,15 +23,15 @@ struct SimilarQuotationMockRepository: SimilarQuotationRepositoryProtocol {
                                                                                                                      drivetrainId: quotation.drivetrain.id),
                                                                                  internalColorId: quotation.internalColor.id,
                                                                                  externalColorId: quotation.externalColor.id,
-                                                                                 optionIds: quotation.options.filter{!$0.isPackage}.map{$0.id},
-                                                                                 packageIds: quotation.options.filter{$0.isPackage}.map{$0.id})))
+                                                                                 optionIds: quotation.options.filter {!$0.isPackage}.map {$0.id},
+                                                                                 packageIds: quotation.options.filter {$0.isPackage}.map {$0.id})))
     let entity: [SimilarQuotation] = dto.compactMap { do {
       return try $0.toDomain()
-    } catch(let e) {
+    } catch let e {
       print("\(e.localizedDescription)")
       return nil
     }}
-    
+
     return entity
   }
 }

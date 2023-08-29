@@ -8,7 +8,7 @@
 import Foundation
 
 struct ModelTypeOption: Equatable {
-  
+
   var id: Int
   var name: String
   var choiceRatio: CLNumber?
@@ -18,5 +18,5 @@ struct ModelTypeOption: Equatable {
   var imageURL: URL?
   var maxOuputFromEngine: MaxOutputFromEngine?
   var maxTorqueFromEngine: MaxTorqueFromEngine?
-  
+
 }

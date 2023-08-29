@@ -8,7 +8,7 @@
 import Foundation
 
 struct ExtraOption {
-  
+
   var id: Int
   var isPackage: Bool
   var category: OptionCategory
@@ -18,6 +18,5 @@ struct ExtraOption {
   var choiceRatio: CLNumber?
   var price: CLNumber
   var image: URL?
-  
-}
 
+}

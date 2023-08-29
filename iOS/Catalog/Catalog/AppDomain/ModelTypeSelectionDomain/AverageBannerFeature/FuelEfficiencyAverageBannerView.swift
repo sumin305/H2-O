@@ -10,15 +10,15 @@ import SwiftUI
 struct FuelEfficiencyAverageBannerView: IntentBindingType {
 
   @StateObject var container: Container<FuelEfficiencyAverageBannerIntentType, FuelEfficiencyAverageBannerModel.ViewState, FuelEfficiencyAverageBannerModel.State>
-  
+
   var intent: FuelEfficiencyAverageBannerIntentType {
     container.intent
   }
-  
+
   var viewState: FuelEfficiencyAverageBannerModel.ViewState {
     intent.viewState
   }
-  
+
   var state: FuelEfficiencyAverageBannerModel.State {
     intent.state
   }
@@ -63,9 +63,8 @@ extension FuelEfficiencyAverageBannerView: View {
 
 extension FuelEfficiencyAverageBannerView {
   static func build(intent: FuelEfficiencyAverageBannerIntent) -> some View {
-    
+
     FuelEfficiencyAverageBannerView(container: .init(intent: intent, viewState: intent.viewState, state: intent.state, modelChangePublisher: intent.objectWillChange))
-    
+
   }
 }
-

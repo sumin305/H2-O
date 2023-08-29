@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SimilarHMGOption: View {
-  
+
   var option: SimilarQuotationOption
   var intent: SimilarQuotationIntentType
   var state: SimilarQuotationModel.ViewState
-  
+
   var body: some View {
     Button {
       intent.send(action: .optionSelected(selectedOption: option))
@@ -21,7 +21,7 @@ struct SimilarHMGOption: View {
         AsyncCachedImage(url: option.imageURL) { image in
           image
             .resizable()
-        } 
+        }
         .frame(height: CGFloat(89).scaledHeight)
 
         VStack(alignment: .leading, spacing: 0) {
@@ -29,7 +29,7 @@ struct SimilarHMGOption: View {
             .catalogFont(type: .HeadKRMedium14)
             .foregroundColor(state.selectedOptions.contains(option) ? Color.gray900 : Color.gray600)
             .frame(height: CGFloat(35).scaledHeight)
-          
+
           HStack(spacing: 0) {
             Text(option.price?.signedWon ?? "")
               .catalogFont(type: .HeadKRMedium14)

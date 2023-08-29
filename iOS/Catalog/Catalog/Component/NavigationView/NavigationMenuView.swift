@@ -29,10 +29,10 @@ struct NavigationMenuView: View {
       navigationTabbarView()
     }
   }
-  
+
   @ViewBuilder
   func navigationTabbarView() -> some View {
-    VStack(alignment:.leading, spacing: 0) {
+    VStack(alignment: .leading, spacing: 0) {
       HStack(spacing: horizontalSpacing) {
         ForEach(Array(zip(self.navigationMenuTitles.indices,
                           self.navigationMenuTitles)), id: \.0) { index, name in

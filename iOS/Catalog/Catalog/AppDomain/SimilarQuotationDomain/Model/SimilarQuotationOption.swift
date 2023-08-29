@@ -8,7 +8,7 @@
 import Foundation
 
 struct SimilarQuotationOption: Equatable, Identifiable, QuotationOptionable {
-  
+
   var id: Int
   var name: String
   var imageURL: URL?
@@ -16,7 +16,6 @@ struct SimilarQuotationOption: Equatable, Identifiable, QuotationOptionable {
   var isPackage: Bool = false
   var isSimilarOption: Bool = true
 
-  
   static func mock() -> SimilarQuotationOption {
     return .init(id: 2,
                  name: "컴포트",

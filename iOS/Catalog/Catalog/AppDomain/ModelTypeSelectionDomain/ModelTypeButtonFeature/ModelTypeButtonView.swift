@@ -41,12 +41,12 @@ struct ModelTypeButtonView: View {
 }
 
 extension ModelTypeButtonView {
-  
+
   @ViewBuilder
   private func choiceRatioView(with ratio: String) -> some View {
     Text("\(Text("\(ratio)%").foregroundColor(state.isSelected ? .activeBlue2 : .gray600))의 선택")
       .foregroundColor(.gray500)
       .catalogFont(type: .HeadKRMedium14)
   }
-  
+
 }

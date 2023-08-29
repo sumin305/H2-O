@@ -13,20 +13,20 @@ enum TechnicalSpceResponseToDomainError: Error {
 }
 
 struct TechnicalSpecResponseDTO: Codable {
-  
+
   var displacement: Int?
   var fuelEfficiency: Double?
-  
+
 }
 
 extension TechnicalSpecResponseDTO {
-  
+
   func toDomain() throws -> ResultOfCalculationOfFuelAndDisplacement {
-    
+
     guard let displacement = displacement else { throw TechnicalSpceResponseToDomainError.noDisplacementInResponse }
     guard let fuelEfficiency = fuelEfficiency else { throw TechnicalSpceResponseToDomainError.noFuelEfficiencyInResponse }
-    
-    return ResultOfCalculationOfFuelAndDisplacement(displacement: CLNumber(Int32(displacement)) , fuelEfficiency: fuelEfficiency )
+
+    return ResultOfCalculationOfFuelAndDisplacement(displacement: CLNumber(Int32(displacement)), fuelEfficiency: fuelEfficiency )
   }
-  
+
 }

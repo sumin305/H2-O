@@ -26,7 +26,7 @@ struct AlertDoubleButton: View {
       self.submitText = text
     }
   }
-  
+
   var body: some View {
     CLDualChoiceButton(leftText: cancelText ?? "취소",
                        rightText: submitText ?? "확인",

@@ -24,22 +24,22 @@ extension Quotation: QuotationCompleteService {
   func powertrainId() -> Int {
     quotation.powertrain.id
   }
-  
+
   func drivetrainId() -> Int {
     quotation.drivetrain.id
   }
-  
+
   func modelName() -> String {
     quotation.model.name
   }
   func trimName() -> String {
     quotation.trim.name
   }
-  
+
   func summary() -> SummaryCarQuotation {
     quotation.toSummary()
   }
-  
+
   func deleteSimilarOption(id: Int) {
     quotation.options = quotation.options.filter({$0.id != id})
   }
@@ -47,11 +47,10 @@ extension Quotation: QuotationCompleteService {
   func exteriorImage() -> URL? {
     return quotation.externalColor.exteriorImages.first
   }
-  
+
   func interiorImage() -> URL? {
     quotation.internalColor.bannerImageURL
 
   }
-  
-  
+
 }

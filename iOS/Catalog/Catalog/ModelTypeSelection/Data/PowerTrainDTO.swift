@@ -15,13 +15,13 @@ enum ModelTypeToDomainError: LocalizedError {
   case noIdInResponse(from: ModelTypeToDomainError.ModelType)
   case noNameInResponse(from: ModelTypeToDomainError.ModelType)
   case noPriceInResponse(from: ModelTypeToDomainError.ModelType)
-  
+
   enum ModelType {
     case PowerTrain
     case BodyType
     case DriveTrain
   }
-  
+
 }
 
 struct PowerTrainDTO: Codable, ModelTypeDomainConvertable {
@@ -35,26 +35,24 @@ struct PowerTrainDTO: Codable, ModelTypeDomainConvertable {
     let maxTorque: MaxTorqueDTO?
 }
 
-
 extension PowerTrainDTO {
 
   func toDomain() throws -> ModelTypeOption {
-    
+
     guard let id = id else { throw ModelTypeToDomainError.noIdInResponse(from: .PowerTrain) }
     guard let name = name else { throw ModelTypeToDomainError.noNameInResponse(from: .PowerTrain) }
     guard let price = price else { throw ModelTypeToDomainError.noPriceInResponse(from: .PowerTrain) }
-    
-    
+
     var choiceRatioDomain: CLNumber?
     if let choiceRatio = choiceRatio {
       choiceRatioDomain = CLNumber(Int32(choiceRatio))
     }
-    
+
     var imageURL: URL?
     if let imageURLstr = image {
       imageURL = URL(string: imageURLstr)
     }
-    
+
     return ModelTypeOption(id: id,
                            name: name,
                            choiceRatio: choiceRatioDomain,
@@ -64,10 +62,9 @@ extension PowerTrainDTO {
                            imageURL: imageURL,
                            maxOuputFromEngine: maxOutput?.toDomain(),
                            maxTorqueFromEngine: maxTorque?.toDomain())
-    
-    
+
   }
-  
+
   func toDomain() throws -> PowerTrainModel {
     return PowerTrainModel(
       id: id ?? 0,
@@ -80,5 +77,3 @@ extension PowerTrainDTO {
                            maxTorque: try (maxTorque ?? MaxTorqueDTO(torque: 0, minRpm: 0, maxRpm: 0)).toDomain())
   }
 }
-
-

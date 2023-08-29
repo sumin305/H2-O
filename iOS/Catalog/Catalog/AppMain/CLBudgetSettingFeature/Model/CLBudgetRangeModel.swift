@@ -26,9 +26,9 @@ enum CLBudgetRangeModel {
       self.status = status
     }
   }
-  
+
   struct State: Equatable {
-    
+
   }
 
   enum ViewAction: Equatable {

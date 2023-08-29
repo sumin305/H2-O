@@ -27,11 +27,18 @@ extension OptionSelectionView: View {
       Spacer().frame(height: CGFloat(50).scaledHeight)
       NavigationMenuView(currentPage: currentPage, navigationMenuTitles: viewState.optionMenuTitle, titleFont: .TextKRBold18, horizontalSpacing: CGFloat(24).scaledWidth, verticalSpacing: 2)
         .padding(.leading, CGFloat(20).scaledWidth)
-      
+
       Spacer().frame(height: 16)
       TabView(selection: currentPage) {
         OptionCardScollView.build(intent: .init(initialState: .init(), initialViewState: .init(cardStates: []), repository: intent.repository, parent: intent as? OptionSelectionCollectable)).tag(0)
-        OptionCardScollView.build(intent: .init(initialState: .init(),initialViewState: .init(filterState: FilterState(filters: OptionCategory.defaultOptionFilter, selectedFilterId: 0) ,cardStates: [], isExtraOptionTab : false), repository: intent.repository, parent: intent as? OptionSelectionCollectable)).tag(1)
+        OptionCardScollView.build(intent:
+            .init(initialState: .init(),
+                  initialViewState:
+                .init(filterState: FilterState(filters: OptionCategory.defaultOptionFilter, selectedFilterId: 0),
+                      cardStates: [],
+                      isExtraOptionTab: false),
+                  repository: intent.repository,
+                  parent: intent as? OptionSelectionCollectable)).tag(1)
       }
       .tabViewStyle(.page(indexDisplayMode: .never))
     }

@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct OptionImageView: View {
-  
+
   var imageURL: URL?
   var containsHmgData: Bool
   var HMGButtonAction: (() -> Void)?
   var hashTags: [String]
-  
-  
-  
+
     var body: some View {
       ZStack {
         AsyncCachedImage(url: imageURL) { image in
@@ -24,7 +22,7 @@ struct OptionImageView: View {
             .scaledToFit()
             .frame(height: CGFloat(128).scaledHeight)
             .clipped()
-        } 
+        }
         VStack(spacing: 0) {
           HStack {
             Spacer()

@@ -34,7 +34,7 @@ final class TrimSelectionIntent: ObservableObject {
   typealias State = TrimSelectionModel.State
 
   private var repository: TrimSelectionRepositoryProtocol
-  private var quotation : TrimSelectionService
+  private var quotation: TrimSelectionService
   private var navigationIntent: AppMainRouteIntentType
   @Published var viewState: ViewState = ViewState(selectedTrim: Trim(id: 0, name: "", description: "", price: CLNumber(0), hmgData: []), carId: 1)
   var state: TrimSelectionModel.State = .init()
@@ -47,7 +47,7 @@ extension TrimSelectionIntent: TrimSelectionIntentType, IntentType {
   func mutate(action: TrimSelectionModel.ViewAction, viewEffect: (() -> Void)?) {
     switch action {
       case .enteredTrimPage:
-        
+
         Task {
           do {
             let trims = try await repository.fetchTrims(of: viewState.carId)
@@ -60,7 +60,7 @@ extension TrimSelectionIntent: TrimSelectionIntentType, IntentType {
       case .fetchTrims(let trims):
         if !trims.isEmpty {
           viewState.trims = trims
-          if let trim = viewState.selectedTrim  {
+          if let trim = viewState.selectedTrim {
             viewState.selectedTrim = trim
           } else {
             viewState.selectedTrim = trims.first

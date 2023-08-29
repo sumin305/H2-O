@@ -38,4 +38,3 @@ struct CLButton: View {
         .buttonStyle(.plain)
     }
 }
-

@@ -8,27 +8,27 @@
 import Foundation
 
 enum OptionSelectionRequest {
-  
+
   case fetchDefaultOption(trimID: Int, from: Int, to: Int)
-  
+
   case fetchExtraOption(trimID: Int, from: Int, to: Int)
-  
+
   case fetchDetailOf(trimID: Int, optionID: Int)
-  
+
   case fetchPackage(trimID: Int, packageID: Int)
-  
+
   case fetchAllDefaultOption(trimID: Int)
-  
+
   case fetchAllExtraOption(trimID: Int)
-  
+
 }
 
 extension OptionSelectionRequest: RequestProtocol {
-  
+
   var host: String {
     API.host
   }
- 
+
   var path: String {
     switch self {
     case .fetchDefaultOption(let trimID, _, _), .fetchAllDefaultOption(let trimID):
@@ -41,16 +41,16 @@ extension OptionSelectionRequest: RequestProtocol {
       return "/trim/\(trimID)/package/\(packageID)"
     }
   }
-  
-  var headers: [String : String] {
+
+  var headers: [String: String] {
     [:]
   }
-  
-  var params: [String : Any] {
+
+  var params: [String: Any] {
     [:]
   }
-  
-  var urlParams: [String : String?] {
+
+  var urlParams: [String: String?] {
     switch self {
     case .fetchDefaultOption(_, let from, let to):
       return ["from": "\(from)", "to": "\(to)"]
@@ -64,10 +64,10 @@ extension OptionSelectionRequest: RequestProtocol {
     var requestType: RequestType {
       .GET
     }
-  
+
   var cachePolicy: URLRequest.CachePolicy {
-    //TODO: 같이 생각해보기
+    // TODO: 같이 생각해보기
     .reloadIgnoringLocalCacheData
   }
-  
+
 }
